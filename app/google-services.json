@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "717941398110",
+    "project_id": "medioambiente-3cf9e",
+    "storage_bucket": "medioambiente-3cf9e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:717941398110:android:18b6b1a385681d703432cf",
+        "android_client_info": {
+          "package_name": "com.example.medioambiente"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIrLplEWvZofRYUo0Yjk2p-0r1PN7nmv8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
