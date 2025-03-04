@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".Login"
+    android:background="#1F2E23">
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        android:textStyle="bold"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="190dp"
+        android:layout_height="190dp"
+        app:srcCompat="@drawable/logo"
+        android:layout_margin="25dp"/>
+
+    <EditText
+        android:id="@+id/contact"
+        android:layout_width="270dp"
+        android:layout_height="50dp"
+        tools:layout_editor_absoluteX="97dp"
+        tools:layout_editor_absoluteY="290dp"
+        tools:layout_margin="5dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="E-mail/Phone"
+        android:autofillHints="emailAddress, phone"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"/>
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="270dp"
+        android:layout_height="50dp"
+        tools:layout_editor_absoluteX="105dp"
+        tools:layout_editor_absoluteY="387dp"
+        tools:layout_margin="5dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="Password"
+        android:autofillHints="no"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"/>
+
+    <Button
+        android:id="@+id/Send"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:hint="Send"
+        tools:layout_editor_absoluteX="158dp"
+        tools:layout_editor_absoluteY="528dp"
+        tools:layout_margin="7dp"
+        android:textColorHint="@color/white"
+        android:background="@color/black"/>
+
+    <Button
+        android:id="@+id/Rsing_up"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        tools:layout_margin="10dp"
+        android:text="Sing up"
+        android:textColor="@color/white"
+        android:background="#00FFFFFF"/>
+
+</LinearLayout>
