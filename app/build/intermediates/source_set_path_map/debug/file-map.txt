@@ -1,40 +1,40 @@
-com.example.firelogin.app-appcompat-1.6.1-0 /home/martin/.gradle/caches/transforms-3/0008f60aa4e897bc5410dfadcd4fce0c/transformed/appcompat-1.6.1/res
-com.example.firelogin.app-lifecycle-viewmodel-2.6.2-1 /home/martin/.gradle/caches/transforms-3/0013f2de98b481f20618322870cd3be9/transformed/lifecycle-viewmodel-2.6.2/res
-com.example.firelogin.app-core-runtime-2.2.0-2 /home/martin/.gradle/caches/transforms-3/0597498fedfdab43f571450435e10e02/transformed/core-runtime-2.2.0/res
-com.example.firelogin.app-jetified-emoji2-1.2.0-3 /home/martin/.gradle/caches/transforms-3/0855dd8b14f2f98334defffc2c75bc88/transformed/jetified-emoji2-1.2.0/res
-com.example.firelogin.app-drawerlayout-1.1.1-4 /home/martin/.gradle/caches/transforms-3/167b5a986c3efc62fbc65b84332bfb88/transformed/drawerlayout-1.1.1/res
-com.example.firelogin.app-jetified-core-ktx-1.13.0-5 /home/martin/.gradle/caches/transforms-3/1811f3aa229c185de8936569963e772b/transformed/jetified-core-ktx-1.13.0/res
-com.example.firelogin.app-jetified-profileinstaller-1.3.0-6 /home/martin/.gradle/caches/transforms-3/4f83393adfbcd27f191be22f5be58ad3/transformed/jetified-profileinstaller-1.3.0/res
-com.example.firelogin.app-lifecycle-livedata-core-2.6.2-7 /home/martin/.gradle/caches/transforms-3/53ea33162ea8b1e0299c40021fe93819/transformed/lifecycle-livedata-core-2.6.2/res
-com.example.firelogin.app-browser-1.4.0-8 /home/martin/.gradle/caches/transforms-3/5743f948090de2f3dba2c2ee3dd3972a/transformed/browser-1.4.0/res
-com.example.firelogin.app-cardview-1.0.0-9 /home/martin/.gradle/caches/transforms-3/5782236b8cf5b2554f9ea08353460124/transformed/cardview-1.0.0/res
-com.example.firelogin.app-material-1.12.0-10 /home/martin/.gradle/caches/transforms-3/76f7e1d1d47fa064e7b9f76aacf027b5/transformed/material-1.12.0/res
-com.example.firelogin.app-jetified-viewpager2-1.0.0-11 /home/martin/.gradle/caches/transforms-3/794627131085e71b03942caf1c55af55/transformed/jetified-viewpager2-1.0.0/res
-com.example.firelogin.app-recyclerview-1.1.0-12 /home/martin/.gradle/caches/transforms-3/7fc0e3eb75c0ee8736d933e452b501ae/transformed/recyclerview-1.1.0/res
-com.example.firelogin.app-jetified-savedstate-1.2.1-13 /home/martin/.gradle/caches/transforms-3/9168b010ba53fed470ea66dc4ef81634/transformed/jetified-savedstate-1.2.1/res
-com.example.firelogin.app-transition-1.5.0-14 /home/martin/.gradle/caches/transforms-3/9994d903d4f8dafee03aed914c9f2e2f/transformed/transition-1.5.0/res
-com.example.firelogin.app-jetified-lifecycle-viewmodel-savedstate-2.6.2-15 /home/martin/.gradle/caches/transforms-3/9aed90c1b07fb115d6a16327dca97b86/transformed/jetified-lifecycle-viewmodel-savedstate-2.6.2/res
-com.example.firelogin.app-jetified-emoji2-views-helper-1.2.0-16 /home/martin/.gradle/caches/transforms-3/9ea4dbad5765cd83f278755f810b840e/transformed/jetified-emoji2-views-helper-1.2.0/res
-com.example.firelogin.app-jetified-appcompat-resources-1.6.1-17 /home/martin/.gradle/caches/transforms-3/a1e0ad586b48df202d87231bd57d032e/transformed/jetified-appcompat-resources-1.6.1/res
-com.example.firelogin.app-fragment-1.3.6-18 /home/martin/.gradle/caches/transforms-3/ae510f8a1885afe445399b6320c1cb10/transformed/fragment-1.3.6/res
-com.example.firelogin.app-jetified-startup-runtime-1.1.1-19 /home/martin/.gradle/caches/transforms-3/b23b88b82c9b21725ab396d4cb3a5fd1/transformed/jetified-startup-runtime-1.1.1/res
-com.example.firelogin.app-jetified-annotation-experimental-1.4.0-20 /home/martin/.gradle/caches/transforms-3/b6f6be1ceeb8547fe7c1e470afaaacd6/transformed/jetified-annotation-experimental-1.4.0/res
-com.example.firelogin.app-jetified-play-services-basement-18.1.0-21 /home/martin/.gradle/caches/transforms-3/cc571623da0ec2c83bc3375bb038637e/transformed/jetified-play-services-basement-18.1.0/res
-com.example.firelogin.app-lifecycle-livedata-2.6.2-22 /home/martin/.gradle/caches/transforms-3/d5e1b323bd58db3d309d96ddbc0d691a/transformed/lifecycle-livedata-2.6.2/res
-com.example.firelogin.app-coordinatorlayout-1.1.0-23 /home/martin/.gradle/caches/transforms-3/d75aee3ec313895f54ca7c1da2a37cb9/transformed/coordinatorlayout-1.1.0/res
-com.example.firelogin.app-constraintlayout-2.0.1-24 /home/martin/.gradle/caches/transforms-3/d91c1e4b07477cbceff054edf196f380/transformed/constraintlayout-2.0.1/res
-com.example.firelogin.app-lifecycle-runtime-2.6.2-25 /home/martin/.gradle/caches/transforms-3/e05d0ecbead78a08738f0face8d34370/transformed/lifecycle-runtime-2.6.2/res
-com.example.firelogin.app-jetified-lifecycle-process-2.6.2-26 /home/martin/.gradle/caches/transforms-3/e5c15075f22d277bda3a80ff2a37b37f/transformed/jetified-lifecycle-process-2.6.2/res
-com.example.firelogin.app-jetified-activity-1.8.0-27 /home/martin/.gradle/caches/transforms-3/e7c3455f6830ea34dac0e5feafaae845/transformed/jetified-activity-1.8.0/res
-com.example.firelogin.app-jetified-play-services-base-17.1.0-28 /home/martin/.gradle/caches/transforms-3/ed9f377d4802b4336b8e342fd6bc8c1a/transformed/jetified-play-services-base-17.1.0/res
-com.example.firelogin.app-core-1.13.0-29 /home/martin/.gradle/caches/transforms-3/f1ecf831c0c90d759da367890e62df45/transformed/core-1.13.0/res
-com.example.firelogin.app-jetified-firebase-common-20.2.0-30 /home/martin/.gradle/caches/transforms-3/f44585c4f4fbd8bc788599be90e93b8a/transformed/jetified-firebase-common-20.2.0/res
-com.example.firelogin.app-google-services-31 /home/martin/AndroidStudioProjects/FireLogin/app/build/generated/res/google-services/debug
-com.example.firelogin.app-pngs-32 /home/martin/AndroidStudioProjects/FireLogin/app/build/generated/res/pngs/debug
-com.example.firelogin.app-resValues-33 /home/martin/AndroidStudioProjects/FireLogin/app/build/generated/res/resValues/debug
-com.example.firelogin.app-rs-34 /home/martin/AndroidStudioProjects/FireLogin/app/build/generated/res/rs/debug
-com.example.firelogin.app-packageDebugResources-35 /home/martin/AndroidStudioProjects/FireLogin/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir
-com.example.firelogin.app-packageDebugResources-36 /home/martin/AndroidStudioProjects/FireLogin/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
-com.example.firelogin.app-merged_res-37 /home/martin/AndroidStudioProjects/FireLogin/app/build/intermediates/merged_res/debug
-com.example.firelogin.app-debug-38 /home/martin/AndroidStudioProjects/FireLogin/app/src/debug/res
-com.example.firelogin.app-main-39 /home/martin/AndroidStudioProjects/FireLogin/app/src/main/res
+com.example.firelogin.app-appcompat-1.6.1-0 C:\Users\Oscar Medina\.gradle\caches\transforms-3\0008f60aa4e897bc5410dfadcd4fce0c\transformed\appcompat-1.6.1\res
+com.example.firelogin.app-lifecycle-viewmodel-2.6.2-1 C:\Users\Oscar Medina\.gradle\caches\transforms-3\0013f2de98b481f20618322870cd3be9\transformed\lifecycle-viewmodel-2.6.2\res
+com.example.firelogin.app-core-runtime-2.2.0-2 C:\Users\Oscar Medina\.gradle\caches\transforms-3\0597498fedfdab43f571450435e10e02\transformed\core-runtime-2.2.0\res
+com.example.firelogin.app-jetified-emoji2-1.2.0-3 C:\Users\Oscar Medina\.gradle\caches\transforms-3\0855dd8b14f2f98334defffc2c75bc88\transformed\jetified-emoji2-1.2.0\res
+com.example.firelogin.app-drawerlayout-1.1.1-4 C:\Users\Oscar Medina\.gradle\caches\transforms-3\167b5a986c3efc62fbc65b84332bfb88\transformed\drawerlayout-1.1.1\res
+com.example.firelogin.app-jetified-core-ktx-1.13.0-5 C:\Users\Oscar Medina\.gradle\caches\transforms-3\1811f3aa229c185de8936569963e772b\transformed\jetified-core-ktx-1.13.0\res
+com.example.firelogin.app-jetified-firebase-common-20.4.2-6 C:\Users\Oscar Medina\.gradle\caches\transforms-3\1b0b5a59dedb69d9a1e1173b7a13d07b\transformed\jetified-firebase-common-20.4.2\res
+com.example.firelogin.app-jetified-profileinstaller-1.3.0-7 C:\Users\Oscar Medina\.gradle\caches\transforms-3\4f83393adfbcd27f191be22f5be58ad3\transformed\jetified-profileinstaller-1.3.0\res
+com.example.firelogin.app-lifecycle-livedata-core-2.6.2-8 C:\Users\Oscar Medina\.gradle\caches\transforms-3\53ea33162ea8b1e0299c40021fe93819\transformed\lifecycle-livedata-core-2.6.2\res
+com.example.firelogin.app-browser-1.4.0-9 C:\Users\Oscar Medina\.gradle\caches\transforms-3\5743f948090de2f3dba2c2ee3dd3972a\transformed\browser-1.4.0\res
+com.example.firelogin.app-cardview-1.0.0-10 C:\Users\Oscar Medina\.gradle\caches\transforms-3\5782236b8cf5b2554f9ea08353460124\transformed\cardview-1.0.0\res
+com.example.firelogin.app-jetified-play-services-base-18.0.1-11 C:\Users\Oscar Medina\.gradle\caches\transforms-3\6227a92d225f44b20ce6335d20317084\transformed\jetified-play-services-base-18.0.1\res
+com.example.firelogin.app-material-1.12.0-12 C:\Users\Oscar Medina\.gradle\caches\transforms-3\76f7e1d1d47fa064e7b9f76aacf027b5\transformed\material-1.12.0\res
+com.example.firelogin.app-jetified-viewpager2-1.0.0-13 C:\Users\Oscar Medina\.gradle\caches\transforms-3\794627131085e71b03942caf1c55af55\transformed\jetified-viewpager2-1.0.0\res
+com.example.firelogin.app-recyclerview-1.1.0-14 C:\Users\Oscar Medina\.gradle\caches\transforms-3\7fc0e3eb75c0ee8736d933e452b501ae\transformed\recyclerview-1.1.0\res
+com.example.firelogin.app-jetified-savedstate-1.2.1-15 C:\Users\Oscar Medina\.gradle\caches\transforms-3\9168b010ba53fed470ea66dc4ef81634\transformed\jetified-savedstate-1.2.1\res
+com.example.firelogin.app-transition-1.5.0-16 C:\Users\Oscar Medina\.gradle\caches\transforms-3\9994d903d4f8dafee03aed914c9f2e2f\transformed\transition-1.5.0\res
+com.example.firelogin.app-jetified-lifecycle-viewmodel-savedstate-2.6.2-17 C:\Users\Oscar Medina\.gradle\caches\transforms-3\9aed90c1b07fb115d6a16327dca97b86\transformed\jetified-lifecycle-viewmodel-savedstate-2.6.2\res
+com.example.firelogin.app-jetified-emoji2-views-helper-1.2.0-18 C:\Users\Oscar Medina\.gradle\caches\transforms-3\9ea4dbad5765cd83f278755f810b840e\transformed\jetified-emoji2-views-helper-1.2.0\res
+com.example.firelogin.app-jetified-appcompat-resources-1.6.1-19 C:\Users\Oscar Medina\.gradle\caches\transforms-3\a1e0ad586b48df202d87231bd57d032e\transformed\jetified-appcompat-resources-1.6.1\res
+com.example.firelogin.app-fragment-1.3.6-20 C:\Users\Oscar Medina\.gradle\caches\transforms-3\ae510f8a1885afe445399b6320c1cb10\transformed\fragment-1.3.6\res
+com.example.firelogin.app-jetified-startup-runtime-1.1.1-21 C:\Users\Oscar Medina\.gradle\caches\transforms-3\b23b88b82c9b21725ab396d4cb3a5fd1\transformed\jetified-startup-runtime-1.1.1\res
+com.example.firelogin.app-jetified-annotation-experimental-1.4.0-22 C:\Users\Oscar Medina\.gradle\caches\transforms-3\b6f6be1ceeb8547fe7c1e470afaaacd6\transformed\jetified-annotation-experimental-1.4.0\res
+com.example.firelogin.app-jetified-play-services-basement-18.1.0-23 C:\Users\Oscar Medina\.gradle\caches\transforms-3\cc571623da0ec2c83bc3375bb038637e\transformed\jetified-play-services-basement-18.1.0\res
+com.example.firelogin.app-lifecycle-livedata-2.6.2-24 C:\Users\Oscar Medina\.gradle\caches\transforms-3\d5e1b323bd58db3d309d96ddbc0d691a\transformed\lifecycle-livedata-2.6.2\res
+com.example.firelogin.app-coordinatorlayout-1.1.0-25 C:\Users\Oscar Medina\.gradle\caches\transforms-3\d75aee3ec313895f54ca7c1da2a37cb9\transformed\coordinatorlayout-1.1.0\res
+com.example.firelogin.app-constraintlayout-2.0.1-26 C:\Users\Oscar Medina\.gradle\caches\transforms-3\d91c1e4b07477cbceff054edf196f380\transformed\constraintlayout-2.0.1\res
+com.example.firelogin.app-lifecycle-runtime-2.6.2-27 C:\Users\Oscar Medina\.gradle\caches\transforms-3\e05d0ecbead78a08738f0face8d34370\transformed\lifecycle-runtime-2.6.2\res
+com.example.firelogin.app-jetified-lifecycle-process-2.6.2-28 C:\Users\Oscar Medina\.gradle\caches\transforms-3\e5c15075f22d277bda3a80ff2a37b37f\transformed\jetified-lifecycle-process-2.6.2\res
+com.example.firelogin.app-jetified-activity-1.8.0-29 C:\Users\Oscar Medina\.gradle\caches\transforms-3\e7c3455f6830ea34dac0e5feafaae845\transformed\jetified-activity-1.8.0\res
+com.example.firelogin.app-core-1.13.0-30 C:\Users\Oscar Medina\.gradle\caches\transforms-3\f1ecf831c0c90d759da367890e62df45\transformed\core-1.13.0\res
+com.example.firelogin.app-google-services-31 C:\Users\Oscar Medina\AndroidStudioProjects\BD\app\build\generated\res\google-services\debug
+com.example.firelogin.app-pngs-32 C:\Users\Oscar Medina\AndroidStudioProjects\BD\app\build\generated\res\pngs\debug
+com.example.firelogin.app-resValues-33 C:\Users\Oscar Medina\AndroidStudioProjects\BD\app\build\generated\res\resValues\debug
+com.example.firelogin.app-rs-34 C:\Users\Oscar Medina\AndroidStudioProjects\BD\app\build\generated\res\rs\debug
+com.example.firelogin.app-packageDebugResources-35 C:\Users\Oscar Medina\AndroidStudioProjects\BD\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.example.firelogin.app-packageDebugResources-36 C:\Users\Oscar Medina\AndroidStudioProjects\BD\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.example.firelogin.app-merged_res-37 C:\Users\Oscar Medina\AndroidStudioProjects\BD\app\build\intermediates\merged_res\debug
+com.example.firelogin.app-debug-38 C:\Users\Oscar Medina\AndroidStudioProjects\BD\app\src\debug\res
+com.example.firelogin.app-main-39 C:\Users\Oscar Medina\AndroidStudioProjects\BD\app\src\main\res

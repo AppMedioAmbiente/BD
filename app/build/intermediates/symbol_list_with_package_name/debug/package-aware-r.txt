@@ -3149,6 +3149,7 @@ id baseline
 id beginOnFirstDraw
 id beginning
 id birthdate
+id birthdateMsg
 id blocking
 id bottom
 id bounce
@@ -3349,6 +3350,7 @@ id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
 id names
+id namesMsg
 id navigation_bar_item_active_indicator_view
 id navigation_bar_item_icon_container
 id navigation_bar_item_icon_view
@@ -3469,6 +3471,7 @@ id stretch
 id submenuarrow
 id submit_area
 id surnames
+id surnamesMsg
 id tabMode
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans

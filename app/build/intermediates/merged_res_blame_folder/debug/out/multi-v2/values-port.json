@@ -4,7 +4,7 @@
             "outputFile": "com.example.firelogin.app-mergeDebugResources-35:/values-port/values-port.xml",
             "map": [
                 {
-                    "source": "/home/martin/.gradle/caches/transforms-3/0008f60aa4e897bc5410dfadcd4fce0c/transformed/appcompat-1.6.1/res/values-port/values-port.xml",
+                    "source": "C:\\Users\\Oscar Medina\\.gradle\\caches\\transforms-3\\0008f60aa4e897bc5410dfadcd4fce0c\\transformed\\appcompat-1.6.1\\res\\values-port\\values-port.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

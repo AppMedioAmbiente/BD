@@ -16,14 +16,14 @@
         android:text="Register"
         android:textColor="@color/white"
         android:textSize="35sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="190dp"
         android:layout_height="190dp"
-        app:srcCompat="@drawable/logo"
-        android:layout_margin="25dp"/>
+        android:layout_margin="25dp"
+        app:srcCompat="@drawable/logo" />
 
     <EditText
         android:id="@+id/names"
@@ -39,6 +39,12 @@
         android:textColorHint="@color/white"
         android:textColor="@color/white"/>
 
+    <TextView
+        android:id="@+id/namesMsg"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:text="" />
+
     <EditText
         android:id="@+id/surnames"
         android:layout_width="270dp"
@@ -52,6 +58,12 @@
         tools:layout_margin="5dp"
         android:textColorHint="@color/white"
         android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/surnamesMsg"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:text="" />
 
     <EditText
         android:id="@+id/birthdate"
@@ -67,15 +79,21 @@
         android:textColorHint="@color/white"
         android:textColor="@color/white"/>
 
+    <TextView
+        android:id="@+id/birthdateMsg"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:text="" />
+
     <Button
         android:id="@+id/next"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:background="@color/black"
         android:hint="Next"
+        android:textColorHint="@color/white"
         tools:layout_editor_absoluteX="156dp"
         tools:layout_editor_absoluteY="540dp"
-        tools:layout_margin="7dp"
-        android:background="@color/black"
-        android:textColorHint="@color/white"/>
+        tools:layout_margin="7dp" />
 
 </LinearLayout>

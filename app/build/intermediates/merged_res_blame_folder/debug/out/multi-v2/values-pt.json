@@ -4,7 +4,7 @@
             "outputFile": "com.example.firelogin.app-mergeDebugResources-35:/values-pt/values-pt.xml",
             "map": [
                 {
-                    "source": "/home/martin/.gradle/caches/transforms-3/5743f948090de2f3dba2c2ee3dd3972a/transformed/browser-1.4.0/res/values-pt/values-pt.xml",
+                    "source": "C:\\Users\\Oscar Medina\\.gradle\\caches\\transforms-3\\5743f948090de2f3dba2c2ee3dd3972a\\transformed\\browser-1.4.0\\res\\values-pt\\values-pt.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/home/martin/.gradle/caches/transforms-3/0008f60aa4e897bc5410dfadcd4fce0c/transformed/appcompat-1.6.1/res/values-pt/values-pt.xml",
+                    "source": "C:\\Users\\Oscar Medina\\.gradle\\caches\\transforms-3\\0008f60aa4e897bc5410dfadcd4fce0c\\transformed\\appcompat-1.6.1\\res\\values-pt\\values-pt.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "/home/martin/.gradle/caches/transforms-3/f1ecf831c0c90d759da367890e62df45/transformed/core-1.13.0/res/values-pt/values-pt.xml",
+                    "source": "C:\\Users\\Oscar Medina\\.gradle\\caches\\transforms-3\\f1ecf831c0c90d759da367890e62df45\\transformed\\core-1.13.0\\res\\values-pt\\values-pt.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
