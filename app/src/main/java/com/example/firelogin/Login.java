@@ -13,10 +13,9 @@ import android.widget.EditText;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.Console;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Login extends AppCompatActivity {
 
@@ -50,37 +49,62 @@ public class Login extends AppCompatActivity {
                     showAlert("Campos","Debes llenar correo y contraseña");
                     return ;
                 }
-                FirebaseAuth.getInstance()
-                        .signInWithEmailAndPassword(contact,password)
+                FirebaseAuth firebase=FirebaseAuth.getInstance();
+                firebase.signInWithEmailAndPassword(contact,password)
                         .addOnCompleteListener(listener->{
-                    if (listener.isSuccessful()){
-                        showHome(listener.getResult().getUser().getEmail(),ProviderType.BASIC);
-                    }else{
+                    if (!listener.isSuccessful()){
                         showAlert("Inicio de Sesion","El inicio de Sesion ha fallado: "+listener.getException().toString());
+                        return;
                     }
+                    getUserData(firebase,contact);
+
                 });
 
             }
         });
     }
+
+    private String getUserId(FirebaseAuth auth){
+        //Obtener usuario:
+        FirebaseUser user = auth.getCurrentUser();
+        //user.getEmail();
+        return (user != null) ? user.getUid() : null;
+    }
+    private void getUserData(FirebaseAuth firebase,String contact){
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        db.collection("usuarios")
+                .document(getUserId(firebase))  // Usa el ID del usuario como clave del documento
+                .get()
+                .addOnSuccessListener(document->{
+                    if(document.exists()){
+                        showHome(document,ProviderType.BASIC,contact);
+                    }
+                });
+    }
+
     private void showAlert(String titulo,String mensaje){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 
-// Configura el titulo.
+        // Configura el titulo.
         alertDialogBuilder.setTitle(titulo);
 
-// Configura el mensaje.
+        // Configura el mensaje.
         alertDialogBuilder
                 .setMessage(mensaje)
                 .setCancelable(false)
                 .setPositiveButton("Cerrar",null)
                 .create().show();
     }
-    private void showHome(String email, ProviderType provider){
-        Intent user=new Intent(Login.this,Usuario.class);
-        user.putExtra("contact",email);
-        user.putExtra("provider",provider);
 
+    private void showHome(DocumentSnapshot document, ProviderType provider,String contact) {
+        Intent user=new Intent(Login.this,Usuario.class);
+        user.putExtra("contact",contact);
+        user.putExtra("provider",provider);
+        user.putExtra("name",document.getString("name"));
+        user.putExtra("surname",document.getString("surname"));
+        user.putExtra("birthdate",document.getString("birthdate"));
+        //showAlert("nacimiento",user.getStringExtra("birthdate"));
         startActivity(user);
     }
 }
