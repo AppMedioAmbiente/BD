@@ -31,7 +31,7 @@ android {
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.12.0'
+    //implementation 'com.google.android.material:material:1.12.0'
     //implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
@@ -39,9 +39,13 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-analytics:21.2.0' // Ejemplo de Firebase Analytics
     implementation 'com.google.firebase:firebase-auth:21.0.5' // Ejemplo de Firebase Authentication
-    implementation 'com.google.firebase:firebase-database:20.0.3' // Ejemplo de Firebase Realtime Database
-
-    implementation 'com.google.firebase:firebase-firestore:24.10.2'
+    implementation 'com.google.firebase:firebase-database:20.0.3'
+    // Ejemplo de Firebase Realtime Database
+    //implementation 'com.google.firebase:firebase-firestore:24.10.2'
+    implementation 'com.google.firebase:firebase-firestore:24.4.0'
+    //implementation 'com.google.firebase:firebase-auth:22.0.0'
+    //implementation 'com.google.firebase:firebase-database:20.2.1'
+    implementation 'com.google.android.material:material:1.12.0'
 }
 
 apply plugin: 'com.google.gms.google-services' // Asegúrate de aplicarlo al final
