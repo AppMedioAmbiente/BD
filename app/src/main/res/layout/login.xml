@@ -33,7 +33,7 @@
         tools:layout_editor_absoluteY="290dp"
         tools:layout_margin="5dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="textEmailAddress"
         android:hint="E-mail/Phone"
         android:autofillHints="emailAddress, phone"
         android:textColorHint="@color/white"

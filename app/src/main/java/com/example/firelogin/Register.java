@@ -70,8 +70,8 @@ public class Register extends AppCompatActivity {
 
         btnNext.setOnClickListener(view -> {
 
-            String name = etNames.getText().toString();
-            String surname = etSurnames.getText().toString();
+            String name = etNames.getText().toString().trim();
+            String surname = etSurnames.getText().toString().trim();
             String birthdate = etBirthdate.getText().toString();
 
             HashMap msgs = checkFields(name, surname, birthdate);
