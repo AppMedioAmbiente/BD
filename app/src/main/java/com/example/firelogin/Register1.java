@@ -2,95 +2,175 @@ package com.example.firelogin;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.EditText;
 import android.widget.Button;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AlertDialog;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-import java.util.Date;
-import org.json.JSONException;
-import org.json.JSONObject;
-import java.text.SimpleDateFormat;
+public class Register1 extends LoginTemplate implements View.OnClickListener {
 
-public class Register1 extends AppCompatActivity implements View.OnClickListener {
-
-    EditText etContact, etPassword,etRepeatPassword;
+    EditText etEmail, etPhone, etPassword, etRepeatPassword;
     Button btnRegister;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    String email, phone, password, repPass, name, surname, birthdate;
+    TextView tvEmailMsg, tvPhoneMsg, tvPassMsg, tvRepPassMsg;
+
+    public void insertValues(String userId){
+        Intent intent = getIntent();
+
+        // Crea un objeto que deseas insertar (puede ser cualquier tipo de objeto o mapa)
+        Map<String, Object> data = new HashMap<>();
+
+        data.put("name", intent.getStringExtra("name"));
+        data.put("surname", intent.getStringExtra("surname"));
+        data.put("birthdate", intent.getStringExtra("birthdate"));
+        // Inserta los datos usando el ID del usuario como el documento
+
+        db.collection("usuarios")
+                .document(userId)  // Usa el ID del usuario como clave del documento
+                .set(data)
+                .addOnSuccessListener(aVoid -> {
+                    // Si la inserción es exitosa
+                    showHome(ProviderType.BASIC,
+                            email,name,surname,birthdate);
+                    //showAlert("Firestore", "DocumentSnapshot added with ID: " + userId);
+                })
+                .addOnFailureListener(e -> {
+                    // Si hay un error al insertar
+                    failedRegister(e.toString());
+                });
+    }
+
+    public boolean validateWithRegex(String field, String regex) {
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(field);
+
+        return matcher.matches();
+    }
+
+    public HashMap checkFields(String email, String phone, String password, String repPass) {
+        HashMap<String, String> msgs = new HashMap<>();
+        String emailRegex = "^(?!.*\\.\\.)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+        String phoneRegex = "\\d{10,13}";
+        String passRegex = "^(?!.*[\\/=\\\\?@\\[\\\\\\]^<>;:])(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!\\-._])[\\w!\\-._]{6,}$";
+
+        if (!(email.isEmpty() && phone.isEmpty())) {
+            if (!email.isEmpty() && (!validateWithRegex(email, emailRegex) || email.length() < 10|| email.length() > 150) ) {
+                msgs.put("email", "Correo de entre 10 y 150 caracteres");
+            }
+
+            if (!phone.isEmpty() && !validateWithRegex(phone, phoneRegex)) {
+                msgs.put("phone", "Número de teléfono de entre 10 y 13 números");
+            }
+
+        } else msgs.put("contact", "Debe llenar correo o teléfono");
+
+        if (password.isEmpty() || !validateWithRegex(password, passRegex) || password.trim().length() < 6 || password.trim().length() > 30) {
+            msgs.put("password", "Mínimo 6 caracteres, máximo 30, con letra mayúscula, minúscula, número y caracter especial");
+        }
+
+        if (!password.equals(repPass)) {
+            msgs.put("repPass", "Las contraseñas deben coincidir");
+        }
+
+        return msgs;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register1);
 
-        etContact = findViewById(R.id.contact);
+        etEmail = findViewById(R.id.email);
+        etPhone = findViewById(R.id.phone);
         etPassword = findViewById(R.id.password);
+        etRepeatPassword = findViewById(R.id.repeat_password);
         btnRegister = findViewById(R.id.send);
-        etRepeatPassword=findViewById(R.id.repeat_password);
+        tvEmailMsg = findViewById(R.id.emailMsg);
+        tvPhoneMsg = findViewById(R.id.phoneMsg);
+        tvPassMsg = findViewById(R.id.passwordMsg);
+        tvRepPassMsg = findViewById(R.id.repPassMsg);
 
         btnRegister.setOnClickListener(this);
     }
 
+
     @Override
     public void onClick(View view) {
-        if(!etRepeatPassword.getText().toString()
+        /*if(!etRepeatPassword.getText().toString()
                 .equals(etPassword.getText().toString())){
-            showAlert("Campos Vacios","Debes llenar todos los campos");
+            showAlert("Error de Contraseña","Ambas Contraseñas deben coincidir");
             return ;
-        }
-        String name = getIntent().getStringExtra("name");
-        String surname = getIntent().getStringExtra("surname");
-        String birthdateString = getIntent().getStringExtra("birthdate");
+        }*/
+        name = getIntent().getStringExtra("name");
+        surname = getIntent().getStringExtra("surname");
+        //String birthdateString = getIntent().getStringExtra("birthdate");
 
-        Date birthdate = null;
+        birthdate=getIntent().getStringExtra("birthdate");
+        /*
+        birthdate = null;
         try {
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             birthdate = dateFormat.parse(birthdateString);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //
+        */
+        email = etEmail.getText().toString().replace(" ",""); // elimino espacios en el correo
+        phone = etPhone.getText().toString().trim();
+        password = etPassword.getText().toString();
+        repPass = etRepeatPassword.getText().toString();
 
-        String contact = etContact.getText().toString().replace(" ","");
-        String password = etPassword.getText().toString();
+        HashMap msgs = checkFields(email, phone, password, repPass);
+        if (!msgs.isEmpty()) {
+            if (msgs.containsKey("contact")) {
+                tvEmailMsg.setText((CharSequence) msgs.get("contact"));
+                tvPhoneMsg.setText((CharSequence) msgs.get("contact"));
+                System.out.println("Mensajes"+msgs.get("contact"));
+            } else {
+                tvEmailMsg.setText(""); tvPhoneMsg.setText("");
+            }
 
-        FirebaseAuth.getInstance()
-                .createUserWithEmailAndPassword(contact,password)
-                .addOnCompleteListener(listener->{
-                    if (listener.isSuccessful()){
-                        db.collection();
-                        showHome(listener.getResult().getUser().getEmail(),ProviderType.BASIC);
-                    }else{
-                        showAlert("Registro","El registro ha fallado:"+listener.getException().toString());
-                    }
-                });
+            if (msgs.containsKey("email")) {
+                tvEmailMsg.setText((CharSequence) msgs.get("email"));
+            } else tvEmailMsg.setText("");
+
+            if (msgs.containsKey("phone")) {
+                tvPhoneMsg.setText((CharSequence) msgs.get("phone"));
+            } else tvPhoneMsg.setText("");
+
+            if (msgs.containsKey("password")) {
+                tvPassMsg.setText((CharSequence) msgs.get("password"));
+            } else tvPassMsg.setText("");
+
+            if (msgs.containsKey("repPass")) {
+                tvRepPassMsg.setText((CharSequence) msgs.get("repPass"));
+            } else tvRepPassMsg.setText("");
+
+        } else {
+
+            FirebaseAuth firebase = FirebaseAuth.getInstance();
+
+            firebase.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(listener -> {
+                        if (!listener.isSuccessful()) {
+                            failedRegister(listener.getException().toString());
+                            return;
+                        }
+                        insertValues(getUserId(firebase));
+                    });
+        }
     }
-    private void showHome(String email, ProviderType provider){
-        Intent user=new Intent(Register1.this,Usuario.class);
-        user.putExtra("contact",email);
-        user.putExtra("provider",provider);
-
-        startActivity(user);
-    }
-
-    private void showAlert(String titulo,String mensaje){
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-
-// Configura el titulo.
-        alertDialogBuilder.setTitle(titulo);
-
-// Configura el mensaje.
-        alertDialogBuilder
-                .setMessage(mensaje)
-                .setCancelable(false)
-                .setPositiveButton("Cerrar",null)
-                .create().show();
+    private void failedRegister(String exception){
+        showAlert("Registro","El registro ha fallado:"+exception);
     }
 }
 
