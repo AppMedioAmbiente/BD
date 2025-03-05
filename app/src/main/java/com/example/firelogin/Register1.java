@@ -22,7 +22,7 @@ public class Register1 extends AppCompatActivity implements View.OnClickListener
 
     EditText etContact, etPassword,etRepeatPassword;
     Button btnRegister;
-    private FirebaseFirestore db = FirebaseFirestore.getInstance()
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
