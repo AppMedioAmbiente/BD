@@ -1,0 +1,19 @@
+# Android Studio
+.idea/
+.gradle/
+local.properties
+*.iml
+/build/
+
+# Gradle
+.gradle/
+
+# Archivos temporales
+*.log
+*.swp
+*.bak
+*.tmp
+
+# Archivos de sistema
+.DS_Store
+
