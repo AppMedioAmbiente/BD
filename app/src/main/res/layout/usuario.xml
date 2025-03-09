@@ -7,75 +7,78 @@
     android:orientation="vertical"
     android:gravity="center"
     tools:context=".Usuario"
-    android:background="#1F2E23">
+    android:background="#082B11">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:gravity="right"
-        >
+        android:orientation="horizontal"
+        android:layout_marginBottom="40dp">
 
         <Button
             android:id="@+id/btnLogOut"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cerrar sesion"
-            tools:layout_marginRight="25sp"></Button>
+            android:text="@string/logout"
+            android:textSize="16sp"
+            tools:layout_marginHorizontal="25dp"
+            android:textColor="@color/red" />
     </LinearLayout>
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="38dp"
-        android:text="@string/bienvenidos"
+        android:text="@string/bienvenido"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="40sp"
-        android:layout_margin="30dp"/>
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="38dp" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="190dp"
         android:layout_height="190dp"
-        android:layout_margin="25dp"
-        app:srcCompat="@drawable/logo"/>
+        android:layout_marginBottom="35dp"
+        android:layout_marginTop="30dp"
+        app:srcCompat="@drawable/ic_user" />
 
     <TextView
         android:id="@+id/names"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Names:"
+        android:text="Nombre(s): "
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:layout_margin="5dp"/>
+        android:layout_margin="12dp" />
 
     <TextView
         android:id="@+id/surnames"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Surnames:"
+        android:text="Apellido(s): "
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:layout_margin="5dp"/>
+        android:layout_margin="12dp"/>
 
     <TextView
         android:id="@+id/birthdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Birthdate:"
+        android:text="Fecha de nacimiento: "
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:layout_margin="5dp"/>
+        android:layout_margin="12dp"/>
 
     <TextView
         android:id="@+id/contact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="E-mail/Phone:"
+        android:text="Correo: "
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:layout_margin="5dp"/>
+        android:layout_margin="12dp"/>
 
 </LinearLayout>

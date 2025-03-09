@@ -7,13 +7,13 @@
     android:orientation="vertical"
     android:gravity="center"
     tools:context=".Register"
-    android:background="#1F2E23">
+    android:background="#082B11">
 
     <TextView
         android:id="@+id/header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register"
+        android:text="Registro"
         android:textColor="@color/white"
         android:textSize="35sp"
         android:textStyle="bold" />
@@ -22,15 +22,16 @@
         android:id="@+id/imageView"
         android:layout_width="190dp"
         android:layout_height="190dp"
-        android:layout_margin="25dp"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo"
+        android:layout_marginBottom="25dp"
+        android:layout_marginTop="15dp" />
 
     <EditText
         android:id="@+id/names"
         android:layout_width="270dp"
         android:layout_height="50dp"
         android:ems="10"
-        android:hint="Name"
+        android:hint="Nombre(s)"
         android:autofillHints="names"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="99dp"
@@ -44,7 +45,9 @@
         android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:text=""
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp" />
 
     <EditText
         android:id="@+id/surnames"
@@ -52,7 +55,7 @@
         android:layout_height="50dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Last Names"
+        android:hint="Apellido(s)"
         android:autofillHints="name"
         tools:layout_editor_absoluteX="100dp"
         tools:layout_editor_absoluteY="293dp"
@@ -65,7 +68,9 @@
         android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:text=""
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp" />
 
     <EditText
         android:id="@+id/birthdate"
@@ -73,7 +78,7 @@
         android:layout_height="50dp"
         android:ems="10"
         android:inputType="date"
-        android:hint="Birthdate"
+        android:hint="Fecha de nacimiento"
         android:autofillHints="birthdate"
         tools:layout_editor_absoluteX="100dp"
         tools:layout_editor_absoluteY="373dp"
@@ -86,17 +91,20 @@
         android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:text=""
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp" />
 
     <Button
         android:id="@+id/next"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:background="@color/black"
-        android:hint="Next"
-        android:textColorHint="@color/white"
+        android:text="Siguiente"
+        android:textSize="18sp"
+        android:textColor="@color/white"
         tools:layout_editor_absoluteX="156dp"
         tools:layout_editor_absoluteY="540dp"
-        tools:layout_margin="7dp" />
+        tools:layout_margin="10dp" />
 
 </LinearLayout>

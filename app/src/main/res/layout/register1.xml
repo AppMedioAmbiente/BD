@@ -7,13 +7,13 @@
     android:orientation="vertical"
     android:gravity="center"
     tools:context=".Register1"
-    android:background="#1F2E23">
+    android:background="#082B11">
 
     <TextView
         android:id="@+id/header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register"
+        android:text="Registro"
         android:textColor="@color/white"
         android:textSize="35sp"
         android:textStyle="bold" />
@@ -23,7 +23,15 @@
         android:layout_width="190dp"
         android:layout_height="190dp"
         app:srcCompat="@drawable/logo"
-        android:layout_margin="25dp"/>
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="10dp" />
+
+    <!--TextView
+        android:id="@+id/contactMsg"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/white" /-->
 
     <EditText
         android:id="@+id/email"
@@ -34,7 +42,7 @@
         tools:layout_margin="5dp"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:hint="E-mail"
+        android:hint="Correo electrónico"
         android:autofillHints="emailAddress, phone"
         android:textColorHint="@color/white"
         android:textColor="@color/white"/>
@@ -44,7 +52,9 @@
         android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:text=""
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="7dp" />
 
     <EditText
         android:id="@+id/phone"
@@ -52,7 +62,7 @@
         android:layout_height="50dp"
         android:autofillHints="emailAddress, phone"
         android:ems="10"
-        android:hint="Phone"
+        android:hint="Teléfono"
         android:inputType="phone"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
@@ -65,7 +75,9 @@
         android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:text=""
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="7dp"/>
 
     <EditText
         android:id="@+id/password"
@@ -76,7 +88,7 @@
         tools:layout_margin="5dp"
         android:ems="10"
         android:inputType="textPassword"
-        android:hint="Password"
+        android:hint="Contraseña"
         android:importantForAutofill="no"
         android:textColorHint="@color/white"
         android:textColor="@color/white"/>
@@ -86,7 +98,9 @@
         android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:text=""
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="7dp"/>
 
     <EditText
         android:id="@+id/repeat_password"
@@ -97,7 +111,7 @@
         tools:layout_margin="5dp"
         android:ems="10"
         android:inputType="textPassword"
-        android:hint="Repeat password"
+        android:hint="Confirmar contraseña"
         android:importantForAutofill="no"
         android:textColorHint="@color/white"
         android:textColor="@color/white"/>
@@ -107,17 +121,20 @@
         android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:text=""
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="7dp"/>
 
     <Button
         android:id="@+id/send"
         android:layout_width="150dp"
         tools:layout_editor_absoluteX="158dp"
         tools:layout_editor_absoluteY="516dp"
-        tools:layout_margin="5dp"
+        tools:layout_margin="10dp"
+        android:textSize="18sp"
         android:layout_height="wrap_content"
-        android:hint="Send"
-        android:textColorHint="@color/white"
+        android:text="Enviar"
+        android:textColor="@color/white"
         android:background="@color/black"/>
 
 </LinearLayout>

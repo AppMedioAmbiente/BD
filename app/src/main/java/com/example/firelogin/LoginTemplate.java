@@ -31,12 +31,12 @@ public class LoginTemplate extends AppCompatActivity {
 
     protected void showHome(ProviderType provider,
             String contact,String name, String surname, String birthdate) {
-        Intent user=new Intent(this,Usuario.class);
-        user.putExtra("contact",contact);
-        user.putExtra("provider",provider);
-        user.putExtra("name",name);
-        user.putExtra("surname",surname);
-        user.putExtra("birthdate",birthdate);
-        startActivity(user);
+        Intent home=new Intent(this,Home.class);
+        home.putExtra("contact",contact);
+        home.putExtra("provider",provider);
+        home.putExtra("name",name);
+        home.putExtra("surname",surname);
+        home.putExtra("birthdate",birthdate);
+        startActivity(home);
     }
 }

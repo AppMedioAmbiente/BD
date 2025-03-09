@@ -1,4 +1,20 @@
 <resources>
     <string name="app_name">Login</string>
-    <string name="bienvenidos">BIENVENIDOS</string>
+    <string name="bienvenido">BIENVENIDO</string>
+    <string name="home">Inicio</string>
+
+    <string name="abtus">Sobre nosotros</string>
+    <string name="profile">Perfil</string>
+    <string name="config">Configuración</string>
+    <string name="events">Eventos</string>
+    <string name="grps">Grupos</string>
+    <string name="logout">Cerrar sesión</string>
+
+    <string-array name="spinner_events" >
+        <item>EVENTOS</item>
+        <item>Mis eventos</item>
+        <item>Calendario</item>
+        <item>Historial</item>
+        <item>Mapa</item>
+    </string-array>
 </resources>

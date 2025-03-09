@@ -42,7 +42,7 @@ public class Login extends LoginTemplate {
                 firebase.signInWithEmailAndPassword(contact,password)
                         .addOnCompleteListener(listener->{
                     if (!listener.isSuccessful()){
-                        showAlert("Inicio de Sesion","El inicio de Sesion ha fallado: "+listener.getException().toString());
+                        showAlert("Inicio de sesión","El inicio de sesión ha fallado, intente de nuevo ");
                         return;
                     }
                     getUserData(firebase,contact);

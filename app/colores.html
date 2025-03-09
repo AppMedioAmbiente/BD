@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paleta de colores</title>
+</head>
+<body>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 95dvh;
+            min-width: 99dvw;
+        }
+        #padre{
+            width: 90vw;
+            margin-top:2%;
+            border:2px solid black;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+        .ceil{
+            /* width:30%; */
+            aspect-ratio: 2/1;
+            /* float: left; */
+        }
+    </style>
+    <div id="padre"></div>
+    
+    <script>
+        let colors="#452B1F,#FFC499,#8B9467,#66CCCC,#964B00,#FFA07A,#3E8E41,#87CEEB,#F5F5DC,#CCCCCC,#C6E2B5,#ADD8E6,#ece3a8".split(",");
+        const father=document.getElementById("padre")
+        for(let color of colors){
+            // console.log(color)
+            let ceil = document.createElement("div")
+            ceil.classList.add("ceil")
+            ceil.style.backgroundColor=color
+            // console.log(ceil)
+            ceil.dataset['color']=color
+
+            father.appendChild(ceil)
+        }
+    </script>
+</body>
+</html>

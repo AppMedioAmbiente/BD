@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".Home"
+    android:background="#082B11">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:orientation="horizontal"
+        tools:layout_marginBottom="100dp">
+
+        <Button
+            android:id="@+id/profile"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/profile"
+            android:layout_marginHorizontal="25dp"
+            android:textSize="16sp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="50dp"
+        android:text="@string/home"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="38dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/aboutus"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:text="@string/abtus"
+            android:layout_marginHorizontal="40dp"
+            android:textSize="16sp"/>
+
+        <Button
+            android:id="@+id/groups"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:text="@string/grps"
+            android:layout_marginHorizontal="40dp"
+            android:textSize="16sp"/>
+
+    </LinearLayout>
+
+    <Spinner
+        android:id="@+id/events"
+        style="@style/SpinnerTextStyle"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:entries="@array/spinner_events"
+        android:spinnerMode="dropdown"
+        android:background="@color/teal_700"
+        android:layout_marginBottom="125dp"
+        android:layout_marginTop="50dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/config"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text="@string/config"
+            android:layout_marginHorizontal="25dp" />
+
+    </LinearLayout>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/drawer_layout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- Toolbar -->
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+            <!-- Contenido de la App -->
+            <FrameLayout
+                android:id="@+id/content_frame"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+        <!-- Menú Lateral -->
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navigation_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+</LinearLayout>

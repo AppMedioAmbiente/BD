@@ -21,7 +21,7 @@ public class Register1 extends LoginTemplate implements View.OnClickListener {
     Button btnRegister;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     String email, phone, password, repPass, name, surname, birthdate;
-    TextView tvEmailMsg, tvPhoneMsg, tvPassMsg, tvRepPassMsg;
+    TextView tvEmailMsg, tvPhoneMsg, tvPassMsg, tvRepPassMsg, tvContactMsg;
 
     public void insertValues(String userId){
         Intent intent = getIntent();
@@ -62,16 +62,16 @@ public class Register1 extends LoginTemplate implements View.OnClickListener {
         String phoneRegex = "\\d{10,13}";
         String passRegex = "^(?!.*[\\/=\\\\?@\\[\\\\\\]^<>;:])(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!\\-._])[\\w!\\-._]{6,}$";
 
-        if (!(email.isEmpty() && phone.isEmpty())) {
-            if (!email.isEmpty() && (!validateWithRegex(email, emailRegex) || email.length() < 10|| email.length() > 150) ) {
-                msgs.put("email", "Correo de entre 10 y 150 caracteres");
-            }
+        //if (!(email.isEmpty() && phone.isEmpty())) {
+        if (email.isEmpty() || !validateWithRegex(email, emailRegex) || email.length() < 10|| email.length() > 150 ) {
+            msgs.put("email", "Correo de entre 10 y 150 caracteres");
+        }
 
-            if (!phone.isEmpty() && !validateWithRegex(phone, phoneRegex)) {
-                msgs.put("phone", "Número de teléfono de entre 10 y 13 números");
-            }
+        if (!phone.isEmpty() && !validateWithRegex(phone, phoneRegex)) {
+            msgs.put("phone", "Número de teléfono de entre 10 y 13 números");
+        }
 
-        } else msgs.put("contact", "Debe llenar correo o teléfono");
+        //} else msgs.put("contact", "Debe llenar correo o teléfono");
 
         if (password.isEmpty() || !validateWithRegex(password, passRegex) || password.trim().length() < 6 || password.trim().length() > 30) {
             msgs.put("password", "Mínimo 6 caracteres, máximo 30, con letra mayúscula, minúscula, número y caracter especial");
@@ -98,6 +98,7 @@ public class Register1 extends LoginTemplate implements View.OnClickListener {
         tvPhoneMsg = findViewById(R.id.phoneMsg);
         tvPassMsg = findViewById(R.id.passwordMsg);
         tvRepPassMsg = findViewById(R.id.repPassMsg);
+        //tvContactMsg = findViewById(R.id.contactMsg);
 
         btnRegister.setOnClickListener(this);
     }
@@ -131,13 +132,9 @@ public class Register1 extends LoginTemplate implements View.OnClickListener {
 
         HashMap msgs = checkFields(email, phone, password, repPass);
         if (!msgs.isEmpty()) {
-            if (msgs.containsKey("contact")) {
-                tvEmailMsg.setText((CharSequence) msgs.get("contact"));
-                tvPhoneMsg.setText((CharSequence) msgs.get("contact"));
-                System.out.println("Mensajes"+msgs.get("contact"));
-            } else {
-                tvEmailMsg.setText(""); tvPhoneMsg.setText("");
-            }
+            //if (msgs.containsKey("contact")) {
+            //    tvContactMsg.setText((CharSequence) msgs.get("contact"));
+            //} else tvContactMsg.setText("");
 
             if (msgs.containsKey("email")) {
                 tvEmailMsg.setText((CharSequence) msgs.get("email"));

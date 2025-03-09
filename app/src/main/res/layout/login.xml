@@ -7,23 +7,24 @@
     android:orientation="vertical"
     android:gravity="center"
     tools:context=".Login"
-    android:background="#1F2E23">
+    android:background="#082B11">
 
     <TextView
         android:id="@+id/header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="Inicio de sesión"
         android:textColor="@color/white"
         android:textSize="35sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:layout_marginBottom="35dp" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="190dp"
         android:layout_height="190dp"
         app:srcCompat="@drawable/logo"
-        android:layout_margin="25dp"/>
+        android:layout_marginBottom="40dp" />
 
     <EditText
         android:id="@+id/contact"
@@ -31,10 +32,10 @@
         android:layout_height="50dp"
         tools:layout_editor_absoluteX="97dp"
         tools:layout_editor_absoluteY="290dp"
-        tools:layout_margin="5dp"
+        tools:layout_marginBottom="20dp"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:hint="E-mail/Phone"
+        android:hint="Correo electrónico"
         android:autofillHints="emailAddress, phone"
         android:textColorHint="@color/white"
         android:textColor="@color/white"/>
@@ -45,10 +46,10 @@
         android:layout_height="50dp"
         tools:layout_editor_absoluteX="105dp"
         tools:layout_editor_absoluteY="387dp"
-        tools:layout_margin="5dp"
+        tools:layout_marginBottom="25dp"
         android:ems="10"
         android:inputType="textPassword"
-        android:hint="Password"
+        android:hint="Contraseña"
         android:autofillHints="no"
         android:textColorHint="@color/white"
         android:textColor="@color/white"/>
@@ -57,20 +58,22 @@
         android:id="@+id/Send"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:hint="Send"
+        android:text="Enviar"
         tools:layout_editor_absoluteX="158dp"
         tools:layout_editor_absoluteY="528dp"
-        tools:layout_margin="7dp"
-        android:textColorHint="@color/white"
-        android:background="@color/black"/>
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:background="@color/black"
+        tools:layout_marginBottom="35dp"/>
 
     <Button
         android:id="@+id/Rsing_up"
-        android:layout_width="150dp"
+        android:layout_width="170dp"
         android:layout_height="wrap_content"
-        tools:layout_margin="10dp"
-        android:text="Sing up"
+        android:background="#00FFFFFF"
+        android:text="Registrarse"
         android:textColor="@color/white"
-        android:background="#00FFFFFF"/>
+        android:textSize="18sp"
+        tools:layout_marginBottom="35dp"/>
 
 </LinearLayout>
