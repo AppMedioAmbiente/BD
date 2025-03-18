@@ -19,7 +19,6 @@ public class Usuario extends LoginTemplate {
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.usuario);
 
@@ -29,7 +28,6 @@ public class Usuario extends LoginTemplate {
         tvContact = findViewById(R.id.contact);
 
         Intent intent = getIntent();
-
         String names = getExtraString(intent.getStringExtra("name"));
         String surnames = getExtraString(intent.getStringExtra("surname"));
         String birthdate = getExtraString(intent.getStringExtra("birthdate"));

@@ -1,0 +1,194 @@
+[
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-pngs-45:\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\drawable_home_ic.png.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\drawable\\home_ic.png"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\layout_usuario.xml.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\layout\\usuario.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\layout_register1.xml.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\layout\\register1.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\drawable_calendar_ic.png.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\drawable\\calendar_ic.png"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\drawable_ic_menu_gallery.xml.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\drawable\\ic_menu_gallery.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\drawable_logo.jpg.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\drawable\\logo.jpg"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\layout_nav_header_home.xml.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\layout\\nav_header_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\drawable_ic_menu_camera.xml.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\drawable\\ic_menu_camera.xml"
+    },
+    {
+        "merged": "com.example.firelogin.app-merged_res-50:/layout_fragment_home.xml.flat",
+        "source": "com.example.firelogin.app-main-52:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\drawable_icono.png.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\drawable\\icono.png"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\navigation_mobile_navigation.xml.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\navigation\\mobile_navigation.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\menu_home.xml.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\menu\\home.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\layout_content_home.xml.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\layout\\content_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\drawable_ic_user.png.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\drawable\\ic_user.png"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\layout_register.xml.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\layout\\register.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\drawable_logout_ic.png.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\drawable\\logout_ic.png"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\layout_fragment_slideshow.xml.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\layout\\fragment_slideshow.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\menu_home_drawer.xml.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\menu\\home_drawer.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\drawable_groups_ic.png.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\drawable\\groups_ic.png"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\drawable_history_ic.png.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\drawable\\history_ic.png"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\mipmap-anydpi-v33_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\mipmap-anydpi-v33\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\drawable_profile_ic.png.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\drawable\\profile_ic.png"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\layout_app_bar_home.xml.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\layout\\app_bar_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\drawable_ic_menu_slideshow.xml.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\drawable\\ic_menu_slideshow.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\drawable_events_ic.png.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\drawable\\events_ic.png"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\layout_login.xml.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\layout\\login.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\layout_fragment_home.xml.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\layout_fragment_gallery.xml.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\layout\\fragment_gallery.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\drawable_side_nav_bar.xml.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\drawable\\side_nav_bar.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\drawable_my_events_ic.png.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\drawable\\my_events_ic.png"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\drawable_map_ic.png.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\drawable\\map_ic.png"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-merged_res-50:\\layout_home.xml.flat",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\layout\\home.xml"
+    }
+]

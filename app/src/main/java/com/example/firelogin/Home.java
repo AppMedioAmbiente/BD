@@ -1,59 +1,65 @@
 package com.example.firelogin;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.Spinner;
+import android.view.Menu;
+
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.navigation.NavigationView;
+
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.firelogin.databinding.HomeBinding;
 
 public class Home extends AppCompatActivity {
 
-    Spinner spEvents;
-    String[] eventsOpt;
-    ArrayAdapter<String> adapter;
-    Button btnProfile;
+    private AppBarConfiguration mAppBarConfiguration;
+    private HomeBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home);
 
-        Intent intent = getIntent();
+        binding = HomeBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        btnProfile = findViewById(R.id.profile);
-        spEvents = findViewById(R.id.events);
-
-        eventsOpt = getResources().getStringArray(R.array.spinner_events);
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, eventsOpt);
-
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spEvents.setAdapter(adapter);
-
-        spEvents.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        setSupportActionBar(binding.appBarHome.toolbar);
+        binding.appBarHome.fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0) return;
-                String selection = parent.getItemAtPosition(position).toString();
-                System.out.println("Selección: "+selection);
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {}
         });
-        spEvents.setSelection(0, false);
+        DrawerLayout drawer = binding.drawerLayout;
+        NavigationView navigationView = binding.navView;
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        mAppBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                .setOpenableLayout(drawer)
+                .build();
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
+        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+        NavigationUI.setupWithNavController(navigationView, navController);
+    }
 
-        btnProfile.setOnClickListener(view -> {
-            Intent intentUser = new Intent(Home.this, Usuario.class);
-            intentUser.putExtra("name", intent.getStringExtra("name"));
-            intentUser.putExtra("surname", intent.getStringExtra("surname"));
-            intentUser.putExtra("birthdate", intent.getStringExtra("birthdate"));
-            intentUser.putExtra("contact", intent.getStringExtra("contact"));
-            startActivity(intentUser);
-        });
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.home, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
+        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
+                || super.onSupportNavigateUp();
     }
 }

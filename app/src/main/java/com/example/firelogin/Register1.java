@@ -106,15 +106,8 @@ public class Register1 extends LoginTemplate implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        /*if(!etRepeatPassword.getText().toString()
-                .equals(etPassword.getText().toString())){
-            showAlert("Error de Contraseña","Ambas Contraseñas deben coincidir");
-            return ;
-        }*/
         name = getIntent().getStringExtra("name");
         surname = getIntent().getStringExtra("surname");
-        //String birthdateString = getIntent().getStringExtra("birthdate");
-
         birthdate=getIntent().getStringExtra("birthdate");
         /*
         birthdate = null;

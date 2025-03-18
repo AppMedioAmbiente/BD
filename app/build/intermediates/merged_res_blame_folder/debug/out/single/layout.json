@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-mergeDebugResources-49:\\layout\\app_bar_home.xml",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\layout\\app_bar_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-mergeDebugResources-49:\\layout\\usuario.xml",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\layout\\usuario.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-mergeDebugResources-49:\\layout\\nav_header_home.xml",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\layout\\nav_header_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-mergeDebugResources-49:\\layout\\fragment_home.xml",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-mergeDebugResources-49:\\layout\\register.xml",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\layout\\register.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-mergeDebugResources-49:\\layout\\login.xml",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\layout\\login.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-mergeDebugResources-49:\\layout\\register1.xml",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\layout\\register1.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-mergeDebugResources-49:\\layout\\fragment_gallery.xml",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\layout\\fragment_gallery.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-mergeDebugResources-49:\\layout\\fragment_slideshow.xml",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\layout\\fragment_slideshow.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-mergeDebugResources-49:\\layout\\content_home.xml",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\layout\\content_home.xml"
+    },
+    {
+        "merged": "com.example.firelogin.app-mergeDebugResources-49:/layout/fragment_home.xml",
+        "source": "com.example.firelogin.app-main-52:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-mergeDebugResources-49:\\layout\\home.xml",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-52:\\layout\\home.xml"
+    }
+]
