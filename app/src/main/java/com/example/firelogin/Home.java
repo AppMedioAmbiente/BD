@@ -16,6 +16,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.firelogin.databinding.HomeBinding;
 
+import org.imaginativeworld.whynotimagecarousel.ImageCarousel;
+import org.imaginativeworld.whynotimagecarousel.model.CarouselItem;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Home extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -27,6 +33,11 @@ public class Home extends AppCompatActivity {
 
         binding = HomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        ImageCarousel carousel = findViewById(R.id.carousel);
+        List<CarouselItem> list = new ArrayList<>();
+        list.add(new CarouselItem(R.drawable.secovo_ic, "Icono de SECOVO"));
+        carousel.addData(list);
 
         setSupportActionBar(binding.appBarHome.toolbar);
         binding.appBarHome.fab.setOnClickListener(new View.OnClickListener() {
@@ -41,7 +52,7 @@ public class Home extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_profile)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);

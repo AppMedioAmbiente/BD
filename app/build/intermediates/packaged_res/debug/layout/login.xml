@@ -64,7 +64,7 @@
         android:textColor="@color/white"
         android:textSize="18sp"
         android:background="@color/black"
-        tools:layout_marginBottom="35dp"/>
+        tools:layout_marginBottom="35dp" />
 
     <Button
         android:id="@+id/Rsing_up"

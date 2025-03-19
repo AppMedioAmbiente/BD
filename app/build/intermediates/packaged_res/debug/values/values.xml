@@ -34,10 +34,12 @@
     <dimen name="nav_header_height">176dp</dimen>
     <dimen name="nav_header_vertical_spacing">8dp</dimen>
     <string name="abtus">Sobre nosotros</string>
+    <string name="abtusInfo">SECOVO (Servicio Comunitario por el Voluntariado) es una comunidad que busca cuidar y preservar el medio ambiente, animando a las personas a que sean partícipes de brigadas o movimientos para limpiar zonas, ir en contra de la deforestación y de la construcción excesiva de viviendas, entre otras actividades de apoyo hacia la naturaleza. </string>
     <string name="action_settings">Settings</string>
     <string name="app_name">Login</string>
     <string name="bienvenido">BIENVENIDO</string>
     <string name="config">Configuración</string>
+    <string name="destacadosH">Destacados</string>
     <string name="events">Eventos</string>
     <string name="gcm_defaultSenderId" translatable="false">489937646627</string>
     <string name="google_api_key" translatable="false">AIzaSyDx50dtED3s0E5m2tmFyZW4We0hboSqpUg</string>
@@ -59,6 +61,7 @@
     <string name="nav_header_title">Username</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="personal_data">Datos personales</string>
     <string name="profile">Perfil</string>
     <string name="project_id" translatable="false">firelogin-267c5</string>
     <string name="title_activity_home">Home</string>

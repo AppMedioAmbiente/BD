@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.firelogin.app-mergeDebugResources-48:/values-iw/values-iw.xml",
+            "outputFile": "com.example.firelogin.app-mergeDebugResources-52:/values-iw/values-iw.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Oscar Medina\\.gradle\\caches\\transforms-3\\03a24f55d2657b639afba0c372fc0490\\transformed\\jetified-play-services-base-18.0.1\\res\\values-iw\\values.xml",

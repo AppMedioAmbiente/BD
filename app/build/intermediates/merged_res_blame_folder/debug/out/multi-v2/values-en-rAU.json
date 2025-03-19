@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.firelogin.app-mergeDebugResources-48:/values-en-rAU/values-en-rAU.xml",
+            "outputFile": "com.example.firelogin.app-mergeDebugResources-52:/values-en-rAU/values-en-rAU.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Oscar Medina\\.gradle\\caches\\transforms-3\\f22158fe854d95070f22470afd1e2402\\transformed\\core-1.13.0\\res\\values-en-rAU\\values-en-rAU.xml",

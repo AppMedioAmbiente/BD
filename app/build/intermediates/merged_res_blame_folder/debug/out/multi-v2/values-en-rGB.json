@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.firelogin.app-mergeDebugResources-48:/values-en-rGB/values-en-rGB.xml",
+            "outputFile": "com.example.firelogin.app-mergeDebugResources-52:/values-en-rGB/values-en-rGB.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Oscar Medina\\.gradle\\caches\\transforms-3\\84094703b717a7e2f60e19a4857656e6\\transformed\\navigation-ui-2.8.9\\res\\values-en-rGB\\values-en-rGB.xml",

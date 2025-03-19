@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.firelogin.app-mergeDebugResources-48:/values-hr/values-hr.xml",
+            "outputFile": "com.example.firelogin.app-mergeDebugResources-52:/values-hr/values-hr.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Oscar Medina\\.gradle\\caches\\transforms-3\\4033de7b54fbfbf13646e9afd70466dc\\transformed\\material-1.12.0\\res\\values-hr\\values-hr.xml",

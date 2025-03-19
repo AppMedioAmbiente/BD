@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.firelogin.app-mergeDebugResources-48:/values-v23/values-v23.xml",
+            "outputFile": "com.example.firelogin.app-mergeDebugResources-52:/values-v23/values-v23.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Oscar Medina\\.gradle\\caches\\transforms-3\\2de652fc9df1e57f2f154aefd8054e04\\transformed\\cardview-1.0.0\\res\\values-v23\\values-v23.xml",
