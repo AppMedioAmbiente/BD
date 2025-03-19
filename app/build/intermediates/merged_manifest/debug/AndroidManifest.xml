@@ -32,7 +32,9 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.FireLogin" >
-
+        <activity
+            android:name="com.example.firelogin.Settings"
+            android:exported="false" />
         <!--
         >
         android:usesCleartextTraffic="true"

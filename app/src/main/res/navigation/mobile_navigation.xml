@@ -53,4 +53,10 @@
         android:label="@string/menu_map"
         tools:layout="@layout/fragment_map" />
 
+    <fragment
+        android:id="@+id/contactus"
+        android:name="com.example.firelogin.ui.contactus.ContactUsFragment"
+        android:label="@string/menu_contact_us"
+        tools:layout="@layout/fragment_contact_us" />
+
 </navigation>

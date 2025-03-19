@@ -1,9 +1,12 @@
 package com.example.firelogin;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 
+import com.example.firelogin.ui.contactus.ContactUsFragment;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -16,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.firelogin.databinding.HomeBinding;
 
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.imaginativeworld.whynotimagecarousel.ImageCarousel;
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem;
 
@@ -28,6 +32,18 @@ public class Home extends AppCompatActivity {
     private HomeBinding binding;
 
     @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.settings) {
+            Intent intentStng = new Intent(Home.this, Settings.class);
+            startActivity(intentStng);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -37,14 +53,15 @@ public class Home extends AppCompatActivity {
         ImageCarousel carousel = findViewById(R.id.carousel);
         List<CarouselItem> list = new ArrayList<>();
         list.add(new CarouselItem(R.drawable.secovo_ic, "Icono de SECOVO"));
-        carousel.addData(list);
+        carousel.setData(list);
 
         setSupportActionBar(binding.appBarHome.toolbar);
-        binding.appBarHome.fab.setOnClickListener(new View.OnClickListener() {
+        binding.appBarHome.contactus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                //NavController navController = Navigation.findNavController(Home.this, R.id.nav_host_fragment_content_home);
+                //NavigationUI.setupActionBarWithNavController(Home.this, navController, mAppBarConfiguration);
+                //NavigationUI.setupWithNavController(navigationView, navController);
             }
         });
         DrawerLayout drawer = binding.drawerLayout;
@@ -52,7 +69,8 @@ public class Home extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_profile)
+                R.id.nav_home, R.id.nav_profile, R.id.nav_groups, R.id.navEv_events, R.id.navEv_myevents,
+                    R.id.navEv_calendar, R.id.navEv_map, R.id.navEv_history, R.id.contactus)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);

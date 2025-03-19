@@ -21,15 +21,15 @@ public final class AppBarHomeBinding implements ViewBinding {
   private final CoordinatorLayout rootView;
 
   @NonNull
-  public final FloatingActionButton fab;
+  public final FloatingActionButton contactus;
 
   @NonNull
   public final Toolbar toolbar;
 
-  private AppBarHomeBinding(@NonNull CoordinatorLayout rootView, @NonNull FloatingActionButton fab,
-      @NonNull Toolbar toolbar) {
+  private AppBarHomeBinding(@NonNull CoordinatorLayout rootView,
+      @NonNull FloatingActionButton contactus, @NonNull Toolbar toolbar) {
     this.rootView = rootView;
-    this.fab = fab;
+    this.contactus = contactus;
     this.toolbar = toolbar;
   }
 
@@ -60,9 +60,9 @@ public final class AppBarHomeBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.fab;
-      FloatingActionButton fab = ViewBindings.findChildViewById(rootView, id);
-      if (fab == null) {
+      id = R.id.contactus;
+      FloatingActionButton contactus = ViewBindings.findChildViewById(rootView, id);
+      if (contactus == null) {
         break missingId;
       }
 
@@ -72,7 +72,7 @@ public final class AppBarHomeBinding implements ViewBinding {
         break missingId;
       }
 
-      return new AppBarHomeBinding((CoordinatorLayout) rootView, fab, toolbar);
+      return new AppBarHomeBinding((CoordinatorLayout) rootView, contactus, toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

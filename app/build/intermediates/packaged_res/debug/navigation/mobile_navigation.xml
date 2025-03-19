@@ -12,18 +12,6 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.firelogin.ui.gallery.GalleryFragment"
-        android:label="@string/menu_events"
-        tools:layout="@layout/fragment_gallery" />
-
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.firelogin.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_groups"
-        tools:layout="@layout/fragment_slideshow" />
-
-    <fragment
         android:id="@+id/nav_profile"
         android:name="com.example.firelogin.ui.profile.ProfileFragment"
         android:label="@string/profile"
@@ -64,5 +52,11 @@
         android:name="com.example.firelogin.ui.map.MapFragment"
         android:label="@string/menu_map"
         tools:layout="@layout/fragment_map" />
+
+    <fragment
+        android:id="@+id/contactus"
+        android:name="com.example.firelogin.ui.contactus.ContactUsFragment"
+        android:label="@string/menu_contact_us"
+        tools:layout="@layout/fragment_contact_us" />
 
 </navigation>
