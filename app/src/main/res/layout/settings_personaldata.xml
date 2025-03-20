@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="top|center">
+    android:gravity="top|center"
+    android:background="#082B11">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -41,7 +42,7 @@
         android:text="Nombre(s)"
         android:textSize="20sp"
         android:layout_margin="10sp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:background="@drawable/redondedado"
         android:backgroundTint="#6D8967"
         android:padding="10sp"/>
@@ -53,7 +54,7 @@
         android:text="Fecha de Nacimiento:"
         android:textSize="20sp"
         android:layout_margin="10sp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:background="@drawable/redondedado"
         android:backgroundTint="#6D8967"
         android:padding="10sp" />
@@ -66,7 +67,7 @@
         android:text="Nombre de usuario:  "
         android:textSize="20sp"
         android:layout_margin="10sp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:background="@drawable/redondedado"
         android:backgroundTint="#6D8967"
         android:padding="10sp" />
@@ -79,7 +80,7 @@
         android:text="Correo Electronico:"
         android:textSize="20sp"
         android:layout_margin="10sp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:background="@drawable/redondedado"
         android:backgroundTint="#6D8967"
         android:padding="10sp" />
@@ -92,7 +93,7 @@
         android:text="Numero de Celular: "
         android:textSize="20sp"
         android:layout_margin="10sp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:background="@drawable/redondedado"
         android:backgroundTint="#6D8967"
         android:padding="10sp" />
@@ -105,7 +106,7 @@
         android:text="Estado de Residencia: "
         android:textSize="20sp"
         android:layout_margin="15sp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:background="@drawable/redondedado"
         android:backgroundTint="#6D8967"
         android:padding="10sp" />

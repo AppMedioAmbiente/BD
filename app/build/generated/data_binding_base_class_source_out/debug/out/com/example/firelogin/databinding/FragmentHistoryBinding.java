@@ -4,7 +4,10 @@ package com.example.firelogin.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,19 +20,54 @@ import java.lang.String;
 
 public final class FragmentHistoryBinding implements ViewBinding {
   @NonNull
-  private final FrameLayout rootView;
+  private final ScrollView rootView;
+
+  @NonNull
+  public final Button btnEventDetails;
+
+  @NonNull
+  public final EditText etFilter;
+
+  @NonNull
+  public final ImageView eventImg;
+
+  @NonNull
+  public final TextView eventName;
 
   @NonNull
   public final TextView textHistory;
 
-  private FragmentHistoryBinding(@NonNull FrameLayout rootView, @NonNull TextView textHistory) {
+  @NonNull
+  public final TextView tvEventDate;
+
+  @NonNull
+  public final TextView tvEventPlace;
+
+  @NonNull
+  public final TextView tvEventPpl;
+
+  @NonNull
+  public final TextView tvEventStatus;
+
+  private FragmentHistoryBinding(@NonNull ScrollView rootView, @NonNull Button btnEventDetails,
+      @NonNull EditText etFilter, @NonNull ImageView eventImg, @NonNull TextView eventName,
+      @NonNull TextView textHistory, @NonNull TextView tvEventDate, @NonNull TextView tvEventPlace,
+      @NonNull TextView tvEventPpl, @NonNull TextView tvEventStatus) {
     this.rootView = rootView;
+    this.btnEventDetails = btnEventDetails;
+    this.etFilter = etFilter;
+    this.eventImg = eventImg;
+    this.eventName = eventName;
     this.textHistory = textHistory;
+    this.tvEventDate = tvEventDate;
+    this.tvEventPlace = tvEventPlace;
+    this.tvEventPpl = tvEventPpl;
+    this.tvEventStatus = tvEventStatus;
   }
 
   @Override
   @NonNull
-  public FrameLayout getRoot() {
+  public ScrollView getRoot() {
     return rootView;
   }
 
@@ -54,13 +92,62 @@ public final class FragmentHistoryBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btnEventDetails;
+      Button btnEventDetails = ViewBindings.findChildViewById(rootView, id);
+      if (btnEventDetails == null) {
+        break missingId;
+      }
+
+      id = R.id.etFilter;
+      EditText etFilter = ViewBindings.findChildViewById(rootView, id);
+      if (etFilter == null) {
+        break missingId;
+      }
+
+      id = R.id.eventImg;
+      ImageView eventImg = ViewBindings.findChildViewById(rootView, id);
+      if (eventImg == null) {
+        break missingId;
+      }
+
+      id = R.id.eventName;
+      TextView eventName = ViewBindings.findChildViewById(rootView, id);
+      if (eventName == null) {
+        break missingId;
+      }
+
       id = R.id.textHistory;
       TextView textHistory = ViewBindings.findChildViewById(rootView, id);
       if (textHistory == null) {
         break missingId;
       }
 
-      return new FragmentHistoryBinding((FrameLayout) rootView, textHistory);
+      id = R.id.tvEventDate;
+      TextView tvEventDate = ViewBindings.findChildViewById(rootView, id);
+      if (tvEventDate == null) {
+        break missingId;
+      }
+
+      id = R.id.tvEventPlace;
+      TextView tvEventPlace = ViewBindings.findChildViewById(rootView, id);
+      if (tvEventPlace == null) {
+        break missingId;
+      }
+
+      id = R.id.tvEventPpl;
+      TextView tvEventPpl = ViewBindings.findChildViewById(rootView, id);
+      if (tvEventPpl == null) {
+        break missingId;
+      }
+
+      id = R.id.tvEventStatus;
+      TextView tvEventStatus = ViewBindings.findChildViewById(rootView, id);
+      if (tvEventStatus == null) {
+        break missingId;
+      }
+
+      return new FragmentHistoryBinding((ScrollView) rootView, btnEventDetails, etFilter, eventImg,
+          eventName, textHistory, tvEventDate, tvEventPlace, tvEventPpl, tvEventStatus);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

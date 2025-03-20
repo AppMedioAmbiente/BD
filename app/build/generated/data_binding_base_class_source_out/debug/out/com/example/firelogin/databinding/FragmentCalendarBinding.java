@@ -4,7 +4,8 @@ package com.example.firelogin.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.CalendarView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,19 +18,33 @@ import java.lang.String;
 
 public final class FragmentCalendarBinding implements ViewBinding {
   @NonNull
-  private final FrameLayout rootView;
+  private final LinearLayout rootView;
+
+  @NonNull
+  public final TextView daySelected;
+
+  @NonNull
+  public final CalendarView eventsCalendar;
 
   @NonNull
   public final TextView textCalendar;
 
-  private FragmentCalendarBinding(@NonNull FrameLayout rootView, @NonNull TextView textCalendar) {
+  @NonNull
+  public final TextView tvEventName;
+
+  private FragmentCalendarBinding(@NonNull LinearLayout rootView, @NonNull TextView daySelected,
+      @NonNull CalendarView eventsCalendar, @NonNull TextView textCalendar,
+      @NonNull TextView tvEventName) {
     this.rootView = rootView;
+    this.daySelected = daySelected;
+    this.eventsCalendar = eventsCalendar;
     this.textCalendar = textCalendar;
+    this.tvEventName = tvEventName;
   }
 
   @Override
   @NonNull
-  public FrameLayout getRoot() {
+  public LinearLayout getRoot() {
     return rootView;
   }
 
@@ -54,13 +69,32 @@ public final class FragmentCalendarBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.daySelected;
+      TextView daySelected = ViewBindings.findChildViewById(rootView, id);
+      if (daySelected == null) {
+        break missingId;
+      }
+
+      id = R.id.eventsCalendar;
+      CalendarView eventsCalendar = ViewBindings.findChildViewById(rootView, id);
+      if (eventsCalendar == null) {
+        break missingId;
+      }
+
       id = R.id.textCalendar;
       TextView textCalendar = ViewBindings.findChildViewById(rootView, id);
       if (textCalendar == null) {
         break missingId;
       }
 
-      return new FragmentCalendarBinding((FrameLayout) rootView, textCalendar);
+      id = R.id.tvEventName;
+      TextView tvEventName = ViewBindings.findChildViewById(rootView, id);
+      if (tvEventName == null) {
+        break missingId;
+      }
+
+      return new FragmentCalendarBinding((LinearLayout) rootView, daySelected, eventsCalendar,
+          textCalendar, tvEventName);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
