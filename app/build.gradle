@@ -58,6 +58,9 @@ dependencies {
     // Librería para el carrusel
     implementation 'me.relex:circleindicator:2.1.6'
     implementation 'org.imaginativeworld.whynotimagecarousel:whynotimagecarousel:2.1.0'
+
+    //Librería para el calendario
+    //implementation 'com.applandeo:material-calendar-view:1-7-0'
 }
 
 apply plugin: 'com.google.gms.google-services' // Asegúrate de aplicarlo al final

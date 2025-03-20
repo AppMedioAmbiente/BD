@@ -23,11 +23,10 @@ public class EventsFragment extends Fragment {
                 new ViewModelProvider(this).get(EventsViewModel.class);
 
         binding = FragmentEventsBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
 
-        final TextView textView = binding.textEvents;
-        eventsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        return root;
+        //final TextView textView = binding.textEvents;
+        //eventsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        return binding.getRoot();
     }
 
     @Override

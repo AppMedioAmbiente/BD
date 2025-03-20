@@ -22,11 +22,10 @@ public class GroupsFragment extends Fragment {
                 new ViewModelProvider(this).get(GroupsViewModel.class);
 
         binding = FragmentGroupsBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
 
-        final TextView textView = binding.textGroups;
-        groupsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        return root;
+        //final TextView textView = binding.textGroups;
+        //groupsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        return binding.getRoot();
     }
 
     @Override

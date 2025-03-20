@@ -4,6 +4,9 @@ package com.example.firelogin.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -20,11 +23,63 @@ public final class FragmentProfileBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
-  public final TextView textProfile;
+  public final TextView birthdate;
 
-  private FragmentProfileBinding(@NonNull LinearLayout rootView, @NonNull TextView textProfile) {
+  @NonNull
+  public final Button btnCancel;
+
+  @NonNull
+  public final Button btnLogOut;
+
+  @NonNull
+  public final Button btnSave;
+
+  @NonNull
+  public final TextView contact;
+
+  @NonNull
+  public final EditText etBirthdate;
+
+  @NonNull
+  public final EditText etContact;
+
+  @NonNull
+  public final EditText etNames;
+
+  @NonNull
+  public final EditText etSurnames;
+
+  @NonNull
+  public final ImageView imageView;
+
+  @NonNull
+  public final TextView names;
+
+  @NonNull
+  public final TextView surnames;
+
+  @NonNull
+  public final TextView textView;
+
+  private FragmentProfileBinding(@NonNull LinearLayout rootView, @NonNull TextView birthdate,
+      @NonNull Button btnCancel, @NonNull Button btnLogOut, @NonNull Button btnSave,
+      @NonNull TextView contact, @NonNull EditText etBirthdate, @NonNull EditText etContact,
+      @NonNull EditText etNames, @NonNull EditText etSurnames, @NonNull ImageView imageView,
+      @NonNull TextView names, @NonNull TextView surnames, @NonNull TextView textView) {
     this.rootView = rootView;
-    this.textProfile = textProfile;
+    this.birthdate = birthdate;
+    this.btnCancel = btnCancel;
+    this.btnLogOut = btnLogOut;
+    this.btnSave = btnSave;
+    this.contact = contact;
+    this.etBirthdate = etBirthdate;
+    this.etContact = etContact;
+    this.etNames = etNames;
+    this.etSurnames = etSurnames;
+    this.imageView = imageView;
+    this.names = names;
+    this.surnames = surnames;
+    this.textView = textView;
   }
 
   @Override
@@ -54,13 +109,87 @@ public final class FragmentProfileBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.textProfile;
-      TextView textProfile = ViewBindings.findChildViewById(rootView, id);
-      if (textProfile == null) {
+      id = R.id.birthdate;
+      TextView birthdate = ViewBindings.findChildViewById(rootView, id);
+      if (birthdate == null) {
         break missingId;
       }
 
-      return new FragmentProfileBinding((LinearLayout) rootView, textProfile);
+      id = R.id.btnCancel;
+      Button btnCancel = ViewBindings.findChildViewById(rootView, id);
+      if (btnCancel == null) {
+        break missingId;
+      }
+
+      id = R.id.btnLogOut;
+      Button btnLogOut = ViewBindings.findChildViewById(rootView, id);
+      if (btnLogOut == null) {
+        break missingId;
+      }
+
+      id = R.id.btnSave;
+      Button btnSave = ViewBindings.findChildViewById(rootView, id);
+      if (btnSave == null) {
+        break missingId;
+      }
+
+      id = R.id.contact;
+      TextView contact = ViewBindings.findChildViewById(rootView, id);
+      if (contact == null) {
+        break missingId;
+      }
+
+      id = R.id.etBirthdate;
+      EditText etBirthdate = ViewBindings.findChildViewById(rootView, id);
+      if (etBirthdate == null) {
+        break missingId;
+      }
+
+      id = R.id.etContact;
+      EditText etContact = ViewBindings.findChildViewById(rootView, id);
+      if (etContact == null) {
+        break missingId;
+      }
+
+      id = R.id.etNames;
+      EditText etNames = ViewBindings.findChildViewById(rootView, id);
+      if (etNames == null) {
+        break missingId;
+      }
+
+      id = R.id.etSurnames;
+      EditText etSurnames = ViewBindings.findChildViewById(rootView, id);
+      if (etSurnames == null) {
+        break missingId;
+      }
+
+      id = R.id.imageView;
+      ImageView imageView = ViewBindings.findChildViewById(rootView, id);
+      if (imageView == null) {
+        break missingId;
+      }
+
+      id = R.id.names;
+      TextView names = ViewBindings.findChildViewById(rootView, id);
+      if (names == null) {
+        break missingId;
+      }
+
+      id = R.id.surnames;
+      TextView surnames = ViewBindings.findChildViewById(rootView, id);
+      if (surnames == null) {
+        break missingId;
+      }
+
+      id = R.id.textView;
+      TextView textView = ViewBindings.findChildViewById(rootView, id);
+      if (textView == null) {
+        break missingId;
+      }
+
+      return new FragmentProfileBinding((LinearLayout) rootView, birthdate, btnCancel, btnLogOut,
+          btnSave, contact, etBirthdate, etContact, etNames, etSurnames, imageView, names, surnames,
+          textView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -4,7 +4,9 @@ package com.example.firelogin.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,19 +19,41 @@ import java.lang.String;
 
 public final class FragmentContactUsBinding implements ViewBinding {
   @NonNull
-  private final FrameLayout rootView;
+  private final LinearLayout rootView;
+
+  @NonNull
+  public final EditText email;
+
+  @NonNull
+  public final EditText message;
+
+  @NonNull
+  public final EditText names;
+
+  @NonNull
+  public final EditText phone;
+
+  @NonNull
+  public final Button send;
 
   @NonNull
   public final TextView textContactUs;
 
-  private FragmentContactUsBinding(@NonNull FrameLayout rootView, @NonNull TextView textContactUs) {
+  private FragmentContactUsBinding(@NonNull LinearLayout rootView, @NonNull EditText email,
+      @NonNull EditText message, @NonNull EditText names, @NonNull EditText phone,
+      @NonNull Button send, @NonNull TextView textContactUs) {
     this.rootView = rootView;
+    this.email = email;
+    this.message = message;
+    this.names = names;
+    this.phone = phone;
+    this.send = send;
     this.textContactUs = textContactUs;
   }
 
   @Override
   @NonNull
-  public FrameLayout getRoot() {
+  public LinearLayout getRoot() {
     return rootView;
   }
 
@@ -54,13 +78,44 @@ public final class FragmentContactUsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.email;
+      EditText email = ViewBindings.findChildViewById(rootView, id);
+      if (email == null) {
+        break missingId;
+      }
+
+      id = R.id.message;
+      EditText message = ViewBindings.findChildViewById(rootView, id);
+      if (message == null) {
+        break missingId;
+      }
+
+      id = R.id.names;
+      EditText names = ViewBindings.findChildViewById(rootView, id);
+      if (names == null) {
+        break missingId;
+      }
+
+      id = R.id.phone;
+      EditText phone = ViewBindings.findChildViewById(rootView, id);
+      if (phone == null) {
+        break missingId;
+      }
+
+      id = R.id.send;
+      Button send = ViewBindings.findChildViewById(rootView, id);
+      if (send == null) {
+        break missingId;
+      }
+
       id = R.id.textContactUs;
       TextView textContactUs = ViewBindings.findChildViewById(rootView, id);
       if (textContactUs == null) {
         break missingId;
       }
 
-      return new FragmentContactUsBinding((FrameLayout) rootView, textContactUs);
+      return new FragmentContactUsBinding((LinearLayout) rootView, email, message, names, phone,
+          send, textContactUs);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

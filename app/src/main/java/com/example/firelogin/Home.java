@@ -11,6 +11,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
@@ -59,9 +60,10 @@ public class Home extends AppCompatActivity {
         binding.appBarHome.contactus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //NavController navController = Navigation.findNavController(Home.this, R.id.nav_host_fragment_content_home);
-                //NavigationUI.setupActionBarWithNavController(Home.this, navController, mAppBarConfiguration);
-                //NavigationUI.setupWithNavController(navigationView, navController);
+                NavController navController = Navigation.findNavController(Home.this, R.id.nav_host_fragment_content_home);
+                navController.navigate(R.id.contactus, null, new NavOptions.Builder()
+                        .setPopUpTo(R.id.contactus, false)
+                        .build());
             }
         });
         DrawerLayout drawer = binding.drawerLayout;
