@@ -14,9 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FireLogin"
         tools:targetApi="31">
-        <activity
-            android:name=".Settings"
-            android:exported="false" />
+
         <!--
         >
         android:usesCleartextTraffic="true"
@@ -37,11 +35,7 @@
             android:name=".Login"
             android:exported="true"
             android:windowSoftInputMode="stateVisible|adjustResize">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Register"
@@ -55,6 +49,17 @@
             android:name=".Usuario"
             android:exported="true"
             android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity
+            android:name=".Settings"
+            android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter></activity>
+        <activity
+            android:name=".Settings_Notifications"
+            android:exported="true" />
     </application>
 
 </manifest>

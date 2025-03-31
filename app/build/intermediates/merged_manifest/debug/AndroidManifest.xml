@@ -32,9 +32,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.FireLogin" >
-        <activity
-            android:name="com.example.firelogin.Settings"
-            android:exported="false" />
+
         <!--
         >
         android:usesCleartextTraffic="true"
@@ -55,11 +53,6 @@
             android:name="com.example.firelogin.Login"
             android:exported="true"
             android:windowSoftInputMode="stateVisible|adjustResize" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.example.firelogin.Register"
@@ -73,6 +66,18 @@
             android:name="com.example.firelogin.Usuario"
             android:exported="true"
             android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity
+            android:name="com.example.firelogin.Settings"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.firelogin.Settings_Notifications"
+            android:exported="true" />
         <activity
             android:name="com.google.firebase.auth.internal.GenericIdpActivity"
             android:excludeFromRecents="true"

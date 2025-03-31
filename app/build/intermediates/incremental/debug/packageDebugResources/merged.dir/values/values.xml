@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinner_events">
+        <item>EVENTOS</item>
+        <item>Mis eventos</item>
+        <item>Calendario</item>
+        <item>Historial</item>
+        <item>Mapa</item>
+    </string-array>
+    <color name="azul1">#66CCCC</color>
+    <color name="azul2">#87CEEB</color>
+    <color name="azul3">#ADD8E6</color>
+    <color name="beigeAmarillo">#ece3a8</color>
+    <color name="black">#FF000000</color>
+    <color name="blancoOscuro">#F5F5DC</color>
+    <color name="cafe">#452B1F</color>
+    <color name="cafeClaro">#964B00</color>
+    <color name="crema">#FFC499</color>
+    <color name="moradoClaro">#CCCCCC</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="red">#9B0000</color>
+    <color name="rosaCrema">#FFA07A</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#007271</color>
+    <color name="verdeBandera">#3E8E41</color>
+    <color name="verdeOpaco">#8B9467</color>
+    <color name="verdePistache">#C6E2B5</color>
+    <color name="white">#FFFFFFFF</color>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <string name="abtus">Sobre nosotros</string>
+    <string name="abtusInfo">SECOVO (Servicio Comunitario por el Voluntariado) es una comunidad que busca cuidar y preservar el medio ambiente, animando a las personas a que sean partícipes de brigadas o movimientos para limpiar zonas, ir en contra de la deforestación y de la construcción excesiva de viviendas, entre otras actividades de apoyo hacia la naturaleza. </string>
+    <string name="action_settings">Ajustes</string>
+    <string name="app_name">Login</string>
+    <string name="bienvenido">BIENVENIDO</string>
+    <string name="btnCancel">Cancelar</string>
+    <string name="btnSave">Guardar</string>
+    <string name="config">Configuración</string>
+    <string name="destacadosH">Destacados</string>
+    <string name="eventDetails">Detalles</string>
+    <string name="events">Eventos</string>
+    <string name="eventsHistory">Historial de eventos</string>
+    <string name="gcm_defaultSenderId" translatable="false">489937646627</string>
+    <string name="google_api_key" translatable="false">AIzaSyDx50dtED3s0E5m2tmFyZW4We0hboSqpUg</string>
+    <string name="google_app_id" translatable="false">1:489937646627:android:cc9a155759d24605d4ad96</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDx50dtED3s0E5m2tmFyZW4We0hboSqpUg</string>
+    <string name="google_storage_bucket" translatable="false">firelogin-267c5.firebasestorage.app</string>
+    <string name="grps">Grupos</string>
+    <string name="home">Inicio</string>
+    <string name="join">Unirse</string>
+    <string name="logout">Cerrar sesión</string>
+    <string name="menu_calendar">Calendario</string>
+    <string name="menu_contact_us">Contáctanos</string>
+    <string name="menu_events">Eventos</string>
+    <string name="menu_groups">Grupos</string>
+    <string name="menu_history">Historial</string>
+    <string name="menu_home">Inicio</string>
+    <string name="menu_map">Mapa</string>
+    <string name="menu_myevents">Mis eventos</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="nav_header_subtitle">Correo electrónico</string>
+    <string name="nav_header_title">Nombre</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="personal_data">Datos personales</string>
+    <string name="profile">Perfil</string>
+    <string name="project_id" translatable="false">firelogin-267c5</string>
+    <string name="report">Reportar</string>
+    <string name="title_activity_home">Home</string>
+    <style name="SpinnerTextStyle" parent="Widget.AppCompat.Spinner">
+        <item name="android:textColor">@color/red</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="Theme.FireLogin" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/teal_700</item>
+        <item name="colorPrimaryVariant">@color/white</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <item name="colorSecondary">@color/teal_700</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        
+        <item name="android:statusBarColor">@color/black</item>
+        
+    </style>
+    <style name="Theme.FireLogin.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="Theme.FireLogin.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.FireLogin.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+</resources>
