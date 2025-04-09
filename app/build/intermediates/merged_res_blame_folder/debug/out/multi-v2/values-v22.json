@@ -4,7 +4,7 @@
             "outputFile": "com.example.firelogin.app-mergeDebugResources-52:/values-v22/values-v22.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Oscar Medina\\.gradle\\caches\\transforms-3\\cda486710fb225a8acf11aa42219e202\\transformed\\appcompat-1.6.1\\res\\values-v22\\values-v22.xml",
+                    "source": "C:\\Users\\Oscar Medina\\.gradle\\caches\\transforms-3\\95dd7c3fcf7688529102e53fe7bfa486\\transformed\\appcompat-1.6.1\\res\\values-v22\\values-v22.xml",
                     "from": {
                         "startLines": "2,3,4,9",
                         "startColumns": "4,4,4,4",

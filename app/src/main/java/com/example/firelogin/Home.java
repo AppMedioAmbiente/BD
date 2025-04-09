@@ -52,6 +52,7 @@ public class Home extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         ImageCarousel carousel = findViewById(R.id.carousel);
+        carousel.registerLifecycle(getLifecycle());
         List<CarouselItem> list = new ArrayList<>();
         list.add(new CarouselItem(R.drawable.secovo_ic, "Icono de SECOVO"));
         carousel.setData(list);
@@ -60,7 +61,7 @@ public class Home extends AppCompatActivity {
         binding.appBarHome.contactus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavController navController = Navigation.findNavController(Home.this, R.id.nav_host_fragment_content_home);
+               NavController navController = Navigation.findNavController(Home.this, R.id.nav_host_fragment_content_home);
                 navController.navigate(R.id.contactus, null, new NavOptions.Builder()
                         .setPopUpTo(R.id.contactus, false)
                         .build());
@@ -72,7 +73,7 @@ public class Home extends AppCompatActivity {
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_profile, R.id.nav_groups, R.id.navEv_events, R.id.navEv_myevents,
-                    R.id.navEv_calendar, R.id.navEv_map, R.id.navEv_history, R.id.contactus)
+                    R.id.navEv_calendar, R.id.navEv_map, R.id.navEv_history)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
