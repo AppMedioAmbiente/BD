@@ -131,7 +131,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/interface"
+        android:id="@+id/s_interface"
         android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -142,15 +142,15 @@
         android:padding="10dp">
 
 
-    <TextView
-        android:id="@+id/textView4"
-        android:minWidth="200dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Interfaz"
-        android:textAlignment="textStart"
-        android:textColor="@color/white"
-        android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/textView4"
+            android:minWidth="200dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Interfaz"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:textSize="20sp"/>
 
         <ImageView
             android:id="@+id/imageView5"
