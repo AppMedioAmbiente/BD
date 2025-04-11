@@ -10,7 +10,14 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.firelogin.R;
 import com.example.firelogin.databinding.FragmentHomeBinding;
+
+import org.imaginativeworld.whynotimagecarousel.ImageCarousel;
+import org.imaginativeworld.whynotimagecarousel.model.CarouselItem;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
@@ -22,6 +29,12 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+        ImageCarousel carousel = root.findViewById(R.id.carousel);
+        carousel.registerLifecycle(getViewLifecycleOwner());
+        List<CarouselItem> list = new ArrayList<>();
+        list.add(new CarouselItem(R.drawable.secovo_ic, "Icono de SECOVO"));
+        carousel.setData(list);
 
         final TextView textView = binding.textHome;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
