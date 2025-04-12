@@ -56,7 +56,7 @@
                     android:id="@+id/eventImg"
                     android:layout_width="140dp"
                     android:layout_height="150dp"
-                    android:src="@drawable/background_cards"
+                    android:src="@drawable/logo"
                     android:scaleType="centerCrop"/>
 
                 <LinearLayout
@@ -189,7 +189,7 @@
                 <ImageView
                     android:layout_width="140dp"
                     android:layout_height="150dp"
-                    android:src="@drawable/background_cards"
+                    android:src="@drawable/logo"
                     android:scaleType="centerCrop"/>
 
                 <LinearLayout

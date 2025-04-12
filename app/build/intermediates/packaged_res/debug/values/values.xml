@@ -41,6 +41,7 @@
     <string name="btnCancel">Cancelar</string>
     <string name="btnSave">Guardar</string>
     <string name="config">Configuración</string>
+    <string name="default_web_client_id" translatable="false">489937646627-ltbsv09pig0f2mnma77a90qp1q74n160.apps.googleusercontent.com</string>
     <string name="destacadosH">Destacados</string>
     <string name="eventDetails">Detalles</string>
     <string name="events">Eventos</string>

@@ -3131,7 +3131,6 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
-drawable background_cards
 drawable bottom_top_shadow
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
@@ -3283,7 +3282,6 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable profile_ic
 drawable redondedado
-drawable secovo_ic
 drawable side_nav_bar
 drawable test_level_drawable
 drawable tooltip_frame_dark
@@ -3384,6 +3382,7 @@ id app_bar_home
 id arc
 id asConfigured
 id async
+id autentication
 id auto
 id autoComplete
 id autoCompleteToEnd
@@ -3572,6 +3571,7 @@ id imageView2
 id imageView3
 id imageView4
 id imageView5
+id imageView6
 id img
 id immediateStop
 id included
@@ -3659,6 +3659,7 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
+id name
 id names
 id namesMsg
 id navEv_calendar
@@ -3687,6 +3688,7 @@ id neverCompleteToEnd
 id neverCompleteToStart
 id next
 id next_button_container
+id nickname
 id noScroll
 id noState
 id none
@@ -3729,6 +3731,7 @@ id path
 id pathRelative
 id peekHeight
 id percent
+id personal_data
 id phone
 id phoneMsg
 id pin
@@ -3753,6 +3756,7 @@ id right_side
 id rounded
 id row_index_key
 id rtl
+id s_interface
 id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
@@ -3812,6 +3816,7 @@ id start
 id startHorizontal
 id startToEnd
 id startVertical
+id stateOfResidence
 id staticLayout
 id staticPostLayout
 id status_bar_latest_event_content
@@ -3860,11 +3865,6 @@ id textView19
 id textView2
 id textView3
 id textView4
-id textView5
-id textView6
-id textView7
-id textView8
-id textView9
 id text_abtus
 id text_abtusInfo
 id text_gallery
@@ -4168,6 +4168,7 @@ layout settings_autentication
 layout settings_interface
 layout settings_notifications
 layout settings_personaldata
+layout splash_screen
 layout support_simple_spinner_dropdown_item
 layout usuario
 menu home
@@ -4250,6 +4251,7 @@ string common_signin_button_text
 string common_signin_button_text_long
 string config
 string copy_toast_msg
+string default_web_client_id
 string dest_title
 string destacadosH
 string error_a11y_label

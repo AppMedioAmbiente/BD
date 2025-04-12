@@ -4,7 +4,7 @@
             "outputFile": "com.example.firelogin.app-mergeDebugResources-52:/values-w600dp-v13/values-w600dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Computo\\AndroidStudioProjects\\BD\\app\\src\\main\\res\\values-w600dp\\dimens.xml",
+                    "source": "C:\\Users\\Carlos\\AndroidStudioProjects\\BD\\app\\src\\main\\res\\values-w600dp\\dimens.xml",
                     "from": {
                         "startLines": "1",
                         "startColumns": "4",

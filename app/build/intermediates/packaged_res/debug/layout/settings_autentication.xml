@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="top|center"
-    android:background="#082B11">
+    android:background="#082B11"
+    tools:context="Settings_Autentication">
 
     <LinearLayout
         android:layout_width="wrap_content"

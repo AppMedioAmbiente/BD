@@ -27,7 +27,7 @@
         android:debuggable="true"
         android:extractNativeLibs="false"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/secovo_ic"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:testOnly="true"
@@ -39,9 +39,20 @@
         tools:targetApi="m"
         <!
         -->
+
+        <activity
+            android:name="com.example.firelogin.Splash_Screen"
+            android:exported="true"
+            android:windowSoftInputMode="stateVisible|adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="com.example.firelogin.Home"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/title_activity_home"
             android:theme="@style/Theme.FireLogin.NoActionBar" />
 
@@ -68,15 +79,18 @@
             android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity
             android:name="com.example.firelogin.Settings"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
+        <activity
+            android:name="com.example.firelogin.Settings_PD"
+            android:exported="true" />
         <activity
             android:name="com.example.firelogin.Settings_Notifications"
+            android:exported="true" />
+        <activity
+            android:name="com.example.firelogin.Settings_Autentication"
+            android:exported="true" />
+        <activity
+            android:name="com.example.firelogin.Settings_Interface"
             android:exported="true" />
         <activity
             android:name="com.google.firebase.auth.internal.GenericIdpActivity"

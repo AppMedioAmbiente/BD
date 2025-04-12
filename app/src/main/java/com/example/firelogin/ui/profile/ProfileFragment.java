@@ -15,7 +15,9 @@ import com.example.firelogin.R;
 import com.example.firelogin.databinding.FragmentProfileBinding;
 import com.example.firelogin.ui.profile.ProfileFragment;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 
 import java.util.HashMap;
 import java.util.Map;

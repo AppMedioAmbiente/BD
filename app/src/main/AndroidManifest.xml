@@ -9,7 +9,7 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/secovo_ic"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.FireLogin"
@@ -21,16 +21,23 @@
         tools:targetApi="m"
         <!
         -->
+
         <activity
-            android:name=".Home"
+            android:name=".Splash_Screen"
             android:exported="true"
-            android:label="@string/title_activity_home"
-            android:theme="@style/Theme.FireLogin.NoActionBar" >
-            <intent-filter>
+            android:windowSoftInputMode="stateVisible|adjustResize">
+        <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter></activity>
+
+        <activity
+            android:name=".Home"
+            android:exported="true"
+            android:label="@string/title_activity_home"
+            android:theme="@style/Theme.FireLogin.NoActionBar" />
+
 
         <meta-data
             android:name="com.google.android.gms.version"
