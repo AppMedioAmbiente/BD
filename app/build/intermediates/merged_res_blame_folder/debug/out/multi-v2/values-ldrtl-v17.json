@@ -4,7 +4,11 @@
             "outputFile": "com.example.firelogin.app-mergeDebugResources-52:/values-ldrtl-v17/values-ldrtl-v17.xml",
             "map": [
                 {
+<<<<<<< HEAD
                     "source": "C:\\Users\\Carlos\\.gradle\\caches\\transforms-3\\4033de7b54fbfbf13646e9afd70466dc\\transformed\\material-1.12.0\\res\\values-ldrtl-v17\\values-ldrtl-v17.xml",
+=======
+                    "source": "C:\\Users\\Oscar Medina\\.gradle\\caches\\transforms-3\\ee6dfba21e8615dd07a1a58fabae7346\\transformed\\material-1.12.0\\res\\values-ldrtl-v17\\values-ldrtl-v17.xml",
+>>>>>>> 696f88a600d1699373670040e5755e3d5fa13c20
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

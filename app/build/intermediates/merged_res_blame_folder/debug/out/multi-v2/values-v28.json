@@ -4,7 +4,11 @@
             "outputFile": "com.example.firelogin.app-mergeDebugResources-52:/values-v28/values-v28.xml",
             "map": [
                 {
+<<<<<<< HEAD
                     "source": "C:\\Users\\Carlos\\.gradle\\caches\\transforms-3\\4033de7b54fbfbf13646e9afd70466dc\\transformed\\material-1.12.0\\res\\values-v28\\values-v28.xml",
+=======
+                    "source": "C:\\Users\\Oscar Medina\\.gradle\\caches\\transforms-3\\ee6dfba21e8615dd07a1a58fabae7346\\transformed\\material-1.12.0\\res\\values-v28\\values-v28.xml",
+>>>>>>> 696f88a600d1699373670040e5755e3d5fa13c20
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -23,7 +27,11 @@
                     }
                 },
                 {
+<<<<<<< HEAD
                     "source": "C:\\Users\\Carlos\\.gradle\\caches\\transforms-3\\cda486710fb225a8acf11aa42219e202\\transformed\\appcompat-1.6.1\\res\\values-v28\\values-v28.xml",
+=======
+                    "source": "C:\\Users\\Oscar Medina\\.gradle\\caches\\transforms-3\\95dd7c3fcf7688529102e53fe7bfa486\\transformed\\appcompat-1.6.1\\res\\values-v28\\values-v28.xml",
+>>>>>>> 696f88a600d1699373670040e5755e3d5fa13c20
                     "from": {
                         "startLines": "2,3,4,8",
                         "startColumns": "4,4,4,4",

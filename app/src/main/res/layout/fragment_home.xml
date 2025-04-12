@@ -23,7 +23,11 @@
     <org.imaginativeworld.whynotimagecarousel.ImageCarousel
         android:id="@+id/carousel"
         android:layout_width="match_parent"
-        android:layout_height="256dp" />
+        android:layout_height="256dp"
+        app:showIndicator="true"
+        app:autoPlay="true"
+        app:autoPlayDelay="6000"
+        app:showTopShadow="true"/>
 
     <TextView
         android:id="@+id/text_abtus"
