@@ -109,6 +109,7 @@ id nav_logout
 id nav_profile
 id nav_view
 id next
+id notification
 id password
 id passwordMsg
 id phone

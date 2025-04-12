@@ -14,9 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FireLogin"
         tools:targetApi="31">
-        <activity
-            android:name=".Settings"
-            android:exported="false" />
+
         <!--
         >
         android:usesCleartextTraffic="true"
@@ -25,9 +23,14 @@
         -->
         <activity
             android:name=".Home"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/title_activity_home"
-            android:theme="@style/Theme.FireLogin.NoActionBar" />
+            android:theme="@style/Theme.FireLogin.NoActionBar" >
+            <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter></activity>
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -37,11 +40,7 @@
             android:name=".Login"
             android:exported="true"
             android:windowSoftInputMode="stateVisible|adjustResize">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Register"
@@ -55,6 +54,25 @@
             android:name=".Usuario"
             android:exported="true"
             android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity
+            android:name=".Settings"
+            android:exported="true"/>
+
+        <activity
+            android:name=".Settings_PD"
+            android:exported="true"/>
+
+        <activity
+            android:name=".Settings_Notifications"
+            android:exported="true" />
+
+        <activity
+            android:name=".Settings_Autentication"
+            android:exported="true" />
+
+        <activity
+            android:name=".Settings_Interface"
+            android:exported="true" />
     </application>
 
 </manifest>

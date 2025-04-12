@@ -36,6 +36,9 @@ public final class SettingsBinding implements ViewBinding {
   public final ImageView imageView5;
 
   @NonNull
+  public final LinearLayout notification;
+
+  @NonNull
   public final TextView textView;
 
   @NonNull
@@ -49,14 +52,15 @@ public final class SettingsBinding implements ViewBinding {
 
   private SettingsBinding(@NonNull LinearLayout rootView, @NonNull ImageView imageView,
       @NonNull ImageView imageView2, @NonNull ImageView imageView3, @NonNull ImageView imageView4,
-      @NonNull ImageView imageView5, @NonNull TextView textView, @NonNull TextView textView2,
-      @NonNull TextView textView3, @NonNull TextView textView4) {
+      @NonNull ImageView imageView5, @NonNull LinearLayout notification, @NonNull TextView textView,
+      @NonNull TextView textView2, @NonNull TextView textView3, @NonNull TextView textView4) {
     this.rootView = rootView;
     this.imageView = imageView;
     this.imageView2 = imageView2;
     this.imageView3 = imageView3;
     this.imageView4 = imageView4;
     this.imageView5 = imageView5;
+    this.notification = notification;
     this.textView = textView;
     this.textView2 = textView2;
     this.textView3 = textView3;
@@ -120,6 +124,12 @@ public final class SettingsBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.notification;
+      LinearLayout notification = ViewBindings.findChildViewById(rootView, id);
+      if (notification == null) {
+        break missingId;
+      }
+
       id = R.id.textView;
       TextView textView = ViewBindings.findChildViewById(rootView, id);
       if (textView == null) {
@@ -145,7 +155,7 @@ public final class SettingsBinding implements ViewBinding {
       }
 
       return new SettingsBinding((LinearLayout) rootView, imageView, imageView2, imageView3,
-          imageView4, imageView5, textView, textView2, textView3, textView4);
+          imageView4, imageView5, notification, textView, textView2, textView3, textView4);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
