@@ -9,6 +9,21 @@
     tools:context=".Settings"
     android:background="#082B11">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.FireLogin.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tbSettings"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/Theme.FireLogin.PopupOverlay"
+            app:title=" "/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

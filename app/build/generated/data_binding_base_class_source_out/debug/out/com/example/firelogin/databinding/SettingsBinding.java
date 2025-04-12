@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.firelogin.R;
@@ -19,6 +20,9 @@ import java.lang.String;
 public final class SettingsBinding implements ViewBinding {
   @NonNull
   private final LinearLayout rootView;
+
+  @NonNull
+  public final LinearLayout autentication;
 
   @NonNull
   public final ImageView imageView;
@@ -39,6 +43,15 @@ public final class SettingsBinding implements ViewBinding {
   public final LinearLayout notification;
 
   @NonNull
+  public final LinearLayout personalData;
+
+  @NonNull
+  public final LinearLayout sInterface;
+
+  @NonNull
+  public final Toolbar tbSettings;
+
+  @NonNull
   public final TextView textView;
 
   @NonNull
@@ -50,17 +63,23 @@ public final class SettingsBinding implements ViewBinding {
   @NonNull
   public final TextView textView4;
 
-  private SettingsBinding(@NonNull LinearLayout rootView, @NonNull ImageView imageView,
-      @NonNull ImageView imageView2, @NonNull ImageView imageView3, @NonNull ImageView imageView4,
-      @NonNull ImageView imageView5, @NonNull LinearLayout notification, @NonNull TextView textView,
+  private SettingsBinding(@NonNull LinearLayout rootView, @NonNull LinearLayout autentication,
+      @NonNull ImageView imageView, @NonNull ImageView imageView2, @NonNull ImageView imageView3,
+      @NonNull ImageView imageView4, @NonNull ImageView imageView5,
+      @NonNull LinearLayout notification, @NonNull LinearLayout personalData,
+      @NonNull LinearLayout sInterface, @NonNull Toolbar tbSettings, @NonNull TextView textView,
       @NonNull TextView textView2, @NonNull TextView textView3, @NonNull TextView textView4) {
     this.rootView = rootView;
+    this.autentication = autentication;
     this.imageView = imageView;
     this.imageView2 = imageView2;
     this.imageView3 = imageView3;
     this.imageView4 = imageView4;
     this.imageView5 = imageView5;
     this.notification = notification;
+    this.personalData = personalData;
+    this.sInterface = sInterface;
+    this.tbSettings = tbSettings;
     this.textView = textView;
     this.textView2 = textView2;
     this.textView3 = textView3;
@@ -94,6 +113,12 @@ public final class SettingsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.autentication;
+      LinearLayout autentication = ViewBindings.findChildViewById(rootView, id);
+      if (autentication == null) {
+        break missingId;
+      }
+
       id = R.id.imageView;
       ImageView imageView = ViewBindings.findChildViewById(rootView, id);
       if (imageView == null) {
@@ -130,6 +155,24 @@ public final class SettingsBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.personal_data;
+      LinearLayout personalData = ViewBindings.findChildViewById(rootView, id);
+      if (personalData == null) {
+        break missingId;
+      }
+
+      id = R.id.s_interface;
+      LinearLayout sInterface = ViewBindings.findChildViewById(rootView, id);
+      if (sInterface == null) {
+        break missingId;
+      }
+
+      id = R.id.tbSettings;
+      Toolbar tbSettings = ViewBindings.findChildViewById(rootView, id);
+      if (tbSettings == null) {
+        break missingId;
+      }
+
       id = R.id.textView;
       TextView textView = ViewBindings.findChildViewById(rootView, id);
       if (textView == null) {
@@ -154,8 +197,9 @@ public final class SettingsBinding implements ViewBinding {
         break missingId;
       }
 
-      return new SettingsBinding((LinearLayout) rootView, imageView, imageView2, imageView3,
-          imageView4, imageView5, notification, textView, textView2, textView3, textView4);
+      return new SettingsBinding((LinearLayout) rootView, autentication, imageView, imageView2,
+          imageView3, imageView4, imageView5, notification, personalData, sInterface, tbSettings,
+          textView, textView2, textView3, textView4);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

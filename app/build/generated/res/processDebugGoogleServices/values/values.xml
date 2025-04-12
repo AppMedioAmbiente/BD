@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="default_web_client_id" translatable="false">489937646627-ltbsv09pig0f2mnma77a90qp1q74n160.apps.googleusercontent.com</string>
     <string name="gcm_defaultSenderId" translatable="false">489937646627</string>
     <string name="google_api_key" translatable="false">AIzaSyDx50dtED3s0E5m2tmFyZW4We0hboSqpUg</string>
     <string name="google_app_id" translatable="false">1:489937646627:android:cc9a155759d24605d4ad96</string>

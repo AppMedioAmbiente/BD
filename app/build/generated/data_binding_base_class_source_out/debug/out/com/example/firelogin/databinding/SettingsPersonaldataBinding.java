@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.firelogin.R;
@@ -22,46 +23,50 @@ public final class SettingsPersonaldataBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
+  public final TextView birthdate;
+
+  @NonNull
   public final Button button;
 
   @NonNull
-  public final Button button2;
+  public final Button cancelPDBtn;
+
+  @NonNull
+  public final TextView email;
 
   @NonNull
   public final ImageView imageView;
 
   @NonNull
-  public final TextView textView10;
+  public final TextView name;
 
   @NonNull
-  public final TextView textView5;
+  public final TextView nickname;
 
   @NonNull
-  public final TextView textView6;
+  public final TextView phone;
 
   @NonNull
-  public final TextView textView7;
+  public final TextView stateOfResidence;
 
   @NonNull
-  public final TextView textView8;
+  public final Toolbar tbPDSettings;
 
-  @NonNull
-  public final TextView textView9;
-
-  private SettingsPersonaldataBinding(@NonNull LinearLayout rootView, @NonNull Button button,
-      @NonNull Button button2, @NonNull ImageView imageView, @NonNull TextView textView10,
-      @NonNull TextView textView5, @NonNull TextView textView6, @NonNull TextView textView7,
-      @NonNull TextView textView8, @NonNull TextView textView9) {
+  private SettingsPersonaldataBinding(@NonNull LinearLayout rootView, @NonNull TextView birthdate,
+      @NonNull Button button, @NonNull Button cancelPDBtn, @NonNull TextView email,
+      @NonNull ImageView imageView, @NonNull TextView name, @NonNull TextView nickname,
+      @NonNull TextView phone, @NonNull TextView stateOfResidence, @NonNull Toolbar tbPDSettings) {
     this.rootView = rootView;
+    this.birthdate = birthdate;
     this.button = button;
-    this.button2 = button2;
+    this.cancelPDBtn = cancelPDBtn;
+    this.email = email;
     this.imageView = imageView;
-    this.textView10 = textView10;
-    this.textView5 = textView5;
-    this.textView6 = textView6;
-    this.textView7 = textView7;
-    this.textView8 = textView8;
-    this.textView9 = textView9;
+    this.name = name;
+    this.nickname = nickname;
+    this.phone = phone;
+    this.stateOfResidence = stateOfResidence;
+    this.tbPDSettings = tbPDSettings;
   }
 
   @Override
@@ -91,15 +96,27 @@ public final class SettingsPersonaldataBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.birthdate;
+      TextView birthdate = ViewBindings.findChildViewById(rootView, id);
+      if (birthdate == null) {
+        break missingId;
+      }
+
       id = R.id.button;
       Button button = ViewBindings.findChildViewById(rootView, id);
       if (button == null) {
         break missingId;
       }
 
-      id = R.id.button2;
-      Button button2 = ViewBindings.findChildViewById(rootView, id);
-      if (button2 == null) {
+      id = R.id.cancelPDBtn;
+      Button cancelPDBtn = ViewBindings.findChildViewById(rootView, id);
+      if (cancelPDBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.email;
+      TextView email = ViewBindings.findChildViewById(rootView, id);
+      if (email == null) {
         break missingId;
       }
 
@@ -109,44 +126,38 @@ public final class SettingsPersonaldataBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.textView10;
-      TextView textView10 = ViewBindings.findChildViewById(rootView, id);
-      if (textView10 == null) {
+      id = R.id.name;
+      TextView name = ViewBindings.findChildViewById(rootView, id);
+      if (name == null) {
         break missingId;
       }
 
-      id = R.id.textView5;
-      TextView textView5 = ViewBindings.findChildViewById(rootView, id);
-      if (textView5 == null) {
+      id = R.id.nickname;
+      TextView nickname = ViewBindings.findChildViewById(rootView, id);
+      if (nickname == null) {
         break missingId;
       }
 
-      id = R.id.textView6;
-      TextView textView6 = ViewBindings.findChildViewById(rootView, id);
-      if (textView6 == null) {
+      id = R.id.phone;
+      TextView phone = ViewBindings.findChildViewById(rootView, id);
+      if (phone == null) {
         break missingId;
       }
 
-      id = R.id.textView7;
-      TextView textView7 = ViewBindings.findChildViewById(rootView, id);
-      if (textView7 == null) {
+      id = R.id.stateOfResidence;
+      TextView stateOfResidence = ViewBindings.findChildViewById(rootView, id);
+      if (stateOfResidence == null) {
         break missingId;
       }
 
-      id = R.id.textView8;
-      TextView textView8 = ViewBindings.findChildViewById(rootView, id);
-      if (textView8 == null) {
+      id = R.id.tbPDSettings;
+      Toolbar tbPDSettings = ViewBindings.findChildViewById(rootView, id);
+      if (tbPDSettings == null) {
         break missingId;
       }
 
-      id = R.id.textView9;
-      TextView textView9 = ViewBindings.findChildViewById(rootView, id);
-      if (textView9 == null) {
-        break missingId;
-      }
-
-      return new SettingsPersonaldataBinding((LinearLayout) rootView, button, button2, imageView,
-          textView10, textView5, textView6, textView7, textView8, textView9);
+      return new SettingsPersonaldataBinding((LinearLayout) rootView, birthdate, button,
+          cancelPDBtn, email, imageView, name, nickname, phone, stateOfResidence, tbPDSettings);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

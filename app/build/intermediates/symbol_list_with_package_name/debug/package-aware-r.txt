@@ -3384,6 +3384,7 @@ id app_bar_home
 id arc
 id asConfigured
 id async
+id autentication
 id auto
 id autoComplete
 id autoCompleteToEnd
@@ -3416,12 +3417,14 @@ id btnSave
 id btn_next
 id btn_previous
 id button
-id button2
 id button3
 id button4
 id buttonPanel
 id cache_measures
 id callMeasure
+id cancelInterfBtn
+id cancelNotifBtn
+id cancelPDBtn
 id cancel_action
 id cancel_button
 id carousel
@@ -3659,6 +3662,7 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
+id name
 id names
 id namesMsg
 id navEv_calendar
@@ -3687,6 +3691,7 @@ id neverCompleteToEnd
 id neverCompleteToStart
 id next
 id next_button_container
+id nickname
 id noScroll
 id noState
 id none
@@ -3729,6 +3734,7 @@ id path
 id pathRelative
 id peekHeight
 id percent
+id personal_data
 id phone
 id phoneMsg
 id pin
@@ -3753,6 +3759,7 @@ id right_side
 id rounded
 id row_index_key
 id rtl
+id s_interface
 id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
@@ -3812,6 +3819,7 @@ id start
 id startHorizontal
 id startToEnd
 id startVertical
+id stateOfResidence
 id staticLayout
 id staticPostLayout
 id status_bar_latest_event_content
@@ -3839,6 +3847,11 @@ id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
 id tag_window_insets_animation_callback
+id tbAuthSettings
+id tbInterfSettings
+id tbNotifSettings
+id tbPDSettings
+id tbSettings
 id text
 id text2
 id textCalendar
@@ -3860,11 +3873,6 @@ id textView19
 id textView2
 id textView3
 id textView4
-id textView5
-id textView6
-id textView7
-id textView8
-id textView9
 id text_abtus
 id text_abtusInfo
 id text_gallery
@@ -4250,6 +4258,7 @@ string common_signin_button_text
 string common_signin_button_text_long
 string config
 string copy_toast_msg
+string default_web_client_id
 string dest_title
 string destacadosH
 string error_a11y_label

@@ -7,7 +7,22 @@
     android:orientation="vertical"
     android:gravity="top|center"
     android:background="#082B11"
-    tools:context="Settings_PD">
+    tools:context=".Settings_PD">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.FireLogin.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tbPDSettings"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/Theme.FireLogin.PopupOverlay"
+            app:title="Ajustes de datos personales"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -123,7 +138,7 @@
         android:padding="12dp">
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/cancelPDBtn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="10sp"

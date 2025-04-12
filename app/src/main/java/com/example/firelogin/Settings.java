@@ -1,6 +1,8 @@
 package com.example.firelogin;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.LinearLayout;
@@ -8,17 +10,19 @@ import java.util.HashMap;
 
 public class Settings extends AppCompatActivity {
 
-    LinearLayout btnPersonal_data;
-    LinearLayout btnNotification;
-    LinearLayout btnAutentication;
-    LinearLayout btnInterface;
-
-
+    LinearLayout btnPersonal_data, btnNotification, btnAutentication, btnInterface;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings);
+
+        Toolbar tbSettings = findViewById(R.id.tbSettings);
+        setSupportActionBar(tbSettings);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
 
         btnPersonal_data = (LinearLayout) findViewById(R.id.personal_data);
 
@@ -51,5 +55,14 @@ public class Settings extends AppCompatActivity {
             startActivity(intent);
         });
 
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        Intent intent = new Intent(Settings.this, Home.class);
+        //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
+        return true;
     }
 }

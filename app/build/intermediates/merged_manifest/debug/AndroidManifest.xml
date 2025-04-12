@@ -41,9 +41,15 @@
         -->
         <activity
             android:name="com.example.firelogin.Home"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/title_activity_home"
-            android:theme="@style/Theme.FireLogin.NoActionBar" />
+            android:theme="@style/Theme.FireLogin.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -68,15 +74,18 @@
             android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity
             android:name="com.example.firelogin.Settings"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
+        <activity
+            android:name="com.example.firelogin.Settings_PD"
+            android:exported="true" />
         <activity
             android:name="com.example.firelogin.Settings_Notifications"
+            android:exported="true" />
+        <activity
+            android:name="com.example.firelogin.Settings_Autentication"
+            android:exported="true" />
+        <activity
+            android:name="com.example.firelogin.Settings_Interface"
             android:exported="true" />
         <activity
             android:name="com.google.firebase.auth.internal.GenericIdpActivity"

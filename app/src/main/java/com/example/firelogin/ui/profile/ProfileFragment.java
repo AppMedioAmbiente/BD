@@ -80,7 +80,7 @@ public class ProfileFragment extends Fragment {
 
         // Crear un Map para eliminar el campo "email"
         Map<String, Object> updates = new HashMap<>();
-        updates.put("email", FieldValue.delete());
+        //updates.put("email", FieldValue.delete());
 
         // Actualizar el documento para eliminar el campo
         userRef.update(updates)
@@ -105,7 +105,7 @@ public class ProfileFragment extends Fragment {
         newField.put("phone", "+1234567890");
 
         // Usar set() con merge para agregar solo si no existe
-        userRef.set(newField, SetOptions.merge())
+        /*userRef.set(newField, SetOptions.merge())
         .addOnSuccessListener(aVoid -> {
             // Campo agregado con éxito
             Log.d("Firestore", "Campo agregado con éxito!");
@@ -113,6 +113,6 @@ public class ProfileFragment extends Fragment {
         .addOnFailureListener(e -> {
             // Error al agregar el campo
             Log.w("Firestore", "Error al agregar el campo", e);
-        });
+        });*/
     }
 }

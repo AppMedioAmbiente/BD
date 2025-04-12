@@ -1,7 +1,10 @@
 package com.example.firelogin;
 
 import android.os.Bundle;
+import android.widget.Button;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class Settings_Autentication extends AppCompatActivity {
 
@@ -9,6 +12,20 @@ public class Settings_Autentication extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_autentication);
+
+        Toolbar tbAuthSettings = findViewById(R.id.tbAuthSettings);
+        setSupportActionBar(tbAuthSettings);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 
 }

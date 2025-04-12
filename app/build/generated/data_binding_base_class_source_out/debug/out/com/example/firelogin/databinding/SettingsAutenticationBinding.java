@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.firelogin.R;
@@ -31,18 +32,22 @@ public final class SettingsAutenticationBinding implements ViewBinding {
   public final ImageView imageView;
 
   @NonNull
+  public final Toolbar tbAuthSettings;
+
+  @NonNull
   public final TextView textView10;
 
   @NonNull
   public final TextView textView19;
 
   private SettingsAutenticationBinding(@NonNull LinearLayout rootView, @NonNull Button button3,
-      @NonNull Button button4, @NonNull ImageView imageView, @NonNull TextView textView10,
-      @NonNull TextView textView19) {
+      @NonNull Button button4, @NonNull ImageView imageView, @NonNull Toolbar tbAuthSettings,
+      @NonNull TextView textView10, @NonNull TextView textView19) {
     this.rootView = rootView;
     this.button3 = button3;
     this.button4 = button4;
     this.imageView = imageView;
+    this.tbAuthSettings = tbAuthSettings;
     this.textView10 = textView10;
     this.textView19 = textView19;
   }
@@ -92,6 +97,12 @@ public final class SettingsAutenticationBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tbAuthSettings;
+      Toolbar tbAuthSettings = ViewBindings.findChildViewById(rootView, id);
+      if (tbAuthSettings == null) {
+        break missingId;
+      }
+
       id = R.id.textView10;
       TextView textView10 = ViewBindings.findChildViewById(rootView, id);
       if (textView10 == null) {
@@ -105,7 +116,7 @@ public final class SettingsAutenticationBinding implements ViewBinding {
       }
 
       return new SettingsAutenticationBinding((LinearLayout) rootView, button3, button4, imageView,
-          textView10, textView19);
+          tbAuthSettings, textView10, textView19);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

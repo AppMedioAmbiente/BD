@@ -9,6 +9,21 @@
     tools:context=".Settings_Notifications"
     android:background="#082B11">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.FireLogin.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tbNotifSettings"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/Theme.FireLogin.PopupOverlay"
+            app:title="Ajustes de notificaciones"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -134,7 +149,7 @@
         android:padding="12dp">
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/cancelNotifBtn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="10sp"

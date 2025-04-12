@@ -11,6 +11,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.firelogin.R;
@@ -26,7 +27,7 @@ public final class SettingsInterfaceBinding implements ViewBinding {
   public final Button button;
 
   @NonNull
-  public final Button button2;
+  public final Button cancelInterfBtn;
 
   @NonNull
   public final ImageView imageView;
@@ -41,6 +42,9 @@ public final class SettingsInterfaceBinding implements ViewBinding {
   public final Switch switch19;
 
   @NonNull
+  public final Toolbar tbInterfSettings;
+
+  @NonNull
   public final TextView textView10;
 
   @NonNull
@@ -50,16 +54,17 @@ public final class SettingsInterfaceBinding implements ViewBinding {
   public final TextView textView19;
 
   private SettingsInterfaceBinding(@NonNull LinearLayout rootView, @NonNull Button button,
-      @NonNull Button button2, @NonNull ImageView imageView, @NonNull Switch switch1,
-      @NonNull Switch switch11, @NonNull Switch switch19, @NonNull TextView textView10,
-      @NonNull TextView textView13, @NonNull TextView textView19) {
+      @NonNull Button cancelInterfBtn, @NonNull ImageView imageView, @NonNull Switch switch1,
+      @NonNull Switch switch11, @NonNull Switch switch19, @NonNull Toolbar tbInterfSettings,
+      @NonNull TextView textView10, @NonNull TextView textView13, @NonNull TextView textView19) {
     this.rootView = rootView;
     this.button = button;
-    this.button2 = button2;
+    this.cancelInterfBtn = cancelInterfBtn;
     this.imageView = imageView;
     this.switch1 = switch1;
     this.switch11 = switch11;
     this.switch19 = switch19;
+    this.tbInterfSettings = tbInterfSettings;
     this.textView10 = textView10;
     this.textView13 = textView13;
     this.textView19 = textView19;
@@ -98,9 +103,9 @@ public final class SettingsInterfaceBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.button2;
-      Button button2 = ViewBindings.findChildViewById(rootView, id);
-      if (button2 == null) {
+      id = R.id.cancelInterfBtn;
+      Button cancelInterfBtn = ViewBindings.findChildViewById(rootView, id);
+      if (cancelInterfBtn == null) {
         break missingId;
       }
 
@@ -128,6 +133,12 @@ public final class SettingsInterfaceBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tbInterfSettings;
+      Toolbar tbInterfSettings = ViewBindings.findChildViewById(rootView, id);
+      if (tbInterfSettings == null) {
+        break missingId;
+      }
+
       id = R.id.textView10;
       TextView textView10 = ViewBindings.findChildViewById(rootView, id);
       if (textView10 == null) {
@@ -146,8 +157,9 @@ public final class SettingsInterfaceBinding implements ViewBinding {
         break missingId;
       }
 
-      return new SettingsInterfaceBinding((LinearLayout) rootView, button, button2, imageView,
-          switch1, switch11, switch19, textView10, textView13, textView19);
+      return new SettingsInterfaceBinding((LinearLayout) rootView, button, cancelInterfBtn,
+          imageView, switch1, switch11, switch19, tbInterfSettings, textView10, textView13,
+          textView19);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
