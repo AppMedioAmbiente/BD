@@ -1,12 +1,12 @@
 # Android Studio
-.idea/
-.gradle/
+/.idea/
 local.properties
 *.iml
-/build/
+build/
 
 # Gradle
-.gradle/
+/.gradle/
+**/build/
 
 # Archivos temporales
 *.log
