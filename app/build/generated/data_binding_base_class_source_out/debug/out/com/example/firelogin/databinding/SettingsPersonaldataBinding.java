@@ -5,8 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,13 +20,10 @@ import java.lang.String;
 
 public final class SettingsPersonaldataBinding implements ViewBinding {
   @NonNull
-  private final LinearLayout rootView;
+  private final ScrollView rootView;
 
   @NonNull
   public final TextView birthdate;
-
-  @NonNull
-  public final Button button;
 
   @NonNull
   public final Button button2;
@@ -40,33 +38,45 @@ public final class SettingsPersonaldataBinding implements ViewBinding {
   public final TextView name;
 
   @NonNull
-  public final TextView nickname;
+  public final Button save;
 
   @NonNull
-  public final TextView phone;
+  public final EditText showBirthdate;
 
   @NonNull
-  public final TextView stateOfResidence;
+  public final EditText showEmail;
 
-  private SettingsPersonaldataBinding(@NonNull LinearLayout rootView, @NonNull TextView birthdate,
-      @NonNull Button button, @NonNull Button button2, @NonNull TextView email,
-      @NonNull ImageView imageView, @NonNull TextView name, @NonNull TextView nickname,
-      @NonNull TextView phone, @NonNull TextView stateOfResidence) {
+  @NonNull
+  public final EditText showName;
+
+  @NonNull
+  public final EditText showSurnname;
+
+  @NonNull
+  public final TextView surname;
+
+  private SettingsPersonaldataBinding(@NonNull ScrollView rootView, @NonNull TextView birthdate,
+      @NonNull Button button2, @NonNull TextView email, @NonNull ImageView imageView,
+      @NonNull TextView name, @NonNull Button save, @NonNull EditText showBirthdate,
+      @NonNull EditText showEmail, @NonNull EditText showName, @NonNull EditText showSurnname,
+      @NonNull TextView surname) {
     this.rootView = rootView;
     this.birthdate = birthdate;
-    this.button = button;
     this.button2 = button2;
     this.email = email;
     this.imageView = imageView;
     this.name = name;
-    this.nickname = nickname;
-    this.phone = phone;
-    this.stateOfResidence = stateOfResidence;
+    this.save = save;
+    this.showBirthdate = showBirthdate;
+    this.showEmail = showEmail;
+    this.showName = showName;
+    this.showSurnname = showSurnname;
+    this.surname = surname;
   }
 
   @Override
   @NonNull
-  public LinearLayout getRoot() {
+  public ScrollView getRoot() {
     return rootView;
   }
 
@@ -97,12 +107,6 @@ public final class SettingsPersonaldataBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.button;
-      Button button = ViewBindings.findChildViewById(rootView, id);
-      if (button == null) {
-        break missingId;
-      }
-
       id = R.id.button2;
       Button button2 = ViewBindings.findChildViewById(rootView, id);
       if (button2 == null) {
@@ -127,26 +131,44 @@ public final class SettingsPersonaldataBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.nickname;
-      TextView nickname = ViewBindings.findChildViewById(rootView, id);
-      if (nickname == null) {
+      id = R.id.save;
+      Button save = ViewBindings.findChildViewById(rootView, id);
+      if (save == null) {
         break missingId;
       }
 
-      id = R.id.phone;
-      TextView phone = ViewBindings.findChildViewById(rootView, id);
-      if (phone == null) {
+      id = R.id.show_birthdate;
+      EditText showBirthdate = ViewBindings.findChildViewById(rootView, id);
+      if (showBirthdate == null) {
         break missingId;
       }
 
-      id = R.id.stateOfResidence;
-      TextView stateOfResidence = ViewBindings.findChildViewById(rootView, id);
-      if (stateOfResidence == null) {
+      id = R.id.show_email;
+      EditText showEmail = ViewBindings.findChildViewById(rootView, id);
+      if (showEmail == null) {
         break missingId;
       }
 
-      return new SettingsPersonaldataBinding((LinearLayout) rootView, birthdate, button, button2,
-          email, imageView, name, nickname, phone, stateOfResidence);
+      id = R.id.show_name;
+      EditText showName = ViewBindings.findChildViewById(rootView, id);
+      if (showName == null) {
+        break missingId;
+      }
+
+      id = R.id.show_surnname;
+      EditText showSurnname = ViewBindings.findChildViewById(rootView, id);
+      if (showSurnname == null) {
+        break missingId;
+      }
+
+      id = R.id.surname;
+      TextView surname = ViewBindings.findChildViewById(rootView, id);
+      if (surname == null) {
+        break missingId;
+      }
+
+      return new SettingsPersonaldataBinding((ScrollView) rootView, birthdate, button2, email,
+          imageView, name, save, showBirthdate, showEmail, showName, showSurnname, surname);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

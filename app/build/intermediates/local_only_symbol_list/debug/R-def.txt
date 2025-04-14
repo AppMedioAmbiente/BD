@@ -110,7 +110,6 @@ id nav_logout
 id nav_profile
 id nav_view
 id next
-id nickname
 id notification
 id password
 id passwordMsg
@@ -120,10 +119,15 @@ id phoneMsg
 id repPassMsg
 id repeat_password
 id s_interface
+id save
 id send
 id settings
+id show_birthdate
+id show_email
+id show_name
+id show_surnname
 id space
-id stateOfResidence
+id surname
 id surnames
 id surnamesMsg
 id switch1

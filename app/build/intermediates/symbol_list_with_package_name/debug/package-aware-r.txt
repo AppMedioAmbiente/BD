@@ -3688,7 +3688,6 @@ id neverCompleteToEnd
 id neverCompleteToStart
 id next
 id next_button_container
-id nickname
 id noScroll
 id noState
 id none
@@ -3757,6 +3756,7 @@ id rounded
 id row_index_key
 id rtl
 id s_interface
+id save
 id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
@@ -3788,6 +3788,10 @@ id shortcut
 id showCustom
 id showHome
 id showTitle
+id show_birthdate
+id show_email
+id show_name
+id show_surnname
 id sin
 id skipCollapsed
 id skipped
@@ -3816,7 +3820,6 @@ id start
 id startHorizontal
 id startToEnd
 id startVertical
-id stateOfResidence
 id staticLayout
 id staticPostLayout
 id status_bar_latest_event_content
@@ -3825,6 +3828,7 @@ id stretch
 id submenuarrow
 id submit_area
 id supportScrollUp
+id surname
 id surnames
 id surnamesMsg
 id switch1

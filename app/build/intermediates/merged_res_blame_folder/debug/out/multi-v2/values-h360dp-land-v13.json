@@ -4,11 +4,7 @@
             "outputFile": "com.example.firelogin.app-mergeDebugResources-52:/values-h360dp-land-v13/values-h360dp-land-v13.xml",
             "map": [
                 {
-<<<<<<< HEAD
-                    "source": "C:\\Users\\Carlos\\.gradle\\caches\\transforms-3\\4033de7b54fbfbf13646e9afd70466dc\\transformed\\material-1.12.0\\res\\values-h360dp-land-v13\\values-h360dp-land-v13.xml",
-=======
-                    "source": "C:\\Users\\Oscar Medina\\.gradle\\caches\\transforms-3\\ee6dfba21e8615dd07a1a58fabae7346\\transformed\\material-1.12.0\\res\\values-h360dp-land-v13\\values-h360dp-land-v13.xml",
->>>>>>> 696f88a600d1699373670040e5755e3d5fa13c20
+                    "source": "C:\\Users\\Carlos\\.gradle\\caches\\transforms-3\\ee6dfba21e8615dd07a1a58fabae7346\\transformed\\material-1.12.0\\res\\values-h360dp-land-v13\\values-h360dp-land-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",

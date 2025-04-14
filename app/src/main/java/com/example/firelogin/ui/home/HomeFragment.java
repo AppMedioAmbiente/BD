@@ -33,7 +33,7 @@ public class HomeFragment extends Fragment {
         ImageCarousel carousel = root.findViewById(R.id.carousel);
         carousel.registerLifecycle(getViewLifecycleOwner());
         List<CarouselItem> list = new ArrayList<>();
-        list.add(new CarouselItem(R.drawable.secovo_ic, "Icono de SECOVO"));
+        list.add(new CarouselItem(R.drawable.logo, "Icono de SECOVO"));
         carousel.setData(list);
 
         final TextView textView = binding.textHome;
