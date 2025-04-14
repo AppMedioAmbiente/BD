@@ -17,7 +17,6 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.firelogin.databinding.HomeBinding;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
@@ -50,6 +49,12 @@ public class Home extends AppCompatActivity {
 
         binding = HomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        ImageCarousel carousel = findViewById(R.id.carousel);
+        List<CarouselItem> list = new ArrayList<>();
+        list.add(new CarouselItem(R.drawable.logo, "Icono de SECOVO"));
+        carousel.setData(list);
+
 
         setSupportActionBar(binding.appBarHome.toolbar);
         binding.appBarHome.contactus.setOnClickListener(new View.OnClickListener() {
