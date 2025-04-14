@@ -9,6 +9,12 @@
     android:background="@color/mainColor"
     tools:context=".Settings_PD">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="top|center">
+
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,12 +29,6 @@
             app:title="Ajustes de datos personales"/>
 
     </com.google.android.material.appbar.AppBarLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="top|center">
 
         <LinearLayout
             android:layout_width="wrap_content"

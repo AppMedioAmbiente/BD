@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.firelogin.app-mergeDebugResources-52:/values-v16/values-v16.xml",
+            "outputFile": "com.example.firelogin.app-mergeDebugResources-55:/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Oscar Medina\\.gradle\\caches\\transforms-3\\95dd7c3fcf7688529102e53fe7bfa486\\transformed\\appcompat-1.6.1\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\Computo\\.gradle\\caches\\transforms-3\\7574a82893892b1c5da14bc025fad0cc\\transformed\\appcompat-1.6.1\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

@@ -689,6 +689,8 @@
     <color name="common_google_signin_btn_text_light_focused">#90000000</color>
     <color name="common_google_signin_btn_text_light_pressed">#DE000000</color>
     <color name="crema">#FFC499</color>
+    <color name="defaultBackgroundColor">@android:color/transparent</color>
+    <color name="defaultTextColor">@android:color/black</color>
     <color name="design_bottom_navigation_shadow_color">#14000000</color>
     <color name="design_dark_default_color_background">#121212</color>
     <color name="design_dark_default_color_error">#CF6679</color>
@@ -1161,6 +1163,7 @@
     <dimen name="fastscroll_default_thickness">8dp</dimen>
     <dimen name="fastscroll_margin">0dp</dimen>
     <dimen name="fastscroll_minimum_range">50dp</dimen>
+    <dimen name="google_1x">8dp</dimen>
     <item format="float" name="highlight_alpha_material_colored" type="dimen">0.26</item>
     <item format="float" name="highlight_alpha_material_dark" type="dimen">0.20</item>
     <item format="float" name="highlight_alpha_material_light" type="dimen">0.12</item>
@@ -2092,6 +2095,737 @@
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <string name="config">Configuración</string>
     <string name="copy_toast_msg">Link copied to clipboard</string>
+    <string name="country_afghanistan_code" translatable="false">af</string>
+    <string name="country_afghanistan_name">Afghanistan</string>
+    <string name="country_afghanistan_number" translatable="false">93</string>
+    <string name="country_aland_islands_code" translatable="false">ax</string>
+    <string name="country_aland_islands_name">Åland Islands</string>
+    <string name="country_aland_islands_number" translatable="false">358</string>
+    <string name="country_albania_code" translatable="false">al</string>
+    <string name="country_albania_name">Albania</string>
+    <string name="country_albania_number" translatable="false">355</string>
+    <string name="country_algeria_code" translatable="false">dz</string>
+    <string name="country_algeria_name">Algeria</string>
+    <string name="country_algeria_number" translatable="false">213</string>
+    <string name="country_american_samoa_code" translatable="false">as</string>
+    <string name="country_american_samoa_name">American Samoa</string>
+    <string name="country_american_samoa_number" translatable="false">1684</string>
+    <string name="country_andorra_code" translatable="false">ad</string>
+    <string name="country_andorra_name">Andorra</string>
+    <string name="country_andorra_number" translatable="false">376</string>
+    <string name="country_angola_code" translatable="false">ao</string>
+    <string name="country_angola_name">Angola</string>
+    <string name="country_angola_number" translatable="false">244</string>
+    <string name="country_anguilla_code" translatable="false">ai</string>
+    <string name="country_anguilla_name">Anguilla</string>
+    <string name="country_anguilla_number" translatable="false">1264</string>
+    <string name="country_antarctica_code" translatable="false">aq</string>
+    <string name="country_antarctica_name">Antarctica</string>
+    <string name="country_antarctica_number" translatable="false">672</string>
+    <string name="country_antigua_and_barbuda_code" translatable="false">ag</string>
+    <string name="country_antigua_and_barbuda_name">Antigua and Barbuda</string>
+    <string name="country_antigua_and_barbuda_number" translatable="false">1268</string>
+    <string name="country_argentina_code" translatable="false">ar</string>
+    <string name="country_argentina_name">Argentina</string>
+    <string name="country_argentina_number" translatable="false">54</string>
+    <string name="country_armenia_code" translatable="false">am</string>
+    <string name="country_armenia_name">Armenia</string>
+    <string name="country_armenia_number" translatable="false">374</string>
+    <string name="country_aruba_code" translatable="false">aw</string>
+    <string name="country_aruba_name">Aruba</string>
+    <string name="country_aruba_number" translatable="false">297</string>
+    <string name="country_australia_code" translatable="false">au</string>
+    <string name="country_australia_name">Australia</string>
+    <string name="country_australia_number" translatable="false">61</string>
+    <string name="country_austria_code" translatable="false">at</string>
+    <string name="country_austria_name">Austria</string>
+    <string name="country_austria_number" translatable="false">43</string>
+    <string name="country_azerbaijan_code" translatable="false">az</string>
+    <string name="country_azerbaijan_name">Azerbaijan</string>
+    <string name="country_azerbaijan_number" translatable="false">994</string>
+    <string name="country_bahamas_code" translatable="false">bs</string>
+    <string name="country_bahamas_name">Bahamas</string>
+    <string name="country_bahamas_number" translatable="false">1242</string>
+    <string name="country_bahrain_code" translatable="false">bh</string>
+    <string name="country_bahrain_name">Bahrain</string>
+    <string name="country_bahrain_number" translatable="false">973</string>
+    <string name="country_bangladesh_code" translatable="false">bd</string>
+    <string name="country_bangladesh_name">Bangladesh</string>
+    <string name="country_bangladesh_number" translatable="false">880</string>
+    <string name="country_barbados_code" translatable="false">bb</string>
+    <string name="country_barbados_name">Barbados</string>
+    <string name="country_barbados_number" translatable="false">1246</string>
+    <string name="country_belarus_code" translatable="false">by</string>
+    <string name="country_belarus_name">Belarus</string>
+    <string name="country_belarus_number" translatable="false">375</string>
+    <string name="country_belgium_code" translatable="false">be</string>
+    <string name="country_belgium_name">Belgium</string>
+    <string name="country_belgium_number" translatable="false">32</string>
+    <string name="country_belize_code" translatable="false">bz</string>
+    <string name="country_belize_name">Belize</string>
+    <string name="country_belize_number" translatable="false">501</string>
+    <string name="country_benin_code" translatable="false">bj</string>
+    <string name="country_benin_name">Benin</string>
+    <string name="country_benin_number" translatable="false">229</string>
+    <string name="country_bermuda_code" translatable="false">bm</string>
+    <string name="country_bermuda_name">Bermuda</string>
+    <string name="country_bermuda_number" translatable="false">1441</string>
+    <string name="country_bhutan_code" translatable="false">bt</string>
+    <string name="country_bhutan_name">Bhutan</string>
+    <string name="country_bhutan_number" translatable="false">975</string>
+    <string name="country_bolivia_code" translatable="false">bo</string>
+    <string name="country_bolivia_name">Bolivia</string>
+    <string name="country_bolivia_number" translatable="false">591</string>
+    <string name="country_bosnia_and_herzegovina_code" translatable="false">ba</string>
+    <string name="country_bosnia_and_herzegovina_name">Bosnia And Herzegovina</string>
+    <string name="country_bosnia_and_herzegovina_number" translatable="false">387</string>
+    <string name="country_botswana_code" translatable="false">bw</string>
+    <string name="country_botswana_name">Botswana</string>
+    <string name="country_botswana_number" translatable="false">267</string>
+    <string name="country_brazil_code" translatable="false">br</string>
+    <string name="country_brazil_name">Brazil</string>
+    <string name="country_brazil_number" translatable="false">55</string>
+    <string name="country_british_indian_ocean_territory_code" translatable="false">io</string>
+    <string name="country_british_indian_ocean_territory_name">British Indian Ocean Territory</string>
+    <string name="country_british_indian_ocean_territory_number" translatable="false">246</string>
+    <string name="country_british_virgin_islands_code" translatable="false">vg</string>
+    <string name="country_british_virgin_islands_name">British Virgin Islands</string>
+    <string name="country_british_virgin_islands_number" translatable="false">1284</string>
+    <string name="country_brunei_darussalam_code" translatable="false">bn</string>
+    <string name="country_brunei_darussalam_name">Brunei Darussalam</string>
+    <string name="country_brunei_darussalam_number" translatable="false">673</string>
+    <string name="country_bulgaria_code" translatable="false">bg</string>
+    <string name="country_bulgaria_name">Bulgaria</string>
+    <string name="country_bulgaria_number" translatable="false">359</string>
+    <string name="country_burkina_faso_code" translatable="false">bf</string>
+    <string name="country_burkina_faso_name">Burkina Faso</string>
+    <string name="country_burkina_faso_number" translatable="false">226</string>
+    <string name="country_burundi_code" translatable="false">bi</string>
+    <string name="country_burundi_name">Burundi</string>
+    <string name="country_burundi_number" translatable="false">257</string>
+    <string name="country_cambodia_code" translatable="false">kh</string>
+    <string name="country_cambodia_name">Cambodia</string>
+    <string name="country_cambodia_number" translatable="false">855</string>
+    <string name="country_cameroon_code" translatable="false">cm</string>
+    <string name="country_cameroon_name">Cameroon</string>
+    <string name="country_cameroon_number" translatable="false">237</string>
+    <string name="country_canada_code" translatable="false">ca</string>
+    <string name="country_canada_name">Canada</string>
+    <string name="country_canada_number" translatable="false">1</string>
+    <string name="country_cape_verde_code" translatable="false">cv</string>
+    <string name="country_cape_verde_name">Cape Verde</string>
+    <string name="country_cape_verde_number" translatable="false">238</string>
+    <string name="country_cayman_islands_code" translatable="false">ky</string>
+    <string name="country_cayman_islands_name">Cayman Islands</string>
+    <string name="country_cayman_islands_number" translatable="false">1345</string>
+    <string name="country_central_african_republic_code" translatable="false">cf</string>
+    <string name="country_central_african_republic_name">Central African Republic</string>
+    <string name="country_central_african_republic_number" translatable="false">236</string>
+    <string name="country_chad_code" translatable="false">td</string>
+    <string name="country_chad_name">Chad</string>
+    <string name="country_chad_number" translatable="false">235</string>
+    <string name="country_chile_code" translatable="false">cl</string>
+    <string name="country_chile_name">Chile</string>
+    <string name="country_chile_number" translatable="false">56</string>
+    <string name="country_china_code" translatable="false">cn</string>
+    <string name="country_china_name">China</string>
+    <string name="country_china_number" translatable="false">86</string>
+    <string name="country_christmas_island_code" translatable="false">cx</string>
+    <string name="country_christmas_island_name">Christmas Island</string>
+    <string name="country_christmas_island_number" translatable="false">61</string>
+    <string name="country_cocos_keeling_islands_code" translatable="false">cc</string>
+    <string name="country_cocos_keeling_islands_name">Cocos (keeling) Islands</string>
+    <string name="country_cocos_keeling_islands_number" translatable="false">61</string>
+    <string name="country_code_and_phone_code" translatable="false">(%1$s) +%2$s</string>
+    <string name="country_colombia_code" translatable="false">co</string>
+    <string name="country_colombia_name">Colombia</string>
+    <string name="country_colombia_number" translatable="false">57</string>
+    <string name="country_comoros_code" translatable="false">km</string>
+    <string name="country_comoros_name">Comoros</string>
+    <string name="country_comoros_number" translatable="false">269</string>
+    <string name="country_congo_code" translatable="false">cg</string>
+    <string name="country_congo_name">Republic of the Congo</string>
+    <string name="country_congo_number" translatable="false">242</string>
+    <string name="country_cook_islands_code" translatable="false">ck</string>
+    <string name="country_cook_islands_name">Cook Islands</string>
+    <string name="country_cook_islands_number" translatable="false">682</string>
+    <string name="country_costa_rica_code" translatable="false">cr</string>
+    <string name="country_costa_rica_name">Costa Rica</string>
+    <string name="country_costa_rica_number" translatable="false">506</string>
+    <string name="country_cote_d_ivoire_code" translatable="false">ci</string>
+    <string name="country_cote_d_ivoire_name">Côte D\'ivoire</string>
+    <string name="country_cote_d_ivoire_number" translatable="false">225</string>
+    <string name="country_croatia_code" translatable="false">hr</string>
+    <string name="country_croatia_name">Croatia</string>
+    <string name="country_croatia_number" translatable="false">385</string>
+    <string name="country_cuba_code" translatable="false">cu</string>
+    <string name="country_cuba_name">Cuba</string>
+    <string name="country_cuba_number" translatable="false">53</string>
+    <string name="country_cyprus_code" translatable="false">cy</string>
+    <string name="country_cyprus_name">Cyprus</string>
+    <string name="country_cyprus_number" translatable="false">357</string>
+    <string name="country_czech_republic_code" translatable="false">cz</string>
+    <string name="country_czech_republic_name">Czech Republic</string>
+    <string name="country_czech_republic_number" translatable="false">420</string>
+    <string name="country_denmark_code" translatable="false">dk</string>
+    <string name="country_denmark_name">Denmark</string>
+    <string name="country_denmark_number" translatable="false">45</string>
+    <string name="country_djibouti_code" translatable="false">dj</string>
+    <string name="country_djibouti_name">Djibouti</string>
+    <string name="country_djibouti_number" translatable="false">253</string>
+    <string name="country_dominica_code" translatable="false">dm</string>
+    <string name="country_dominica_name">Dominica</string>
+    <string name="country_dominica_number" translatable="false">1767</string>
+    <string name="country_dominican_republic_code" translatable="false">do</string>
+    <string name="country_dominican_republic_name">Dominican Republic</string>
+    <string name="country_dominican_republic_number" translatable="false">1849</string>
+    <string name="country_ecuador_code" translatable="false">ec</string>
+    <string name="country_ecuador_name">Ecuador</string>
+    <string name="country_ecuador_number" translatable="false">593</string>
+    <string name="country_egypt_code" translatable="false">eg</string>
+    <string name="country_egypt_name">Egypt</string>
+    <string name="country_egypt_number" translatable="false">20</string>
+    <string name="country_el_salvador_code" translatable="false">sv</string>
+    <string name="country_el_salvador_name">El Salvador</string>
+    <string name="country_el_salvador_number" translatable="false">503</string>
+    <string name="country_equatorial_guinea_code" translatable="false">gq</string>
+    <string name="country_equatorial_guinea_name">Equatorial Guinea</string>
+    <string name="country_equatorial_guinea_number" translatable="false">240</string>
+    <string name="country_eritrea_code" translatable="false">er</string>
+    <string name="country_eritrea_name">Eritrea</string>
+    <string name="country_eritrea_number" translatable="false">291</string>
+    <string name="country_estonia_code" translatable="false">ee</string>
+    <string name="country_estonia_name">Estonia</string>
+    <string name="country_estonia_number" translatable="false">372</string>
+    <string name="country_ethiopia_code" translatable="false">et</string>
+    <string name="country_ethiopia_name">Ethiopia</string>
+    <string name="country_ethiopia_number" translatable="false">251</string>
+    <string name="country_falkland_islands_malvinas_code" translatable="false">fk</string>
+    <string name="country_falkland_islands_malvinas_name">Falkland Islands (malvinas)</string>
+    <string name="country_falkland_islands_malvinas_number" translatable="false">500</string>
+    <string name="country_faroe_islands_code" translatable="false">fo</string>
+    <string name="country_faroe_islands_name">Faroe Islands</string>
+    <string name="country_faroe_islands_number" translatable="false">298</string>
+    <string name="country_fiji_code" translatable="false">fj</string>
+    <string name="country_fiji_name">Fiji</string>
+    <string name="country_fiji_number" translatable="false">679</string>
+    <string name="country_finland_code" translatable="false">fi</string>
+    <string name="country_finland_name">Finland</string>
+    <string name="country_finland_number" translatable="false">358</string>
+    <string name="country_france_code" translatable="false">fr</string>
+    <string name="country_france_name">France</string>
+    <string name="country_france_number" translatable="false">33</string>
+    <string name="country_french_guyana_code" translatable="false">gf</string>
+    <string name="country_french_guyana_name">French Guiana</string>
+    <string name="country_french_guyana_number" translatable="false">594</string>
+    <string name="country_french_polynesia_code" translatable="false">pf</string>
+    <string name="country_french_polynesia_name">French Polynesia</string>
+    <string name="country_french_polynesia_number" translatable="false">689</string>
+    <string name="country_full_name_and_name_code" translatable="false">%1$s (%2$s)</string>
+    <string name="country_full_name_and_phone_code" translatable="false">%1$s +%2$s</string>
+    <string name="country_full_name_name_code_and_phone_code" translatable="false">%1$s (%2$s) +%3$s</string>
+    <string name="country_gabon_code" translatable="false">ga</string>
+    <string name="country_gabon_name">Gabon</string>
+    <string name="country_gabon_number" translatable="false">241</string>
+    <string name="country_gambia_code" translatable="false">gm</string>
+    <string name="country_gambia_name">Gambia</string>
+    <string name="country_gambia_number" translatable="false">220</string>
+    <string name="country_georgia_code" translatable="false">ge</string>
+    <string name="country_georgia_name">Georgia</string>
+    <string name="country_georgia_number" translatable="false">995</string>
+    <string name="country_germany_code" translatable="false">de</string>
+    <string name="country_germany_name">Germany</string>
+    <string name="country_germany_number" translatable="false">49</string>
+    <string name="country_ghana_code" translatable="false">gh</string>
+    <string name="country_ghana_name">Ghana</string>
+    <string name="country_ghana_number" translatable="false">233</string>
+    <string name="country_gibraltar_code" translatable="false">gi</string>
+    <string name="country_gibraltar_name">Gibraltar</string>
+    <string name="country_gibraltar_number" translatable="false">350</string>
+    <string name="country_greece_code" translatable="false">gr</string>
+    <string name="country_greece_name">Greece</string>
+    <string name="country_greece_number" translatable="false">30</string>
+    <string name="country_greenland_code" translatable="false">gl</string>
+    <string name="country_greenland_name">Greenland</string>
+    <string name="country_greenland_number" translatable="false">299</string>
+    <string name="country_grenada_code" translatable="false">gd</string>
+    <string name="country_grenada_name">Grenada</string>
+    <string name="country_grenada_number" translatable="false">1473</string>
+    <string name="country_guadeloupe_code" translatable="false">gp</string>
+    <string name="country_guadeloupe_name">Guadeloupe</string>
+    <string name="country_guadeloupe_number" translatable="false">590</string>
+    <string name="country_guam_code" translatable="false">gu</string>
+    <string name="country_guam_name">Guam</string>
+    <string name="country_guam_number" translatable="false">1671</string>
+    <string name="country_guatemala_code" translatable="false">gt</string>
+    <string name="country_guatemala_name">Guatemala</string>
+    <string name="country_guatemala_number" translatable="false">502</string>
+    <string name="country_guernsey_code" translatable="false">gg</string>
+    <string name="country_guernsey_name">Guernsey</string>
+    <string name="country_guernsey_number" translatable="false">44</string>
+    <string name="country_guinea_bissau_code" translatable="false">gw</string>
+    <string name="country_guinea_bissau_name">Guinea-bissau</string>
+    <string name="country_guinea_bissau_number" translatable="false">245</string>
+    <string name="country_guinea_code" translatable="false">gn</string>
+    <string name="country_guinea_name">Guinea</string>
+    <string name="country_guinea_number" translatable="false">224</string>
+    <string name="country_guyana_code" translatable="false">gy</string>
+    <string name="country_guyana_name">Guyana</string>
+    <string name="country_guyana_number" translatable="false">592</string>
+    <string name="country_haiti_code" translatable="false">ht</string>
+    <string name="country_haiti_name">Haiti</string>
+    <string name="country_haiti_number" translatable="false">509</string>
+    <string name="country_holy_see_vatican_city_state_code" translatable="false">va</string>
+    <string name="country_holy_see_vatican_city_state_name">Holy See (vatican City State)</string>
+    <string name="country_holy_see_vatican_city_state_number" translatable="false">379</string>
+    <string name="country_honduras_code" translatable="false">hn</string>
+    <string name="country_honduras_name">Honduras</string>
+    <string name="country_honduras_number" translatable="false">504</string>
+    <string name="country_hong_kong_code" translatable="false">hk</string>
+    <string name="country_hong_kong_name">Hong Kong</string>
+    <string name="country_hong_kong_number" translatable="false">852</string>
+    <string name="country_hungary_code" translatable="false">hu</string>
+    <string name="country_hungary_name">Hungary</string>
+    <string name="country_hungary_number" translatable="false">36</string>
+    <string name="country_iceland_code" translatable="false">is</string>
+    <string name="country_iceland_name">Iceland</string>
+    <string name="country_iceland_number" translatable="false">354</string>
+    <string name="country_india_code" translatable="false">in</string>
+    <string name="country_india_name">India</string>
+    <string name="country_india_number" translatable="false">91</string>
+    <string name="country_indonesia_code" translatable="false">id</string>
+    <string name="country_indonesia_name">Indonesia</string>
+    <string name="country_indonesia_number" translatable="false">62</string>
+    <string name="country_iran_code" translatable="false">ir</string>
+    <string name="country_iran_name">Iran</string>
+    <string name="country_iran_number" translatable="false">98</string>
+    <string name="country_iraq_code" translatable="false">iq</string>
+    <string name="country_iraq_name">Iraq</string>
+    <string name="country_iraq_number" translatable="false">964</string>
+    <string name="country_ireland_code" translatable="false">ie</string>
+    <string name="country_ireland_name">Ireland</string>
+    <string name="country_ireland_number" translatable="false">353</string>
+    <string name="country_isle_of_man_code" translatable="false">im</string>
+    <string name="country_isle_of_man_name">Isle Of Man</string>
+    <string name="country_isle_of_man_number" translatable="false">44</string>
+    <string name="country_israel_code" translatable="false">il</string>
+    <string name="country_israel_name">Israel</string>
+    <string name="country_israel_number" translatable="false">972</string>
+    <string name="country_italy_code" translatable="false">it</string>
+    <string name="country_italy_name">Italy</string>
+    <string name="country_italy_number" translatable="false">39</string>
+    <string name="country_jamaica_code" translatable="false">jm</string>
+    <string name="country_jamaica_name">Jamaica</string>
+    <string name="country_jamaica_number" translatable="false">1876</string>
+    <string name="country_japan_code" translatable="false">jp</string>
+    <string name="country_japan_name">Japan</string>
+    <string name="country_japan_number" translatable="false">81</string>
+    <string name="country_jersey_code" translatable="false">je</string>
+    <string name="country_jersey_name">Jersey</string>
+    <string name="country_jersey_number" translatable="false">44</string>
+    <string name="country_jordan_code" translatable="false">jo</string>
+    <string name="country_jordan_name">Jordan</string>
+    <string name="country_jordan_number" translatable="false">962</string>
+    <string name="country_kazakhstan_code" translatable="false">kz</string>
+    <string name="country_kazakhstan_name">Kazakhstan</string>
+    <string name="country_kazakhstan_number" translatable="false">7</string>
+    <string name="country_kenya_code" translatable="false">ke</string>
+    <string name="country_kenya_name">Kenya</string>
+    <string name="country_kenya_number" translatable="false">254</string>
+    <string name="country_kiribati_code" translatable="false">ki</string>
+    <string name="country_kiribati_name">Kiribati</string>
+    <string name="country_kiribati_number" translatable="false">686</string>
+    <string name="country_kosovo_code" translatable="false">xk</string>
+    <string name="country_kosovo_name">Kosovo</string>
+    <string name="country_kosovo_number" translatable="false">383</string>
+    <string name="country_kuwait_code" translatable="false">kw</string>
+    <string name="country_kuwait_name">Kuwait</string>
+    <string name="country_kuwait_number" translatable="false">965</string>
+    <string name="country_kyrgyzstan_code" translatable="false">kg</string>
+    <string name="country_kyrgyzstan_name">Kyrgyzstan</string>
+    <string name="country_kyrgyzstan_number" translatable="false">996</string>
+    <string name="country_lao_peoples_democratic_republic_code" translatable="false">la</string>
+    <string name="country_lao_peoples_democratic_republic_name">Lao People\'s Democratic Republic</string>
+    <string name="country_lao_peoples_democratic_republic_number" translatable="false">856</string>
+    <string name="country_latvia_code" translatable="false">lv</string>
+    <string name="country_latvia_name">Latvia</string>
+    <string name="country_latvia_number" translatable="false">371</string>
+    <string name="country_lebanon_code" translatable="false">lb</string>
+    <string name="country_lebanon_name">Lebanon</string>
+    <string name="country_lebanon_number" translatable="false">961</string>
+    <string name="country_lesotho_code" translatable="false">ls</string>
+    <string name="country_lesotho_name">Lesotho</string>
+    <string name="country_lesotho_number" translatable="false">266</string>
+    <string name="country_liberia_code" translatable="false">lr</string>
+    <string name="country_liberia_name">Liberia</string>
+    <string name="country_liberia_number" translatable="false">231</string>
+    <string name="country_libya_code" translatable="false">ly</string>
+    <string name="country_libya_name">Libya</string>
+    <string name="country_libya_number" translatable="false">218</string>
+    <string name="country_liechtenstein_code" translatable="false">li</string>
+    <string name="country_liechtenstein_name">Liechtenstein</string>
+    <string name="country_liechtenstein_number" translatable="false">423</string>
+    <string name="country_lithuania_code" translatable="false">lt</string>
+    <string name="country_lithuania_name">Lithuania</string>
+    <string name="country_lithuania_number" translatable="false">370</string>
+    <string name="country_luxembourg_code" translatable="false">lu</string>
+    <string name="country_luxembourg_name">Luxembourg</string>
+    <string name="country_luxembourg_number" translatable="false">352</string>
+    <string name="country_macao_code" translatable="false">mo</string>
+    <string name="country_macao_name">Macao</string>
+    <string name="country_macao_number" translatable="false">853</string>
+    <string name="country_macedonia_code" translatable="false">mk</string>
+    <string name="country_macedonia_name">Macedonia</string>
+    <string name="country_macedonia_number" translatable="false">389</string>
+    <string name="country_madagascar_code" translatable="false">mg</string>
+    <string name="country_madagascar_name">Madagascar</string>
+    <string name="country_madagascar_number" translatable="false">261</string>
+    <string name="country_malawi_code" translatable="false">mw</string>
+    <string name="country_malawi_name">Malawi</string>
+    <string name="country_malawi_number" translatable="false">265</string>
+    <string name="country_malaysia_code" translatable="false">my</string>
+    <string name="country_malaysia_name">Malaysia</string>
+    <string name="country_malaysia_number" translatable="false">60</string>
+    <string name="country_maldives_code" translatable="false">mv</string>
+    <string name="country_maldives_name">Maldives</string>
+    <string name="country_maldives_number" translatable="false">960</string>
+    <string name="country_mali_code" translatable="false">ml</string>
+    <string name="country_mali_name">Mali</string>
+    <string name="country_mali_number" translatable="false">223</string>
+    <string name="country_malta_code" translatable="false">mt</string>
+    <string name="country_malta_name">Malta</string>
+    <string name="country_malta_number" translatable="false">356</string>
+    <string name="country_marshall_islands_code" translatable="false">mh</string>
+    <string name="country_marshall_islands_name">Marshall Islands</string>
+    <string name="country_marshall_islands_number" translatable="false">692</string>
+    <string name="country_martinique_code" translatable="false">mq</string>
+    <string name="country_martinique_name">Martinique</string>
+    <string name="country_martinique_number" translatable="false">596</string>
+    <string name="country_mauritania_code" translatable="false">mr</string>
+    <string name="country_mauritania_name">Mauritania</string>
+    <string name="country_mauritania_number" translatable="false">222</string>
+    <string name="country_mauritius_code" translatable="false">mu</string>
+    <string name="country_mauritius_name">Mauritius</string>
+    <string name="country_mauritius_number" translatable="false">230</string>
+    <string name="country_mayotte_code" translatable="false">yt</string>
+    <string name="country_mayotte_name">Mayotte</string>
+    <string name="country_mayotte_number" translatable="false">262</string>
+    <string name="country_mexico_code" translatable="false">mx</string>
+    <string name="country_mexico_name">Mexico</string>
+    <string name="country_mexico_number" translatable="false">52</string>
+    <string name="country_micronesia_code" translatable="false">fm</string>
+    <string name="country_micronesia_name">Micronesia</string>
+    <string name="country_micronesia_number" translatable="false">691</string>
+    <string name="country_moldova_code" translatable="false">md</string>
+    <string name="country_moldova_name">Moldova</string>
+    <string name="country_moldova_number" translatable="false">373</string>
+    <string name="country_monaco_code" translatable="false">mc</string>
+    <string name="country_monaco_name">Monaco</string>
+    <string name="country_monaco_number" translatable="false">377</string>
+    <string name="country_mongolia_code" translatable="false">mn</string>
+    <string name="country_mongolia_name">Mongolia</string>
+    <string name="country_mongolia_number" translatable="false">976</string>
+    <string name="country_montenegro_code" translatable="false">me</string>
+    <string name="country_montenegro_name">Montenegro</string>
+    <string name="country_montenegro_number" translatable="false">382</string>
+    <string name="country_montserrat_code" translatable="false">ms</string>
+    <string name="country_montserrat_name">Montserrat</string>
+    <string name="country_montserrat_number" translatable="false">1664</string>
+    <string name="country_morocco_code" translatable="false">ma</string>
+    <string name="country_morocco_name">Morocco</string>
+    <string name="country_morocco_number" translatable="false">212</string>
+    <string name="country_mozambique_code" translatable="false">mz</string>
+    <string name="country_mozambique_name">Mozambique</string>
+    <string name="country_mozambique_number" translatable="false">258</string>
+    <string name="country_myanmar_code" translatable="false">mm</string>
+    <string name="country_myanmar_name">Myanmar</string>
+    <string name="country_myanmar_number" translatable="false">95</string>
+    <string name="country_name_and_code" translatable="false">%1$s (%2$s)</string>
+    <string name="country_namibia_code" translatable="false">na</string>
+    <string name="country_namibia_name">Namibia</string>
+    <string name="country_namibia_number" translatable="false">264</string>
+    <string name="country_nauru_code" translatable="false">nr</string>
+    <string name="country_nauru_name">Nauru</string>
+    <string name="country_nauru_number" translatable="false">674</string>
+    <string name="country_nepal_code" translatable="false">np</string>
+    <string name="country_nepal_name">Nepal</string>
+    <string name="country_nepal_number" translatable="false">977</string>
+    <string name="country_netherlands_code" translatable="false">nl</string>
+    <string name="country_netherlands_name">Netherlands</string>
+    <string name="country_netherlands_number" translatable="false">31</string>
+    <string name="country_new_caledonia_code" translatable="false">nc</string>
+    <string name="country_new_caledonia_name">New Caledonia</string>
+    <string name="country_new_caledonia_number" translatable="false">687</string>
+    <string name="country_new_zealand_code" translatable="false">nz</string>
+    <string name="country_new_zealand_name">New Zealand</string>
+    <string name="country_new_zealand_number" translatable="false">64</string>
+    <string name="country_nicaragua_code" translatable="false">ni</string>
+    <string name="country_nicaragua_name">Nicaragua</string>
+    <string name="country_nicaragua_number" translatable="false">505</string>
+    <string name="country_niger_code" translatable="false">ne</string>
+    <string name="country_niger_name">Niger</string>
+    <string name="country_niger_number" translatable="false">227</string>
+    <string name="country_nigeria_code" translatable="false">ng</string>
+    <string name="country_nigeria_name">Nigeria</string>
+    <string name="country_nigeria_number" translatable="false">234</string>
+    <string name="country_niue_code" translatable="false">nu</string>
+    <string name="country_niue_name">Niue</string>
+    <string name="country_niue_number" translatable="false">683</string>
+    <string name="country_norfolk_island_code" translatable="false">nf</string>
+    <string name="country_norfolk_island_name">Norfolk Island</string>
+    <string name="country_norfolk_island_number" translatable="false">672</string>
+    <string name="country_north_korea_code" translatable="false">kp</string>
+    <string name="country_north_korea_name">North Korea</string>
+    <string name="country_north_korea_number" translatable="false">672</string>
+    <string name="country_northern_mariana_islands_code" translatable="false">mp</string>
+    <string name="country_northern_mariana_islands_name">Northern Mariana Islands</string>
+    <string name="country_northern_mariana_islands_number" translatable="false">1670</string>
+    <string name="country_norway_code" translatable="false">no</string>
+    <string name="country_norway_name">Norway</string>
+    <string name="country_norway_number" translatable="false">47</string>
+    <string name="country_oman_code" translatable="false">om</string>
+    <string name="country_oman_name">Oman</string>
+    <string name="country_oman_number" translatable="false">968</string>
+    <string name="country_pakistan_code" translatable="false">pk</string>
+    <string name="country_pakistan_name">Pakistan</string>
+    <string name="country_pakistan_number" translatable="false">92</string>
+    <string name="country_palau_code" translatable="false">pw</string>
+    <string name="country_palau_name">Palau</string>
+    <string name="country_palau_number" translatable="false">680</string>
+    <string name="country_palestian_territory_code" translatable="false">ps</string>
+    <string name="country_palestian_territory_name">Palestinian Territory, Occupied</string>
+    <string name="country_palestian_territory_number" translatable="false">970</string>
+    <string name="country_panama_code" translatable="false">pa</string>
+    <string name="country_panama_name">Panama</string>
+    <string name="country_panama_number" translatable="false">507</string>
+    <string name="country_papua_new_guinea_code" translatable="false">pg</string>
+    <string name="country_papua_new_guinea_name">Papua New Guinea</string>
+    <string name="country_papua_new_guinea_number" translatable="false">675</string>
+    <string name="country_paraguay_code" translatable="false">py</string>
+    <string name="country_paraguay_name">Paraguay</string>
+    <string name="country_paraguay_number" translatable="false">595</string>
+    <string name="country_peru_code" translatable="false">pe</string>
+    <string name="country_peru_name">Peru</string>
+    <string name="country_peru_number" translatable="false">51</string>
+    <string name="country_philippines_code" translatable="false">ph</string>
+    <string name="country_philippines_name">Philippines</string>
+    <string name="country_philippines_number" translatable="false">63</string>
+    <string name="country_pitcairn_code" translatable="false">pn</string>
+    <string name="country_pitcairn_name">Pitcairn</string>
+    <string name="country_pitcairn_number" translatable="false">64</string>
+    <string name="country_poland_code" translatable="false">pl</string>
+    <string name="country_poland_name">Poland</string>
+    <string name="country_poland_number" translatable="false">48</string>
+    <string name="country_portugal_code" translatable="false">pt</string>
+    <string name="country_portugal_name">Portugal</string>
+    <string name="country_portugal_number" translatable="false">351</string>
+    <string name="country_puerto_rico_code" translatable="false">pr</string>
+    <string name="country_puerto_rico_name">Puerto Rico</string>
+    <string name="country_puerto_rico_number" translatable="false">1939</string>
+    <string name="country_qatar_code" translatable="false">qa</string>
+    <string name="country_qatar_name">Qatar</string>
+    <string name="country_qatar_number" translatable="false">974</string>
+    <string name="country_reunion_code" translatable="false">re</string>
+    <string name="country_reunion_name">Réunion</string>
+    <string name="country_reunion_number" translatable="false">262</string>
+    <string name="country_romania_code" translatable="false">ro</string>
+    <string name="country_romania_name">Romania</string>
+    <string name="country_romania_number" translatable="false">40</string>
+    <string name="country_russian_federation_code" translatable="false">ru</string>
+    <string name="country_russian_federation_name">Russian Federation</string>
+    <string name="country_russian_federation_number" translatable="false">7</string>
+    <string name="country_rwanda_code" translatable="false">rw</string>
+    <string name="country_rwanda_name">Rwanda</string>
+    <string name="country_rwanda_number" translatable="false">250</string>
+    <string name="country_saint_barthelemy_code" translatable="false">bl</string>
+    <string name="country_saint_barthelemy_name">Saint Barthélemy</string>
+    <string name="country_saint_barthelemy_number" translatable="false">590</string>
+    <string name="country_saint_helena_code" translatable="false">sh</string>
+    <string name="country_saint_helena_name">Saint Helena</string>
+    <string name="country_saint_helena_number" translatable="false">290</string>
+    <string name="country_saint_kitts_and_nevis_code" translatable="false">kn</string>
+    <string name="country_saint_kitts_and_nevis_name">Saint Kitts and Nevis</string>
+    <string name="country_saint_kitts_and_nevis_number" translatable="false">1869</string>
+    <string name="country_saint_lucia_code" translatable="false">lc</string>
+    <string name="country_saint_lucia_name">Saint Lucia</string>
+    <string name="country_saint_lucia_number" translatable="false">1758</string>
+    <string name="country_saint_martin_code" translatable="false">mf</string>
+    <string name="country_saint_martin_name">Saint Martin</string>
+    <string name="country_saint_martin_number" translatable="false">590</string>
+    <string name="country_saint_pierre_and_miquelon_code" translatable="false">pm</string>
+    <string name="country_saint_pierre_and_miquelon_name">Saint Pierre And Miquelon</string>
+    <string name="country_saint_pierre_and_miquelon_number" translatable="false">508</string>
+    <string name="country_saint_vincent_the_grenadines_code" translatable="false">vc</string>
+    <string name="country_saint_vincent_the_grenadines_name">Saint Vincent &amp; The Grenadines</string>
+    <string name="country_saint_vincent_the_grenadines_number" translatable="false">1784</string>
+    <string name="country_samoa_code" translatable="false">ws</string>
+    <string name="country_samoa_name">Samoa</string>
+    <string name="country_samoa_number" translatable="false">685</string>
+    <string name="country_san_marino_code" translatable="false">sm</string>
+    <string name="country_san_marino_name">San Marino</string>
+    <string name="country_san_marino_number" translatable="false">378</string>
+    <string name="country_sao_tome_and_principe_code" translatable="false">st</string>
+    <string name="country_sao_tome_and_principe_name">Sao Tome And Principe</string>
+    <string name="country_sao_tome_and_principe_number" translatable="false">239</string>
+    <string name="country_saudi_arabia_code" translatable="false">sa</string>
+    <string name="country_saudi_arabia_name">Saudi Arabia</string>
+    <string name="country_saudi_arabia_number" translatable="false">966</string>
+    <string name="country_senegal_code" translatable="false">sn</string>
+    <string name="country_senegal_name">Senegal</string>
+    <string name="country_senegal_number" translatable="false">221</string>
+    <string name="country_serbia_code" translatable="false">rs</string>
+    <string name="country_serbia_name">Serbia</string>
+    <string name="country_serbia_number" translatable="false">381</string>
+    <string name="country_seychelles_code" translatable="false">sc</string>
+    <string name="country_seychelles_name">Seychelles</string>
+    <string name="country_seychelles_number" translatable="false">248</string>
+    <string name="country_sierra_leone_code" translatable="false">sl</string>
+    <string name="country_sierra_leone_name">Sierra Leone</string>
+    <string name="country_sierra_leone_number" translatable="false">232</string>
+    <string name="country_singapore_code" translatable="false">sg</string>
+    <string name="country_singapore_name">Singapore</string>
+    <string name="country_singapore_number" translatable="false">65</string>
+    <string name="country_sint_maarten_code" translatable="false">sx</string>
+    <string name="country_sint_maarten_name">Sint Maarten</string>
+    <string name="country_sint_maarten_number" translatable="false">1</string>
+    <string name="country_slovakia_code" translatable="false">sk</string>
+    <string name="country_slovakia_name">Slovakia</string>
+    <string name="country_slovakia_number" translatable="false">421</string>
+    <string name="country_slovenia_code" translatable="false">si</string>
+    <string name="country_slovenia_name">Slovenia</string>
+    <string name="country_slovenia_number" translatable="false">386</string>
+    <string name="country_solomon_islands_code" translatable="false">sb</string>
+    <string name="country_solomon_islands_name">Solomon Islands</string>
+    <string name="country_solomon_islands_number" translatable="false">677</string>
+    <string name="country_somalia_code" translatable="false">so</string>
+    <string name="country_somalia_name">Somalia</string>
+    <string name="country_somalia_number" translatable="false">252</string>
+    <string name="country_south_africa_code" translatable="false">za</string>
+    <string name="country_south_africa_name">South Africa</string>
+    <string name="country_south_africa_number" translatable="false">27</string>
+    <string name="country_south_georgia_code" translatable="false">gs</string>
+    <string name="country_south_georgia_name">South Georgia and the South Sandwich Islands</string>
+    <string name="country_south_georgia_number" translatable="false">500</string>
+    <string name="country_south_korea_code" translatable="false">kr</string>
+    <string name="country_south_korea_name">South Korea</string>
+    <string name="country_south_korea_number" translatable="false">82</string>
+    <string name="country_south_sudan_code" translatable="false">ss</string>
+    <string name="country_south_sudan_name">South Sudan</string>
+    <string name="country_south_sudan_number" translatable="false">211</string>
+    <string name="country_spain_code" translatable="false">es</string>
+    <string name="country_spain_name">Spain</string>
+    <string name="country_spain_number" translatable="false">34</string>
+    <string name="country_sri_lanka_code" translatable="false">lk</string>
+    <string name="country_sri_lanka_name">Sri Lanka</string>
+    <string name="country_sri_lanka_number" translatable="false">94</string>
+    <string name="country_sudan_code" translatable="false">sd</string>
+    <string name="country_sudan_name">Sudan</string>
+    <string name="country_sudan_number" translatable="false">249</string>
+    <string name="country_suriname_code" translatable="false">sr</string>
+    <string name="country_suriname_name">Suriname</string>
+    <string name="country_suriname_number" translatable="false">597</string>
+    <string name="country_swaziland_code" translatable="false">sz</string>
+    <string name="country_swaziland_name">Swaziland</string>
+    <string name="country_swaziland_number" translatable="false">268</string>
+    <string name="country_sweden_code" translatable="false">se</string>
+    <string name="country_sweden_name">Sweden</string>
+    <string name="country_sweden_number" translatable="false">46</string>
+    <string name="country_switzerland_code" translatable="false">ch</string>
+    <string name="country_switzerland_name">Switzerland</string>
+    <string name="country_switzerland_number" translatable="false">41</string>
+    <string name="country_syrian_arab_republic_code" translatable="false">sy</string>
+    <string name="country_syrian_arab_republic_name">Syrian Arab Republic</string>
+    <string name="country_syrian_arab_republic_number" translatable="false">963</string>
+    <string name="country_taiwan_code" translatable="false">tw</string>
+    <string name="country_taiwan_name">Taiwan</string>
+    <string name="country_taiwan_number" translatable="false">886</string>
+    <string name="country_tajikistan_code" translatable="false">tj</string>
+    <string name="country_tajikistan_name">Tajikistan</string>
+    <string name="country_tajikistan_number" translatable="false">992</string>
+    <string name="country_tanzania_code" translatable="false">tz</string>
+    <string name="country_tanzania_name">Tanzania</string>
+    <string name="country_tanzania_number" translatable="false">255</string>
+    <string name="country_thailand_code" translatable="false">th</string>
+    <string name="country_thailand_name">Thailand</string>
+    <string name="country_thailand_number" translatable="false">66</string>
+    <string name="country_the_democratic_republic_of_congo_code" translatable="false">cd</string>
+    <string name="country_the_democratic_republic_of_congo_name">Democratic Republic of the Congo</string>
+    <string name="country_the_democratic_republic_of_congo_number" translatable="false">243</string>
+    <string name="country_timor_leste_code" translatable="false">tl</string>
+    <string name="country_timor_leste_name">Timor-leste</string>
+    <string name="country_timor_leste_number" translatable="false">670</string>
+    <string name="country_togo_code" translatable="false">tg</string>
+    <string name="country_togo_name">Togo</string>
+    <string name="country_togo_number" translatable="false">228</string>
+    <string name="country_tokelau_code" translatable="false">tk</string>
+    <string name="country_tokelau_name">Tokelau</string>
+    <string name="country_tokelau_number" translatable="false">690</string>
+    <string name="country_tonga_code" translatable="false">to</string>
+    <string name="country_tonga_name">Tonga</string>
+    <string name="country_tonga_number" translatable="false">676</string>
+    <string name="country_trinidad_tobago_code" translatable="false">tt</string>
+    <string name="country_trinidad_tobago_name">Trinidad &amp; Tobago</string>
+    <string name="country_trinidad_tobago_number" translatable="false">1868</string>
+    <string name="country_tunisia_code" translatable="false">tn</string>
+    <string name="country_tunisia_name">Tunisia</string>
+    <string name="country_tunisia_number" translatable="false">216</string>
+    <string name="country_turkey_code" translatable="false">tr</string>
+    <string name="country_turkey_name">Turkey</string>
+    <string name="country_turkey_number" translatable="false">90</string>
+    <string name="country_turkmenistan_code" translatable="false">tm</string>
+    <string name="country_turkmenistan_name">Turkmenistan</string>
+    <string name="country_turkmenistan_number" translatable="false">993</string>
+    <string name="country_turks_and_caicos_islands_code" translatable="false">tc</string>
+    <string name="country_turks_and_caicos_islands_name">Turks and Caicos Islands</string>
+    <string name="country_turks_and_caicos_islands_number" translatable="false">1649</string>
+    <string name="country_tuvalu_code" translatable="false">tv</string>
+    <string name="country_tuvalu_name">Tuvalu</string>
+    <string name="country_tuvalu_number" translatable="false">688</string>
+    <string name="country_uganda_code" translatable="false">ug</string>
+    <string name="country_uganda_name">Uganda</string>
+    <string name="country_uganda_number" translatable="false">256</string>
+    <string name="country_ukraine_code" translatable="false">ua</string>
+    <string name="country_ukraine_name">Ukraine</string>
+    <string name="country_ukraine_number" translatable="false">380</string>
+    <string name="country_united_arab_emirates_code" translatable="false">ae</string>
+    <string name="country_united_arab_emirates_name">United Arab Emirates</string>
+    <string name="country_united_arab_emirates_number" translatable="false">971</string>
+    <string name="country_united_kingdom_code" translatable="false">gb</string>
+    <string name="country_united_kingdom_name">United Kingdom</string>
+    <string name="country_united_kingdom_number" translatable="false">44</string>
+    <string name="country_united_states_code" translatable="false">us</string>
+    <string name="country_united_states_name">United States</string>
+    <string name="country_united_states_number" translatable="false">1</string>
+    <string name="country_uruguay_code" translatable="false">uy</string>
+    <string name="country_uruguay_name">Uruguay</string>
+    <string name="country_uruguay_number" translatable="false">598</string>
+    <string name="country_us_virgin_islands_code" translatable="false">vi</string>
+    <string name="country_us_virgin_islands_name">US Virgin Islands</string>
+    <string name="country_us_virgin_islands_number" translatable="false">1340</string>
+    <string name="country_uzbekistan_code" translatable="false">uz</string>
+    <string name="country_uzbekistan_name">Uzbekistan</string>
+    <string name="country_uzbekistan_number" translatable="false">998</string>
+    <string name="country_vanuatu_code" translatable="false">vu</string>
+    <string name="country_vanuatu_name">Vanuatu</string>
+    <string name="country_vanuatu_number" translatable="false">678</string>
+    <string name="country_venezuela_code" translatable="false">ve</string>
+    <string name="country_venezuela_name">Venezuela</string>
+    <string name="country_venezuela_number" translatable="false">58</string>
+    <string name="country_viet_nam_code" translatable="false">vn</string>
+    <string name="country_viet_nam_name">Vietnam</string>
+    <string name="country_viet_nam_number" translatable="false">84</string>
+    <string name="country_wallis_and_futuna_code" translatable="false">wf</string>
+    <string name="country_wallis_and_futuna_name">Wallis And Futuna</string>
+    <string name="country_wallis_and_futuna_number" translatable="false">681</string>
+    <string name="country_yemen_code" translatable="false">ye</string>
+    <string name="country_yemen_name">Yemen</string>
+    <string name="country_yemen_number" translatable="false">967</string>
+    <string name="country_zambia_code" translatable="false">zm</string>
+    <string name="country_zambia_name">Zambia</string>
+    <string name="country_zambia_number" translatable="false">260</string>
+    <string name="country_zimbabwe_code" translatable="false">zw</string>
+    <string name="country_zimbabwe_name">Zimbabwe</string>
+    <string name="country_zimbabwe_number" translatable="false">263</string>
     <string name="default_web_client_id" translatable="false">489937646627-ltbsv09pig0f2mnma77a90qp1q74n160.apps.googleusercontent.com</string>
     <string name="dest_title">destination title</string>
     <string name="destacadosH">Destacados</string>
@@ -2099,6 +2833,7 @@
     Error: invalid
   </string>
     <string name="error_icon_content_description">Error</string>
+    <string name="error_unregister_carrier_number" translatable="false">EditText for carrier number is not registered. Register it using registerPhoneNumberTextView() before getFullNumber() or setFullNumber().</string>
     <string name="eventDetails">Detalles</string>
     <string name="events">Eventos</string>
     <string name="eventsHistory">Historial de eventos</string>
@@ -2109,6 +2844,7 @@
     <string name="fallback_menu_item_open_in_browser">Open in browser</string>
     <string name="fallback_menu_item_share_link">Share link</string>
     <string name="gcm_defaultSenderId" translatable="false">489937646627</string>
+    <string name="gcm_fallback_notification_channel_label">Miscellaneous</string>
     <string name="google_api_key" translatable="false">AIzaSyDx50dtED3s0E5m2tmFyZW4We0hboSqpUg</string>
     <string name="google_app_id" translatable="false">1:489937646627:android:cc9a155759d24605d4ad96</string>
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDx50dtED3s0E5m2tmFyZW4We0hboSqpUg</string>
@@ -2241,21 +2977,25 @@
     <string name="nav_header_title">Nombre</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="no_result_found">No result found</string>
     <string name="password_toggle_content_description">Show password</string>
     <string name="path_password_eye" translatable="false">M12,4.5C7,4.5 2.73,7.61 1,12c1.73,4.39 6,7.5 11,7.5s9.27,-3.11 11,-7.5c-1.73,-4.39 -6,-7.5 -11,-7.5zM12,17c-2.76,0 -5,-2.24 -5,-5s2.24,-5 5,-5 5,2.24 5,5 -2.24,5 -5,5zM12,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3 3,-1.34 3,-3 -1.34,-3 -3,-3z</string>
     <string name="path_password_eye_mask_strike_through" translatable="false">M2,4.27 L19.73,22 L22.27,19.46 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_eye_mask_visible" translatable="false">M2,4.27 L2,4.27 L4.54,1.73 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_strike_through" translatable="false">M3.27,4.27 L19.74,20.74</string>
     <string name="personal_data">Datos personales</string>
+    <string name="phone_code" translatable="false">+%s</string>
     <string name="profile">Perfil</string>
     <string name="project_id" translatable="false">firelogin-267c5</string>
     <string name="report">Reportar</string>
+    <string name="search_hint">Search…</string>
     <string name="search_menu_title">Search</string>
     <string name="searchbar_scrolling_view_behavior" translatable="false">
     com.google.android.material.search.SearchBar$ScrollingViewBehavior
   </string>
     <string description="Content description for the X button to clear text [CHAR_LIMIT=NONE]" name="searchview_clear_text_content_description">Clear text</string>
     <string description="Content description for the navigation button to return to the previous screen [CHAR_LIMIT=NONE]" name="searchview_navigation_content_description">Back</string>
+    <string name="select_country">Select Country</string>
     <string description="Title of the side sheet&apos;s accessibility pane that is spoken by TalkBack when the side sheet appears on screen. [CHAR_LIMIT=NONE]" name="side_sheet_accessibility_pane_title">Side Sheet</string>
     <string name="side_sheet_behavior" translatable="false">com.google.android.material.sidesheet.SideSheetBehavior</string>
     <string name="status_bar_notification_info_overflow">999+</string>
@@ -9407,11 +10147,11 @@
     <declare-styleable name="ActionBar">
         
         <attr name="navigationMode">
-            
+            <!-- Normal static title text -->
             <enum name="normal" value="0"/>
-            
+            <!-- The action bar will use a selection list for navigation. -->
             <enum name="listMode" value="1"/>
-            
+            <!-- The action bar will use a series of horizontal tabs for navigation. -->
             <enum name="tabMode" value="2"/>
         </attr>
         
@@ -9596,32 +10336,45 @@
   </declare-styleable>
     <declare-styleable name="AppBarLayout_Layout">
     <attr name="layout_scrollFlags">
-      
+      <!-- Disable scrolling on the view. This flag should not be combined with any of the other
+           scroll flags. -->
       <flag name="noScroll" value="0x0"/>
 
-      
+      <!-- The view will be scroll in direct relation to scroll events. This flag needs to be
+           set for any of the other flags to take effect. If any sibling views
+           before this one do not have this flag, then this value has no effect. -->
       <flag name="scroll" value="0x1"/>
 
-      
+      <!-- When exiting (scrolling off screen) the view will be scrolled until it is
+           'collapsed'. The collapsed height is defined by the view's minimum height. -->
       <flag name="exitUntilCollapsed" value="0x2"/>
 
-      
+      <!-- When entering (scrolling on screen) the view will scroll on any downwards
+           scroll event, regardless of whether the scrolling view is also scrolling. This
+           is commonly referred to as the 'quick return' pattern. -->
       <flag name="enterAlways" value="0x4"/>
 
-      
+      <!-- An additional flag for 'enterAlways' which modifies the returning view to
+           only initially scroll back to it's collapsed height. Once the scrolling view has
+           reached the end of it's scroll range, the remainder of this view will be scrolled
+           into view. -->
       <flag name="enterAlwaysCollapsed" value="0x8"/>
 
-      
+      <!-- Upon a scroll ending, if the view is only partially visible then it will be
+           snapped and scrolled to it's closest edge. -->
       <flag name="snap" value="0x10"/>
 
-      
+      <!-- An additional flag to be used with 'snap'. If set, the view will be snapped to its
+           top and bottom margins, as opposed to the edges of the view itself. -->
       <flag name="snapMargins" value="0x20"/>
     </attr>
 
     <attr format="enum" name="layout_scrollEffect">
-      
+      <!-- No effect will be applied to this child when its parent
+           AppBarLayout's offset changes.-->
       <enum name="none" value="0"/>
-      
+      <!-- This view will be compressed (masked and parallaxed) when it reaches
+           the top of the screen and continues to scroll out of view.-->
       <enum name="compress" value="1"/>
     </attr>
 
@@ -9641,17 +10394,22 @@
 
         
         <attr name="tintMode">
-            
+            <!-- The tint is drawn on top of the drawable.
+                 [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
             <enum name="src_over" value="3"/>
-            
+            <!-- The tint is masked by the alpha channel of the drawable. The drawable’s
+                 color channels are thrown out. [Sa * Da, Sc * Da] -->
             <enum name="src_in" value="5"/>
-            
+            <!-- The tint is drawn above the drawable, but with the drawable’s alpha
+                 channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
             <enum name="src_atop" value="9"/>
-            
+            <!-- Multiplies the color and alpha channels of the drawable with those of
+                 the tint. [Sa * Da, Sc * Dc] -->
             <enum name="multiply" value="14"/>
-            
+            <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
             <enum name="screen" value="15"/>
-            
+            <!-- Combines the tint and icon color and alpha channels, clamping the
+                 result to valid color values. Saturate(S + D) -->
             <enum name="add" value="16"/>
         </attr>
     </declare-styleable>
@@ -9663,17 +10421,22 @@
         <attr format="color" name="tickMarkTint"/>
         
         <attr name="tickMarkTintMode">
-            
+            <!-- The tint is drawn on top of the drawable.
+                 [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
             <enum name="src_over" value="3"/>
-            
+            <!-- The tint is masked by the alpha channel of the drawable. The drawable’s
+                 color channels are thrown out. [Sa * Da, Sc * Da] -->
             <enum name="src_in" value="5"/>
-            
+            <!-- The tint is drawn above the drawable, but with the drawable’s alpha
+                 channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
             <enum name="src_atop" value="9"/>
-            
+            <!-- Multiplies the color and alpha channels of the drawable with those of
+                 the tint. [Sa * Da, Sc * Dc] -->
             <enum name="multiply" value="14"/>
-            
+            <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
             <enum name="screen" value="15"/>
-            
+            <!-- Combines the tint and drawable color and alpha channels, clamping the
+                 result to valid color values. Saturate(S + D) -->
             <enum name="add" value="16"/>
         </attr>
     </declare-styleable>
@@ -9694,9 +10457,10 @@
         <attr name="android:textAppearance"/>
         
         <attr format="enum" name="autoSizeTextType">
-            
+            <!-- No auto-sizing (default). -->
             <enum name="none" value="0"/>
-            
+            <!-- Uniform horizontal and vertical text size scaling to fit within the
+            container. -->
             <enum name="uniform" value="1"/>
         </attr>
         
@@ -9728,17 +10492,22 @@
         <attr format="color" name="drawableTint"/>
         
         <attr name="drawableTintMode">
-            
+            <!-- The tint is drawn on top of the drawable.
+                 [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
             <enum name="src_over" value="3"/>
-            
+            <!-- The tint is masked by the alpha channel of the drawable. The drawable’s
+                 color channels are thrown out. [Sa * Da, Sc * Da] -->
             <enum name="src_in" value="5"/>
-            
+            <!-- The tint is drawn above the drawable, but with the drawable’s alpha
+                 channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
             <enum name="src_atop" value="9"/>
-            
+            <!-- Multiplies the color and alpha channels of the drawable with those of
+                 the tint. [Sa * Da, Sc * Dc] -->
             <enum name="multiply" value="14"/>
-            
+            <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
             <enum name="screen" value="15"/>
-            
+            <!-- Combines the tint and drawable color and alpha channels, clamping the
+                 result to valid color values. Saturate(S + D) -->
             <enum name="add" value="16"/>
         </attr>
         
@@ -10131,13 +10900,13 @@
     <attr format="string" name="badgeText"/>
     <attr format="integer" name="number"/>
     <attr name="badgeGravity">
-      
+      <!-- Gravity.TOP | Gravity.END -->
       <enum name="TOP_END" value="8388661"/>
-      
+      <!-- Gravity.TOP | Gravity.START -->
       <enum name="TOP_START" value="8388659"/>
-      
+      <!-- Gravity.BOTTOM | Gravity.END -->
       <enum name="BOTTOM_END" value="8388693"/>
-      
+      <!-- Gravity.BOTTOM | Gravity.START -->
       <enum name="BOTTOM_START" value="8388691"/>
     </attr>
     
@@ -10153,9 +10922,11 @@
 
     
     <attr name="offsetAlignmentMode">
-      
+      <!-- The offsets begin at the edge of the anchor. -->
       <enum name="edge" value="0"/>
-      
+      <!-- Follows the legacy offset alignment behavior. The horizontal offset begins at a variable
+           permanent inset from the edge of the anchor, and the vertical offset begins at the center
+           of the badge aligned with the edge of the anchor. -->
       <enum name="legacy" value="1"/>
     </attr>
 
@@ -10182,40 +10953,46 @@
         <attr format="reference" name="ci_drawable_unselected"/>
 
         <attr format="enum" name="ci_orientation">
-            
+            <!-- Defines an horizontal widget. -->
             <enum name="horizontal" value="0"/>
-            
+            <!-- Defines a vertical widget. -->
             <enum name="vertical" value="1"/>
         </attr>
 
         <attr name="ci_gravity">
-            
+            <!-- Push object to the top of its container, not changing its size. -->
             <flag name="top" value="0x30"/>
-            
+            <!-- Push object to the bottom of its container, not changing its size. -->
             <flag name="bottom" value="0x50"/>
-            
+            <!-- Push object to the left of its container, not changing its size. -->
             <flag name="left" value="0x03"/>
-            
+            <!-- Push object to the right of its container, not changing its size. -->
             <flag name="right" value="0x05"/>
-            
+            <!-- Place object in the vertical center of its container, not changing its size. -->
             <flag name="center_vertical" value="0x10"/>
-            
+            <!-- Grow the vertical size of the object if needed so it completely fills its container. -->
             <flag name="fill_vertical" value="0x70"/>
-            
+            <!-- Place object in the horizontal center of its container, not changing its size. -->
             <flag name="center_horizontal" value="0x01"/>
-            
+            <!-- Grow the horizontal size of the object if needed so it completely fills its container. -->
             <flag name="fill_horizontal" value="0x07"/>
-            
+            <!-- Place the object in the center of its container in both the vertical and horizontal axis, not changing its size. -->
             <flag name="center" value="0x11"/>
-            
+            <!-- Grow the horizontal and vertical size of the object if needed so it completely fills its container. -->
             <flag name="fill" value="0x77"/>
-            
+            <!-- Additional option that can be set to have the top and/or bottom edges of
+            the child clipped to its container's bounds.
+            The clip will be based on the vertical gravity: a top gravity will clip the bottom
+            edge, a bottom gravity will clip the top edge, and neither will clip both edges. -->
             <flag name="clip_vertical" value="0x80"/>
-            
+            <!-- Additional option that can be set to have the left and/or right edges of
+            the child clipped to its container's bounds.
+            The clip will be based on the horizontal gravity: a left gravity will clip the right
+            edge, a right gravity will clip the left edge, and neither will clip both edges. -->
             <flag name="clip_horizontal" value="0x08"/>
-            
+            <!-- Push object to the beginning of its container, not changing its size. -->
             <flag name="start" value="0x00800003"/>
-            
+            <!-- Push object to the end of its container, not changing its size. -->
             <flag name="end" value="0x00800005"/>
         </attr>
 
@@ -10233,22 +11010,37 @@
     <attr name="trackColor"/>
     
     <attr name="showAnimationBehavior">
-      
+      <!-- No animation used; appears immediately. -->
       <enum name="none" value="0"/>
-      
+      <!--
+        Expands from the bottom edge to the top edge for the linear type;
+        expands from the inner edge to the outer edge for the circular type.
+      -->
       <enum name="outward" value="1"/>
-      
+      <!--
+        Expands from the top edge to the bottom edge for the linear type;
+        expands from the outer edge to the inner edge for the circular type.
+      -->
       <enum name="inward" value="2"/>
     </attr>
     
     <attr name="hideAnimationBehavior">
-      
+      <!-- No animation used; disappears immediately. -->
       <enum name="none" value="0"/>
-      
+      <!--
+        Collapses from the bottom edge to the top edge for the linear type;
+        collapses from the inner edge to the outer edge for the circular type.
+      -->
       <enum name="outward" value="1"/>
-      
+      <!--
+        Collapses from the top edge to the bottom edge for the linear type;
+        collapses from the outer edge to the inner edge for the circular type.
+      -->
       <enum name="inward" value="2"/>
-      
+      <!--
+        Escapes in the progression direction for the linear type;
+        no effect for the circular type.
+      -->
       <enum name="escape" value="3"/>
     </attr>
     
@@ -10267,23 +11059,23 @@
     <attr name="elevation"/>
     
     <attr name="fabAlignmentMode">
-      
+      <!-- Mode that aligns the fab to the center. -->
       <enum name="center" value="0"/>
-      
+      <!-- Mode that aligns the fab to the end. -->
       <enum name="end" value="1"/>
     </attr>
     
     <attr name="fabAnchorMode">
-      
+      <!-- Mode that anchors the fab embedded inside the BottomAppBar. -->
       <enum name="embed" value="0"/>
-      
+      <!-- Mode that anchors the fab to be cradled within the top edge of the BottomAppBar. -->
       <enum name="cradle" value="1"/>
     </attr>
     
     <attr name="fabAnimationMode">
-      
+      <!-- Mode that scales the fab down to a point, moves it, then scales the fab back to its normal size. -->
       <enum name="scale" value="0"/>
-      
+      <!-- Mode that slides the fab from one alignment mode to the next. -->
       <enum name="slide" value="1"/>
     </attr>
     
@@ -10308,9 +11100,10 @@
     <attr name="paddingRightSystemWindowInsets"/>
     
     <attr name="menuAlignmentMode">
-      
+      <!-- Mode that aligns the menu automatically to avoid the FAB. Menu will be aligned at the end
+           when the FAB is center aligned, and start when the FAB is end aligned. -->
       <enum name="auto" value="0"/>
-      
+      <!-- Mode that aligns the menu to the start. -->
       <enum name="start" value="1"/>
     </attr>
   </declare-styleable>
@@ -10329,7 +11122,7 @@
     <declare-styleable name="BottomSheetBehavior_Layout">
     
     <attr format="dimension" name="behavior_peekHeight">
-      
+      <!-- Peek at the 16:9 ratio keyline of its parent -->
       <enum name="auto" value="-1"/>
     </attr>
     
@@ -10354,17 +11147,19 @@
     <attr name="backgroundTint"/>
     
     <attr name="behavior_saveFlags">
-      
+      <!-- This flag will preserve the peekHeight on configuration change. -->
       <flag name="peekHeight" value="0x1"/>
-      
+      <!-- This flag will preserve the fitToContents boolean value on configuration change. -->
       <flag name="fitToContents" value="0x2"/>
-      
+      <!-- This flag will preserve the hideable boolean value on configuration change. -->
       <flag name="hideable" value="0x4"/>
-      
+      <!-- This flag will preserve the skipCollapsed boolean value on configuration change. -->
       <flag name="skipCollapsed" value="0x8"/>
-      
+      <!-- This flag will preserve the all the aforementioned values on configuration change. -->
       <flag name="all" value="-1"/>
-      
+      <!-- This flag will not preserve the aforementioned values on configuration change. The only
+           value preserved will be the positional state, e.g. collapsed, hidden, expanded, etc.
+           This is the default behavior. -->
       <flag name="none" value="0"/>
     </attr>
     
@@ -10441,17 +11236,22 @@
 
         
         <attr name="checkMarkTintMode">
-            
+            <!-- The tint is drawn on top of the drawable.
+                 [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
             <enum name="src_over" value="3"/>
-            
+            <!-- The tint is masked by the alpha channel of the drawable. The drawable’s
+                 color channels are thrown out. [Sa * Da, Sc * Da] -->
             <enum name="src_in" value="5"/>
-            
+            <!-- The tint is drawn above the drawable, but with the drawable’s alpha
+                 channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
             <enum name="src_atop" value="9"/>
-            
+            <!-- Multiplies the color and alpha channels of the drawable with those of
+                 the tint. [Sa * Da, Sc * Dc] -->
             <enum name="multiply" value="14"/>
-            
+            <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
             <enum name="screen" value="15"/>
-            
+            <!-- Combines the tint and icon color and alpha channels, clamping the
+                 result to valid color values. Saturate(S + D) -->
             <enum name="add" value="16"/>
         </attr>
     </declare-styleable>
@@ -10591,9 +11391,17 @@
     <attr format="dimension" name="indicatorInset"/>
     
     <attr name="indicatorDirectionCircular">
-      
+      <!--
+        In the indeterminate mode, the spinner will spin clockwise; in the
+        determinate mode, the indicator will progress from the top (12 o'clock)
+        clockwise.
+      -->
       <enum name="clockwise" value="0"/>
-      
+      <!--
+        In the indeterminate mode, the spinner will spin counter-clockwise; in
+        the determinate mode, the indicator will progress from the top (12
+        o'clock) counter-clockwise.
+      -->
       <enum name="counterclockwise" value="1"/>
     </attr>
   </declare-styleable>
@@ -10650,49 +11458,49 @@
 
     
     <attr name="collapsedTitleGravity">
-      
+      <!-- Push title to the top of its container, not changing its size. -->
       <flag name="top" value="0x30"/>
-      
+      <!-- Push title to the bottom of its container, not changing its size. -->
       <flag name="bottom" value="0x50"/>
-      
+      <!-- Push title to the left of its container, not changing its size. -->
       <flag name="left" value="0x03"/>
-      
+      <!-- Push title to the right of its container, not changing its size. -->
       <flag name="right" value="0x05"/>
-      
+      <!-- Place title in the vertical center of its container, not changing its size. -->
       <flag name="center_vertical" value="0x10"/>
-      
+      <!-- Grow the vertical size of the title if needed so it completely fills its container. -->
       <flag name="fill_vertical" value="0x70"/>
-      
+      <!-- Place title in the horizontal center of its container, not changing its size. -->
       <flag name="center_horizontal" value="0x01"/>
-      
+      <!-- Place the title in the center of its container in both the vertical and horizontal axis, not changing its size. -->
       <flag name="center" value="0x11"/>
-      
+      <!-- Push title to the beginning of its container, not changing its size. -->
       <flag name="start" value="0x00800003"/>
-      
+      <!-- Push title to the end of its container, not changing its size. -->
       <flag name="end" value="0x00800005"/>
     </attr>
 
     
     <attr name="expandedTitleGravity">
-      
+      <!-- Push title to the top of its container, not changing its size. -->
       <flag name="top" value="0x30"/>
-      
+      <!-- Push title to the bottom of its container, not changing its size. -->
       <flag name="bottom" value="0x50"/>
-      
+      <!-- Push title to the left of its container, not changing its size. -->
       <flag name="left" value="0x03"/>
-      
+      <!-- Push title to the right of its container, not changing its size. -->
       <flag name="right" value="0x05"/>
-      
+      <!-- Place title in the vertical center of its container, not changing its size. -->
       <flag name="center_vertical" value="0x10"/>
-      
+      <!-- Grow the vertical size of the title if needed so it completely fills its container. -->
       <flag name="fill_vertical" value="0x70"/>
-      
+      <!-- Place title in the horizontal center of its container, not changing its size. -->
       <flag name="center_horizontal" value="0x01"/>
-      
+      <!-- Place the title in the center of its container in both the vertical and horizontal axis, not changing its size. -->
       <flag name="center" value="0x11"/>
-      
+      <!-- Push title to the beginning of its container, not changing its size. -->
       <flag name="start" value="0x00800003"/>
-      
+      <!-- Push title to the end of its container, not changing its size. -->
       <flag name="end" value="0x00800005"/>
     </attr>
 
@@ -10702,9 +11510,9 @@
     <attr name="title"/>
     
     <attr name="titleCollapseMode">
-      
+      <!-- The expanded title will continuously scale and translate to its final collapsed position. -->
       <enum name="scale" value="0"/>
-      
+      <!-- The expanded title will fade out and translate, and the collapsed title will fade in. -->
       <enum name="fade" value="1"/>
     </attr>
     
@@ -10719,11 +11527,12 @@
   </declare-styleable>
     <declare-styleable name="CollapsingToolbarLayout_Layout">
     <attr name="layout_collapseMode">
-      
+      <!-- The view will act as normal with no collapsing behavior. -->
       <enum name="none" value="0"/>
-      
+      <!-- The view will pin in place. -->
       <enum name="pin" value="1"/>
-      
+      <!-- The view will scroll in a parallax fashion. See the
+           layout_collapseParallaxMultiplier attribute to change the multiplier. -->
       <enum name="parallax" value="2"/>
     </attr>
 
@@ -10749,17 +11558,22 @@
 
         
         <attr name="buttonTintMode">
-            
+            <!-- The tint is drawn on top of the drawable.
+                 [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
             <enum name="src_over" value="3"/>
-            
+            <!-- The tint is masked by the alpha channel of the drawable. The drawable’s
+                 color channels are thrown out. [Sa * Da, Sc * Da] -->
             <enum name="src_in" value="5"/>
-            
+            <!-- The tint is drawn above the drawable, but with the drawable’s alpha
+                 channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
             <enum name="src_atop" value="9"/>
-            
+            <!-- Multiplies the color and alpha channels of the drawable with those of
+                 the tint. [Sa * Da, Sc * Dc] -->
             <enum name="multiply" value="14"/>
-            
+            <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
             <enum name="screen" value="15"/>
-            
+            <!-- Combines the tint and icon color and alpha channels, clamping the
+                 result to valid color values. Saturate(S + D) -->
             <enum name="add" value="16"/>
         </attr>
     </declare-styleable>
@@ -11377,73 +12191,103 @@
 
         
         <attr name="layout_anchorGravity">
-            
+            <!-- Push object to the top of its container, not changing its size. -->
             <flag name="top" value="0x30"/>
-            
+            <!-- Push object to the bottom of its container, not changing its size. -->
             <flag name="bottom" value="0x50"/>
-            
+            <!-- Push object to the left of its container, not changing its size. -->
             <flag name="left" value="0x03"/>
-            
+            <!-- Push object to the right of its container, not changing its size. -->
             <flag name="right" value="0x05"/>
-            
+            <!-- Place object in the vertical center of its container, not changing its size. -->
             <flag name="center_vertical" value="0x10"/>
-            
+            <!-- Grow the vertical size of the object if needed so it completely fills its container. -->
             <flag name="fill_vertical" value="0x70"/>
-            
+            <!-- Place object in the horizontal center of its container, not changing its size. -->
             <flag name="center_horizontal" value="0x01"/>
-            
+            <!-- Grow the horizontal size of the object if needed so it completely fills its container. -->
             <flag name="fill_horizontal" value="0x07"/>
-            
+            <!-- Place the object in the center of its container in both the vertical and horizontal axis, not changing its size. -->
             <flag name="center" value="0x11"/>
-            
+            <!-- Grow the horizontal and vertical size of the object if needed so it completely fills its container. -->
             <flag name="fill" value="0x77"/>
-            
+            <!-- Additional option that can be set to have the top and/or bottom edges of
+                 the child clipped to its container's bounds.
+                 The clip will be based on the vertical gravity: a top gravity will clip the bottom
+                 edge, a bottom gravity will clip the top edge, and neither will clip both edges. -->
             <flag name="clip_vertical" value="0x80"/>
-            
+            <!-- Additional option that can be set to have the left and/or right edges of
+                 the child clipped to its container's bounds.
+                 The clip will be based on the horizontal gravity: a left gravity will clip the right
+                 edge, a right gravity will clip the left edge, and neither will clip both edges. -->
             <flag name="clip_horizontal" value="0x08"/>
-            
+            <!-- Push object to the beginning of its container, not changing its size. -->
             <flag name="start" value="0x00800003"/>
-            
+            <!-- Push object to the end of its container, not changing its size. -->
             <flag name="end" value="0x00800005"/>
         </attr>
 
         
         <attr format="enum" name="layout_insetEdge">
-            
+            <!-- Don't inset. -->
             <enum name="none" value="0x0"/>
-            
+            <!-- Inset the top edge. -->
             <enum name="top" value="0x30"/>
-            
+            <!-- Inset the bottom edge. -->
             <enum name="bottom" value="0x50"/>
-            
+            <!-- Inset the left edge. -->
             <enum name="left" value="0x03"/>
-            
+            <!-- Inset the right edge. -->
             <enum name="right" value="0x05"/>
-            
+            <!-- Inset the start edge. -->
             <enum name="start" value="0x00800003"/>
-            
+            <!-- Inset the end edge. -->
             <enum name="end" value="0x00800005"/>
         </attr>
         
         <attr name="layout_dodgeInsetEdges">
-            
+            <!-- Don't dodge any edges -->
             <flag name="none" value="0x0"/>
-            
+            <!-- Dodge the top inset edge. -->
             <flag name="top" value="0x30"/>
-            
+            <!-- Dodge the bottom inset edge. -->
             <flag name="bottom" value="0x50"/>
-            
+            <!-- Dodge the left inset edge. -->
             <flag name="left" value="0x03"/>
-            
+            <!-- Dodge the right inset edge. -->
             <flag name="right" value="0x05"/>
-            
+            <!-- Dodge the start inset edge. -->
             <flag name="start" value="0x00800003"/>
-            
+            <!-- Dodge the end inset edge. -->
             <flag name="end" value="0x00800005"/>
-            
+            <!-- Dodge all the inset edges. -->
             <flag name="all" value="0x77"/>
         </attr>
     </declare-styleable>
+    <declare-styleable name="CountryCodePicker">
+    <attr format="integer" name="ccp_defaultCode"/>
+    <attr format="color" name="ccp_textColor"/>
+    <attr format="color" name="ccp_backgroundColor"/>
+    <attr format="dimension" name="ccp_textSize"/>
+    <attr format="string" name="ccp_textFont"/>
+    <attr format="dimension" name="ccp_arrowSize"/>
+    <attr format="string" name="ccp_countryPreference"/>
+    <attr format="string" name="ccp_defaultNameCode"/>
+    <attr format="boolean" name="ccp_hideNameCode"/>
+    <attr format="boolean" name="ccp_keyboardAutoPopOnSearch"/>
+    <attr format="string" name="ccp_customMasterCountries"/>
+    <attr format="boolean" name="ccp_showFlag"/>
+    <attr format="boolean" name="ccp_showFullName"/>
+    <attr format="boolean" name="ccp_selectionDialogShowSearch"/>
+    <attr format="boolean" name="ccp_clickable"/>
+    <attr format="boolean" name="ccp_hidePhoneCode"/>
+    <attr format="boolean" name="ccp_enableHint"/>
+    <attr format="boolean" name="ccp_enablePhoneAutoFormatter"/>
+    <attr format="boolean" name="ccp_setCountryByTimeZone"/>
+
+    
+    <attr format="color" name="ccp_dialogTextColor"/>
+  </declare-styleable>
     <declare-styleable name="CustomAttribute">
         <attr format="string" name="attributeName"/>
         <attr format="string" name="methodName"/>
@@ -11487,11 +12331,11 @@
     <attr name="elevation"/>
     
     <attr name="extendStrategy">
-      
+      <!-- Strategy to extend FAB back to the width it shrunk from. -->
       <enum name="auto" value="0"/>
-      
+      <!-- Strategy to extend FAB to wrap content. -->
       <enum name="wrap_content" value="1"/>
-      
+      <!-- Strategy to extend FAB to match parent. -->
       <enum name="match_parent" value="2"/>
     </attr>
     
@@ -11523,11 +12367,11 @@
 
     
     <attr name="fabSize">
-      
+      <!-- A size which will change based on the window size. -->
       <enum name="auto" value="-1"/>
-      
+      <!-- The normal sized button. -->
       <enum name="normal" value="0"/>
-      
+      <!-- The mini sized button. -->
       <enum name="mini" value="1"/>
     </attr>
     
@@ -11576,14 +12420,23 @@
         <attr format="reference" name="fontProviderCerts"/>
         
         <attr name="fontProviderFetchStrategy">
-            
+            <!-- The blocking font fetch works as follows.
+              First, check the local cache, then if the requested font is not cached, request the
+              font from the provider and wait until it is finished.  You can change the length of
+              the timeout by modifying fontProviderFetchTimeout.  If the timeout happens, the
+              default typeface will be used instead. -->
             <enum name="blocking" value="0"/>
-            
+            <!-- The async font fetch works as follows.
+              First, check the local cache, then if the requeted font is not cached, trigger a
+              request the font and continue with layout inflation. Once the font fetch succeeds, the
+              target text view will be refreshed with the downloaded font data. The
+              fontProviderFetchTimeout will be ignored if async loading is specified. -->
             <enum name="async" value="1"/>
         </attr>
         
         <attr format="integer" name="fontProviderFetchTimeout">
-            
+            <!-- A special value for the timeout. In this case, the blocking font fetching will not
+              timeout and wait until a reply is received from the font provider. -->
             <enum name="forever" value="-1"/>
         </attr>
         
@@ -12003,20 +12856,32 @@
     <declare-styleable name="LinearProgressIndicator">
     
     <attr name="indeterminateAnimationType">
-      
+      <!--
+        The track will be filled with three adjacent segments in iterative different colors.
+        This type is only available when there are three or more indicator
+        colors.
+      -->
       <enum name="contiguous" value="0"/>
-      
+      <!--
+        There will be two disjoint segments in the same color per cycle. The color iterates between cycles.
+      -->
       <enum name="disjoint" value="1"/>
     </attr>
     
     <attr name="indicatorDirectionLinear">
-      
+      <!-- Animated from the left end to the right end of the track. -->
       <enum name="leftToRight" value="0"/>
-      
+      <!-- Animated from the right end to the left end of the track. -->
       <enum name="rightToLeft" value="1"/>
-      
+      <!--
+        Animated from the start position to the end position of the track.
+        This will be same as the leftToRight for API before 17.
+      -->
       <enum name="startToEnd" value="2"/>
-      
+      <!--
+        Animated from the end position to the start position of the track.
+        This will be same as the rightToLeft for API before 17.
+      -->
       <enum name="endToStart" value="3"/>
     </attr>
     
@@ -12040,6 +12905,77 @@
 <attr format="float" name="imageAspectRatio"/>
 
 <attr format="boolean" name="circleCrop"/>
+</declare-styleable>
+    <declare-styleable name="MapAttrs"><attr name="mapType">
+<enum name="none" value="0"/>
+
+<enum name="normal" value="1"/>
+
+<enum name="satellite" value="2"/>
+
+<enum name="terrain" value="3"/>
+
+<enum name="hybrid" value="4"/>
+
+</attr>
+
+<attr format="float" name="cameraBearing"/>
+
+<attr format="float" name="cameraTargetLat"/>
+
+<attr format="float" name="cameraTargetLng"/>
+
+<attr format="float" name="cameraTilt"/>
+
+<attr format="float" name="cameraZoom"/>
+
+<attr format="boolean" name="liteMode"/>
+
+<attr format="boolean" name="uiCompass"/>
+
+<attr format="boolean" name="uiRotateGestures"/>
+
+<attr format="boolean" name="uiScrollGestures"/>
+
+<attr format="boolean" name="uiScrollGesturesDuringRotateOrZoom"/>
+
+<attr format="boolean" name="uiTiltGestures"/>
+
+<attr format="boolean" name="uiZoomControls"/>
+
+<attr format="boolean" name="uiZoomGestures"/>
+
+<attr format="boolean" name="useViewLifecycle"/>
+
+<attr format="boolean" name="zOrderOnTop"/>
+
+<attr format="boolean" name="uiMapToolbar"/>
+
+<attr format="boolean" name="ambientEnabled"/>
+
+<attr format="float" name="cameraMinZoomPreference"/>
+
+<attr format="float" name="cameraMaxZoomPreference"/>
+
+<attr format="float" name="latLngBoundsSouthWestLatitude"/>
+
+<attr format="float" name="latLngBoundsSouthWestLongitude"/>
+
+<attr format="float" name="latLngBoundsNorthEastLatitude"/>
+
+<attr format="float" name="latLngBoundsNorthEastLongitude"/>
+
+<attr format="color" name="backgroundColor"/>
+
+<attr format="string" name="mapId"/>
+<attr name="mapColorScheme">
+<enum name="light" value="0"/>
+
+<enum name="dark" value="1"/>
+
+<enum name="follow_system" value="2"/>
+
+</attr>
 </declare-styleable>
     <declare-styleable name="MaterialAlertDialog">
     <attr name="backgroundTint"/>
@@ -12092,17 +13028,20 @@
     <attr format="dimension" name="iconPadding"/>
     
     <attr name="iconGravity">
-      
+      <!-- Push icon to the start of the button. -->
       <flag name="start" value="0x1"/>
-      
+      <!-- Push the icon to the start of the text keeping a distance equal to
+           {@code iconPadding} from the text. -->
       <flag name="textStart" value="0x2"/>
-      
+      <!-- Push icon to the end of the button. -->
       <flag name="end" value="0x3"/>
-      
+      <!-- Push the icon to the end of the text keeping a distance equal to
+           {@code iconPadding} from the text. -->
       <flag name="textEnd" value="0x4"/>
-      
+      <!-- Push the icon to the top of the button. -->
       <flag name="top" value="0x10"/>
-      
+      <!-- Push the icon to the top of the text keeping a distance equal to
+           {@code iconPadding} from the text. -->
       <flag name="textTop" value="0x20"/>
     </attr>
     
@@ -12175,13 +13114,13 @@
     <attr format="dimension" name="checkedIconMargin"/>
     
     <attr name="checkedIconGravity">
-      
+      <!-- Gravity.TOP | Gravity.END -->
       <enum name="TOP_END" value="8388661"/>
-      
+      <!-- Gravity.TOP | Gravity.START -->
       <enum name="TOP_START" value="8388659"/>
-      
+      <!-- Gravity.BOTTOM | Gravity.END -->
       <enum name="BOTTOM_END" value="8388693"/>
-      
+      <!-- Gravity.BOTTOM | Gravity.START -->
       <enum name="BOTTOM_START" value="8388691"/>
     </attr>
     
@@ -12211,17 +13150,22 @@
     <attr format="reference|color" name="buttonIconTint"/>
     
     <attr name="buttonIconTintMode">
-      
+      <!-- The tint is drawn on top of the drawable.
+           [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
       <enum name="src_over" value="3"/>
-      
+      <!-- The tint is masked by the alpha channel of the drawable. The drawable’s
+           color channels are thrown out. [Sa * Da, Sc * Da] -->
       <enum name="src_in" value="5"/>
-      
+      <!-- The tint is drawn above the drawable, but with the drawable’s alpha
+           channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
       <enum name="src_atop" value="9"/>
-      
+      <!-- Multiplies the color and alpha channels of the drawable with those of
+           the tint. [Sa * Da, Sc * Dc] -->
       <enum name="multiply" value="14"/>
-      
+      <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
       <enum name="screen" value="15"/>
-      
+      <!-- Combines the tint and drawable color and alpha channels, clamping the
+           result to valid color values. Saturate(S + D) -->
       <enum name="add" value="16"/>
     </attr>
     
@@ -12232,11 +13176,11 @@
     <attr format="string" name="errorAccessibilityLabel"/>
     
     <attr name="checkedState">
-      
+      <!-- The unchecked state of the checkbox. -->
       <enum name="unchecked" value="0"/>
-      
+      <!-- The checked state of the checkbox. -->
       <enum name="checked" value="1"/>
-      
+      <!-- The indeterminate state of the checkbox. -->
       <enum name="indeterminate" value="2"/>
     </attr>
   </declare-styleable>
@@ -12277,17 +13221,22 @@
     <attr format="color" name="thumbIconTint"/>
     
     <attr name="thumbIconTintMode">
-      
+      <!-- The tint is drawn on top of the drawable.
+           [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
       <enum name="src_over" value="3"/>
-      
+      <!-- The tint is masked by the alpha channel of the drawable. The drawable’s
+           color channels are thrown out. [Sa * Da, Sc * Da] -->
       <enum name="src_in" value="5"/>
-      
+      <!-- The tint is drawn above the drawable, but with the drawable’s alpha
+           channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
       <enum name="src_atop" value="9"/>
-      
+      <!-- Multiplies the color and alpha channels of the drawable with those of
+           the tint. [Sa * Da, Sc * Dc] -->
       <enum name="multiply" value="14"/>
-      
+      <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
       <enum name="screen" value="15"/>
-      
+      <!-- Combines the tint and drawable color and alpha channels, clamping the
+           result to valid color values. Saturate(S + D) -->
       <enum name="add" value="16"/>
     </attr>
     
@@ -12298,17 +13247,22 @@
     <attr format="color" name="trackDecorationTint"/>
     
     <attr name="trackDecorationTintMode">
-      
+      <!-- The tint is drawn on top of the drawable.
+           [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
       <enum name="src_over" value="3"/>
-      
+      <!-- The tint is masked by the alpha channel of the drawable. The drawable’s
+           color channels are thrown out. [Sa * Da, Sc * Da] -->
       <enum name="src_in" value="5"/>
-      
+      <!-- The tint is drawn above the drawable, but with the drawable’s alpha
+           channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
       <enum name="src_atop" value="9"/>
-      
+      <!-- Multiplies the color and alpha channels of the drawable with those of
+           the tint. [Sa * Da, Sc * Dc] -->
       <enum name="multiply" value="14"/>
-      
+      <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
       <enum name="screen" value="15"/>
-      
+      <!-- Combines the tint and drawable color and alpha channels, clamping the
+           result to valid color values. Saturate(S + D) -->
       <enum name="add" value="16"/>
     </attr>
   </declare-styleable>
@@ -12340,21 +13294,27 @@
     <attr format="boolean" name="logoAdjustViewBounds"/>
     
     <attr name="logoScaleType">
-      
+      <!-- Scale using the image matrix when drawing. See
+           {@link android.widget.ImageView#setImageMatrix(Matrix)}. -->
       <enum name="matrix" value="0"/>
-      
+      <!-- Scale the image using {@link android.graphics.Matrix.ScaleToFit#FILL}. -->
       <enum name="fitXY" value="1"/>
-      
+      <!-- Scale the image using {@link android.graphics.Matrix.ScaleToFit#START}. -->
       <enum name="fitStart" value="2"/>
-      
+      <!-- Scale the image using {@link android.graphics.Matrix.ScaleToFit#CENTER}. -->
       <enum name="fitCenter" value="3"/>
-      
+      <!-- Scale the image using {@link android.graphics.Matrix.ScaleToFit#END}. -->
       <enum name="fitEnd" value="4"/>
-      
+      <!-- Center the image in the view, but perform no scaling. -->
       <enum name="center" value="5"/>
-      
+      <!-- Scale the image uniformly (maintain the image's aspect ratio) so both dimensions
+           (width and height) of the image will be equal to or larger than the corresponding
+           dimension of the view (minus padding). The image is then centered in the view. -->
       <enum name="centerCrop" value="6"/>
-      
+      <!-- Scale the image uniformly (maintain the image's aspect ratio) so that both
+           dimensions (width and height) of the image will be equal to or less than the
+           corresponding dimension of the view (minus padding). The image is then centered in
+           the view. -->
       <enum name="centerInside" value="7"/>
     </attr>
   </declare-styleable>
@@ -12442,15 +13402,24 @@
 
         
         <attr name="showAsAction">
-            
+            <!-- Never show this item in an action bar, show it in the overflow menu instead.
+                 Mutually exclusive with "ifRoom" and "always". -->
             <flag name="never" value="0"/>
-            
+            <!-- Show this item in an action bar if there is room for it as determined
+                 by the system. Favor this option over "always" where possible.
+                 Mutually exclusive with "never" and "always". -->
             <flag name="ifRoom" value="1"/>
-            
+            <!-- Always show this item in an actionbar, even if it would override
+                 the system's limits of how much stuff to put there. This may make
+                 your action bar look bad on some screens. In most cases you should
+                 use "ifRoom" instead. Mutually exclusive with "ifRoom" and "never". -->
             <flag name="always" value="2"/>
-            
+            <!-- When this item is shown as an action in the action bar, show a text
+                 label with it even if it has an icon representation. -->
             <flag name="withText" value="4"/>
-            
+            <!-- This item's action view collapses to a normal menu
+                 item. When expanded, the action view takes over a
+                 larger segment of its container. -->
             <flag name="collapseActionView" value="8"/>
         </attr>
 
@@ -12474,17 +13443,22 @@
 
         
         <attr name="iconTintMode">
-            
+            <!-- The tint is drawn on top of the icon.
+                 [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
             <enum name="src_over" value="3"/>
-            
+            <!-- The tint is masked by the alpha channel of the icon. The icon’s
+                 color channels are thrown out. [Sa * Da, Sc * Da] -->
             <enum name="src_in" value="5"/>
-            
+            <!-- The tint is drawn above the icon, but with the icon’s alpha
+                 channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
             <enum name="src_atop" value="9"/>
-            
+            <!-- Multiplies the color and alpha channels of the icon with those of
+                 the tint. [Sa * Da, Sc * Dc] -->
             <enum name="multiply" value="14"/>
-            
+            <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
             <enum name="screen" value="15"/>
-            
+            <!-- Combines the tint and icon color and alpha channels, clamping the
+                 result to valid color values. Saturate(S + D) -->
             <enum name="add" value="16"/>
         </attr>
 
@@ -12663,13 +13637,14 @@
     <attr name="menu"/>
     
     <attr name="labelVisibilityMode">
-      
+      <!-- Label behaves as "labeled" when there are 3 items or less, or "selected" when there are
+           4 items or more. -->
       <enum name="auto" value="-1"/>
-      
+      <!-- Label is shown on the selected navigation item. -->
       <enum name="selected" value="0"/>
-      
+      <!-- Label is shown on all navigation items. -->
       <enum name="labeled" value="1"/>
-      
+      <!-- Label is not shown on any navigation items. -->
       <enum name="unlabeled" value="2"/>
     </attr>
     
@@ -12709,14 +13684,14 @@
     <attr name="headerLayout"/>
    
     <attr name="menuGravity">
-      
-      
+      <!-- Navigation rail destinations will be aligned as a group at the top. This is the default behavior. -->
+      <!-- Gravity.TOP | Gravity.CENTER_HORIZONTAL-->
       <enum name="top" value="49"/>
-      
-      
+      <!-- Navigation rail destinations will be aligned as a group at the center. -->
+      <!-- Gravity.CENTER -->
       <enum name="center" value="17"/>
-      
-      
+      <!-- Navigation rail destinations will be aligned as a group at the bottom. -->
+      <!-- Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL -->
       <enum name="bottom" value="81"/>
     </attr>
     
@@ -13054,13 +14029,13 @@
     <attr format="dimension" name="haloRadius"/>
     
     <attr name="labelBehavior">
-      
+      <!-- Mode that draws the label floating above the bounds of this view. -->
       <enum name="floating" value="0"/>
-      
+      <!-- Mode that draws the label within the bounds of the view. -->
       <enum name="withinBounds" value="1"/>
-      
+      <!-- Mode that prevents the label from being drawn. -->
       <enum name="gone" value="2"/>
-      
+      <!-- Mode that always draws the label. -->
       <enum name="visible" value="3"/>
     </attr>
     
@@ -13122,9 +14097,9 @@
     <attr format="dimension" name="maxActionInlineWidth"/>
     
     <attr format="enum" name="animationMode">
-      
+      <!-- Mode that corresponds to the slide in and out animations. -->
       <enum name="slide" value="0"/>
-      
+      <!-- Mode that corresponds to the fade in and out animations. -->
       <enum name="fade" value="1"/>
     </attr>
     
@@ -13214,17 +14189,22 @@
         <attr format="color" name="thumbTint"/>
         
         <attr name="thumbTintMode">
-            
+            <!-- The tint is drawn on top of the drawable.
+                 [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
             <enum name="src_over" value="3"/>
-            
+            <!-- The tint is masked by the alpha channel of the drawable. The drawable’s
+                 color channels are thrown out. [Sa * Da, Sc * Da] -->
             <enum name="src_in" value="5"/>
-            
+            <!-- The tint is drawn above the drawable, but with the drawable’s alpha
+                 channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
             <enum name="src_atop" value="9"/>
-            
+            <!-- Multiplies the color and alpha channels of the drawable with those of
+                 the tint. [Sa * Da, Sc * Dc] -->
             <enum name="multiply" value="14"/>
-            
+            <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
             <enum name="screen" value="15"/>
-            
+            <!-- Combines the tint and drawable color and alpha channels, clamping the
+                 result to valid color values. Saturate(S + D) -->
             <enum name="add" value="16"/>
         </attr>
         
@@ -13233,17 +14213,22 @@
         <attr format="color" name="trackTint"/>
         
         <attr name="trackTintMode">
-            
+            <!-- The tint is drawn on top of the drawable.
+                 [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
             <enum name="src_over" value="3"/>
-            
+            <!-- The tint is masked by the alpha channel of the drawable. The drawable’s
+                 color channels are thrown out. [Sa * Da, Sc * Da] -->
             <enum name="src_in" value="5"/>
-            
+            <!-- The tint is drawn above the drawable, but with the drawable’s alpha
+                 channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
             <enum name="src_atop" value="9"/>
-            
+            <!-- Multiplies the color and alpha channels of the drawable with those of
+                 the tint. [Sa * Da, Sc * Dc] -->
             <enum name="multiply" value="14"/>
-            
+            <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
             <enum name="screen" value="15"/>
-            
+            <!-- Combines the tint and drawable color and alpha channels, clamping the
+                 result to valid color values. Saturate(S + D) -->
             <enum name="add" value="16"/>
         </attr>
         
@@ -13288,13 +14273,13 @@
     <attr format="reference" name="tabIndicator"/>
     
     <attr name="tabIndicatorGravity">
-      
+      <!-- Align indicator to the bottom of this tab layout. -->
       <enum name="bottom" value="0"/>
-      
+      <!-- Align indicator along the center of this tab layout. -->
       <enum name="center" value="1"/>
-      
+      <!-- Align indicator to the top of this tab layout. -->
       <enum name="top" value="2"/>
-      
+      <!-- Stretch indicator to match the height and width of a tab item in this layout. -->
       <enum name="stretch" value="3"/>
     </attr>
     
@@ -13303,11 +14288,17 @@
     <attr format="boolean" name="tabIndicatorFullWidth"/>
     
     <attr name="tabIndicatorAnimationMode">
-      
+      <!-- Animate the selection indicator's left and right bounds in step with
+           each other. -->
       <enum name="linear" value="0"/>
-      
+      <!-- Animate the selection indicator's left and right bounds out of step
+           with each other, decelerating the front and accelerating the back.
+           This causes the indicator to look like it stretches between destinations
+           an then shrinks back down to fit the size of it's target tab. -->
       <enum name="elastic" value="1"/>
-      
+      <!-- Animate the selection indicator by sequentially fading it out from
+           its current destination and then fading it in at its new
+           destination. -->
       <enum name="fade" value="2"/>
     </attr>
     
@@ -13454,15 +14445,19 @@
     <attr format="reference" name="errorIconTint"/>
     
     <attr name="errorIconTintMode">
-      
+      <!-- The tint is drawn on top of the drawable.
+           [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
       <enum name="src_over" value="3"/>
-      
+      <!-- The tint is masked by the alpha channel of the drawable. The drawable’s
+           color channels are thrown out. [Sa * Da, Sc * Da] -->
       <enum name="src_in" value="5"/>
-      
+      <!-- The tint is drawn above the drawable, but with the drawable’s alpha
+           channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
       <enum name="src_atop" value="9"/>
-      
+      <!-- Multiplies the color and alpha channels of the drawable with those of
+           the tint. [Sa * Da, Sc * Dc] -->
       <enum name="multiply" value="14"/>
-      
+      <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
       <enum name="screen" value="15"/>
     </attr>
 
@@ -13514,47 +14509,56 @@
     <attr format="color" name="startIconTint"/>
     
     <attr name="startIconTintMode">
-      
+      <!-- The tint is drawn on top of the drawable.
+           [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
       <enum name="src_over" value="3"/>
-      
+      <!-- The tint is masked by the alpha channel of the drawable. The drawable’s
+           color channels are thrown out. [Sa * Da, Sc * Da] -->
       <enum name="src_in" value="5"/>
-      
+      <!-- The tint is drawn above the drawable, but with the drawable’s alpha
+           channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
       <enum name="src_atop" value="9"/>
-      
+      <!-- Multiplies the color and alpha channels of the drawable with those of
+           the tint. [Sa * Da, Sc * Dc] -->
       <enum name="multiply" value="14"/>
-      
+      <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
       <enum name="screen" value="15"/>
     </attr>
     
     <attr format="dimension" name="startIconMinSize"/>
     
     <attr name="startIconScaleType">
-      
+      <!-- Scale the image using {@link android.graphics.Matrix.ScaleToFit#FILL}. -->
       <enum name="fitXY" value="0"/>
-      
+      <!-- Scale the image using {@link android.graphics.Matrix.ScaleToFit#START}. -->
       <enum name="fitStart" value="1"/>
-      
+      <!-- Scale the image using {@link android.graphics.Matrix.ScaleToFit#CENTER}. -->
       <enum name="fitCenter" value="2"/>
-      
+      <!-- Scale the image using {@link android.graphics.Matrix.ScaleToFit#END}. -->
       <enum name="fitEnd" value="3"/>
-      
+      <!-- Center the image in the view, but perform no scaling. -->
       <enum name="center" value="4"/>
-      
+      <!-- Scale the image uniformly (maintain the image's aspect ratio) so both dimensions
+           (width and height) of the image will be equal to or larger than the corresponding
+           dimension of the view (minus padding). The image is then centered in the view. -->
       <enum name="centerCrop" value="5"/>
-      
+      <!-- Scale the image uniformly (maintain the image's aspect ratio) so that both
+           dimensions (width and height) of the image will be equal to or less than the
+           corresponding dimension of the view (minus padding). The image is then centered in
+           the view. -->
       <enum name="centerInside" value="6"/>
     </attr>
     
     <attr name="endIconMode">
-      
+      <!-- The view will display a custom icon specified by the user. -->
       <enum name="custom" value="-1"/>
-      
+      <!-- No end icon. -->
       <enum name="none" value="0"/>
-      
+      <!-- The view will display a toggle when the EditText has a password. -->
       <enum name="password_toggle" value="1"/>
-      
+      <!-- The view will display a clear text button while the EditText contains input. -->
       <enum name="clear_text" value="2"/>
-      
+      <!-- The view will display a toggle that displays/hides a dropdown menu. -->
       <enum name="dropdown_menu" value="3"/>
     </attr>
     
@@ -13567,44 +14571,53 @@
     <attr format="color" name="endIconTint"/>
     
     <attr name="endIconTintMode">
-      
+      <!-- The tint is drawn on top of the drawable.
+           [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
       <enum name="src_over" value="3"/>
-      
+      <!-- The tint is masked by the alpha channel of the drawable. The drawable’s
+           color channels are thrown out. [Sa * Da, Sc * Da] -->
       <enum name="src_in" value="5"/>
-      
+      <!-- The tint is drawn above the drawable, but with the drawable’s alpha
+           channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
       <enum name="src_atop" value="9"/>
-      
+      <!-- Multiplies the color and alpha channels of the drawable with those of
+           the tint. [Sa * Da, Sc * Dc] -->
       <enum name="multiply" value="14"/>
-      
+      <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
       <enum name="screen" value="15"/>
     </attr>
     
     <attr format="dimension" name="endIconMinSize"/>
     
     <attr name="endIconScaleType">
-      
+      <!-- Scale the image using {@link android.graphics.Matrix.ScaleToFit#FILL}. -->
       <enum name="fitXY" value="0"/>
-      
+      <!-- Scale the image using {@link android.graphics.Matrix.ScaleToFit#START}. -->
       <enum name="fitStart" value="1"/>
-      
+      <!-- Scale the image using {@link android.graphics.Matrix.ScaleToFit#CENTER}. -->
       <enum name="fitCenter" value="2"/>
-      
+      <!-- Scale the image using {@link android.graphics.Matrix.ScaleToFit#END}. -->
       <enum name="fitEnd" value="3"/>
-      
+      <!-- Center the image in the view, but perform no scaling. -->
       <enum name="center" value="4"/>
-      
+      <!-- Scale the image uniformly (maintain the image's aspect ratio) so both dimensions
+           (width and height) of the image will be equal to or larger than the corresponding
+           dimension of the view (minus padding). The image is then centered in the view. -->
       <enum name="centerCrop" value="5"/>
-      
+      <!-- Scale the image uniformly (maintain the image's aspect ratio) so that both
+           dimensions (width and height) of the image will be equal to or less than the
+           corresponding dimension of the view (minus padding). The image is then centered in
+           the view. -->
       <enum name="centerInside" value="6"/>
     </attr>
 
     
     <attr name="boxBackgroundMode">
-      
+      <!-- Specifies that there should be no box set on the text input area. -->
       <enum name="none" value="0"/>
-      
+      <!-- Filled box mode for the text input box. -->
       <enum name="filled" value="1"/>
-      
+      <!-- Outline box mode for the text input box. -->
       <enum name="outline" value="2"/>
     </attr>
     
@@ -13643,15 +14656,19 @@
     <attr format="color" name="passwordToggleTint"/>
     
     <attr name="passwordToggleTintMode">
-      
+      <!-- The tint is drawn on top of the drawable.
+           [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
       <enum name="src_over" value="3"/>
-      
+      <!-- The tint is masked by the alpha channel of the drawable. The drawable’s
+           color channels are thrown out. [Sa * Da, Sc * Da] -->
       <enum name="src_in" value="5"/>
-      
+      <!-- The tint is drawn above the drawable, but with the drawable’s alpha
+           channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
       <enum name="src_atop" value="9"/>
-      
+      <!-- Multiplies the color and alpha channels of the drawable with those of
+           the tint. [Sa * Da, Sc * Dc] -->
       <enum name="multiply" value="14"/>
-      
+      <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
       <enum name="screen" value="15"/>
     </attr>
   </declare-styleable>
@@ -13689,11 +14706,11 @@
         <attr name="contentInsetEndWithActions"/>
         <attr format="dimension" name="maxButtonHeight"/>
         <attr name="buttonGravity">
-            
+            <!-- Place object in the vertical center of its container, not changing its size. -->
             <flag name="center_vertical" value="0x10"/>
-            
+            <!-- Push object to the top of its container, not changing its size. -->
             <flag name="top" value="0x30"/>
-            
+            <!-- Push object to the bottom of its container, not changing its size. -->
             <flag name="bottom" value="0x50"/>
         </attr>
         
@@ -13827,17 +14844,22 @@
 
         
         <attr name="backgroundTintMode">
-            
+            <!-- The tint is drawn on top of the drawable.
+                 [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
             <enum name="src_over" value="3"/>
-            
+            <!-- The tint is masked by the alpha channel of the drawable. The drawable’s
+                 color channels are thrown out. [Sa * Da, Sc * Da] -->
             <enum name="src_in" value="5"/>
-            
+            <!-- The tint is drawn above the drawable, but with the drawable’s alpha
+                 channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
             <enum name="src_atop" value="9"/>
-            
+            <!-- Multiplies the color and alpha channels of the drawable with those of
+                 the tint. [Sa * Da, Sc * Dc] -->
             <enum name="multiply" value="14"/>
-            
+            <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
             <enum name="screen" value="15"/>
-            
+            <!-- Combines the tint and icon color and alpha channels, clamping the
+                 result to valid color values. Saturate(S + D) -->
             <enum name="add" value="16"/>
         </attr>
     </declare-styleable>

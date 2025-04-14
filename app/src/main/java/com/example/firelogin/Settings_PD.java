@@ -23,7 +23,8 @@ import android.widget.Button;
 
 public class Settings_PD extends AppCompatActivity {
 
-    EditText names, show_birthdate, surnames, show_email, show_password;
+    EditText names, show_birthdate, surnames, show_email, show_password ;
+    Button cancelPDBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +66,28 @@ public class Settings_PD extends AppCompatActivity {
                             surnames.setText(surname);
                             show_birthdate.setText(birthdate);
                             show_email.setText(email);
+
+
+                            show_email.addTextChangedListener(new TextWatcher() {
+                                @Override
+                                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                                }
+
+                                @Override
+                                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                                    if (!s.toString().trim().isEmpty()) {
+                                        show_password.setVisibility(View.VISIBLE);
+                                    } else {
+                                        show_password.setVisibility(View.GONE);
+                                    }
+                                }
+
+                                @Override
+                                public void afterTextChanged(Editable s) {
+                                    // no usado
+                                }
+                            });
+
                         } else {
                             Toast.makeText(this, "Usuario no encontrado", Toast.LENGTH_SHORT).show();
                         }
@@ -72,27 +95,6 @@ public class Settings_PD extends AppCompatActivity {
                     .addOnFailureListener(e -> {
                         Toast.makeText(this, "Error al obtener datos", Toast.LENGTH_SHORT).show();
                     });
-
-            show_email.addTextChangedListener(new TextWatcher() {
-                    @Override
-                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                        // no usado
-                    }
-
-                    @Override
-                    public void onTextChanged(CharSequence s, int start, int before, int count) {
-                        if (!s.toString().trim().isEmpty()) {
-                            show_password.setVisibility(View.VISIBLE);
-                        } else {
-                            show_password.setVisibility(View.GONE);
-                        }
-                    }
-
-                    @Override
-                    public void afterTextChanged(Editable s) {
-                        // no usado
-                    }
-                });
             }
 
             btnSave.setOnClickListener(new View.OnClickListener() {
@@ -130,14 +132,11 @@ public class Settings_PD extends AppCompatActivity {
                 }
             });
         }
-    }
 
-<<<<<<< Updated upstream
+
     @Override
     public boolean onSupportNavigateUp() {
         finish();
         return true;
     }
 }
-=======
->>>>>>> Stashed changes
