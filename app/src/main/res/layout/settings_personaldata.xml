@@ -190,6 +190,20 @@
                 android:backgroundTint="#6D8967"
                 android:padding="10dp" />
 
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="250dp"
+                android:hint="Ingresa tu contraseña:"
+                android:visibility="gone"
+                android:textSize="20sp"
+                android:layout_margin="10dp"
+                android:textColor="@color/white"
+                android:background="@drawable/redondedado"
+                android:backgroundTint="#6D8967"
+                android:padding="10dp" />
+
         </LinearLayout>
 
         <LinearLayout

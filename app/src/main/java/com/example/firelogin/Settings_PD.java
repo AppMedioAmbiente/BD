@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -21,7 +23,7 @@ import android.widget.Button;
 
 public class Settings_PD extends AppCompatActivity {
 
-    EditText names, show_birthdate, surnames, show_email;
+    EditText names, show_birthdate, surnames, show_email, show_password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,7 @@ public class Settings_PD extends AppCompatActivity {
         surnames = findViewById(R.id.show_surnname);
         show_birthdate = findViewById(R.id.show_birthdate);
         show_email = findViewById(R.id.show_email);
+        show_password = findViewById(R.id.password);
         Button btnSave = findViewById(R.id.save);
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -69,6 +72,28 @@ public class Settings_PD extends AppCompatActivity {
                     .addOnFailureListener(e -> {
                         Toast.makeText(this, "Error al obtener datos", Toast.LENGTH_SHORT).show();
                     });
+
+            show_email.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                        // no usado
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+                        if (!s.toString().trim().isEmpty()) {
+                            show_password.setVisibility(View.VISIBLE);
+                        } else {
+                            show_password.setVisibility(View.GONE);
+                        }
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable s) {
+                        // no usado
+                    }
+                });
+            }
 
             btnSave.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -107,9 +132,12 @@ public class Settings_PD extends AppCompatActivity {
         }
     }
 
+<<<<<<< Updated upstream
     @Override
     public boolean onSupportNavigateUp() {
         finish();
         return true;
     }
 }
+=======
+>>>>>>> Stashed changes
