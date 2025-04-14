@@ -3,6 +3,7 @@ package com.example.firelogin;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.LinearLayout;
@@ -10,7 +11,7 @@ import java.util.HashMap;
 
 public class Settings extends AppCompatActivity {
 
-    LinearLayout btnPersonal_data, btnNotification, btnAutentication, btnInterface;
+    LinearLayout btnPersonal_data, btnNotification, btnAutentication, btnInterface, btnDA;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -52,6 +53,13 @@ public class Settings extends AppCompatActivity {
 
         btnInterface.setOnClickListener(view ->{
             Intent intent = new Intent(Settings.this, Settings_Interface.class);
+            startActivity(intent);
+        });
+
+        btnDA = (LinearLayout) findViewById(R.id.s_deleteaccount);
+
+        btnDA.setOnClickListener(view ->{
+            Intent intent = new Intent(Settings.this, Settings_DA.class);
             startActivity(intent);
         });
 
