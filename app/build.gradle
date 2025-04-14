@@ -1,5 +1,8 @@
 plugins {
     id 'com.android.application'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+
+    id 'org.jetbrains.kotlin.android'
 }
 
 android {
@@ -8,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.firelogin"
-        minSdk 23
+        minSdk 24
         targetSdk 34
         versionCode 1
         versionName "1.0"
@@ -26,12 +29,31 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    buildFeatures {
-        viewBinding true
+    kotlinOptions {
+        jvmTarget = '1.8'
     }
+    //buildFeatures {
+    //    viewBinding true
+    //}
+    lint {
+        baseline = file("lint-baseline.xml")
+    }
+
 }
 
 dependencies {
+    //reselctor de pais y estado
+   
+    implementation 'com.google.android.gms:play-services-gcm:17.0.0'
+    implementation 'io.michaelrocks:libphonenumber-android:8.13.52'
+    implementation 'com.github.joielechong:countrycodepicker:2.4.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+     //implementation 'org.jetbrains.kotlinx:kotlinx-serialization-core:1.5.1'
+    //implementation 'org.jetbrains.kotlinx:kotlinx-serialization-core:1.6.3'
+    //implementation 'org.jetbrains.kotlinx:kotlinx-serialization-core:1.5.1'
+    implementation 'androidx.core:core-ktx:1.7.0'
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.2'
@@ -39,21 +61,20 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment:2.8.9'
     implementation 'androidx.navigation:navigation-ui:2.8.9'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    //implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.google.android.gms:play-services-maps:19.1.0'
+    //implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
     implementation 'androidx.multidex:multidex:2.0.1'
+implementation 'com.google.android.material:material:1.12.0'
 
-    implementation 'com.google.firebase:firebase-analytics:21.2.0' // Ejemplo de Firebase Analytics
-    implementation 'com.google.firebase:firebase-auth:21.0.5' // Ejemplo de Firebase Authentication
+    //implementation (platform("com.google.firebase:firebase-bom:32.8.0"))
+    implementation 'com.google.firebase:firebase-auth:21.0.5'  
+    implementation 'com.google.firebase:firebase-analytics:21.2.0'
     implementation 'com.google.firebase:firebase-database:20.0.3'
-    // Ejemplo de Firebase Realtime Database
-    //implementation 'com.google.firebase:firebase-firestore:24.10.2'
     implementation 'com.google.firebase:firebase-firestore:24.4.0'
-    //implementation 'com.google.firebase:firebase-auth:22.0.0'
-    //implementation 'com.google.firebase:firebase-database:20.2.1'
-    implementation 'com.google.android.material:material:1.12.0'
 
     // Librería para el carrusel
     implementation 'me.relex:circleindicator:2.1.6'
@@ -61,6 +82,7 @@ dependencies {
 
     //Librería para el calendario
     //implementation 'com.applandeo:material-calendar-view:1-7-0'
+
 }
 
 apply plugin: 'com.google.gms.google-services' // Asegúrate de aplicarlo al final
