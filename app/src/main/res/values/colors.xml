@@ -9,7 +9,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red">#9B0000</color>
 
-
+    <color name="mainColor">#034724</color>
+    <color name="secondarycolor">#2A5452</color>
+    <color name="secondaryColor1">#3D6B60</color>
     <color name="cafe">#452B1F</color>
     <color name="crema">#FFC499</color>
     <color name="verdeOpaco">#8B9467</color>

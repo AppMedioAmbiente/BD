@@ -10,12 +10,15 @@ color blancoOscuro
 color cafe
 color cafeClaro
 color crema
+color mainColor
 color moradoClaro
 color purple_200
 color purple_500
 color purple_700
 color red
 color rosaCrema
+color secondaryColor1
+color secondarycolor
 color teal_200
 color teal_700
 color verdeBandera
@@ -27,7 +30,6 @@ dimen activity_vertical_margin
 dimen fab_margin
 dimen nav_header_height
 dimen nav_header_vertical_spacing
-drawable background_cards
 drawable calendar_ic
 drawable configuraciones
 drawable editar
@@ -50,7 +52,7 @@ drawable my_events_ic
 drawable notificacion
 drawable profile_ic
 drawable redondedado
-drawable secovo_ic
+drawable secovo_sc
 drawable side_nav_bar
 id Rsing_up
 id Send
@@ -95,6 +97,8 @@ id imageView2
 id imageView3
 id imageView4
 id imageView5
+id imageView6
+id imageView7
 id message
 id mobile_navigation
 id name
@@ -189,6 +193,7 @@ layout settings_autentication
 layout settings_interface
 layout settings_notifications
 layout settings_personaldata
+layout splash_screen
 layout usuario
 menu home
 menu home_drawer

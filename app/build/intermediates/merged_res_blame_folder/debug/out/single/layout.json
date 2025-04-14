@@ -8,10 +8,6 @@
         "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-56:\\layout\\fragment_home.xml"
     },
     {
-        "merged": "com.example.firelogin.app-mergeDebugResources-53:/layout/settings.xml",
-        "source": "com.example.firelogin.app-main-56:/layout/settings.xml"
-    },
-    {
         "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-mergeDebugResources-53:\\layout\\nav_header_home.xml",
         "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-56:\\layout\\nav_header_home.xml"
     },
@@ -44,6 +40,10 @@
         "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-56:\\layout\\content_home.xml"
     },
     {
+        "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-mergeDebugResources-53:\\layout\\splash_screen.xml",
+        "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-56:\\layout\\splash_screen.xml"
+    },
+    {
         "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-mergeDebugResources-53:\\layout\\fragment_contact_us.xml",
         "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-56:\\layout\\fragment_contact_us.xml"
     },
@@ -66,6 +66,10 @@
     {
         "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-mergeDebugResources-53:\\layout\\settings_personaldata.xml",
         "source": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-main-56:\\layout\\settings_personaldata.xml"
+    },
+    {
+        "merged": "com.example.firelogin.app-mergeDebugResources-53:/layout/app_bar_home.xml",
+        "source": "com.example.firelogin.app-main-56:/layout/app_bar_home.xml"
     },
     {
         "merged": "C:\\Users\\Oscar Medina\\.gradle\\daemon\\7.6\\com.example.firelogin.app-mergeDebugResources-53:\\layout\\settings_autentication.xml",

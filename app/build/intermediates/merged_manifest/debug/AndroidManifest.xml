@@ -27,7 +27,7 @@
         android:debuggable="true"
         android:extractNativeLibs="false"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/secovo_ic"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:testOnly="true"
@@ -40,16 +40,20 @@
         <!
         -->
         <activity
-            android:name="com.example.firelogin.Home"
+            android:name="com.example.firelogin.Splash_Screen"
             android:exported="true"
-            android:label="@string/title_activity_home"
-            android:theme="@style/Theme.FireLogin.NoActionBar" >
+            android:windowSoftInputMode="stateVisible|adjustResize" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.firelogin.Home"
+            android:exported="true"
+            android:label="@string/title_activity_home"
+            android:theme="@style/Theme.FireLogin.NoActionBar" />
 
         <meta-data
             android:name="com.google.android.gms.version"

@@ -7,7 +7,7 @@
     tools:context=".ui.home.HomeFragment"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="#082B11">
+    android:background="@color/mainColor">
 
     <TextView
         android:id="@+id/text_home"
@@ -27,7 +27,8 @@
         app:showIndicator="true"
         app:autoPlay="true"
         app:autoPlayDelay="6000"
-        app:showTopShadow="true"/>
+        app:showTopShadow="true"
+        android:background="@drawable/redondedado"/>
 
     <TextView
         android:id="@+id/text_abtus"

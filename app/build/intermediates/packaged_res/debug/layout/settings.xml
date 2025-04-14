@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:gravity="top|center"
     tools:context=".Settings"
-    android:background="#082B11">
+    android:background="@color/mainColor">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
