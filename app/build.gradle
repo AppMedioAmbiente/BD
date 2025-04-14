@@ -45,7 +45,8 @@ android {
 
 dependencies {
     //reselctor de pais y estado
-   
+    implementation 'com.github.mukeshsolanki:country-picker-android:2.0.1'
+
     implementation 'com.google.android.gms:play-services-gcm:17.0.0'
     implementation 'io.michaelrocks:libphonenumber-android:8.13.52'
     implementation 'com.github.joielechong:countrycodepicker:2.4.1'

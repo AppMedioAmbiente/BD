@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:gravity="center"
+tools:context=".Register2"
+android:background="@color/mainColor">
+
+<TextView
+    android:id="@+id/header"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Registro"
+    android:textColor="@color/white"
+    android:textSize="35sp"
+    android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="190dp"
+        android:layout_height="190dp"
+        app:srcCompat="@drawable/logo"
+        android:layout_marginBottom="25dp"
+        android:layout_marginTop="15dp" />
+
+
+    <Button
+        android:id="@+id/select_country"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:text="Seleccionar un pais"
+        android:textColor="@color/white"
+        tools:layout_editor_absoluteX="99dp"
+        tools:layout_editor_absoluteY="228dp"
+        tools:layout_margin="5dp" />
+
+    <EditText
+        android:id="@+id/names"
+        android:layout_width="270dp"
+        android:layout_height="50dp"
+        android:autofillHints="names"
+        android:ems="10"
+        android:hint="Nombre(s)"
+        android:inputType="textPersonName"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="99dp"
+        tools:layout_editor_absoluteY="228dp"
+        tools:layout_margin="5dp" />
+
+<TextView
+    android:id="@+id/namesMsg"
+    android:layout_width="270dp"
+    android:layout_height="wrap_content"
+    android:text=""
+    android:textColor="@color/white"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="10dp" />
+
+<EditText
+    android:id="@+id/surnames"
+    android:layout_width="270dp"
+    android:layout_height="50dp"
+    android:ems="10"
+    android:inputType="textPersonName"
+    android:hint="Apellido(s)"
+    android:autofillHints="name"
+    tools:layout_editor_absoluteX="100dp"
+    tools:layout_editor_absoluteY="293dp"
+    tools:layout_margin="5dp"
+    android:textColorHint="@color/white"
+    android:textColor="@color/white"/>
+
+<TextView
+    android:id="@+id/surnamesMsg"
+    android:layout_width="270dp"
+    android:layout_height="wrap_content"
+    android:text=""
+    android:textColor="@color/white"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="10dp" />
+
+<EditText
+    android:id="@+id/birthdate"
+    android:layout_width="270dp"
+    android:layout_height="50dp"
+    android:ems="10"
+    android:inputType="date"
+    android:hint="Fecha de nacimiento"
+    android:autofillHints="birthdate"
+    tools:layout_editor_absoluteX="100dp"
+    tools:layout_editor_absoluteY="373dp"
+    tools:layout_margin="5dp"
+    android:textColorHint="@color/white"
+    android:textColor="@color/white"/>
+
+<TextView
+    android:id="@+id/birthdateMsg"
+    android:layout_width="270dp"
+    android:layout_height="wrap_content"
+    android:text=""
+    android:textColor="@color/white"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="10dp" />
+
+<Button
+    android:id="@+id/next"
+    android:layout_width="150dp"
+    android:layout_height="wrap_content"
+    android:background="@color/black"
+    android:text="Siguiente"
+    android:textSize="18sp"
+    android:textColor="@color/white"
+    tools:layout_editor_absoluteX="156dp"
+    tools:layout_editor_absoluteY="540dp"
+    tools:layout_margin="10dp" />
+
+</LinearLayout>

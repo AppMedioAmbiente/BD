@@ -92,7 +92,8 @@ public class Register extends AppCompatActivity {
                 } else tvBirthdateMsg.setText("");
 
             } else {
-                Intent intent = new Intent(Register.this, Register1.class);
+                //Intent intent = new Intent(Register.this, Register1.class);
+                Intent intent = new Intent(Register.this, Register2.class);
                 intent.putExtra("name", name);
                 intent.putExtra("surname", surname);
                 intent.putExtra("birthdate", birthdate);

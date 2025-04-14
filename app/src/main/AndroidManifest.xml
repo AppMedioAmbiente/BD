@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -14,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FireLogin"
         tools:targetApi="31">
-
+        <activity
+            android:name=".Register2"
+            android:exported="false" />
         <!--
         >
         android:usesCleartextTraffic="true"
@@ -25,18 +27,17 @@
             android:name=".Splash_Screen"
             android:exported="true"
             android:windowSoftInputMode="stateVisible|adjustResize">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter></activity>
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Home"
             android:exported="true"
             android:label="@string/title_activity_home"
             android:theme="@style/Theme.FireLogin.NoActionBar" />
-
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -45,9 +46,7 @@
         <activity
             android:name=".Login"
             android:exported="true"
-            android:windowSoftInputMode="stateVisible|adjustResize">
-
-        </activity>
+            android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity
             android:name=".Register"
             android:exported="true"
@@ -62,20 +61,16 @@
             android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity
             android:name=".Settings"
-            android:exported="true"/>
-
+            android:exported="true" />
         <activity
             android:name=".Settings_PD"
-            android:exported="true"/>
-
+            android:exported="true" />
         <activity
             android:name=".Settings_Notifications"
             android:exported="true" />
-
         <activity
             android:name=".Settings_Autentication"
             android:exported="true" />
-
         <activity
             android:name=".Settings_Interface"
             android:exported="true" />
