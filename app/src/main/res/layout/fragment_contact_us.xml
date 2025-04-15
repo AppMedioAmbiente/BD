@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/mainColor"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".ui.contactus.ContactUsFragment">
@@ -15,7 +14,6 @@
         android:layout_margin="10dp"
         android:text="@string/menu_contact_us"
         android:textAlignment="center"
-        android:textColor="@color/white"
         android:textSize="40sp"
         tools:layout_editor_absoluteX="55dp"
         tools:layout_editor_absoluteY="38dp" />
@@ -28,8 +26,6 @@
         android:ems="10"
         android:hint="Nombre completo*"
         android:inputType="text"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
         tools:layout_editor_absoluteX="97dp"
         tools:layout_editor_absoluteY="230dp"
         tools:layout_margin="10dp" />
@@ -42,8 +38,6 @@
         android:ems="10"
         android:hint="Correo electrónico*"
         android:inputType="textEmailAddress"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
         tools:layout_editor_absoluteX="97dp"
         tools:layout_editor_absoluteY="230dp"
         tools:layout_margin="10dp" />
@@ -56,8 +50,6 @@
         android:ems="10"
         android:hint="Teléfono*"
         android:inputType="phone"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
         tools:layout_editor_absoluteX="97dp"
         tools:layout_editor_absoluteY="230dp"
         tools:layout_margin="10dp" />
@@ -73,8 +65,6 @@
         android:lines="10"
         android:overScrollMode="always"
         android:scrollbars="vertical"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
         tools:layout_editor_absoluteX="97dp"
         tools:layout_editor_absoluteY="230dp"
         tools:layout_margin="10dp" />
@@ -85,7 +75,6 @@
         android:layout_height="wrap_content"
         android:background="@drawable/redondedado"
         android:text="Enviar"
-        android:textColor="@color/white"
         android:textSize="18sp"
         tools:layout_editor_absoluteX="158dp"
         tools:layout_editor_absoluteY="516dp"

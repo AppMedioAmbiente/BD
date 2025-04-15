@@ -8,7 +8,7 @@
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/DarkSecondaryColor</item>
         <item name="colorSecondaryVariant">@color/DarkSecondaryVariantColor</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/black</item>
         <!-- Customize your theme here. -->
@@ -18,5 +18,9 @@
     <style name="SpinnerTextStyle" parent="Widget.AppCompat.Spinner">
         <item name="android:textColor">@color/red</item>
         <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="iconTint">
+        <item name="android:tint">@color/white</item>
     </style>
 </resources>

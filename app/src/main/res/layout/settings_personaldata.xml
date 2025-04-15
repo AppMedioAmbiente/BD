@@ -4,64 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="top|center"
-    android:background="@color/mainColor"
+    android:orientation="vertical"
     tools:context=".Settings_PD">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="top|center">
+        android:gravity="top|center"
+        android:orientation="vertical">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/Theme.FireLogin.AppBarOverlay">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/tbPDSettings"
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/Theme.FireLogin.PopupOverlay"
-            app:title="Ajustes de datos personales"/>
+            android:layout_height="wrap_content"
+            android:theme="@style/Theme.FireLogin.AppBarOverlay">
 
-    </com.google.android.material.appbar.AppBarLayout>
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/tbPDSettings"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/Theme.FireLogin.PopupOverlay"
+                app:title="Ajustes de datos personales" />
+
+        </com.google.android.material.appbar.AppBarLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
             android:layout_margin="40dp"
-            android:padding="12dp"
             android:background="@drawable/redondedado"
-            android:backgroundTint="#00659a">
+            android:backgroundTint="#00659a"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="12dp">
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="110dp"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/configuraciones" />
+                app:srcCompat="@drawable/configuraciones"
+                style="@style/iconTint"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="top"
                 android:text="Ajustes"
-                android:textSize="55sp"
-                android:textColor="@color/white" />
+                android:textSize="55sp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_margin="5dp"
             android:gravity="center"
-            android:layout_margin="5dp">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/name"
@@ -73,7 +72,6 @@
                 android:maxWidth="250dp"
                 android:padding="10dp"
                 android:text="Nombre(s):"
-                android:textColor="@color/white"
                 android:textSize="20sp" />
 
             <EditText
@@ -83,10 +81,9 @@
                 android:layout_margin="10dp"
                 android:background="@drawable/redondedado"
                 android:backgroundTint="#6D8967"
-                android:minWidth="270dp"
                 android:maxWidth="320dp"
+                android:minWidth="270dp"
                 android:padding="10dp"
-                android:textColor="@color/white"
                 android:textSize="20sp" />
 
         </LinearLayout>
@@ -94,9 +91,9 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_margin="5dp"
             android:gravity="center"
-            android:layout_margin="5dp">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/surname"
@@ -108,7 +105,6 @@
                 android:maxWidth="250dp"
                 android:padding="10dp"
                 android:text="Apellido(s):"
-                android:textColor="@color/white"
                 android:textSize="20sp" />
 
             <EditText
@@ -118,10 +114,9 @@
                 android:layout_margin="10dp"
                 android:background="@drawable/redondedado"
                 android:backgroundTint="#6D8967"
-                android:minWidth="270dp"
                 android:maxWidth="320dp"
+                android:minWidth="270dp"
                 android:padding="10dp"
-                android:textColor="@color/white"
                 android:textSize="20sp" />
 
         </LinearLayout>
@@ -129,85 +124,80 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_margin="5dp"
             android:gravity="center"
-            android:layout_margin="5dp">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/birthdate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxWidth="250dp"
-                android:text="Fecha de Nacimiento:"
-                android:textSize="20sp"
                 android:layout_margin="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/redondedado"
                 android:backgroundTint="@color/transparent"
-                android:padding="10dp" />
+                android:maxWidth="250dp"
+                android:padding="10dp"
+                android:text="Fecha de Nacimiento:"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/show_birthdate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minWidth="270dp"
-                android:maxWidth="320dp"
-                android:textSize="20sp"
                 android:layout_margin="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/redondedado"
                 android:backgroundTint="#6D8967"
-                android:padding="10dp" />
+                android:maxWidth="320dp"
+                android:minWidth="270dp"
+                android:padding="10dp"
+                android:textSize="20sp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_margin="5dp"
             android:gravity="center"
-            android:layout_margin="5dp">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxWidth="250dp"
-                android:text="Correo Electronico:"
-                android:textSize="20sp"
                 android:layout_margin="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/redondedado"
                 android:backgroundTint="@color/transparent"
-                android:padding="10dp" />
+                android:maxWidth="250dp"
+                android:padding="10dp"
+                android:text="Correo Electronico:"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/show_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minWidth="270dp"
-                android:maxWidth="320dp"
-                android:textSize="20sp"
                 android:layout_margin="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/redondedado"
                 android:backgroundTint="#6D8967"
-                android:padding="10dp" />
+                android:maxWidth="320dp"
+                android:minWidth="270dp"
+                android:padding="10dp"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/show_password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minWidth="270dp"
-                android:maxWidth="320dp"
-                android:hint="Ingresa tu contraseña:"
-                android:visibility="gone"
-                android:textSize="20sp"
                 android:layout_margin="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/redondedado"
                 android:backgroundTint="#6D8967"
-                android:padding="10dp" />
+                android:hint="Ingresa tu contraseña:"
+                android:maxWidth="320dp"
+                android:minWidth="270dp"
+                android:padding="10dp"
+                android:textSize="20sp"
+                android:visibility="gone" />
 
         </LinearLayout>
 

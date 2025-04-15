@@ -6,15 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".Register"
-    android:background="@color/mainColor">
+    tools:context=".Register">
 
     <TextView
         android:id="@+id/header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Registro"
-        android:textColor="@color/white"
         android:textSize="35sp"
         android:textStyle="bold" />
 
@@ -36,16 +34,13 @@
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="99dp"
         tools:layout_editor_absoluteY="228dp"
-        tools:layout_margin="5dp"
-        android:textColorHint="@color/white"
-        android:textColor="@color/white"/>
+        tools:layout_margin="5dp"/>
 
     <TextView
         android:id="@+id/namesMsg"
         android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:text=""
-        android:textColor="@color/white"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="10dp" />
 
@@ -59,16 +54,13 @@
         android:autofillHints="name"
         tools:layout_editor_absoluteX="100dp"
         tools:layout_editor_absoluteY="293dp"
-        tools:layout_margin="5dp"
-        android:textColorHint="@color/white"
-        android:textColor="@color/white"/>
+        tools:layout_margin="5dp"/>
 
     <TextView
         android:id="@+id/surnamesMsg"
         android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:text=""
-        android:textColor="@color/white"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="10dp" />
 
@@ -82,16 +74,13 @@
         android:autofillHints="birthdate"
         tools:layout_editor_absoluteX="100dp"
         tools:layout_editor_absoluteY="373dp"
-        tools:layout_margin="5dp"
-        android:textColorHint="@color/white"
-        android:textColor="@color/white"/>
+        tools:layout_margin="5dp"/>
 
     <TextView
         android:id="@+id/birthdateMsg"
         android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:text=""
-        android:textColor="@color/white"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="10dp" />
 
@@ -99,10 +88,9 @@
         android:id="@+id/next"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:background="@color/black"
+        android:background="@drawable/redondedado"
         android:text="Siguiente"
         android:textSize="18sp"
-        android:textColor="@color/white"
         tools:layout_editor_absoluteX="156dp"
         tools:layout_editor_absoluteY="540dp"
         tools:layout_margin="10dp" />

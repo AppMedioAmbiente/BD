@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/mainColor"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".Splash_Screen">
@@ -17,8 +16,8 @@
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="300dp"
-        android:layout_height="150dp"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
         app:srcCompat="@drawable/secovo_sc"
         android:layout_marginVertical="30dp"/>
 

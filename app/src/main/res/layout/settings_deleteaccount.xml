@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="top|center"
-    android:background="@color/mainColor"
     tools:context=".Settings_DA">
 
     <LinearLayout
@@ -26,7 +25,7 @@
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
                 app:popupTheme="@style/Theme.FireLogin.PopupOverlay"
-                app:title="Ajustes de datos personales"/>
+                app:title="Ajustes de eliminación de cuenta"/>
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -44,15 +43,15 @@
                 android:id="@+id/imageView"
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/configuraciones" />
+                app:srcCompat="@drawable/configuraciones"
+                style="@style/iconTint"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="top"
                 android:text="Ajustes"
-                android:textSize="55sp"
-                android:textColor="@color/white" />
+                android:textSize="55sp" />
 
         </LinearLayout>
 
@@ -71,7 +70,6 @@
                 android:text="Correo Electronico:"
                 android:textSize="20sp"
                 android:layout_margin="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/redondedado"
                 android:backgroundTint="#6D8967"
                 android:padding="10dp" />
@@ -84,7 +82,6 @@
                 android:textSize="20sp"
                 android:hint="Aqui"
                 android:layout_margin="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/redondedado"
                 android:backgroundTint="#6D8967"
                 android:padding="10dp" />
@@ -97,7 +94,6 @@
                 android:text="Ingresa tu contraseña:"
                 android:textSize="20sp"
                 android:layout_margin="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/redondedado"
                 android:backgroundTint="#6D8967"
                 android:padding="10dp" />
@@ -110,7 +106,6 @@
                 android:hint="Aqui"
                 android:textSize="20sp"
                 android:layout_margin="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/redondedado"
                 android:backgroundTint="#6D8967"
                 android:padding="10dp" />
@@ -133,7 +128,7 @@
                 android:background="@drawable/redondedado"
                 android:maxWidth="150dp"
                 android:minHeight="10dp"
-                android:text="Cancelar" />
+                android:text="Cancelar"/>
 
             <Button
                 android:id="@+id/save"

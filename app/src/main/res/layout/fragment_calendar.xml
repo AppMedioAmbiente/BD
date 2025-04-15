@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/mainColor"
     android:gravity="top|center"
     android:orientation="vertical"
     tools:context=".ui.calendar.CalendarFragment">
@@ -15,7 +14,6 @@
         android:layout_margin="10dp"
         android:text="@string/menu_calendar"
         android:textAlignment="center"
-        android:textColor="@color/white"
         android:textSize="40sp"
         tools:layout_editor_absoluteX="55dp"
         tools:layout_editor_absoluteY="38dp" />
@@ -39,7 +37,6 @@
             android:layout_margin="10dp"
             android:text="Día seleccionado"
             android:textAlignment="center"
-            android:textColor="@color/white"
             android:textSize="22sp"
             tools:layout_editor_absoluteX="55dp"
             tools:layout_editor_absoluteY="38dp"/>
@@ -62,7 +59,6 @@
                 android:layout_margin="10dp"
                 android:text="Nombre del evento"
                 android:textAlignment="center"
-                android:textColor="@color/white"
                 android:textSize="18sp"
                 tools:layout_editor_absoluteX="55dp"
                 tools:layout_editor_absoluteY="38dp"/>

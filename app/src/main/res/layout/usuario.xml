@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".Usuario"
-    android:background="@color/mainColor">
+    tools:context=".Usuario">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,7 +31,6 @@
         android:layout_height="wrap_content"
         android:text="@string/bienvenido"
         android:textAlignment="center"
-        android:textColor="@color/white"
         android:textSize="40sp"
         tools:layout_editor_absoluteX="55dp"
         tools:layout_editor_absoluteY="38dp" />
@@ -50,7 +48,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nombre(s): "
-        android:textColor="@color/white"
         android:textSize="20sp"
         android:layout_margin="12dp" />
 
@@ -59,7 +56,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Apellido(s): "
-        android:textColor="@color/white"
         android:textSize="20sp"
         android:layout_margin="12dp"/>
 
@@ -68,7 +64,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Fecha de nacimiento: "
-        android:textColor="@color/white"
         android:textSize="20sp"
         android:layout_margin="12dp"/>
 
@@ -77,7 +72,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Correo: "
-        android:textColor="@color/white"
         android:textSize="20sp"
         android:layout_margin="12dp"/>
 

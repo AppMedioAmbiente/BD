@@ -12,8 +12,8 @@
 
     <!-- Dark theme colors -->
     <color name="DarkBackgroundColor">#272A2B</color>
-    <color name="DarkPrimaryColor">#4A4A4A</color>
-    <color name="DarkPrimaryVariantColor">#707070</color>
+    <color name="DarkPrimaryColor">#707070</color>
+    <color name="DarkPrimaryVariantColor">#4A4A4A</color>
     <color name="DarkSecondaryColor">#41536E</color>
     <color name="DarkSecondaryVariantColor">#5A7193</color>
     <!-- End dark theme colors -->

@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="top|center"
-    tools:context=".Settings_Interface"
-    style="@style/Theme.FireLogin">
+    tools:context=".Settings_Interface">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -38,15 +37,15 @@
             android:id="@+id/imageView"
             android:layout_width="110dp"
             android:layout_height="match_parent"
-            app:srcCompat="@drawable/configuraciones"/>
+            app:srcCompat="@drawable/configuraciones"
+            style="@style/iconTint"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="top"
             android:text="Ajustes"
-            android:textSize="55sp"
-            android:textColor="@color/white"/>
+            android:textSize="55sp"/>
 
     </LinearLayout>
 
@@ -65,7 +64,6 @@
             android:text="Modo oscuro"
             android:textSize="20sp"
             android:layout_margin="10sp"
-            android:textColor="@color/white"
             android:background="@drawable/redondedado"
             android:backgroundTint="#6D8967"
             android:padding="10sp"
@@ -93,11 +91,10 @@
             android:layout_width="wrap_content"
             android:maxWidth="170dp"
             android:layout_height="wrap_content"
-            android:text="Cambiar con base a una estacion del año"
+            android:text="Cambiar con base en una estacion del año"
             android:textAlignment="center"
             android:textSize="20sp"
             android:layout_margin="10sp"
-            android:textColor="@color/white"
             android:background="@drawable/redondedado"
             android:backgroundTint="#6D8967"
             android:padding="10sp" />
@@ -127,7 +124,6 @@
             android:textAlignment="center"
             android:textSize="20sp"
             android:layout_margin="10sp"
-            android:textColor="@color/white"
             android:background="@drawable/redondedado"
             android:backgroundTint="#6D8967"
             android:padding="10sp" />

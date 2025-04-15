@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/mainColor"
     tools:context=".ui.myevents.MyEventsFragment">
 
     <LinearLayout
@@ -20,7 +19,6 @@
             android:layout_margin="10dp"
             android:text="@string/menu_myevents"
             android:textAlignment="center"
-            android:textColor="@color/white"
             android:textSize="40sp"
             tools:layout_editor_absoluteX="55dp"
             tools:layout_editor_absoluteY="38dp" />
@@ -34,8 +32,6 @@
             android:ems="10"
             android:hint="Filtrar mis eventos..."
             android:inputType="text"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
             tools:layout_editor_absoluteX="97dp"
             tools:layout_editor_absoluteY="290dp" />
 
@@ -43,7 +39,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="7dp"
-            app:cardBackgroundColor="@color/verdePistache"
             app:cardCornerRadius="12dp"
             app:cardElevation="4dp">
 
@@ -72,7 +67,6 @@
                         android:layout_margin="5dp"
                         android:text="Nombre del evento"
                         android:textAlignment="center"
-                        android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         tools:layout_editor_absoluteX="55dp"
@@ -91,7 +85,6 @@
                             android:layout_margin="5dp"
                             android:text="Lugar:"
                             android:textAlignment="textStart"
-                            android:textColor="@color/black"
                             android:textSize="18sp"
                             tools:layout_editor_absoluteX="55dp"
                             tools:layout_editor_absoluteY="38dp" />
@@ -103,7 +96,6 @@
                             android:layout_margin="5dp"
                             android:text="Fecha:"
                             android:textAlignment="textStart"
-                            android:textColor="@color/black"
                             android:textSize="18sp"
                             tools:layout_editor_absoluteX="55dp"
                             tools:layout_editor_absoluteY="38dp" />
@@ -123,7 +115,6 @@
                             android:layout_margin="5dp"
                             android:text="Organizador:"
                             android:textAlignment="textStart"
-                            android:textColor="@color/black"
                             android:textSize="18sp"
                             tools:layout_editor_absoluteX="55dp"
                             tools:layout_editor_absoluteY="38dp" />
@@ -135,7 +126,6 @@
                             android:layout_margin="5dp"
                             android:text="No. personas:"
                             android:textAlignment="textStart"
-                            android:textColor="@color/black"
                             android:textSize="18sp"
                             tools:layout_editor_absoluteX="55dp"
                             tools:layout_editor_absoluteY="38dp" />
@@ -169,7 +159,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="7dp"
-            app:cardBackgroundColor="@color/verdePistache"
             app:cardCornerRadius="12dp"
             app:cardElevation="4dp">
 
@@ -196,7 +185,6 @@
                         android:layout_margin="5dp"
                         android:text="Nombre del evento"
                         android:textAlignment="center"
-                        android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         tools:layout_editor_absoluteX="55dp"
@@ -214,7 +202,6 @@
                             android:layout_margin="5dp"
                             android:text="Lugar:"
                             android:textAlignment="textStart"
-                            android:textColor="@color/black"
                             android:textSize="18sp"
                             tools:layout_editor_absoluteX="55dp"
                             tools:layout_editor_absoluteY="38dp" />
@@ -225,7 +212,6 @@
                             android:layout_margin="5dp"
                             android:text="Fecha:"
                             android:textAlignment="textStart"
-                            android:textColor="@color/black"
                             android:textSize="18sp"
                             tools:layout_editor_absoluteX="55dp"
                             tools:layout_editor_absoluteY="38dp" />
@@ -244,7 +230,6 @@
                             android:layout_margin="5dp"
                             android:text="Organizador:"
                             android:textAlignment="textStart"
-                            android:textColor="@color/black"
                             android:textSize="18sp"
                             tools:layout_editor_absoluteX="55dp"
                             tools:layout_editor_absoluteY="38dp" />
@@ -255,7 +240,6 @@
                             android:layout_margin="5dp"
                             android:text="No. personas:"
                             android:textAlignment="textStart"
-                            android:textColor="@color/black"
                             android:textSize="18sp"
                             tools:layout_editor_absoluteX="55dp"
                             tools:layout_editor_absoluteY="38dp" />

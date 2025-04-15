@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="top|center"
-    tools:context=".Settings"
-    android:background="@color/mainColor">
+    tools:context=".Settings">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -38,15 +37,15 @@
             android:id="@+id/imageView"
             android:layout_width="110dp"
             android:layout_height="match_parent"
-            app:srcCompat="@drawable/configuraciones" />
+            app:srcCompat="@drawable/configuraciones"
+            style="@style/iconTint"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="top"
             android:text="Ajustes"
-            android:textSize="55sp"
-            android:textColor="@color/white"/>
+            android:textSize="55sp"/>
 
     </LinearLayout>
 
@@ -69,7 +68,6 @@
             android:minWidth="200dp"
             android:text="Datos Personales"
             android:textAlignment="textStart"
-            android:textColor="@color/white"
             android:textSize="20sp" />
 
         <ImageView
@@ -78,7 +76,8 @@
             android:layout_height="match_parent"
             android:maxWidth="10dp"
             android:maxHeight="10dp"
-            app:srcCompat="@drawable/editar"/>
+            app:srcCompat="@drawable/editar"
+            style="@style/iconTint"/>
 
     </LinearLayout>
 
@@ -101,7 +100,6 @@
         android:layout_height="wrap_content"
         android:text="Notificaciones"
         android:textAlignment="textStart"
-        android:textColor="@color/white"
         android:textSize="20sp"/>
 
         <ImageView
@@ -110,7 +108,8 @@
             android:layout_height="match_parent"
             android:maxWidth="10dp"
             android:maxHeight="10dp"
-            app:srcCompat="@drawable/notificacion" />
+            app:srcCompat="@drawable/notificacion"
+            style="@style/iconTint"/>
 
     </LinearLayout>
 
@@ -132,7 +131,6 @@
             android:minWidth="200dp"
             android:text="Autenticación"
             android:textAlignment="textStart"
-            android:textColor="@color/white"
             android:textSize="20sp" />
 
         <ImageView
@@ -141,7 +139,8 @@
             android:layout_height="match_parent"
             android:maxWidth="10dp"
             android:maxHeight="10dp"
-            app:srcCompat="@drawable/editar" />
+            app:srcCompat="@drawable/editar"
+            style="@style/iconTint"/>
 
     </LinearLayout>
 
@@ -164,7 +163,6 @@
             android:layout_height="wrap_content"
             android:text="Interfaz"
             android:textAlignment="textStart"
-            android:textColor="@color/white"
             android:textSize="20sp"/>
 
         <ImageView
@@ -173,7 +171,8 @@
             android:layout_height="match_parent"
             android:maxWidth="10dp"
             android:maxHeight="10dp"
-            app:srcCompat="@drawable/editar1" />
+            app:srcCompat="@drawable/editar1"
+            style="@style/iconTint"/>
 
     </LinearLayout>
 
@@ -196,7 +195,6 @@
             android:layout_height="wrap_content"
             android:text="Eliminar cuenta"
             android:textAlignment="textStart"
-            android:textColor="@color/white"
             android:textSize="20sp"/>
 
         <ImageView
@@ -205,7 +203,8 @@
             android:layout_height="match_parent"
             android:maxWidth="10dp"
             android:maxHeight="10dp"
-            app:srcCompat="@drawable/eliminar" />
+            app:srcCompat="@drawable/eliminar"
+            style="@style/iconTint"/>
 
     </LinearLayout>
 

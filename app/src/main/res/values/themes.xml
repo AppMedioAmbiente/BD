@@ -28,4 +28,8 @@
     <style name="Theme.FireLogin.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.FireLogin.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="iconTint">
+        <item name="android:tint">@color/black</item>
+    </style>
 </resources>

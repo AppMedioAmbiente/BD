@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/mainColor"
     tools:context=".ui.groups.GroupsFragment">
 
     <LinearLayout
@@ -20,7 +19,6 @@
             android:layout_margin="10dp"
             android:text="@string/grps"
             android:textAlignment="center"
-            android:textColor="@color/white"
             android:textSize="40sp"
             tools:layout_editor_absoluteX="55dp"
             tools:layout_editor_absoluteY="38dp" />
@@ -34,8 +32,6 @@
             android:ems="10"
             android:hint="Filtrar grupos..."
             android:inputType="text"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
             tools:layout_editor_absoluteX="97dp"
             tools:layout_editor_absoluteY="290dp" />
 
@@ -43,7 +39,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="7dp"
-            app:cardBackgroundColor="@color/verdeSuculenta"
             app:cardCornerRadius="12dp"
             app:cardElevation="4dp">
 
@@ -67,7 +62,6 @@
                         android:layout_marginHorizontal="35dp"
                         android:text="Nombre del grupo"
                         android:textAlignment="center"
-                        android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         tools:layout_editor_absoluteX="55dp"
@@ -81,7 +75,6 @@
                         android:layout_marginHorizontal="35dp"
                         android:text="No. miembros:"
                         android:textAlignment="textStart"
-                        android:textColor="@color/black"
                         android:textSize="18sp"
                         tools:layout_editor_absoluteX="55dp"
                         tools:layout_editor_absoluteY="38dp" />
@@ -95,7 +88,6 @@
                     android:layout_marginHorizontal="20dp"
                     android:text="Descripción:"
                     android:textAlignment="textStart"
-                    android:textColor="@color/black"
                     android:textSize="18sp"
                     tools:layout_editor_absoluteX="55dp"
                     tools:layout_editor_absoluteY="38dp" />
@@ -112,7 +104,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="30dp"
                         android:text="@string/join"
-                        android:textColor="@color/white"
                         android:textSize="15sp" />
 
                     <Button
@@ -133,7 +124,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="7dp"
-            app:cardBackgroundColor="@color/verdeSuculenta"
             app:cardCornerRadius="12dp"
             app:cardElevation="4dp">
 
@@ -156,7 +146,6 @@
                         android:layout_marginHorizontal="35dp"
                         android:text="Nombre del grupo"
                         android:textAlignment="center"
-                        android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         tools:layout_editor_absoluteX="55dp"
@@ -169,7 +158,6 @@
                         android:layout_marginHorizontal="35dp"
                         android:text="No. miembros:"
                         android:textAlignment="textStart"
-                        android:textColor="@color/black"
                         android:textSize="18sp"
                         tools:layout_editor_absoluteX="55dp"
                         tools:layout_editor_absoluteY="38dp" />
@@ -182,7 +170,6 @@
                     android:layout_marginHorizontal="20dp"
                     android:text="Descripción:"
                     android:textAlignment="textStart"
-                    android:textColor="@color/black"
                     android:textSize="18sp"
                     tools:layout_editor_absoluteX="55dp"
                     tools:layout_editor_absoluteY="38dp" />
@@ -198,7 +185,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="30dp"
                         android:text="@string/join"
-                        android:textColor="@color/white"
                         android:textSize="15sp" />
 
                     <Button

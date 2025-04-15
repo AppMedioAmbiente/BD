@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment"
     android:orientation="vertical"
-    android:gravity="center"
-    android:background="@color/mainColor">
+    android:gravity="center">
 
     <TextView
         android:id="@+id/text_home"
@@ -17,7 +16,6 @@
         android:textAlignment="center"
         android:textStyle="bold"
         android:textSize="30sp"
-        android:textColor="@color/white"
         android:text="@string/destacadosH" />
 
     <org.imaginativeworld.whynotimagecarousel.ImageCarousel
@@ -39,7 +37,6 @@
         android:textAlignment="center"
         android:textStyle="bold"
         android:textSize="30sp"
-        android:textColor="@color/white"
         android:text="@string/abtus" />
 
     <TextView
@@ -49,12 +46,6 @@
         android:layout_marginTop="10dp"
         android:justificationMode="inter_word"
         android:textSize="18sp"
-        android:textColor="@color/white"
         android:text="@string/abtusInfo" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/logout"
-        android:text="Presioname secretamente para salir"/>
 </LinearLayout>

@@ -6,15 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".Login"
-    android:background="@color/mainColor">
+    tools:context=".Login">
 
     <TextView
         android:id="@+id/header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Inicio de sesión"
-        android:textColor="@color/white"
         android:textSize="35sp"
         android:textStyle="bold"
         android:layout_marginBottom="35dp" />
@@ -36,9 +34,7 @@
         android:ems="10"
         android:inputType="textEmailAddress"
         android:hint="Correo electrónico"
-        android:autofillHints="emailAddress, phone"
-        android:textColorHint="@color/white"
-        android:textColor="@color/white"/>
+        android:autofillHints="emailAddress, phone"/>
 
     <EditText
         android:id="@+id/password"
@@ -50,9 +46,7 @@
         android:ems="10"
         android:inputType="textPassword"
         android:hint="Contraseña"
-        android:autofillHints="no"
-        android:textColorHint="@color/white"
-        android:textColor="@color/white"/>
+        android:autofillHints="no"/>
 
     <Button
         android:id="@+id/Send"
@@ -61,18 +55,14 @@
         android:text="Enviar"
         tools:layout_editor_absoluteX="158dp"
         tools:layout_editor_absoluteY="528dp"
-        android:textColor="@color/white"
         android:textSize="18sp"
-        android:background="@color/black"
         tools:layout_marginBottom="35dp" />
 
     <Button
         android:id="@+id/Rsing_up"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
-        android:background="#00FFFFFF"
         android:text="Registrarse"
-        android:textColor="@color/white"
         android:textSize="18sp"
         tools:layout_marginBottom="35dp"/>
 
