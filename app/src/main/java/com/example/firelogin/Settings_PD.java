@@ -48,7 +48,9 @@ public class Settings_PD extends AppCompatActivity {
         surnames = findViewById(R.id.show_surnname);
         show_birthdate = findViewById(R.id.show_birthdate);
         show_email = findViewById(R.id.show_email);
+        show_password = findViewById(R.id.show_password);
         Button btnSave = findViewById(R.id.save);
+
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -100,12 +102,14 @@ public class Settings_PD extends AppCompatActivity {
                     });
             }
 
-        String currentEmail = user.getEmail();
-        String password = show_password.getText().toString().trim();
-
             btnSave.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    String change_email = show_email.getText().toString().trim();
+                    String change_password = show_password.getText().toString().trim();
+                    Log.d("Email que recibe 1: ", change_password);
+                    Log.d("Email que recibe 1: ", change_email);
+
                     if (user != null) {
                         String new_name = names.getText().toString().trim();
                         String new_surname = surnames.getText().toString().trim();
@@ -114,9 +118,10 @@ public class Settings_PD extends AppCompatActivity {
 
                         if (!new_name.isEmpty() && !new_surname.isEmpty() && !new_birthdate.isEmpty() && !new_email.isEmpty()) {
 
+                            Log.d("Email que recibe 2: ", change_password);
+                            Log.d("Email que recibe 2: ", change_email);
 
-
-                            AuthCredential credential = EmailAuthProvider.getCredential(currentEmail, password);
+                            AuthCredential credential = EmailAuthProvider.getCredential(change_email, change_password);
 
                             user.reauthenticate(credential).addOnCompleteListener(authTask -> {
                                 if(authTask.isSuccessful()) {
@@ -128,7 +133,7 @@ public class Settings_PD extends AppCompatActivity {
                                             Map<String, Object> new_data = new HashMap<>();
                                             new_data.put("name", new_name);
                                             new_data.put("surname", new_surname);
-                                            new_data.put("birthdate", new_birthdate);
+                                            new_data.put("birthdtae", new_birthdate);
                                             new_data.put("email", new_email);
 
                                             docRef.set(new_data, SetOptions.merge());
