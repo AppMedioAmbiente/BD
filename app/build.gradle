@@ -51,7 +51,7 @@ dependencies {
     implementation 'io.michaelrocks:libphonenumber-android:8.13.52'
     implementation 'com.github.joielechong:countrycodepicker:2.4.1'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.10.0'
 
      //implementation 'org.jetbrains.kotlinx:kotlinx-serialization-core:1.5.1'
     //implementation 'org.jetbrains.kotlinx:kotlinx-serialization-core:1.6.3'

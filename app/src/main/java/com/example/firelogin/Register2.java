@@ -36,9 +36,12 @@ public class Register2 extends LoginTemplate implements View.OnClickListener {
         String[] values=intent.getStringExtra("values").split(",");
         for (int index=0;index<values.length;index++){
             //ej values[0]="name:{name}"
+            // name, surname,birthdate,country,state
             String[] splitValues=values[index].split(":");
             data.put(splitValues[0],splitValues[1]);
         }
+        data.put("phone",phone);
+        data.put("nickname",nickName);
         // Inserta los datos usando el ID del usuario como el documento
 
         db.collection("usuarios")
@@ -69,10 +72,10 @@ public class Register2 extends LoginTemplate implements View.OnClickListener {
         String emailRegex = "^(?!.*\\.\\.)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
         String phoneRegex = "\\d{10,13}";
         String passRegex = "^(?!.*[\\/=\\\\?@\\[\\\\\\]^<>;:])(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!\\-._])[\\w!\\-._]{6,}$";
-
+        /*
         if (nickName.isEmpty() || !validateWithRegex(nickName, nicknameRegex) || nickName.length() < 8|| nickName.length() > 25) {
             msgs.put("nickname", "El nombre solo puede contener letras. numeros y guion bajo. Minimo 8 caracteres y maximo 25");
-        }
+        }*/
 
         //if (!(email.isEmpty() && phone.isEmpty())) {
         if (email.isEmpty() || !validateWithRegex(email, emailRegex) || email.length() < 10|| email.length() > 150 ) {
@@ -120,9 +123,11 @@ public class Register2 extends LoginTemplate implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+        /*
         name = getIntent().getStringExtra("name");
         surname = getIntent().getStringExtra("surname");
         birthdate=getIntent().getStringExtra("birthdate");
+         */
         /*
         birthdate = null;
         try {

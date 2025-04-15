@@ -7,6 +7,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.firelogin.Register1;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -36,13 +38,25 @@ public class CountryHandler {
         CountryRequest request = new CountryRequest(countryName);
 
         Call<StateResponse> call = apiService.getStates(request);
+        Log.d("state" , "se pudo crear el obj call");
         call.enqueue(new Callback<StateResponse>() {
             @Override
             public void onResponse(Call<StateResponse> call, Response<StateResponse> response) {
                 if (response.isSuccessful()) {
-                    List<String> states = response.body().getData().getStates();
-                    CountryHandler.this.activity.updateSpinner(states);
+                    Log.d("API ","exitosa");
+                    try {
+                        List<String> statesCad = new ArrayList<>();
+                        List<StateResponse.State> states = response.body().getData().getStates();
+                        states.forEach(item->{
+                            Log.d("estado n",item.getName());
+                            statesCad.add(item.getName());
+                        });
+                        CountryHandler.this.activity.updateSpinner(statesCad);
+                    }catch(Exception ex){
+                        Log.d("fallando",ex.getMessage());
+                    }
                 }else {
+                    Log.d("API ","fallida");
                     CountryHandler.this.activity.updateSpinner();
                 }
             }
