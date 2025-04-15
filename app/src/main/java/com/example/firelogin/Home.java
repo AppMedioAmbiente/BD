@@ -4,12 +4,14 @@ import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO;
 import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES;
 
 import android.content.Context;
+import android.content.ClipData;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
 
 import com.example.firelogin.ui.contactus.ContactUsFragment;
 import com.google.android.material.snackbar.Snackbar;
@@ -25,6 +27,7 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.firelogin.databinding.HomeBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.imaginativeworld.whynotimagecarousel.ImageCarousel;
@@ -34,6 +37,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Home extends AppCompatActivity {
+
 
     private AppBarConfiguration mAppBarConfiguration;
     private HomeBinding binding;
@@ -68,7 +72,7 @@ public class Home extends AppCompatActivity {
         binding.appBarHome.contactus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               NavController navController = Navigation.findNavController(Home.this, R.id.nav_host_fragment_content_home);
+                NavController navController = Navigation.findNavController(Home.this, R.id.nav_host_fragment_content_home);
                 navController.navigate(R.id.contactus, null, new NavOptions.Builder()
                         .setPopUpTo(R.id.contactus, false)
                         .build());
@@ -80,7 +84,7 @@ public class Home extends AppCompatActivity {
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_profile, R.id.nav_groups, R.id.navEv_events, R.id.navEv_myevents,
-                    R.id.navEv_calendar, R.id.navEv_map, R.id.navEv_history)
+                R.id.navEv_calendar, R.id.navEv_map, R.id.navEv_history)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
@@ -102,9 +106,21 @@ public class Home extends AppCompatActivity {
                 drawer.closeDrawer(GravityCompat.START);
             }
 
+            if (id == R.id.nav_logout){
+            findViewById(R.id.nav_logout).setOnClickListener(l->{
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(Home.this,Login.class));
+            });
+            }
+
             return handled;
         });
+
+
     }
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -15,7 +15,6 @@ enum ProviderType{
 public class Usuario extends LoginTemplate {
 
     TextView tvNames, tvSurnames, tvBirthdate, tvContact;
-    Button logOut;
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +37,7 @@ public class Usuario extends LoginTemplate {
         tvBirthdate.setText(tvBirthdate.getText()+birthdate);
         tvContact.setText(tvContact.getText()+contact);
 
-        logOut= findViewById(R.id.btnLogOut);
-        logOut.setOnClickListener(l->{
-            FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(Usuario.this,Login.class));
-        });
+
     }
     private String getExtraString(String value){
         if(value==null){
