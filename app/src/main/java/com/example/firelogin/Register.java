@@ -93,10 +93,14 @@ public class Register extends AppCompatActivity {
 
             } else {
                 //Intent intent = new Intent(Register.this, Register1.class);
-                Intent intent = new Intent(Register.this, Register2.class);
-                intent.putExtra("name", name);
+                Intent intent = new Intent(Register.this, Register1.class);
+                String values= "name:"+name+
+                        ",surname:"+surname+
+                        ",birthdate:"+birthdate;
+                /*intent.putExtra("name", name);
                 intent.putExtra("surname", surname);
-                intent.putExtra("birthdate", birthdate);
+                intent.putExtra("birthdate", birthdate);*/
+                intent.putExtra("values",values);
                 startActivity(intent);
             }
         });
