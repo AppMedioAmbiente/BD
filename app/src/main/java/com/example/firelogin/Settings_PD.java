@@ -11,6 +11,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -45,11 +48,11 @@ public class Settings_PD extends AppCompatActivity {
         surnames = findViewById(R.id.show_surnname);
         show_birthdate = findViewById(R.id.show_birthdate);
         show_email = findViewById(R.id.show_email);
-        show_password = findViewById(R.id.password);
         Button btnSave = findViewById(R.id.save);
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
 
         if (user != null) {
             String userId = user.getUid();
@@ -97,6 +100,9 @@ public class Settings_PD extends AppCompatActivity {
                     });
             }
 
+        String currentEmail = user.getEmail();
+        String password = show_password.getText().toString().trim();
+
             btnSave.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -107,22 +113,36 @@ public class Settings_PD extends AppCompatActivity {
                         String new_email = show_email.getText().toString().trim();
 
                         if (!new_name.isEmpty() && !new_surname.isEmpty() && !new_birthdate.isEmpty() && !new_email.isEmpty()) {
-                            user.updateEmail(new_email).addOnCompleteListener(task -> {
-                                if (task.isSuccessful()) {
-                                    DocumentReference docRef = db.collection("usuarios").document(user.getUid());
-                                    Map<String, Object> new_data = new HashMap<>();
-                                    new_data.put("name", new_name);
-                                    new_data.put("surname", new_surname);
-                                    new_data.put("birthdate", new_birthdate);
-                                    new_data.put("email", new_email);
 
-                                    docRef.set(new_data, SetOptions.merge());
 
-                                    Toast.makeText(getApplicationContext(), "Datos actualizados correctamente", Toast.LENGTH_SHORT).show();
-                                } else {
-                                    Toast.makeText(getApplicationContext(), "Error al actualizar el email", Toast.LENGTH_SHORT).show();
+
+                            AuthCredential credential = EmailAuthProvider.getCredential(currentEmail, password);
+
+                            user.reauthenticate(credential).addOnCompleteListener(authTask -> {
+                                if(authTask.isSuccessful()) {
+
+                                    user.updateEmail(new_email).addOnCompleteListener(updateTask -> {
+                                        if (updateTask.isSuccessful()) {
+
+                                            DocumentReference docRef = db.collection("usuarios").document(user.getUid());
+                                            Map<String, Object> new_data = new HashMap<>();
+                                            new_data.put("name", new_name);
+                                            new_data.put("surname", new_surname);
+                                            new_data.put("birthdate", new_birthdate);
+                                            new_data.put("email", new_email);
+
+                                            docRef.set(new_data, SetOptions.merge());
+
+                                            Toast.makeText(getApplicationContext(), "Datos actualizados correctamente", Toast.LENGTH_SHORT).show();
+                                        } else {
+                                            Toast.makeText(getApplicationContext(), "Error al actualizar el email", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+
                                 }
                             });
+
+
                         } else {
                             Toast.makeText(getApplicationContext(), "Por favor, llene todos los datos", Toast.LENGTH_SHORT).show();
                         }
