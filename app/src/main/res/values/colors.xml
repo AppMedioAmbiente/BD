@@ -7,12 +7,34 @@
     <color name="teal_700">#007271</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="red">#9B0000</color>
+    <color name="red">#8C0000</color>
+    <color name="darkGray">#323232</color>
 
-    <color name="mainColor">#cdd0bc</color>
-    <color name="secondarycolor">#2A5452</color>
-    <color name="secondaryColor1">#3D6B60</color>
-    <color name="cafe">#452B1F</color>
+    <!-- Dark theme colors -->
+    <color name="DarkBackgroundColor">#272A2B</color>
+    <color name="DarkPrimaryColor">#4A4A4A</color>
+    <color name="DarkPrimaryVariantColor">#707070</color>
+    <color name="DarkSecondaryColor">#41536E</color>
+    <color name="DarkSecondaryVariantColor">#5A7193</color>
+    <!-- End dark theme colors -->
+
+
+    <!-- Light theme colors -->
+    <color name="LightBackgroundColor">#DCDCDC</color>
+    <color name="LightPrimaryColor">#AAAAAA</color>
+    <color name="LightPrimaryVariantColor">#707070</color>
+    <color name="LightSecondaryColor">#61815F</color>
+    <color name="LightSecondaryVariantColor">#8FBA8C</color>
+    <!-- End light theme colors -->
+
+
+    <!-- Seasons colors -->
+    <color name="mainColor">#034724</color>
+    <color name="secondaryColor">#3D6B60</color>
+    <color name="secondaryColor1">#99A34D</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="cafe1">#452B1F</color>
+    <color name="cafeMadera">#402515</color>
     <color name="crema">#FFC499</color>
     <color name="verdeOpaco">#8B9467</color>
     <color name="azul1">#66CCCC</color>
@@ -25,11 +47,13 @@
     <color name="verdePistache">#C6E2B5</color>
     <color name="azul3">#ADD8E6</color>
     <color name="beigeAmarillo">#ece3a8</color>
+    <color name="verdeSuculenta">#82B484</color>
     <color name="verde_olivo_original">#808000</color>
     <color name="verde_olivo_1">#8B9467</color> <!-- Verde opaco (ligeramente grisáceo) -->
     <color name="verde_olivo_2">#99A34D</color>
     <color name="verde_olivo_3">#B2B866</color>
     <color name="verde_olivo_4">#CBDC80</color>
     <color name="verde_olivo_5">#E5F2A3</color> <!-- Muy claro -->
+    <!-- End seasons colors-->
 
 </resources>

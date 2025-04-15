@@ -154,7 +154,6 @@
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="3dp"
                             android:text="@string/eventDetails"
-                            android:textColor="@color/black"
                             android:textSize="15sp" />
 
 
@@ -275,7 +274,6 @@
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="3dp"
                             android:text="@string/eventDetails"
-                            android:textColor="@color/black"
                             android:textSize="15sp" />
 
                     </LinearLayout>

@@ -1,6 +1,11 @@
 package com.example.firelogin;
 
+import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO;
+import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES;
+
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,6 +15,8 @@ import com.example.firelogin.ui.contactus.ContactUsFragment;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
@@ -47,6 +54,7 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        setDarkMode(Home.this);
         binding = HomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -78,6 +86,24 @@ public class Home extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        navigationView.setNavigationItemSelectedListener(item -> {
+            int id = item.getItemId();
+
+            if (id == R.id.nav_profile) {
+                Intent intent = new Intent(Home.this, Settings_PD.class);
+                startActivity(intent);
+                drawer.closeDrawer(GravityCompat.START);
+                return true;
+            }
+
+            boolean handled = NavigationUI.onNavDestinationSelected(item, navController);
+            if (handled) {
+                drawer.closeDrawer(GravityCompat.START);
+            }
+
+            return handled;
+        });
     }
 
     @Override
@@ -92,5 +118,17 @@ public class Home extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    public static void setDarkMode(Context context) {
+        SharedPreferences sharedPref = context.getSharedPreferences("shrdPrf", Context.MODE_PRIVATE);
+        // defValue: 0=DarkMode, 1=LightMode
+        int theme = sharedPref.getInt("Theme", 0);
+
+        if (theme == 0) {
+            AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES);
+        } else if (theme == 1) {
+            AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO);
+        }
     }
 }

@@ -28,7 +28,8 @@
         app:autoPlay="true"
         app:autoPlayDelay="6000"
         app:showTopShadow="true"
-        android:background="@drawable/redondedado"/>
+        android:background="@drawable/redondedado"
+        android:layout_margin="5dp"/>
 
     <TextView
         android:id="@+id/text_abtus"

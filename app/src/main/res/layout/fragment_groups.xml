@@ -43,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="7dp"
-            app:cardBackgroundColor="@color/verdeBandera"
+            app:cardBackgroundColor="@color/verdeSuculenta"
             app:cardCornerRadius="12dp"
             app:cardElevation="4dp">
 
@@ -67,7 +67,7 @@
                         android:layout_marginHorizontal="35dp"
                         android:text="Nombre del grupo"
                         android:textAlignment="center"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         tools:layout_editor_absoluteX="55dp"
@@ -81,7 +81,7 @@
                         android:layout_marginHorizontal="35dp"
                         android:text="No. miembros:"
                         android:textAlignment="textStart"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="18sp"
                         tools:layout_editor_absoluteX="55dp"
                         tools:layout_editor_absoluteY="38dp" />
@@ -95,7 +95,7 @@
                     android:layout_marginHorizontal="20dp"
                     android:text="Descripción:"
                     android:textAlignment="textStart"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     tools:layout_editor_absoluteX="55dp"
                     tools:layout_editor_absoluteY="38dp" />
@@ -133,7 +133,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="7dp"
-            app:cardBackgroundColor="@color/verdeBandera"
+            app:cardBackgroundColor="@color/verdeSuculenta"
             app:cardCornerRadius="12dp"
             app:cardElevation="4dp">
 
@@ -156,7 +156,7 @@
                         android:layout_marginHorizontal="35dp"
                         android:text="Nombre del grupo"
                         android:textAlignment="center"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         tools:layout_editor_absoluteX="55dp"
@@ -169,7 +169,7 @@
                         android:layout_marginHorizontal="35dp"
                         android:text="No. miembros:"
                         android:textAlignment="textStart"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="18sp"
                         tools:layout_editor_absoluteX="55dp"
                         tools:layout_editor_absoluteY="38dp" />
@@ -182,7 +182,7 @@
                     android:layout_marginHorizontal="20dp"
                     android:text="Descripción:"
                     android:textAlignment="textStart"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     tools:layout_editor_absoluteX="55dp"
                     tools:layout_editor_absoluteY="38dp" />

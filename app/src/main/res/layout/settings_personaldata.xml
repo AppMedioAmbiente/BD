@@ -42,7 +42,7 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="120dp"
+                android:layout_width="110dp"
                 android:layout_height="match_parent"
                 app:srcCompat="@drawable/configuraciones" />
 
@@ -69,10 +69,10 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@drawable/redondedado"
-                android:backgroundTint="#6D8967"
+                android:backgroundTint="@color/transparent"
                 android:maxWidth="250dp"
                 android:padding="10dp"
-                android:text="Nombre(s)"
+                android:text="Nombre(s):"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
@@ -83,7 +83,8 @@
                 android:layout_margin="10dp"
                 android:background="@drawable/redondedado"
                 android:backgroundTint="#6D8967"
-                android:minWidth="200dp"
+                android:minWidth="270dp"
+                android:maxWidth="320dp"
                 android:padding="10dp"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
@@ -103,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@drawable/redondedado"
-                android:backgroundTint="#6D8967"
+                android:backgroundTint="@color/transparent"
                 android:maxWidth="250dp"
                 android:padding="10dp"
                 android:text="Apellido(s):"
@@ -117,7 +118,8 @@
                 android:layout_margin="10dp"
                 android:background="@drawable/redondedado"
                 android:backgroundTint="#6D8967"
-                android:minWidth="200dp"
+                android:minWidth="270dp"
+                android:maxWidth="320dp"
                 android:padding="10dp"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
@@ -141,14 +143,15 @@
                 android:layout_margin="10dp"
                 android:textColor="@color/white"
                 android:background="@drawable/redondedado"
-                android:backgroundTint="#6D8967"
+                android:backgroundTint="@color/transparent"
                 android:padding="10dp" />
 
             <EditText
                 android:id="@+id/show_birthdate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minWidth="200dp"
+                android:minWidth="270dp"
+                android:maxWidth="320dp"
                 android:textSize="20sp"
                 android:layout_margin="10dp"
                 android:textColor="@color/white"
@@ -175,14 +178,15 @@
                 android:layout_margin="10dp"
                 android:textColor="@color/white"
                 android:background="@drawable/redondedado"
-                android:backgroundTint="#6D8967"
+                android:backgroundTint="@color/transparent"
                 android:padding="10dp" />
 
             <EditText
                 android:id="@+id/show_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minWidth="200dp"
+                android:minWidth="270dp"
+                android:maxWidth="320dp"
                 android:textSize="20sp"
                 android:layout_margin="10dp"
                 android:textColor="@color/white"
@@ -194,7 +198,8 @@
                 android:id="@+id/password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxWidth="250dp"
+                android:minWidth="270dp"
+                android:maxWidth="320dp"
                 android:hint="Ingresa tu contraseña:"
                 android:visibility="gone"
                 android:textSize="20sp"

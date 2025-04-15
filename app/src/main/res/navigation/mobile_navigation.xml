@@ -11,11 +11,11 @@
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
-    <fragment
+    <!--fragment
         android:id="@+id/nav_profile"
         android:name="com.example.firelogin.ui.profile.ProfileFragment"
         android:label="@string/profile"
-        tools:layout="@layout/settings_personaldata" />
+        tools:layout="@layout/settings_personaldata" /-->
 
     <fragment
         android:id="@+id/nav_groups"

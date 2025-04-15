@@ -1,18 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+    <!-- Base application theme. >
     <style name="Theme.FireLogin" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
+        < Primary brand color. >
         <item name="colorPrimary">@color/secondaryColor</item>
         <item name="colorPrimaryVariant">@color/white</item>
         <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
+        < Secondary brand color. >
         <item name="colorSecondary">@color/secondaryColor1</item>
         <item name="colorSecondaryVariant">@color/secondaryColor1</item>
         <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
+        < Status bar color. >
         <item name="android:statusBarColor">@color/black</item>
-        <!-- Customize your theme here. -->
-        <item name="android:windowBackground">@color/LightBackgroundColor</item>
+        < Customize your theme here. >
     </style>
 
     <style name="SpinnerTextStyle" parent="Widget.AppCompat.Spinner">
@@ -27,5 +27,5 @@
 
     <style name="Theme.FireLogin.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="Theme.FireLogin.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.FireLogin.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" /-->
 </resources>
