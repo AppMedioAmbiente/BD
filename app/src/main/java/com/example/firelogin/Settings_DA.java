@@ -1,13 +1,19 @@
 package com.example.firelogin;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Settings_DA extends AppCompatActivity {
 
@@ -18,21 +24,49 @@ public class Settings_DA extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_deleteaccount);
 
+        EditText getEmail = findViewById(R.id.email);
+        EditText getPassword = findViewById(R.id.password);
         btnDelete = findViewById(R.id.delete);
 
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
+        if (user != null) {
+            String userId = user.getUid();
 
-        if(user != null){
-
-            btnDelete.setOnClickListener(new View.OnClickListener(){
+            btnDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                }
-            }
-            );
+                    String email = getEmail.getText().toString().trim();
+                    String password = getPassword.getText().toString().trim();
 
+                    if (email.isEmpty() || password.isEmpty()) {
+                        Toast.makeText(getApplicationContext(), "Ingrese su email y contraseña", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    AuthCredential credential = EmailAuthProvider.getCredential(email, password);
+
+                    user.reauthenticate(credential).addOnCompleteListener(authTask -> {
+                        if (authTask.isSuccessful()) {
+                            db.collection("usuarios").document(userId).delete()
+                                    .addOnCompleteListener(deleteTask -> {
+                                        user.delete().addOnCompleteListener(task -> {
+                                            if (task.isSuccessful()) {
+                                                Intent intent = new Intent(Settings_DA.this, Login.class);
+                                                startActivity(intent);
+                                                Toast.makeText(getApplicationContext(), "Cuenta eliminada correctamente", Toast.LENGTH_SHORT).show();
+                                            } else {
+                                                Toast.makeText(getApplicationContext(), "Error al intentar eliminar cuenta: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
+                                    });
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Autenticación fallida: " + authTask.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+            });
         }
     }
-
 }
