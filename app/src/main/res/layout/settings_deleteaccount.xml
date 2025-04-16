@@ -63,7 +63,7 @@
             android:layout_margin="5dp">
 
             <TextView
-                android:id="@+id/email"
+                android:id="@+id/text_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxWidth="250dp"
@@ -75,7 +75,7 @@
                 android:padding="10dp" />
 
             <EditText
-                android:id="@+id/show_email"
+                android:id="@+id/email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:minWidth="200dp"
@@ -87,7 +87,7 @@
                 android:padding="10dp" />
 
             <TextView
-                android:id="@+id/passsword"
+                android:id="@+id/text_passsword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxWidth="250dp"
@@ -99,7 +99,7 @@
                 android:padding="10dp" />
 
             <EditText
-                android:id="@+id/show_password"
+                android:id="@+id/password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxWidth="250dp"
