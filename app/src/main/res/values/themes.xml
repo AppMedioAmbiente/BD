@@ -2,17 +2,19 @@
     <!-- Base application theme. -->
     <style name="Theme.FireLogin" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/secondaryColor</item>
-        <item name="colorPrimaryVariant">@color/white</item>
+        <item name="colorPrimary">@color/LightPrimaryColor</item>
+        <item name="colorPrimaryVariant">@color/LightPrimaryVariantColor</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/secondaryColor1</item>
-        <item name="colorSecondaryVariant">@color/secondaryColor1</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondary">@color/LightSecondaryColor</item>
+        <item name="colorSecondaryVariant">@color/LightSecondaryVariantColor</item>
+        <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/black</item>
         <!-- Customize your theme here. -->
         <item name="android:windowBackground">@color/LightBackgroundColor</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="sideNavBarColor">@color/botonsLightColor</item>
     </style>
 
     <style name="SpinnerTextStyle" parent="Widget.AppCompat.Spinner">
@@ -25,11 +27,40 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.FireLogin.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.FireLogin.AppBarOverlay" parent="ThemeOverlay.AppCompat.DayNight.ActionBar" />
 
     <style name="Theme.FireLogin.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="iconTint">
         <item name="android:tint">@color/black</item>
+    </style>
+
+    <style name="cardsBgColor">
+        <item name="android:backgroundTint">@color/cardsBgLightColor</item>
+    </style>
+
+    <style name="botonsColor">
+        <item name="android:backgroundTint">@color/botonsLightColor</item>
+    </style>
+
+    <style name="SomeSettingsColor">
+        <item name="android:backgroundTint">@color/SomeSettingsLightColor</item>
+    </style>
+
+    <style name="TertiaryColor">
+        <item name="android:backgroundTint">@color/LightTertiaryColor</item>
+    </style>
+
+    <style name="navHeaderTextColor">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="report">
+        <item name="android:backgroundTint">@color/botonsLightColor</item>
+        <item name="android:textColor">@color/lightRed</item>
+    </style>
+
+    <style name="fieldsColor">
+        <item name="android:backgroundTint">@color/fieldsLightColor</item>
     </style>
 </resources>

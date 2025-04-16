@@ -25,8 +25,8 @@ public class Settings_Interface extends AppCompatActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-        cancelInterfBtn = findViewById(R.id.cancelInterfBtn);
-        cancelInterfBtn.setOnClickListener(view->{onSupportNavigateUp();});
+        //cancelInterfBtn = findViewById(R.id.cancelInterfBtn);
+        //cancelInterfBtn.setOnClickListener(view->{onSupportNavigateUp();});
 
         //final Home homeAct = new Home();
         SharedPreferences sharedPref = getSharedPreferences("shrdPrf", MODE_PRIVATE);

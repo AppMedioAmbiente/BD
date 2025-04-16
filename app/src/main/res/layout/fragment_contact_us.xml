@@ -71,9 +71,9 @@
 
     <Button
         android:id="@+id/send"
+        style="@style/botonsColor"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/redondedado"
         android:text="Enviar"
         android:textSize="18sp"
         tools:layout_editor_absoluteX="158dp"

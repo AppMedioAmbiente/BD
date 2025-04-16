@@ -5,26 +5,39 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#007271</color>
-    <color name="black">#FF000000</color>
+    <color name="black">#000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="red">#8C0000</color>
+    <color name="lightRed">#DA1D1D</color>
     <color name="darkGray">#323232</color>
 
     <!-- Dark theme colors -->
-    <color name="DarkBackgroundColor">#272A2B</color>
-    <color name="DarkPrimaryColor">#707070</color>
-    <color name="DarkPrimaryVariantColor">#4A4A4A</color>
-    <color name="DarkSecondaryColor">#41536E</color>
-    <color name="DarkSecondaryVariantColor">#5A7193</color>
+    <color name="DarkBackgroundColor">#272A2B</color> <!-- Color de fondo -->
+    <color name="DarkPrimaryColor">#5A5A5A</color> <!-- Color de barras de nav  -->
+    <color name="DarkPrimaryVariantColor">#787878</color>
+    <color name="DarkSecondaryColor">#526D97</color> <!-- Color de algunos botones y selecciones -->
+    <color name="DarkSecondaryVariantColor">#7C9CCC</color>
+
+    <color name="cardsBgDarkColor">#375140</color> <!-- Color de las cartas de eventos y grupos -->
+    <color name="botonsDarkColor">#8B9A7D</color>
+    <color name="fieldsDarkColor">#6D8967</color> <!-- Colores de los campos de texto -->
+    <color name="SomeSettingsDarkColor">#526D97</color> <!-- Color del título de ajustes -->
+    <color name="DarkTertiaryColor">#536E4E</color> <!-- Otros colores, como los de las opciones de ajustes -->
     <!-- End dark theme colors -->
 
 
     <!-- Light theme colors -->
-    <color name="LightBackgroundColor">#DCDCDC</color>
-    <color name="LightPrimaryColor">#AAAAAA</color>
+    <color name="LightBackgroundColor">#CACDC8</color><!-- Color de fondo -->
+    <color name="LightPrimaryColor">#537C58</color> <!-- Color de barras de nav  -->
     <color name="LightPrimaryVariantColor">#707070</color>
-    <color name="LightSecondaryColor">#61815F</color>
-    <color name="LightSecondaryVariantColor">#8FBA8C</color>
+    <color name="LightSecondaryColor">#99A34D</color> <!-- Color de algunos botones y selecciones -->
+    <color name="LightSecondaryVariantColor">#6E7539</color>
+
+    <color name="cardsBgLightColor">#6A7362</color> <!-- Color de las cartas de eventos y grupos -->
+    <color name="botonsLightColor">#253A2C</color>
+    <color name="fieldsLightColor">#93B58C</color> <!-- Colores de los campos de texto -->
+    <color name="SomeSettingsLightColor">#526D97</color> <!-- Color del título de ajustes -->
+    <color name="LightTertiaryColor">#8B9A7D</color> <!-- Otros colores, como los de las opciones de ajustes. #6D8967 campos de S_PD -->
     <!-- End light theme colors -->
 
 

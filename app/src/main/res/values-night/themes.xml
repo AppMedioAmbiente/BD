@@ -8,11 +8,13 @@
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/DarkSecondaryColor</item>
         <item name="colorSecondaryVariant">@color/DarkSecondaryVariantColor</item>
-        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/black</item>
         <!-- Customize your theme here. -->
         <item name="android:windowBackground">@color/DarkBackgroundColor</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="sideNavBarColor">@color/botonsDarkColor</item>
     </style>
 
     <style name="SpinnerTextStyle" parent="Widget.AppCompat.Spinner">
@@ -20,7 +22,45 @@
         <item name="android:textSize">16sp</item>
     </style>
 
+    <style name="Theme.FireLogin.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.FireLogin.AppBarOverlay" parent="ThemeOverlay.AppCompat.DayNight.ActionBar" />
+
+    <style name="Theme.FireLogin.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark" />
+
     <style name="iconTint">
         <item name="android:tint">@color/white</item>
+    </style>
+
+    <style name="cardsBgColor">
+        <item name="android:backgroundTint">@color/cardsBgDarkColor</item>
+    </style>
+
+    <style name="botonsColor">
+        <item name="android:backgroundTint">@color/botonsDarkColor</item>
+    </style>
+
+    <style name="SomeSettingsColor">
+        <item name="android:backgroundTint">@color/SomeSettingsDarkColor</item>
+    </style>
+
+    <style name="TertiaryColor">
+        <item name="android:backgroundTint">@color/DarkTertiaryColor</item>
+    </style>
+
+    <style name="navHeaderTextColor">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="report">
+        <item name="android:backgroundTint">@color/botonsDarkColor</item>
+        <item name="android:textColor">@color/red</item>
+    </style>
+
+    <style name="fieldsColor">
+        <item name="android:backgroundTint">@color/fieldsDarkColor</item>
     </style>
 </resources>

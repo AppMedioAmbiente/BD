@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="40dp"
             android:background="@drawable/redondedado"
-            android:backgroundTint="#00659a"
+            style="@style/SomeSettingsColor"
             android:gravity="center"
             android:orientation="horizontal"
             android:padding="12dp">
@@ -76,11 +76,11 @@
 
             <EditText
                 android:id="@+id/show_name"
+                style="@style/fieldsColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@drawable/redondedado"
-                android:backgroundTint="#6D8967"
                 android:maxWidth="320dp"
                 android:minWidth="270dp"
                 android:padding="10dp"
@@ -109,11 +109,11 @@
 
             <EditText
                 android:id="@+id/show_surnname"
+                style="@style/fieldsColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@drawable/redondedado"
-                android:backgroundTint="#6D8967"
                 android:maxWidth="320dp"
                 android:minWidth="270dp"
                 android:padding="10dp"
@@ -142,11 +142,11 @@
 
             <EditText
                 android:id="@+id/show_birthdate"
+                style="@style/fieldsColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@drawable/redondedado"
-                android:backgroundTint="#6D8967"
                 android:maxWidth="320dp"
                 android:minWidth="270dp"
                 android:padding="10dp"
@@ -175,11 +175,11 @@
 
             <EditText
                 android:id="@+id/show_email"
+                style="@style/fieldsColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@drawable/redondedado"
-                android:backgroundTint="#6D8967"
                 android:maxWidth="320dp"
                 android:minWidth="270dp"
                 android:padding="10dp"
@@ -187,11 +187,11 @@
 
             <EditText
                 android:id="@+id/show_password"
+                style="@style/fieldsColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@drawable/redondedado"
-                android:backgroundTint="#6D8967"
                 android:hint="Ingresa tu contraseña:"
                 android:maxWidth="320dp"
                 android:minWidth="270dp"
@@ -211,20 +211,20 @@
 
             <Button
                 android:id="@+id/cancelPDBtn"
+                style="@style/botonsColor"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:background="@drawable/redondedado"
                 android:maxWidth="150dp"
                 android:minHeight="10dp"
                 android:text="Cancelar" />
 
             <Button
                 android:id="@+id/save"
+                style="@style/botonsColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:background="@drawable/redondedado"
                 android:maxWidth="150dp"
                 android:minHeight="170dp"
                 android:text="Guardar" />

@@ -22,8 +22,8 @@ public class Settings_Notifications extends AppCompatActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-        cancelNotifBtn = findViewById(R.id.cancelNotifBtn);
-        cancelNotifBtn.setOnClickListener(view->{onSupportNavigateUp();});
+        //cancelNotifBtn = findViewById(R.id.cancelNotifBtn);
+        //cancelNotifBtn.setOnClickListener(view->{onSupportNavigateUp();});
     }
 
     @Override

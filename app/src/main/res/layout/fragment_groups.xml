@@ -36,6 +36,7 @@
             tools:layout_editor_absoluteY="290dp" />
 
         <androidx.cardview.widget.CardView
+            style="@style/cardsBgColor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="7dp"
@@ -58,8 +59,8 @@
                         android:id="@+id/groupName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginVertical="5dp"
                         android:layout_marginHorizontal="35dp"
+                        android:layout_marginVertical="5dp"
                         android:text="Nombre del grupo"
                         android:textAlignment="center"
                         android:textSize="20sp"
@@ -71,8 +72,8 @@
                         android:id="@+id/tvGroupPpl"
                         android:layout_width="122dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginVertical="5dp"
                         android:layout_marginHorizontal="35dp"
+                        android:layout_marginVertical="5dp"
                         android:text="No. miembros:"
                         android:textAlignment="textStart"
                         android:textSize="18sp"
@@ -84,8 +85,8 @@
                     android:id="@+id/tvGroupDescr"
                     android:layout_width="122dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="5dp"
                     android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="5dp"
                     android:text="Descripción:"
                     android:textAlignment="textStart"
                     android:textSize="18sp"
@@ -100,6 +101,7 @@
 
                     <Button
                         android:id="@+id/btnJoinGroup"
+                        style="@style/botonsColor"
                         android:layout_width="120dp"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="30dp"
@@ -108,11 +110,11 @@
 
                     <Button
                         android:id="@+id/btnRepGroup"
+                        style="@style/report"
                         android:layout_width="120dp"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="30dp"
                         android:text="@string/report"
-                        android:textColor="@color/red"
                         android:textSize="15sp" />
 
                 </LinearLayout>
@@ -120,7 +122,9 @@
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
+            style="@style/cardsBgColor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="7dp"
@@ -142,8 +146,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginVertical="5dp"
                         android:layout_marginHorizontal="35dp"
+                        android:layout_marginVertical="5dp"
                         android:text="Nombre del grupo"
                         android:textAlignment="center"
                         android:textSize="20sp"
@@ -154,8 +158,8 @@
                     <TextView
                         android:layout_width="122dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginVertical="5dp"
                         android:layout_marginHorizontal="35dp"
+                        android:layout_marginVertical="5dp"
                         android:text="No. miembros:"
                         android:textAlignment="textStart"
                         android:textSize="18sp"
@@ -166,8 +170,8 @@
                 <TextView
                     android:layout_width="122dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="5dp"
                     android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="5dp"
                     android:text="Descripción:"
                     android:textAlignment="textStart"
                     android:textSize="18sp"
@@ -181,6 +185,7 @@
                     android:orientation="horizontal">
 
                     <Button
+                        style="@style/botonsColor"
                         android:layout_width="120dp"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="30dp"
@@ -188,11 +193,11 @@
                         android:textSize="15sp" />
 
                     <Button
+                        style="@style/report"
                         android:layout_width="120dp"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="30dp"
                         android:text="@string/report"
-                        android:textColor="@color/red"
                         android:textSize="15sp" />
 
                 </LinearLayout>

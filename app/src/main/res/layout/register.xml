@@ -26,15 +26,16 @@
 
     <EditText
         android:id="@+id/names"
+        style="@style/fieldsColor"
+        android:background="@drawable/redondedado"
+        android:padding="5dp"
         android:layout_width="270dp"
         android:layout_height="50dp"
         android:ems="10"
         android:hint="Nombre(s)"
         android:autofillHints="names"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="99dp"
-        tools:layout_editor_absoluteY="228dp"
-        tools:layout_margin="5dp"/>
+        android:layout_margin="5dp"/>
 
     <TextView
         android:id="@+id/namesMsg"
@@ -46,15 +47,16 @@
 
     <EditText
         android:id="@+id/surnames"
+        style="@style/fieldsColor"
+        android:background="@drawable/redondedado"
+        android:padding="5dp"
         android:layout_width="270dp"
         android:layout_height="50dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="Apellido(s)"
         android:autofillHints="name"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="293dp"
-        tools:layout_margin="5dp"/>
+        android:layout_margin="5dp"/>
 
     <TextView
         android:id="@+id/surnamesMsg"
@@ -66,15 +68,16 @@
 
     <EditText
         android:id="@+id/birthdate"
+        style="@style/fieldsColor"
+        android:background="@drawable/redondedado"
+        android:padding="5dp"
         android:layout_width="270dp"
         android:layout_height="50dp"
         android:ems="10"
         android:inputType="date"
         android:hint="Fecha de nacimiento"
         android:autofillHints="birthdate"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="373dp"
-        tools:layout_margin="5dp"/>
+        android:layout_margin="5dp"/>
 
     <TextView
         android:id="@+id/birthdateMsg"
@@ -86,13 +89,11 @@
 
     <Button
         android:id="@+id/next"
+        style="@style/botonsColor"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/redondedado"
         android:text="Siguiente"
-        android:textSize="18sp"
-        tools:layout_editor_absoluteX="156dp"
-        tools:layout_editor_absoluteY="540dp"
-        tools:layout_margin="10dp" />
+        android:textSize="16sp"
+        android:layout_margin="10dp" />
 
 </LinearLayout>

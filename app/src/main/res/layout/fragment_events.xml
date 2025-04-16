@@ -40,7 +40,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="7dp"
             app:cardCornerRadius="12dp"
-            app:cardElevation="4dp">
+            app:cardElevation="4dp"
+            style="@style/cardsBgColor">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -144,7 +145,8 @@
                             android:layout_height="wrap_content"
                             android:text="@string/eventDetails"
                             android:textSize="15sp"
-                            android:layout_marginHorizontal="3dp"/>
+                            android:layout_marginHorizontal="3dp"
+                            style="@style/botonsColor"/>
 
                         <Button
                             android:id="@+id/btnJoinEvent"
@@ -152,7 +154,8 @@
                             android:layout_height="wrap_content"
                             android:text="@string/join"
                             android:textSize="15sp"
-                            android:layout_marginHorizontal="3dp"/>
+                            android:layout_marginHorizontal="3dp"
+                            style="@style/botonsColor"/>
 
                     </LinearLayout>
 
@@ -166,7 +169,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="7dp"
             app:cardCornerRadius="12dp"
-            app:cardElevation="4dp">
+            app:cardElevation="4dp"
+            style="@style/cardsBgColor">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -263,14 +267,16 @@
                             android:layout_height="wrap_content"
                             android:text="@string/eventDetails"
                             android:textSize="15sp"
-                            android:layout_marginHorizontal="3dp"/>
+                            android:layout_marginHorizontal="3dp"
+                            style="@style/botonsColor"/>
 
                         <Button
                             android:layout_width="115dp"
                             android:layout_height="wrap_content"
                             android:text="@string/join"
                             android:textSize="15sp"
-                            android:layout_marginHorizontal="3dp"/>
+                            android:layout_marginHorizontal="3dp"
+                            style="@style/botonsColor"/>
 
                     </LinearLayout>
 
