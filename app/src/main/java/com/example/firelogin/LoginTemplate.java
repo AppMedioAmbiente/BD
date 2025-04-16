@@ -9,9 +9,17 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LoginTemplate extends AppCompatActivity {
-    protected String getUserId(FirebaseAuth auth){
+    FirebaseAuth firebase=FirebaseAuth.getInstance();
+    FirebaseUser user = getCurrentUser();
+    protected FirebaseUser getCurrentUser(){
+        if(firebase==null){
+            return null;
+        }
+        return firebase.getCurrentUser();
+    }
+    protected String getUserId(){
         //Obtener usuario:
-        FirebaseUser user = auth.getCurrentUser();
+        user.getUid();
         //user.getEmail();
         return (user != null) ? user.getUid() : null;
     }
@@ -27,16 +35,19 @@ public class LoginTemplate extends AppCompatActivity {
                 .setCancelable(false)
                 .setPositiveButton("Cerrar",null)
                 .create().show();
+
+
     }
 
-    protected void showHome(ProviderType provider,
-            String contact,String name, String surname, String birthdate) {
+    protected void showHome() {
         Intent home=new Intent(this,Home.class);
+        /*
         home.putExtra("contact",contact);
         home.putExtra("provider",provider);
         home.putExtra("name",name);
         home.putExtra("surname",surname);
         home.putExtra("birthdate",birthdate);
+         */
         startActivity(home);
     }
 }

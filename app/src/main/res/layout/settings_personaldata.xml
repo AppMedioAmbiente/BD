@@ -173,8 +173,19 @@
                 android:text="País:"
                 android:textSize="20sp" />
 
-            <EditText
-                android:id="@+id/country"
+<!--            <EditText-->
+<!--                android:id="@+id/country"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="10dp"-->
+<!--                android:background="@drawable/redondedado"-->
+<!--                android:backgroundTint="#6D8967"-->
+<!--                android:maxWidth="320dp"-->
+<!--                android:minWidth="270dp"-->
+<!--                android:padding="10dp"-->
+<!--                android:textSize="20sp" />-->
+            <TextView
+                android:id="@+id/show_country"
                 style="@style/fieldsColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -183,6 +194,8 @@
                 android:maxWidth="320dp"
                 android:minWidth="270dp"
                 android:padding="10dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:textSize="20sp" />
 
         </LinearLayout>
@@ -206,18 +219,29 @@
                 android:text="Estado:"
                 android:textSize="20sp" />
 
-            <EditText
-                android:id="@+id/state"
+<!--            <EditText-->
+<!--                android:id="@+id/state"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="10dp"-->
+<!--                android:background="@drawable/redondedado"-->
+<!--                android:backgroundTint="#6D8967"-->
+<!--                android:maxWidth="320dp"-->
+<!--                android:minWidth="270dp"-->
+<!--                android:padding="10dp"-->
+<!--                android:textSize="20sp" />-->
+
+            <Spinner
+                android:id="@+id/show_state"
                 style="@style/fieldsColor"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_margin="10dp"
                 android:background="@drawable/redondedado"
                 android:maxWidth="320dp"
                 android:minWidth="270dp"
                 android:padding="10dp"
                 android:textSize="20sp" />
-
         </LinearLayout>
 
         <LinearLayout

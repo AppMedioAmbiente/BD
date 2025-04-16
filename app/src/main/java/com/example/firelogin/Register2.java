@@ -42,6 +42,8 @@ public class Register2 extends LoginTemplate implements View.OnClickListener {
         }
         data.put("phone",phone);
         data.put("nickname",nickName);
+        data.put("accountStatus","active");//active, suspended,blocked,inactive,pending
+
         // Inserta los datos usando el ID del usuario como el documento
 
         db.collection("usuarios")
@@ -49,8 +51,7 @@ public class Register2 extends LoginTemplate implements View.OnClickListener {
                 .set(data)
                 .addOnSuccessListener(aVoid -> {
                     // Si la inserción es exitosa
-                    showHome(ProviderType.BASIC,
-                            email,name,surname,birthdate);
+                    showHome();
                     //showAlert("Firestore", "DocumentSnapshot added with ID: " + userId);
                 })
                 .addOnFailureListener(e -> {
@@ -169,16 +170,13 @@ public class Register2 extends LoginTemplate implements View.OnClickListener {
             } else tvRepPassMsg.setText("");
 
         } else {
-
-            FirebaseAuth firebase = FirebaseAuth.getInstance();
-
             firebase.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(listener -> {
                         if (!listener.isSuccessful()) {
                             failedRegister(listener.getException().toString());
                             return;
                         }
-                        insertValues(getUserId(firebase));
+                        insertValues(getUserId());
                     });
         }
     }

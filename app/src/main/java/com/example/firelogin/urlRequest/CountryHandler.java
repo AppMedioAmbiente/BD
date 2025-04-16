@@ -1,4 +1,5 @@
 package com.example.firelogin.urlRequest;
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
@@ -18,9 +19,9 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CountryHandler {
-    private Register1 activity;
+    private CountryTemplate activity;
     private String countryName;
-    public CountryHandler(Register1 activity, String country){
+    public CountryHandler(CountryTemplate activity, String country){
         this.activity=activity;
         this.countryName=country;
         Log.d("creacion 2","has creado el CH");
@@ -68,4 +69,5 @@ public class CountryHandler {
         });
 
     }
+
 }

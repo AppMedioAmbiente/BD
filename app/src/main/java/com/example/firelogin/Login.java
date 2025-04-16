@@ -2,12 +2,19 @@ package com.example.firelogin;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Login extends LoginTemplate {
 
@@ -22,6 +29,8 @@ public class Login extends LoginTemplate {
         etContact = findViewById(R.id.contact);
         etPassword = findViewById(R.id.password);
         btn_redirect = findViewById(R.id.Rsing_up);
+
+//        getUserData();
 
         btn_redirect.setOnClickListener(view -> {
             Intent intent = new Intent(Login.this,Register.class);
@@ -38,34 +47,66 @@ public class Login extends LoginTemplate {
                     showAlert("Campos","Debes llenar correo y contraseña");
                     return ;
                 }
-                FirebaseAuth firebase=FirebaseAuth.getInstance();
+
                 firebase.signInWithEmailAndPassword(contact,password)
                         .addOnCompleteListener(listener->{
                     if (!listener.isSuccessful()){
                         showAlert("Inicio de sesión","El inicio de sesión ha fallado, intente de nuevo ");
                         return;
                     }
-                    getUserData(firebase,contact);
-
+                    user=getCurrentUser();
+                    getUserData();
                 });
 
             }
         });
     }
-    protected void getUserData(FirebaseAuth firebase,String contact){
+
+    protected void getUserData(){
+        Log.d("regerencia","getUserData");
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        db.collection("usuarios")
-                .document(getUserId(firebase))  // Usa el ID del usuario como clave del documento
-                .get()
+        if(user==null){
+            return ;
+        }
+
+        DocumentReference documentUser = db.collection("usuarios")
+                .document(getUserId());  // Usa el ID del usuario como clave del documento;
+
+        documentUser.get()
                 .addOnSuccessListener(document->{
+//                    Map<String, Object> missingValues = new HashMap<>();
+//                    for(String field :
+//                            "name,surname,birthdate,country,state,phone,nickname,accountStatus"
+//                                    .split(",") ){
+//
+//                        Log.d("__MyData",(document.exists())?document.getString(field):"");
+//                        if(!document.exists()|| document.getString(field)==null){
+//                            Log.d("missing data",field);
+//                            missingValues.put(field,getFieldDefaultValue(field));
+//                        }
+//                    }
+//                    documentUser.update(missingValues)
+//                        .addOnCompleteListener(aVoid->{
+//                            showHome();
+//                        }).addOnFailureListener(e -> {
+//                            showAlert("actualizacion de datos",e.toString());
+//                            showHome();
+//                        });
                     if(document.exists()){
-                        showHome(ProviderType.BASIC,
-                                contact,
-                                document.getString("name"),
-                                document.getString("surname"),
-                                document.getString("birthdate"));
+                        showHome();
                     }
                 });
     }
+
+    private String getFieldDefaultValue(String field) {
+        switch (field){
+            case "accountStatus":
+                //active, suspended,blocked,inactive,pending
+                return "valid";
+            default:
+                return "";
+        }
+    }
+
 }

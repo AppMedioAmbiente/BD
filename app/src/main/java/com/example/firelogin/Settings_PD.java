@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.firelogin.urlRequest.CountryTemplate;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,9 +26,9 @@ import com.google.firebase.firestore.SetOptions;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Settings_PD extends AppCompatActivity {
+public class Settings_PD extends CountryTemplate {
 
-    EditText names, show_birthdate, surnames, show_email, show_password, show_nickname, show_country, show_state;
+    EditText names, show_birthdate, surnames, show_email, show_password, show_nickname;
     Button cancelPDBtn;
 
     @SuppressLint("MissingInflatedId")
@@ -50,8 +51,8 @@ public class Settings_PD extends AppCompatActivity {
         surnames = findViewById(R.id.show_surnname);
         show_birthdate = findViewById(R.id.show_birthdate);
         show_nickname = findViewById(R.id.nickname);
-        show_country = findViewById(R.id.country);
-        show_state = findViewById(R.id.state);
+//        show_country = findViewById(R.id.country);
+//        show_state = findViewById(R.id.state);
         show_email = findViewById(R.id.show_email);
         show_password = findViewById(R.id.show_password);
         Button btnSave = findViewById(R.id.save);
@@ -70,9 +71,14 @@ public class Settings_PD extends AppCompatActivity {
                             surnames.setText(documentSnapshot.getString("surname"));
                             show_birthdate.setText(documentSnapshot.getString("birthdate"));
                             show_nickname.setText(documentSnapshot.getString("nickname"));
-                            show_country.setText(documentSnapshot.getString("country"));
-                            show_state.setText(documentSnapshot.getString("state"));
+//                            show_country.setText(documentSnapshot.getString("country"));
+//                            show_state.setText(documentSnapshot.getString("state"));
                             show_email.setText(user.getEmail());
+
+//                            Toast.makeText(Settings_PD.this, "Estado Seleccionado:"+documentSnapshot.getString("state"), Toast.LENGTH_SHORT).show();
+
+                            initCountryViews(R.id.show_country,R.id.show_state, Settings_PD.this
+                                    ,documentSnapshot.getString("country"),documentSnapshot.getString("state"));
 
                             show_email.addTextChangedListener(new TextWatcher() {
                                 @Override
@@ -106,13 +112,14 @@ public class Settings_PD extends AppCompatActivity {
                 String new_surname = surnames.getText().toString().trim();
                 String new_birthdate = show_birthdate.getText().toString().trim();
                 String new_nickname = show_nickname.getText().toString().trim();
-                String new_country = show_country.getText().toString().trim();
-                String new_state = show_state.getText().toString().trim();
+//                String new_country = show_country.getText().toString().trim();
+//                String new_state = show_state.getText().toString().trim();
                 String new_email = show_email.getText().toString().trim();
                 String new_password = show_password.getText().toString().trim();
+                getStateSelected();
 
                 if (!new_name.isEmpty() && !new_surname.isEmpty() && !new_birthdate.isEmpty()
-                        && !new_nickname.isEmpty() && !new_country.isEmpty() && !new_state.isEmpty()
+                        && !new_nickname.isEmpty() && !countrySelcted.isEmpty() && !stateSelected.isEmpty()
                         && !new_email.isEmpty()) {
 
                     if (!new_email.equals(user.getEmail())) {
@@ -129,7 +136,7 @@ public class Settings_PD extends AppCompatActivity {
 
                                 user.updateEmail(new_email).addOnCompleteListener(updateTask -> {
                                     if (updateTask.isSuccessful()) {
-                                        actualizarDatosFirestore(db, user, new_name, new_surname, new_birthdate, new_nickname, new_country, new_state);
+                                        actualizarDatosFirestore(db, user, new_name, new_surname, new_birthdate, new_nickname, countrySelcted, stateSelected);
                                         FirebaseAuth.getInstance().signOut();
                                         Intent intent = new Intent(Settings_PD.this, Home.class);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -148,7 +155,7 @@ public class Settings_PD extends AppCompatActivity {
                         });
 
                     } else {
-                        actualizarDatosFirestore(db, user, new_name, new_surname, new_birthdate, new_nickname, new_country, new_state);
+                        actualizarDatosFirestore(db, user, new_name, new_surname, new_birthdate, new_nickname, countrySelcted, stateSelected);
                     }
 
                 } else {
