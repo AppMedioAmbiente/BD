@@ -30,21 +30,21 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <LinearLayout
+            style="@style/SomeSettingsColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="40dp"
             android:background="@drawable/redondedado"
-            style="@style/SomeSettingsColor"
             android:gravity="center"
             android:orientation="horizontal"
             android:padding="12dp">
 
             <ImageView
                 android:id="@+id/imageView"
+                style="@style/iconTint"
                 android:layout_width="110dp"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/configuraciones"
-                style="@style/iconTint"/>
+                app:srcCompat="@drawable/configuraciones" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -175,11 +175,11 @@
 
             <EditText
                 android:id="@+id/country"
+                style="@style/fieldsColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@drawable/redondedado"
-                android:backgroundTint="#6D8967"
                 android:maxWidth="320dp"
                 android:minWidth="270dp"
                 android:padding="10dp"
@@ -208,11 +208,11 @@
 
             <EditText
                 android:id="@+id/state"
+                style="@style/fieldsColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@drawable/redondedado"
-                android:backgroundTint="#6D8967"
                 android:maxWidth="320dp"
                 android:minWidth="270dp"
                 android:padding="10dp"
@@ -241,11 +241,11 @@
 
             <EditText
                 android:id="@+id/nickname"
+                style="@style/fieldsColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@drawable/redondedado"
-                android:backgroundTint="#6D8967"
                 android:maxWidth="320dp"
                 android:minWidth="270dp"
                 android:padding="10dp"
@@ -292,6 +292,7 @@
                 android:layout_margin="10dp"
                 android:background="@drawable/redondedado"
                 android:hint="Ingresa tu contraseña:"
+                android:inputType="textPassword"
                 android:maxWidth="320dp"
                 android:minWidth="270dp"
                 android:padding="10dp"

@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="top|center"
+    android:orientation="vertical"
     tools:context=".Settings_DA">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="top|center">
+        android:gravity="top|center"
+        android:orientation="vertical">
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
@@ -20,31 +20,31 @@
             android:theme="@style/Theme.FireLogin.AppBarOverlay">
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/tbPDSettings"
+                android:id="@+id/tbDASettings"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
                 app:popupTheme="@style/Theme.FireLogin.PopupOverlay"
-                app:title="Ajustes de eliminación de cuenta"/>
+                app:title="Ajustes de eliminación de cuenta" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
         <LinearLayout
+            style="@style/SomeSettingsColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
             android:layout_margin="40dp"
-            android:padding="12dp"
             android:background="@drawable/redondedado"
-            style="@style/SomeSettingsColor">
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="12dp">
 
             <ImageView
                 android:id="@+id/imageView"
+                style="@style/iconTint"
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/configuraciones"
-                style="@style/iconTint"/>
+                app:srcCompat="@drawable/configuraciones" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -58,57 +58,58 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_margin="5dp"
             android:gravity="center"
-            android:layout_margin="5dp">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/text_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxWidth="250dp"
-                android:text="Correo Electronico:"
-                android:textSize="20sp"
                 android:layout_margin="10dp"
                 android:background="@drawable/redondedado"
-                android:backgroundTint="#6D8967"
-                android:padding="10dp" />
+                android:backgroundTint="@color/transparent"
+                android:maxWidth="250dp"
+                android:padding="10dp"
+                android:text="Correo Electronico:"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/email"
+                style="@style/fieldsColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minWidth="200dp"
-                android:textSize="20sp"
-                android:hint="Aqui"
                 android:layout_margin="10dp"
                 android:background="@drawable/redondedado"
-                android:backgroundTint="#6D8967"
-                android:padding="10dp" />
+                android:maxWidth="320dp"
+                android:minWidth="270dp"
+                android:padding="10dp"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/text_passsword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxWidth="250dp"
-                android:text="Ingresa tu contraseña:"
-                android:textSize="20sp"
                 android:layout_margin="10dp"
                 android:background="@drawable/redondedado"
-                android:backgroundTint="#6D8967"
-                android:padding="10dp" />
+                android:backgroundTint="@color/transparent"
+                android:maxWidth="250dp"
+                android:padding="10dp"
+                android:text="Ingresa tu contraseña:"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/password"
+                style="@style/fieldsColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxWidth="250dp"
-                android:hint="Aqui"
-                android:textSize="20sp"
                 android:layout_margin="10dp"
                 android:background="@drawable/redondedado"
-                android:backgroundTint="#6D8967"
-                android:padding="10dp" />
+                android:inputType="textPassword"
+                android:maxWidth="320dp"
+                android:minWidth="270dp"
+                android:padding="10dp"
+                android:textSize="20sp" />
 
         </LinearLayout>
 
@@ -121,21 +122,21 @@
             android:padding="12dp">
 
             <Button
-                android:id="@+id/cancelPDBtn"
+                android:id="@+id/cancelDABtn"
+                style="@style/botonsColor"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:background="@drawable/redondedado"
                 android:maxWidth="150dp"
                 android:minHeight="10dp"
-                android:text="Cancelar"/>
+                android:text="Cancelar" />
 
             <Button
                 android:id="@+id/delete"
+                style="@style/botonsColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:background="@drawable/redondedado"
                 android:maxWidth="150dp"
                 android:minHeight="170dp"
                 android:text="Eliminar" />

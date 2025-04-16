@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;
@@ -17,12 +18,22 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Settings_DA extends AppCompatActivity {
 
-    Button btnDelete;
+    Button btnDelete, cancelDABtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_deleteaccount);
+
+        Toolbar tbDASettings = findViewById(R.id.tbDASettings);
+        setSupportActionBar(tbDASettings);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+
+        cancelDABtn = findViewById(R.id.cancelDABtn);
+        cancelDABtn.setOnClickListener(view->{onSupportNavigateUp();});
 
         EditText getEmail = findViewById(R.id.email);
         EditText getPassword = findViewById(R.id.password);
@@ -68,5 +79,11 @@ public class Settings_DA extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 }
