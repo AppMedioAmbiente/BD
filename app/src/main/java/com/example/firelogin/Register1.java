@@ -32,9 +32,11 @@ public class Register1 extends CountryTemplate {
 
         btnNext.setOnClickListener(view -> {
             if(!wasCountrySelected()){
+                showToastAlert("Debes Seleccionar un Pais");
                 return;
             }
-            String stateSelected = stateSelector.getSelectedItem().toString();
+            getStateSelected();
+            getCountrySelected();
 
             Intent intent=getIntent();
             String values=intent.getStringExtra("values");

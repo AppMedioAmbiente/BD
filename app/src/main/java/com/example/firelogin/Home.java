@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.firelogin.ui.contactus.ContactUsFragment;
 import com.google.android.material.snackbar.Snackbar;
@@ -28,6 +29,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.firelogin.databinding.HomeBinding;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.imaginativeworld.whynotimagecarousel.ImageCarousel;
@@ -66,8 +68,10 @@ public class Home extends AppCompatActivity {
         List<CarouselItem> list = new ArrayList<>();
         list.add(new CarouselItem(R.drawable.logo, "Icono de SECOVO"));
         carousel.setData(list);
-
-
+        FirebaseUser cu = FirebaseAuth.getInstance().getCurrentUser();
+        if(cu!=null) {
+            Toast.makeText(this, "Bienvenido " +cu.getEmail(), Toast.LENGTH_SHORT).show();
+        }
         setSupportActionBar(binding.appBarHome.toolbar);
         binding.appBarHome.contactus.setOnClickListener(new View.OnClickListener() {
             @Override

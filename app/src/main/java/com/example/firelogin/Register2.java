@@ -28,11 +28,6 @@ public class Register2 extends LoginTemplate implements View.OnClickListener {
 
         // Crea un objeto que deseas insertar (puede ser cualquier tipo de objeto o mapa)
         Map<String, Object> data = new HashMap<>();
-        /*
-        data.put("name", intent.getStringExtra("name"));
-        data.put("surname", intent.getStringExtra("surname"));
-        data.put("birthdate", intent.getStringExtra("birthdate"));
-         */
         String[] values=intent.getStringExtra("values").split(",");
         for (int index=0;index<values.length;index++){
             //ej values[0]="name:{name}"
@@ -56,7 +51,7 @@ public class Register2 extends LoginTemplate implements View.OnClickListener {
                 })
                 .addOnFailureListener(e -> {
                     // Si hay un error al insertar
-                    failedRegister(e.toString());
+                    failedRegister(e.getMessage());
                 });
     }
 
@@ -176,6 +171,8 @@ public class Register2 extends LoginTemplate implements View.OnClickListener {
                             failedRegister(listener.getException().toString());
                             return;
                         }
+                        user=getCurrentUser();
+                        showToastAlert("Se creó el usuario");
                         insertValues(getUserId());
                     });
         }

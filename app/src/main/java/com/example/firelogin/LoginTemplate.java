@@ -1,6 +1,8 @@
 package com.example.firelogin;
 
 import android.content.Intent;
+import android.util.Log;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,13 +21,14 @@ public class LoginTemplate extends AppCompatActivity {
     }
     protected String getUserId(){
         //Obtener usuario:
-        user.getUid();
+//        user.getUid();
         //user.getEmail();
         return (user != null) ? user.getUid() : null;
     }
     protected void showAlert(String titulo,String mensaje){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 
+        Log.d("nuestro sistema",mensaje);
         // Configura el titulo.
         alertDialogBuilder.setTitle(titulo);
 
@@ -35,8 +38,10 @@ public class LoginTemplate extends AppCompatActivity {
                 .setCancelable(false)
                 .setPositiveButton("Cerrar",null)
                 .create().show();
-
-
+    }
+    protected void showToastAlert(String mensaje){
+        Toast.makeText(this,mensaje,Toast.LENGTH_SHORT).show();
+        Log.d("nuestro sistema",mensaje);
     }
 
     protected void showHome() {

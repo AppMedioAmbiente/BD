@@ -59,110 +59,111 @@ public class Settings_PD extends CountryTemplate {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
         if (user != null) {
             String userId = user.getUid();
 
             db.collection("usuarios").document(userId)
                     .get()
                     .addOnSuccessListener(documentSnapshot -> {
-                        if (documentSnapshot.exists()) {
-                            names.setText(documentSnapshot.getString("name"));
-                            surnames.setText(documentSnapshot.getString("surname"));
-                            show_birthdate.setText(documentSnapshot.getString("birthdate"));
-                            show_nickname.setText(documentSnapshot.getString("nickname"));
+                        show_email.setText(user.getEmail());
+
+                        if (!documentSnapshot.exists()) {
+                            showToastAlert("No existe el documento");
+                            initCountryViews(R.id.show_country,R.id.show_state, Settings_PD.this
+                                    ,"","");
+                            return;
+                        }
+                        initCountryViews(R.id.show_country,R.id.show_state, Settings_PD.this
+                                ,documentSnapshot.getString("country"),documentSnapshot.getString("state"));
+
+                        names.setText(documentSnapshot.getString("name"));
+                        surnames.setText(documentSnapshot.getString("surname"));
+                        show_birthdate.setText(documentSnapshot.getString("birthdate"));
+                        show_nickname.setText(documentSnapshot.getString("nickname"));
 //                            show_country.setText(documentSnapshot.getString("country"));
 //                            show_state.setText(documentSnapshot.getString("state"));
-                            show_email.setText(user.getEmail());
 
-//                            Toast.makeText(Settings_PD.this, "Estado Seleccionado:"+documentSnapshot.getString("state"), Toast.LENGTH_SHORT).show();
+                        show_email.addTextChangedListener(new TextWatcher() {
+                            @Override
+                            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
-                            initCountryViews(R.id.show_country,R.id.show_state, Settings_PD.this
-                                    ,documentSnapshot.getString("country"),documentSnapshot.getString("state"));
-
-                            show_email.addTextChangedListener(new TextWatcher() {
-                                @Override
-                                public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-                                @Override
-                                public void onTextChanged(CharSequence s, int start, int before, int count) {
-                                    if (!s.toString().trim().equals(user.getEmail())) {
-                                        show_password.setVisibility(View.VISIBLE);
-                                    } else {
-                                        show_password.setVisibility(View.GONE);
-                                    }
+                            @Override
+                            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                                if (!s.toString().trim().equals(user.getEmail())) {
+                                    show_password.setVisibility(View.VISIBLE);
+                                } else {
+                                    show_password.setVisibility(View.GONE);
                                 }
+                            }
 
-                                @Override
-                                public void afterTextChanged(Editable s) {}
-                            });
-
-                        } else {
-                            Toast.makeText(this, "Usuario no encontrado", Toast.LENGTH_SHORT).show();
-                        }
+                            @Override
+                            public void afterTextChanged(Editable s) {}
+                        });
                     })
                     .addOnFailureListener(e -> {
                         Toast.makeText(this, "Error al obtener datos", Toast.LENGTH_SHORT).show();
                     });
         }
-
         btnSave.setOnClickListener(v -> {
-            if (user != null) {
-                String new_name = names.getText().toString().trim();
-                String new_surname = surnames.getText().toString().trim();
-                String new_birthdate = show_birthdate.getText().toString().trim();
-                String new_nickname = show_nickname.getText().toString().trim();
+            if (user == null) {
+                Log.w("FirebaseAuth", "Usuario no autenticado");
+                return;
+            }
+            String new_name = names.getText().toString().trim();
+            String new_surname = surnames.getText().toString().trim();
+            String new_birthdate = show_birthdate.getText().toString().trim();
+            String new_nickname = show_nickname.getText().toString().trim();
 //                String new_country = show_country.getText().toString().trim();
 //                String new_state = show_state.getText().toString().trim();
-                String new_email = show_email.getText().toString().trim();
-                String new_password = show_password.getText().toString().trim();
-                getStateSelected();
+            String new_email = show_email.getText().toString().trim();
+            String new_password = show_password.getText().toString().trim();
+            getStateSelected();
 
-                if (!new_name.isEmpty() && !new_surname.isEmpty() && !new_birthdate.isEmpty()
-                        && !new_nickname.isEmpty() && !countrySelcted.isEmpty() && !stateSelected.isEmpty()
-                        && !new_email.isEmpty()) {
+            if(new_name.isEmpty() && new_surname.isEmpty() && new_birthdate.isEmpty()
+                    && new_nickname.isEmpty() && countrySelcted.isEmpty() && stateSelected.isEmpty()
+                    && new_email.isEmpty()){
+                showToastAlert("Por favor, llene todos los datos");
+                return;
+            }
 
-                    if (!new_email.equals(user.getEmail())) {
-                        if (new_password.isEmpty()) {
-                            show_password.setError("Ingrese su contraseña para cambiar el correo");
-                            return;
-                        }
+            if (!new_name.isEmpty() && !new_surname.isEmpty() && !new_birthdate.isEmpty()
+                    && !new_nickname.isEmpty() && !countrySelcted.isEmpty() && !stateSelected.isEmpty()
+                    && !new_email.isEmpty()) {
 
-                        Log.d("Contraseña que recibe: ", new_password);
-                        AuthCredential credential = EmailAuthProvider.getCredential(user.getEmail(), new_password);
 
-                        user.reauthenticate(credential).addOnCompleteListener(authTask -> {
-                            if(authTask.isSuccessful()) {
+                actualizarDatosFirestore(db, user, new_name, new_surname, new_birthdate, new_nickname, countrySelcted, stateSelected);
 
-                                user.updateEmail(new_email).addOnCompleteListener(updateTask -> {
-                                    if (updateTask.isSuccessful()) {
-                                        actualizarDatosFirestore(db, user, new_name, new_surname, new_birthdate, new_nickname, countrySelcted, stateSelected);
-                                        FirebaseAuth.getInstance().signOut();
-                                        Intent intent = new Intent(Settings_PD.this, Home.class);
-                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                        startActivity(intent);
-                                        finish();
-                                    } else {
-                                        Exception e = updateTask.getException();
-                                        Toast.makeText(getApplicationContext(), "Error al actualizar el email: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                                    }
-                                });
-
-                            } else {
-                                Exception e = authTask.getException();
-                                Toast.makeText(getApplicationContext(), "Reautenticación fallida: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                            }
-                        });
-
-                    } else {
-                        actualizarDatosFirestore(db, user, new_name, new_surname, new_birthdate, new_nickname, countrySelcted, stateSelected);
+                if( !new_email.equals(user.getEmail()) ) {
+                    if (new_password.isEmpty()) {
+                        show_password.setError("Ingrese su contraseña para cambiar el correo");
+                        return;
                     }
 
-                } else {
-                    Toast.makeText(getApplicationContext(), "Por favor, llene todos los datos", Toast.LENGTH_SHORT).show();
+                    Log.d("Contraseña que recibe: ", new_password);
+
+                    AuthCredential credential = EmailAuthProvider.getCredential(user.getEmail(), new_password);
+
+                    user.reauthenticate(credential).addOnCompleteListener(authTask -> {
+                        if (!authTask.isSuccessful()) {
+                            Exception e = authTask.getException();
+                            showToastAlert("Reautenticación fallida: " + e.getMessage(),true);
+                            return;
+                        }
+                        user.verifyBeforeUpdateEmail(new_email).addOnCompleteListener(updateTask -> {
+                            if (!updateTask.isSuccessful()) {
+                                Exception e = updateTask.getException();
+                                showToastAlert("Error al actualizar el email: " + e.getMessage());
+                                return;
+                            }
+                            FirebaseAuth.getInstance().signOut();
+                            showToastAlert("Ahora Ve a tu correo  y sigue el link proporcionado para confirmar el cambio de correo",true);
+                            Intent intent = new Intent(Settings_PD.this, Login.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                            finish();
+                        });
+                    });
                 }
-            } else {
-                Log.w("FirebaseAuth", "Usuario no autenticado");
             }
         });
     }
@@ -178,11 +179,21 @@ public class Settings_PD extends CountryTemplate {
         new_data.put("nickname", nickname);
         new_data.put("country", country);
         new_data.put("state", state);
+        new_data.put("accountStatus","active");
 
         docRef.set(new_data, SetOptions.merge());
         Toast.makeText(getApplicationContext(), "Datos actualizados correctamente", Toast.LENGTH_SHORT).show();
     }
-
+    protected void showToastAlert(String mensaje){
+        showToastAlert(mensaje,false);
+    }protected void showToastAlert(String mensaje,Boolean esLargo){
+        if(esLargo){
+            Toast.makeText(this,mensaje,Toast.LENGTH_LONG).show();
+        }else{
+            Toast.makeText(this,mensaje,Toast.LENGTH_SHORT).show();
+        }
+        Log.d("nuestro sistema",mensaje);
+    }
     @Override
     public boolean onSupportNavigateUp() {
         finish();

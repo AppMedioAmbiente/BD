@@ -94,7 +94,7 @@ public class CountryTemplate extends AppCompatActivity {
     }
     protected String getStateSelected(){
         stateSelected=stateSelector.getSelectedItem().toString();
-        Toast.makeText(activity, "Estado:"+stateSelected, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(activity, "Estado:"+stateSelected, Toast.LENGTH_SHORT).show();
         return stateSelected;
     }
     protected void updateSpinner(List<String> states){
@@ -110,6 +110,10 @@ public class CountryTemplate extends AppCompatActivity {
         Toast.makeText(activity, "Error al obtener los estados", Toast.LENGTH_SHORT).show();
     }
     protected Boolean wasCountrySelected(){
-        return (countrySelcted!="Selecciona un Estado");
+        return (!countrySelcted.equals("Seleccionar un Pais"));
+    }
+    protected void showToastAlert(String mensaje){
+        Toast.makeText(this,mensaje,Toast.LENGTH_SHORT).show();
+        Log.d("nuestro sistema",mensaje);
     }
 }
