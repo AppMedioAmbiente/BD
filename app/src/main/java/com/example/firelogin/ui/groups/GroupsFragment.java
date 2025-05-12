@@ -10,10 +10,11 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.firelogin.Firebase;
 import com.example.firelogin.databinding.FragmentGroupsBinding;
 import com.example.firelogin.ui.groups.GroupsViewModel;
 
-public class GroupsFragment extends Fragment {
+public class GroupsFragment extends Firebase {
     private FragmentGroupsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -25,12 +26,16 @@ public class GroupsFragment extends Fragment {
 
         //final TextView textView = binding.textGroups;
         //groupsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        return binding.getRoot();
+        View root= binding.getRoot();
+        return root;
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+    private Boolean createGroup(){
+
     }
 }
