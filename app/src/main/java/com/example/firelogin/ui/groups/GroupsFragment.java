@@ -35,7 +35,7 @@ public class GroupsFragment extends Firebase {
         super.onDestroyView();
         binding = null;
     }
-    private Boolean createGroup(){
+   /* private Boolean createGroup(){
 
-    }
+    }*/
 }

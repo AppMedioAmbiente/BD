@@ -38,10 +38,10 @@
                         android:id="@+id/navEv_history"
                         android:icon="@drawable/history_ic"
                         android:title="@string/menu_history" />
-                    <!--item
+                    <item
                         android:id="@+id/navEv_map"
                         android:icon="@drawable/map_ic"
-                        android:title="@string/menu_map" /-->
+                        android:title="@string/menu_map" />
                 </group>
             </menu>
         </item>
