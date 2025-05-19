@@ -4,18 +4,19 @@ import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO;
 import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES;
 
 import android.content.Context;
-import android.content.ClipData;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
-import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.firelogin.ui.contactus.ContactUsFragment;
-import com.google.android.material.snackbar.Snackbar;
+import com.example.firelogin.register.Login;
+import com.example.firelogin.settings.Settings;
+import com.example.firelogin.settings.Settings_PD;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.appcompat.app.AppCompatDelegate;
@@ -27,13 +28,14 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.firelogin.databinding.HomeBinding;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.imaginativeworld.whynotimagecarousel.ImageCarousel;
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem;
+import com.example.firelogin.databinding.HomeBinding;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +44,7 @@ public class Home extends AppCompatActivity {
 
 
     private AppBarConfiguration mAppBarConfiguration;
+
     private HomeBinding binding;
 
     @Override
@@ -65,18 +68,35 @@ public class Home extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         ImageCarousel carousel = findViewById(R.id.carousel);
-        List<CarouselItem> list = new ArrayList<>();
-        list.add(new CarouselItem(R.drawable.logo, "Icono de SECOVO"));
-        carousel.setData(list);
-        FirebaseUser cu = FirebaseAuth.getInstance().getCurrentUser();
+        if(carousel!=null) {
+            List<CarouselItem> list = new ArrayList<>();
+            list.add(new CarouselItem(R.drawable.logo, "Icono de SECOVO"));
+            carousel.setData(list);
+        }
+        FirebaseHandler fh = new FirebaseHandler(2);
+
+        FirebaseUser cu = fh.getUser();
         if(cu!=null) {
             Toast.makeText(this, "Bienvenido " +cu.getEmail(), Toast.LENGTH_SHORT).show();
         }
         setSupportActionBar(binding.appBarHome.toolbar);
+        fh.abrirDocumento("usuarios",cu.getUid(),(exito,doc)->{
+            if(exito) {
+                TextView email = binding.navView.findViewById(R.id.emailH);
+                email.setText(cu.getEmail());
+
+                TextView name = binding.navView.findViewById(R.id.usernameH);
+                name.setText(doc.get("nickname").toString());
+            }else{
+                Log.d("alerta","no hubo exito");
+            }
+        });
+
         binding.appBarHome.contactus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavController navController = Navigation.findNavController(Home.this, R.id.nav_host_fragment_content_home);
+                NavController navController = Navigation.findNavController(
+                        Home.this, R.id.nav_host_fragment_content_home);
                 navController.navigate(R.id.contactus, null, new NavOptions.Builder()
                         .setPopUpTo(R.id.contactus, false)
                         .build());
@@ -113,7 +133,7 @@ public class Home extends AppCompatActivity {
             if (id == R.id.nav_logout){
             findViewById(R.id.nav_logout).setOnClickListener(l->{
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(Home.this,Login.class));
+                startActivity(new Intent(Home.this, Login.class));
             });
             }
 

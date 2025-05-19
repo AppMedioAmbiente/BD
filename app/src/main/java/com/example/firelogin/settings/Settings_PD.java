@@ -1,6 +1,5 @@
-package com.example.firelogin;
+package com.example.firelogin.settings;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
@@ -14,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.firelogin.R;
+import com.example.firelogin.register.Login;
 import com.example.firelogin.urlRequest.CountryTemplate;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;

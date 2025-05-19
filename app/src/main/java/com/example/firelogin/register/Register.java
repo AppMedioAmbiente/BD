@@ -1,4 +1,4 @@
-package com.example.firelogin;
+package com.example.firelogin.register;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
@@ -8,6 +8,8 @@ import android.widget.EditText;
 import android.widget.DatePicker;
 import android.app.DatePickerDialog;
 import android.widget.TextView;
+
+import com.example.firelogin.R;
 
 import java.util.Calendar;
 import java.util.HashMap;

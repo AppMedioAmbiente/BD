@@ -1,13 +1,5 @@
 package com.example.firelogin.urlRequest;
-import android.app.Activity;
-import android.os.Bundle;
 import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
-import com.example.firelogin.Register1;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,12 +9,15 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
-public class CountryHandler {
-    private CountryTemplate activity;
+interface baseTemplates{
+    public void updateSpinner();
+    public void updateSpinner(List<String> states);
+}
+public class CountryHandler<T extends  baseTemplates > {
     private String countryName;
-    public CountryHandler(CountryTemplate activity, String country){
-        this.activity=activity;
+    Activity<T> activity;
+    public CountryHandler(T activity, String country){
+        this.activity=new Activity<>(activity);
         this.countryName=country;
         Log.d("creacion 2","has creado el CH");
     }
@@ -52,13 +47,13 @@ public class CountryHandler {
                             Log.d("estado n",item.getName());
                             statesCad.add(item.getName());
                         });
-                        CountryHandler.this.activity.updateSpinner(statesCad);
+                        CountryHandler.this.activity.getContenido().updateSpinner(statesCad);
                     }catch(Exception ex){
                         Log.d("fallando",ex.getMessage());
                     }
                 }else {
                     Log.d("API ","fallida");
-                    CountryHandler.this.activity.updateSpinner();
+                    CountryHandler.this.activity.getContenido().updateSpinner();
                 }
             }
 

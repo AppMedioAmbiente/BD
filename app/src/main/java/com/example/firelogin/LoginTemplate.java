@@ -11,14 +11,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LoginTemplate extends AppCompatActivity {
-    FirebaseAuth firebase=FirebaseAuth.getInstance();
-    FirebaseUser user = getCurrentUser();
-    protected FirebaseUser getCurrentUser(){
-        if(firebase==null){
-            return null;
-        }
-        return firebase.getCurrentUser();
-    }
+
+    public FirebaseUser user;
     protected String getUserId(){
         //Obtener usuario:
 //        user.getUid();
@@ -28,7 +22,7 @@ public class LoginTemplate extends AppCompatActivity {
     protected void showAlert(String titulo,String mensaje){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 
-        Log.d("nuestro sistema",mensaje);
+        print(mensaje);
         // Configura el titulo.
         alertDialogBuilder.setTitle(titulo);
 
@@ -41,7 +35,10 @@ public class LoginTemplate extends AppCompatActivity {
     }
     protected void showToastAlert(String mensaje){
         Toast.makeText(this,mensaje,Toast.LENGTH_SHORT).show();
-        Log.d("nuestro sistema",mensaje);
+        print(mensaje);
+    }
+    protected void print(String msg){
+        Log.d("_DEBUG_",msg);
     }
 
     protected void showHome() {

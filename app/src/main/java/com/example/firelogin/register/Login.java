@@ -1,4 +1,4 @@
-package com.example.firelogin;
+package com.example.firelogin.register;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.firelogin.FirebaseHandler;
+import com.example.firelogin.LoginTemplate;
+import com.example.firelogin.R;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -14,6 +17,7 @@ public class Login extends LoginTemplate {
 
     EditText etContact, etPassword;
     Button btn_redirect, btn_log;
+    private FirebaseHandler fb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +29,10 @@ public class Login extends LoginTemplate {
         btn_redirect = findViewById(R.id.Rsing_up);
 
 //        getUserData();
+        fb = new FirebaseHandler(1);
 
         btn_redirect.setOnClickListener(view -> {
-            Intent intent = new Intent(Login.this,Register.class);
+            Intent intent = new Intent(Login.this, Register.class);
             startActivity(intent);
         });
         btn_log = findViewById(R.id.Send);
@@ -42,13 +47,13 @@ public class Login extends LoginTemplate {
                     return ;
                 }
 
-                firebase.signInWithEmailAndPassword(contact,password)
+                fb.firebase.signInWithEmailAndPassword(contact,password)
                         .addOnCompleteListener(listener->{
                     if (!listener.isSuccessful()){
                         showAlert("Inicio de sesión","El inicio de sesión ha fallado, intente de nuevo ");
                         return;
                     }
-                    user=getCurrentUser();
+                    user=fb.getUser();
                     getUserData();
                 });
 
@@ -63,34 +68,11 @@ public class Login extends LoginTemplate {
         if(user==null){
             return ;
         }
-
-        DocumentReference documentUser = db.collection("usuarios")
-                .document(getUserId());  // Usa el ID del usuario como clave del documento;
-
-        documentUser.get()
-                .addOnSuccessListener(document->{
-//                    Map<String, Object> missingValues = new HashMap<>();
-//                    for(String field :
-//                            "name,surname,birthdate,country,state,phone,nickname,accountStatus"
-//                                    .split(",") ){
-//
-//                        Log.d("__MyData",(document.exists())?document.getString(field):"");
-//                        if(!document.exists()|| document.getString(field)==null){
-//                            Log.d("missing data",field);
-//                            missingValues.put(field,getFieldDefaultValue(field));
-//                        }
-//                    }
-//                    documentUser.update(missingValues)
-//                        .addOnCompleteListener(aVoid->{
-//                            showHome();
-//                        }).addOnFailureListener(e -> {
-//                            showAlert("actualizacion de datos",e.toString());
-//                            showHome();
-//                        });
-                    if(document.exists()){
-                        showHome();
-                    }
-                });
+        fb.abrirDocumento("usuarios",getUserId(),(exito,doc)->{
+            if(exito && doc.exists()){
+                showHome();
+            }
+        });
     }
 
     private String getFieldDefaultValue(String field) {

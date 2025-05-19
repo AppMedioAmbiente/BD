@@ -5,43 +5,42 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
+import com.example.firelogin.ui.countryTemplate.CountrySelector;
 import com.mukesh.countrypicker.CountryPicker;
 //rajas,1 rojo,  2 queso
 import java.util.ArrayList;
 import java.util.List;
-
-public class CountryTemplate extends AppCompatActivity implements baseTemplates{
+public class CountryTemplateFragment extends Fragment  implements baseTemplates{
     protected TextView countrySelector;
     protected Spinner stateSelector;
     protected String countrySelcted,stateSelected;
-    CountryTemplate activity;
+    CountryTemplateFragment activity;
     Boolean onlyViewMode=true;
     protected void initCountryViews(
             int id_country_selector, int id_state_selector,
-            CountryTemplate activity,
-            String countryText, String stateText
+            String countryText, String stateText, View root
     ){
-        this.activity=activity;
-        this.countrySelcted=countryText;
-        stateSelected=stateText;
+        this.activity=this;
+        countrySelcted= (countryText !=null) ? countryText:"";
+        stateSelected=(stateText !=null)?stateText:"";
         try{
-            countrySelector = findViewById(id_country_selector);
-            stateSelector = findViewById(id_state_selector);
+            countrySelector = root.findViewById(id_country_selector);
+            stateSelector = root.findViewById(id_state_selector);
 //        (R.id.select_country,R.id.select_state)
             countrySelector.setOnClickListener(this::onClick);
-
 
             stateSelector.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
                     if (onlyViewMode) {
-                        CountryHandler<CountryTemplate> ch=new CountryHandler<>(activity, countrySelcted);
+                        CountryHandler<CountryTemplateFragment> ch=new CountryHandler<>(activity, countrySelcted);
                         ch.getStates();
                         onlyViewMode = false;
                     }
@@ -62,7 +61,7 @@ public class CountryTemplate extends AppCompatActivity implements baseTemplates{
             });
         }catch(Exception ex) {
             Log.d("selctores",ex.getMessage().toString());
-            Toast.makeText(activity, "Error, no se encontraron los selectores", Toast.LENGTH_SHORT).show();
+            Toast.makeText(requireContext(), "Error, no se encontraron los selectores", Toast.LENGTH_SHORT).show();
             return;
         }
         countrySelector.setText(countryText);
@@ -74,30 +73,30 @@ public class CountryTemplate extends AppCompatActivity implements baseTemplates{
         stateSelector.setSelection(0);
     }
     private void onClick(View view) {
-        CountryPicker picker = new CountryPicker.Builder().with(activity)
+        CountryPicker picker = new CountryPicker.Builder().with(requireContext())
                 .listener(country -> {
                     countrySelcted=country.getName();
                     countrySelector.setText(countrySelcted);
                     //spiner
                     Log.d("creacion","voy a crear en handler");
-                    CountryHandler<CountryTemplate> ch=new CountryHandler<>(activity, countrySelcted);
+                    CountryHandler<CountryTemplateFragment> ch=new CountryHandler<>(activity, countrySelcted);
                     ch.getStates();
                     onlyViewMode=false;
                 }).build();
-        picker.showDialog(activity);
+        picker.showDialog(requireActivity());
     }
-    protected String getCountrySelected(){
+    public String getCountrySelected(){
         countrySelcted= (String) countrySelector.getText();
         return countrySelcted;
     }
-    protected String getStateSelected(){
+    public String getStateSelected(){
         stateSelected=stateSelector.getSelectedItem().toString();
 //        Toast.makeText(activity, "Estado:"+stateSelected, Toast.LENGTH_SHORT).show();
         return stateSelected;
     }
     public void updateSpinner(List<String> states){
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                activity,
+                requireContext(),
                 android.R.layout.simple_spinner_item,
                 states
         );
@@ -105,13 +104,13 @@ public class CountryTemplate extends AppCompatActivity implements baseTemplates{
         stateSelector.setAdapter(adapter);
     }
     public void updateSpinner() {
-        Toast.makeText(activity, "Error al obtener los estados", Toast.LENGTH_SHORT).show();
+        Toast.makeText(requireContext(), "Error al obtener los estados", Toast.LENGTH_SHORT).show();
     }
-    protected Boolean wasCountrySelected(){
+    public Boolean wasCountrySelected(){
         return (!countrySelcted.equals("Seleccionar un Pais"));
     }
-    protected void showToastAlert(String mensaje){
-        Toast.makeText(this,mensaje,Toast.LENGTH_SHORT).show();
+    public void showToastAlert(String mensaje){
+        Toast.makeText(requireContext(),mensaje,Toast.LENGTH_SHORT).show();
         Log.d("nuestro sistema",mensaje);
     }
 }

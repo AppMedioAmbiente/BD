@@ -1,18 +1,20 @@
 package com.example.firelogin.ui.groups;
 
+import static androidx.navigation.fragment.FragmentKt.findNavController;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import com.example.firelogin.Firebase;
+import com.example.firelogin.R;
 import com.example.firelogin.databinding.FragmentGroupsBinding;
-import com.example.firelogin.ui.groups.GroupsViewModel;
 
 public class GroupsFragment extends Firebase {
     private FragmentGroupsBinding binding;
@@ -27,15 +29,14 @@ public class GroupsFragment extends Firebase {
         //final TextView textView = binding.textGroups;
         //groupsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         View root= binding.getRoot();
+
+        root.findViewById(R.id.btnAddGroup).setOnClickListener(view->{
+
+            NavController navController = Navigation.findNavController(requireView());
+            navController.navigate(R.id.action_to_group_creator);
+            // startActivity();
+        });
         return root;
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
-    }
-    private Boolean createGroup(){
-
-    }
 }

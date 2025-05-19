@@ -16,7 +16,10 @@
             android:id="@+id/nav_groups"
             android:icon="@drawable/groups_ic"
             android:title="@string/menu_groups" />
-
+        <item
+            android:id="@+id/GroupCreator"
+            android:icon="@drawable/groups_ic"
+            android:title="Grupos C" />
         <item
             android:id="@+id/nav_events"
             android:title="@string/menu_events">

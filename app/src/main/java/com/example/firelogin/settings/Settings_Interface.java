@@ -1,4 +1,4 @@
-package com.example.firelogin;
+package com.example.firelogin.settings;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -7,6 +7,9 @@ import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import com.example.firelogin.Home;
+import com.example.firelogin.R;
 
 public class Settings_Interface extends AppCompatActivity {
 

@@ -1,13 +1,14 @@
-package com.example.firelogin;
+package com.example.firelogin.settings;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.LinearLayout;
-import java.util.HashMap;
+
+import com.example.firelogin.Home;
+import com.example.firelogin.R;
 
 public class Settings extends AppCompatActivity {
 

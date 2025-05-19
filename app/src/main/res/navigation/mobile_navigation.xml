@@ -21,7 +21,18 @@
         android:id="@+id/nav_groups"
         android:name="com.example.firelogin.ui.groups.GroupsFragment"
         android:label="@string/menu_groups"
-        tools:layout="@layout/fragment_groups" />
+        tools:layout="@layout/fragment_groups">
+        <action
+            android:id="@+id/action_to_group_creator"
+            app:destination="@id/GroupCreator" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/GroupCreator"
+        android:name="com.example.firelogin.ui.groups.Groups_Creator"
+        android:label="Group Creator"
+        tools:layout="@layout/fragment_groups_creator" />
+
 
     <fragment
         android:id="@+id/navEv_events"

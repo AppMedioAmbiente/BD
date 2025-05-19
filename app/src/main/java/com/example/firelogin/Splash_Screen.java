@@ -6,6 +6,7 @@ import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.firelogin.register.Login;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -27,7 +28,7 @@ public class Splash_Screen extends AppCompatActivity {
                     Intent intent = new  Intent (Splash_Screen.this,Home.class);
                     startActivity(intent);
                 } else{
-                    Intent intent = new  Intent (Splash_Screen.this,Login.class);
+                    Intent intent = new  Intent (Splash_Screen.this, Login.class);
                     startActivity(intent);
                 }
 

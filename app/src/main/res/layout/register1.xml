@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".Register2">
+    tools:context=".register.Register2">
 
     <TextView
         android:id="@+id/header"
@@ -24,40 +24,14 @@
         android:layout_marginBottom="45dp"
         app:srcCompat="@drawable/logo" />
 
-
-    <TextView
-        android:id="@+id/select_country"
-        style="@style/botonsColor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:background="@drawable/redondedado"
-        android:backgroundTint="#6D8967"
-        android:maxWidth="320dp"
-        android:minWidth="270dp"
-        android:padding="10dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:textSize="20sp" />
-
-    <Spinner
-        android:id="@+id/select_state"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_margin="10dp"
-        android:background="@drawable/redondedado"
-        android:backgroundTint="#6D8967"
-        android:maxWidth="320dp"
-        android:minWidth="270dp"
-        android:padding="10dp"
-        android:textSize="20sp" />
-        style="@style/fieldsColor"
-        android:background="@drawable/redondedado"
-        android:padding="5dp"
-        android:layout_width="270dp"
-        android:layout_height="wrap_content"
-        android:text="Seleccionar un estado"
-        android:layout_margin="5dp" />
+    <FrameLayout
+        android:id="@+id/countryContainer"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:background="@color/azul1"
+        android:layout_gravity="center"
+        android:foregroundGravity="center">
+    </FrameLayout>
 
     <Button
         android:id="@+id/next"

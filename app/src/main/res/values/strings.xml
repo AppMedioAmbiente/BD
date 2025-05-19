@@ -44,4 +44,6 @@
     <string name="join">Unirse</string>
     <string name="report">Reportar</string>
     <string name="eventsHistory">Historial de eventos</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

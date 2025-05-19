@@ -15,7 +15,7 @@
         android:theme="@style/Theme.FireLogin"
         tools:targetApi="31">
         <activity
-            android:name=".Register2"
+            android:name=".register.Register2"
             android:exported="false" />
         <!--
         >
@@ -44,15 +44,15 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".Login"
+            android:name=".register.Login"
             android:exported="true"
             android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity
-            android:name=".Register"
+            android:name=".register.Register"
             android:exported="true"
             android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity
-            android:name=".Register1"
+            android:name=".register.Register1"
             android:exported="true"
             android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity
@@ -60,23 +60,23 @@
             android:exported="true"
             android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity
-            android:name=".Settings"
+            android:name=".settings.Settings"
             android:exported="true" />
         <activity
-            android:name=".Settings_PD"
+            android:name=".settings.Settings_PD"
             android:exported="true" />
         <activity
-            android:name=".Settings_Notifications"
+            android:name=".settings.Settings_Notifications"
             android:exported="true" />
         <activity
-            android:name=".Settings_Autentication"
+            android:name=".settings.Settings_Autentication"
             android:exported="true" />
         <activity
-            android:name=".Settings_Interface"
+            android:name=".settings.Settings_Interface"
             android:exported="true" />
 
         <activity
-            android:name=".Settings_DA"
+            android:name=".settings.Settings_DA"
             android:exported="true" />
     </application>
 
