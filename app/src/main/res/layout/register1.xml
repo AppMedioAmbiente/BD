@@ -26,9 +26,8 @@
 
     <FrameLayout
         android:id="@+id/countryContainer"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="130dp"
-        android:background="@color/azul1"
         android:layout_gravity="center"
         android:foregroundGravity="center">
     </FrameLayout>

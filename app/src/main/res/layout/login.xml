@@ -46,7 +46,18 @@
         android:autofillHints="no"
         android:hint="Contraseña"
         android:inputType="textPassword"
-        android:layout_marginBottom="45dp" />
+        android:layout_marginBottom="20dp"
+         />
+
+    <TextView
+        android:id="@+id/ResetPsw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enviar correo de restablecimiento de contraseña"
+        android:textAlignment="center"
+        android:textColor="@color/purple_500"
+        android:textSize="20dp"
+        android:layout_marginBottom="45dp"/>
 
     <Button
         android:id="@+id/Send"

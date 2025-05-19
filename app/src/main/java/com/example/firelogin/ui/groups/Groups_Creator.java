@@ -1,5 +1,7 @@
 package com.example.firelogin.ui.groups;
 
+import android.app.appsearch.observer.SchemaChangeInfo;
+import android.content.Intent;
 import android.location.Geocoder;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,13 +16,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.firelogin.FirebaseHandler;
+import com.example.firelogin.Home;
+import com.example.firelogin.Manifest;
 import com.example.firelogin.R;
 import com.example.firelogin.databinding.FragmentGroupsCreatorBinding;
+import com.example.firelogin.settings.Settings_PD;
 import com.example.firelogin.ui.countryTemplate.CountrySelector;
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -43,10 +49,10 @@ public class Groups_Creator extends Fragment {
                 new ViewModelProvider(this).get(GroupsViewModel.class);
 
         binding = FragmentGroupsCreatorBinding.inflate(inflater, container, false);
-        View root= binding.getRoot();
+        View root = binding.getRoot();
         LinearLayout catContainer = root.findViewById(R.id.categoryContainer);
         fb = new FirebaseHandler(2);
-
+    
 
         fb.abrirDocumento("usuarios",fb.getUser().getUid(),(exito,doc)->{
             String color= String.valueOf(ContextCompat.getColor(requireContext(),R.color.purple_200));
@@ -54,7 +60,6 @@ public class Groups_Creator extends Fragment {
                 cs=new CountrySelector(color,
                         doc.get("country").toString(),
                         doc.get("state").toString());
-
             }else{
                 cs=new CountrySelector(color);
             }
@@ -63,8 +68,6 @@ public class Groups_Creator extends Fragment {
                     .replace(R.id.countryContainer,cs)
                     .commit();
         });
-
-
         fb.abrirColeccion("event_type",(exito,query)->{
             if(exito){
                 fb.print("Consulta exitosa");
@@ -110,6 +113,12 @@ public class Groups_Creator extends Fragment {
                 createGroup(name.getText().toString(), description.getText().toString(),
                         selection[0], selection[1]);
             });
+            // Button home= root.findViewById(R.id.goHome);
+            // home.setOnClickListener(view->{
+            //     requireParentFragment().getActivity()
+            //             .startActivityFromFragment(Groups_Creator.this,
+            //                     new Intent(requireContext(), Home.class),100);
+            // });
         }
         return root;
     }

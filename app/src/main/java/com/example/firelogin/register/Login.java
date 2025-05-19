@@ -6,9 +6,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.firelogin.FirebaseHandler;
 import com.example.firelogin.LoginTemplate;
+import com.example.firelogin.Manifest;
 import com.example.firelogin.R;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -29,7 +31,7 @@ public class Login extends LoginTemplate {
         btn_redirect = findViewById(R.id.Rsing_up);
 
 //        getUserData();
-        fb = new FirebaseHandler(1);
+        fb = new FirebaseHandler(2);
 
         btn_redirect.setOnClickListener(view -> {
             Intent intent = new Intent(Login.this, Register.class);
@@ -50,27 +52,43 @@ public class Login extends LoginTemplate {
                 fb.firebase.signInWithEmailAndPassword(contact,password)
                         .addOnCompleteListener(listener->{
                     if (!listener.isSuccessful()){
-                        showAlert("Inicio de sesión","El inicio de sesión ha fallado, intente de nuevo ");
+                        showAlert("Inicio de sesión","El inicio de sesión ha fallado : "+listener.getException().getMessage());
                         return;
                     }
-                    user=fb.getUser();
+                    user=fb.updateUser();
                     getUserData();
                 });
 
             }
         });
+
+        findViewById(R.id.ResetPsw).setOnClickListener(view->{
+            String contact= etContact.getText().toString().replace(" ","");
+            if(contact.isEmpty()){
+                showAlert("Campo Faltante","Debes ingresar un correo");
+                return;
+            }
+            fb.firebase.sendPasswordResetEmail(contact).addOnCompleteListener(aVOid->{
+                showAlert("Restablecimiento de Contraseña","Se ha enviado un correo de restablecimiento de contraseña");
+            }).addOnFailureListener(aVoid->{
+                showAlert("Error","Ocurrio un error:"+aVoid.getMessage());
+            });
+        });
     }
 
     protected void getUserData(){
         Log.d("regerencia","getUserData");
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         if(user==null){
+            print("El user es nulo");
             return ;
         }
         fb.abrirDocumento("usuarios",getUserId(),(exito,doc)->{
-            if(exito && doc.exists()){
+            print("Existe el doc?"+String.valueOf(doc.exists()));
+            if(exito){
                 showHome();
+            }else{
+                print("El documento fallo");
             }
         });
     }

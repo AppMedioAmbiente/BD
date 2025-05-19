@@ -112,6 +112,13 @@ public class FirebaseHandler{
         }
     }
     public FirebaseUser getUser(){
+        if(user==null){
+            updateUser();
+        }
+        return user;
+    }
+    public FirebaseUser updateUser(){
+        user=firebase.getCurrentUser();
         return user;
     }
     public Address getLocation(Context context, double latitud, double longitud){
