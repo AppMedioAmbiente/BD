@@ -171,7 +171,8 @@ public class Groups_Creator extends Fragment {
             chat ocuparia mucho spacio en firebase, a menos que eso lo guardemos en otro lado
     Dejarlo en puras notifs:
         ventajas:
-            a
+            * mas simple
+            * ahorra espacio
         desventajas:
             a
 * ¿Es automatica la compartida?

@@ -93,13 +93,31 @@ public class Register2 extends LoginTemplate implements View.OnClickListener {
                             failedRegister(listener.getException().toString());
                             return;
                         }
-                        user=fb.firebase.getCurrentUser();
-                        print("El ID post creacion es "+user.getUid());
+                        user = fb.firebase.getCurrentUser();
+                        user.sendEmailVerification()
+                                .addOnCompleteListener(verificationTask -> {
+                                    if (verificationTask.isSuccessful()) {
+                                        showToastAlert("Correo de verificación enviado");
+                                    } else {
+                                        showToastAlert("Error al enviar correo de verificación");
+                                    }
+                                });
 
-                        print("Se creó el usuario");
-                        insertValues(getUserId());
                     });
         }
+    }
+    public void onAuthStateChanged (){
+
+        if (user != null && user.isEmailVerified()) {
+            // Usuario verificado, permitir acceso
+            showToastAlert("USUario verificado");
+            insertValues(getUserId());
+        } else {
+            // Usuario no verificado, mostrar advertencia o cerrar sesión
+            showToastAlert("Debes verificar tu correo electrónico");
+            fb.firebase.signOut();
+        }
+
     }
     public void insertValues(String userId){
         Intent intent = getIntent();
