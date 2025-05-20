@@ -17,6 +17,9 @@ import org.osmdroid.config.Configuration;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
+import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
+import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
+
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -31,7 +34,7 @@ public class MapFragment extends Fragment {
     private MapView map;
     private IMapController mapController;
     private static final String TAG = "OsmActivity";
-    private static final int PERMISSION_REQUEST_CODE = 1;
+    private static final int PERMISSION_REQUEST_CODE = 100;
     private FragmentMapBinding binding;
 
 
@@ -40,19 +43,11 @@ public class MapFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        //handle permissions first, before map is created. not depicted here
 
-
-        //load/initialize the osmdroid configuration, this can be done
         Context ctx = requireContext();
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
-        //setting this before the layout is inflated is a good idea
-        //it 'should' ensure that the map has a writable location for the map cache, even without permissions
-        //if no tiles are displayed, you can try overriding the cache path using Configuration.getInstance().setCachePath
-        //see also StorageUtils
-        //note, the load method also sets the HTTP User Agent to your application's package name, abusing osm's tile servers will get you banned based on this string
+        Configuration.getInstance().setUserAgentValue(ctx.getPackageName());
 
-        //inflate and create the map
 
         GroupsViewModel groupsViewModel =
                 new ViewModelProvider(this).get(GroupsViewModel.class);
@@ -62,9 +57,9 @@ public class MapFragment extends Fragment {
         View root = binding.getRoot();
 
 
-       if (Build.VERSION.SDK_INT >= 34) {
+        if (Build.VERSION.SDK_INT >= 34) {
             if (isStoragePermissionGranted()) {
-
+                requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION_REQUEST_CODE);
             }
         }
 
@@ -73,33 +68,38 @@ public class MapFragment extends Fragment {
         map.setTileSource(TileSourceFactory.MAPNIK);
         map.setBuiltInZoomControls(true);
         map.setMultiTouchControls(true);
+
         mapController = map.getController();
         mapController.setZoom(15);
-        GeoPoint startPoint = new GeoPoint(51496994, -134733);
-        mapController.setCenter(startPoint);
+
+        MyLocationNewOverlay mLocationOverlay = new MyLocationNewOverlay(
+                new GpsMyLocationProvider(ctx), map);
+        mLocationOverlay.enableMyLocation();
+        map.getOverlays().add(mLocationOverlay);
+
+        mLocationOverlay.runOnFirstFix(() -> {
+            GeoPoint myLocation = mLocationOverlay.getMyLocation();
+            if (myLocation != null) {
+                requireActivity().runOnUiThread(() -> {
+                    mapController.setCenter(myLocation);
+                });
+            }
+        });
+
 
         return root;
     }
 
-
+    @Override
     public void onResume() {
         super.onResume();
-        //this will refresh the osmdroid configuration on resuming.
-        //if you make changes to the configuration, use
-        //SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        //Configuration.getInstance().load(this, PreferenceManager.getDefaultSharedPreferences(this));
-        if (map != null)
-            map.onResume(); //needed for compass, my location overlays, v6.0.0 and up
+        if (map != null) map.onResume();
     }
 
+    @Override
     public void onPause() {
         super.onPause();
-        //this will refresh the osmdroid configuration on resuming.
-        //if you make changes to the configuration, use
-        //SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        //Configuration.getInstance().save(this, prefs);
-        if (map != null)
-            map.onPause();  //needed for compass, my location overlays, v6.0.0 and up
+        if (map != null) map.onPause();
     };
 
 
