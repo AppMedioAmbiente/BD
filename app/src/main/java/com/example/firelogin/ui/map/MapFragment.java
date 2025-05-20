@@ -34,9 +34,8 @@ public class MapFragment extends Fragment {
     private MapView map;
     private IMapController mapController;
     private static final String TAG = "OsmActivity";
-    private static final int PERMISSION_REQUEST_CODE = 100;
+    private static final int PERMISSION_REQUEST_CODE = 1;
     private FragmentMapBinding binding;
-
 
     @Override
 
@@ -57,12 +56,29 @@ public class MapFragment extends Fragment {
         View root = binding.getRoot();
 
 
-        if (Build.VERSION.SDK_INT >= 34) {
             if (isStoragePermissionGranted()) {
-                requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION_REQUEST_CODE);
+                setupMap(ctx, root);
             }
-        }
 
+        return root;
+    }
+
+    public boolean isStoragePermissionGranted() {
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(requireActivity(),
+                    new String[]{
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                            Manifest.permission.ACCESS_FINE_LOCATION,
+                    },
+                    PERMISSION_REQUEST_CODE);
+            return false;
+        }
+        return true;
+    }
+
+    private void setupMap(Context ctx, View root) {
 
         map = root.findViewById(R.id.mapView);
         map.setTileSource(TileSourceFactory.MAPNIK);
@@ -86,9 +102,9 @@ public class MapFragment extends Fragment {
             }
         });
 
-
-        return root;
     }
+
+
 
     @Override
     public void onResume() {
@@ -102,31 +118,29 @@ public class MapFragment extends Fragment {
         if (map != null) map.onPause();
     };
 
-
-    public boolean isStoragePermissionGranted() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (ContextCompat.checkSelfPermission(requireContext(), android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED &&
-                    ContextCompat.checkSelfPermission(requireContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-
-                Log.v(TAG, "Permission is granted");
-                return true;
-            }
-        } else {
-
-                Log.v(TAG, "Permission is revoked");
-                ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-                return false;
-
-        }
-        return false;
-    }
-
     @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            Log.v(TAG, "Permission: " + permissions[0] + "was " + grantResults[0]);
-            //resume tasks needing this permission
+
+        if (requestCode == PERMISSION_REQUEST_CODE) {
+            boolean allGranted = true;
+            for (int result : grantResults) {
+                if (result != PackageManager.PERMISSION_GRANTED) {
+                    allGranted = false;
+                    break;
+                }
+            }
+
+            if (allGranted) {
+                Log.v(TAG, "Permission granted");
+
+                if (getView() != null) {
+                    setupMap(requireContext(), getView());
+                }
+
+            } else {
+                Log.v(TAG, "One or more permissions denied");
+            }
         }
     }
 }
