@@ -47,6 +47,7 @@ public class MapFragment extends Fragment {
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
         Configuration.getInstance().setUserAgentValue(ctx.getPackageName());
 
+        Log.w(TAG, "entro aca");
 
         GroupsViewModel groupsViewModel =
                 new ViewModelProvider(this).get(GroupsViewModel.class);
@@ -75,8 +76,11 @@ public class MapFragment extends Fragment {
                             Manifest.permission.ACCESS_COARSE_LOCATION
                     },
                     PERMISSION_REQUEST_CODE);
+            Log.w(TAG, "no se aceptaron permisos");
+
             return false;
         }
+        Log.w(TAG, "Se aceptaron permisos");
 
         return true;
     }
@@ -91,26 +95,28 @@ public class MapFragment extends Fragment {
         mapController = map.getController();
         mapController.setZoom(18);
 
-        MyLocationNewOverlay mLocationOverlay = new MyLocationNewOverlay(
-                new GpsMyLocationProvider(ctx), map);
-        mLocationOverlay.enableMyLocation();
-        mLocationOverlay.enableFollowLocation();
-        map.getOverlays().add(mLocationOverlay);
+        if (isStoragePermissionGranted() == true) {
 
-        mLocationOverlay.runOnFirstFix(() -> {
-            GeoPoint myLocation = mLocationOverlay.getMyLocation();
-            Log.d(TAG, "MyLocation: " + myLocation);
-            if (myLocation != null) {
-                requireActivity().runOnUiThread(() -> {
-                    mapController.setCenter(myLocation);
+            MyLocationNewOverlay mLocationOverlay = new MyLocationNewOverlay(
+                    new GpsMyLocationProvider(ctx), map);
+            mLocationOverlay.enableMyLocation();
+            mLocationOverlay.enableFollowLocation();
+            map.getOverlays().add(mLocationOverlay);
 
-                });
-            } else {
-                Log.w(TAG, "No se puede optener la ubicación");
-            }
+            mLocationOverlay.runOnFirstFix(() -> {
+                GeoPoint myLocation = mLocationOverlay.getMyLocation();
+                Log.d(TAG, "MyLocation: " + myLocation);
+                if (myLocation != null) {
+                    requireActivity().runOnUiThread(() -> {
+                        mapController.setCenter(myLocation);
 
-        });
+                    });
+                } else {
+                    Log.w(TAG, "No se puede optener la ubicación");
+                }
 
+            });
+        }
     }
 
 
@@ -118,13 +124,15 @@ public class MapFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        if (map != null) map.onResume();
+        if (map != null)
+            map.onResume();
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        if (map != null) map.onPause();
+        if (map != null)
+            map.onPause();
     };
 
     @Override
