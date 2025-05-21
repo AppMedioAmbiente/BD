@@ -28,11 +28,11 @@
     </style>
 
     <style name="Theme.FireLogin.AppBarOverlay" >
-        <item name="android:backgroundTint">@color/transparent</item>
+        <item name="android:backgroundTint">@color/DarkBackgroundColor</item>
     </style>
 
     <style name="Theme.FireLogin.PopupOverlay" >
-        <item name="android:backgroundTint">@color/transparent</item>
+        <item name="android:backgroundTint">@color/DarkBackgroundColor</item>
     </style>
 
     <style name="iconTint">
