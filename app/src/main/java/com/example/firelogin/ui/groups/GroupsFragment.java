@@ -39,4 +39,12 @@ public class GroupsFragment extends Firebase {
         return root;
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
+    }
+   /* private Boolean createGroup(){
+
+    }*/
 }
