@@ -8,7 +8,7 @@
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/LightSecondaryColor</item>
         <item name="colorSecondaryVariant">@color/LightSecondaryVariantColor</item>
-        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/black</item>
         <!-- Customize your theme here. -->
@@ -27,9 +27,13 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.FireLogin.AppBarOverlay" parent="ThemeOverlay.AppCompat.DayNight.ActionBar" />
+    <style name="Theme.FireLogin.AppBarOverlay" >
+        <item name="android:backgroundTint">@color/transparent</item>
+    </style>
 
-    <style name="Theme.FireLogin.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.FireLogin.PopupOverlay" >
+        <item name="android:backgroundTint">@color/transparent</item>
+    </style>
 
     <style name="iconTint">
         <item name="android:tint">@color/black</item>

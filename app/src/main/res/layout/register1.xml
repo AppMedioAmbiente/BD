@@ -33,15 +33,16 @@
         android:layout_margin="5dp"
         android:background="@drawable/redondedado"
         android:backgroundTint="#6D8967"
+        android:clickable="true"
+        android:focusable="true"
         android:maxWidth="320dp"
         android:minWidth="270dp"
         android:padding="10dp"
-        android:clickable="true"
-        android:focusable="true"
         android:textSize="20sp" />
 
     <Spinner
         android:id="@+id/select_state"
+        style="@style/fieldsColor"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_margin="10dp"
@@ -50,21 +51,15 @@
         android:maxWidth="320dp"
         android:minWidth="270dp"
         android:padding="10dp"
-        android:textSize="20sp" />
-        style="@style/fieldsColor"
-        android:background="@drawable/redondedado"
-        android:padding="5dp"
-        android:layout_width="270dp"
-        android:layout_height="wrap_content"
         android:text="Seleccionar un estado"
-        android:layout_margin="5dp" />
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/next"
         style="@style/botonsColor"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_margin="45dp"
         android:text="Siguiente"
-        android:textSize="16sp"
-        android:layout_margin="45dp" />
+        android:textSize="16sp" />
 </LinearLayout>
