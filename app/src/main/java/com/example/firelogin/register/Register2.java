@@ -12,10 +12,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.firelogin.FirebaseHandler;
 import com.example.firelogin.LoginTemplate;
 import com.example.firelogin.R;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -23,7 +25,7 @@ public class Register2 extends LoginTemplate implements View.OnClickListener {
 
     EditText etEmail, etPhone, etPassword, etRepeatPassword,etNickName;
     Button btnRegister;
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private FirebaseAuth.AuthStateListener mAuthListener;
     String email, phone, password, repPass, name, surname, birthdate,nickName;
     TextView tvEmailMsg, tvPhoneMsg, tvPassMsg, tvRepPassMsg, tvContactMsg,tvNickNameMsg;
     FirebaseHandler fb;
@@ -48,6 +50,10 @@ public class Register2 extends LoginTemplate implements View.OnClickListener {
         btnRegister.setOnClickListener(this);
 
         fb = new FirebaseHandler(2);
+
+        mAuthListener = firebaseAuth -> {
+            onAuthStateChanged();
+        };
     }
     private void showErrorMessages(HashMap msgs){
         if (msgs.containsKey("nickname")) {
@@ -106,19 +112,7 @@ public class Register2 extends LoginTemplate implements View.OnClickListener {
                     });
         }
     }
-    public void onAuthStateChanged (){
 
-        if (user != null && user.isEmailVerified()) {
-            // Usuario verificado, permitir acceso
-            showToastAlert("USUario verificado");
-            insertValues(getUserId());
-        } else {
-            // Usuario no verificado, mostrar advertencia o cerrar sesión
-            showToastAlert("Debes verificar tu correo electrónico");
-            fb.firebase.signOut();
-        }
-
-    }
     public void insertValues(String userId){
         Intent intent = getIntent();
 
@@ -187,6 +181,35 @@ public class Register2 extends LoginTemplate implements View.OnClickListener {
 
 
         return msgs;
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        print("ON START");
+        fb.firebase.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            fb.firebase.removeAuthStateListener(mAuthListener);
+        }
+    }
+    public void onAuthStateChanged (){
+        if(user == null){
+            return;
+        }
+        if (user.isEmailVerified()) {
+            // Usuario verificado, permitir acceso
+            showToastAlert("USUario verificado");
+            insertValues(getUserId());
+        } else {
+            // Usuario no verificado, mostrar advertencia o cerrar sesión
+            showToastAlert("Debes verificar tu correo electrónico");
+            fb.firebase.signOut();
+        }
+
     }
 }
 
