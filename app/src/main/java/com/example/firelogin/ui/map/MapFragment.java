@@ -65,16 +65,19 @@ public class MapFragment extends Fragment {
 
     public boolean isStoragePermissionGranted() {
         if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
-                ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
             ActivityCompat.requestPermissions(requireActivity(),
                     new String[]{
                             Manifest.permission.WRITE_EXTERNAL_STORAGE,
                             Manifest.permission.ACCESS_FINE_LOCATION,
+                            Manifest.permission.ACCESS_COARSE_LOCATION
                     },
                     PERMISSION_REQUEST_CODE);
             return false;
         }
+
         return true;
     }
 
@@ -86,20 +89,26 @@ public class MapFragment extends Fragment {
         map.setMultiTouchControls(true);
 
         mapController = map.getController();
-        mapController.setZoom(15);
+        mapController.setZoom(18);
 
         MyLocationNewOverlay mLocationOverlay = new MyLocationNewOverlay(
                 new GpsMyLocationProvider(ctx), map);
         mLocationOverlay.enableMyLocation();
+        mLocationOverlay.enableFollowLocation();
         map.getOverlays().add(mLocationOverlay);
 
         mLocationOverlay.runOnFirstFix(() -> {
             GeoPoint myLocation = mLocationOverlay.getMyLocation();
+            Log.d(TAG, "MyLocation: " + myLocation);
             if (myLocation != null) {
                 requireActivity().runOnUiThread(() -> {
                     mapController.setCenter(myLocation);
+
                 });
+            } else {
+                Log.w(TAG, "No se puede optener la ubicación");
             }
+
         });
 
     }
@@ -124,23 +133,23 @@ public class MapFragment extends Fragment {
 
         if (requestCode == PERMISSION_REQUEST_CODE) {
             boolean allGranted = true;
-            for (int result : grantResults) {
-                if (result != PackageManager.PERMISSION_GRANTED) {
+            for (int i = 0; i < permissions.length; i++) {
+                Log.d(TAG, "Permiso " + permissions[i] + ": " + grantResults[i]);
+                if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
                     allGranted = false;
-                    break;
                 }
             }
 
             if (allGranted) {
-                Log.v(TAG, "Permission granted");
+                Log.v(TAG,  "Permisos otorgados correctamente");
 
                 if (getView() != null) {
                     setupMap(requireContext(), getView());
                 }
-
             } else {
-                Log.v(TAG, "One or more permissions denied");
+                Log.v(TAG, "Uno o más permisos fueron denegados");
             }
         }
     }
+
 }
