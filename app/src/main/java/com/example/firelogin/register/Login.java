@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.example.firelogin.FirebaseHandler;
 import com.example.firelogin.LoginTemplate;
-import com.example.firelogin.Manifest;
+
 import com.example.firelogin.R;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;

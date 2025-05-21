@@ -23,7 +23,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.firelogin.FirebaseHandler;
 import com.example.firelogin.Home;
-import com.example.firelogin.Manifest;
+
 import com.example.firelogin.R;
 import com.example.firelogin.databinding.FragmentGroupsCreatorBinding;
 import com.example.firelogin.settings.Settings_PD;
