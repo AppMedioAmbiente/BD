@@ -12,6 +12,9 @@ import android.util.Log;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.osmdroid.api.IMapController;
 import org.osmdroid.config.Configuration;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
@@ -22,6 +25,8 @@ import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -29,6 +34,13 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.firelogin.R;
 import com.example.firelogin.databinding.FragmentMapBinding;
 import com.example.firelogin.ui.groups.GroupsViewModel;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class MapFragment extends Fragment {
     private MapView map;
@@ -37,11 +49,14 @@ public class MapFragment extends Fragment {
     private static final int PERMISSION_REQUEST_CODE = 1;
     private FragmentMapBinding binding;
 
+    EditText searchEditText;
+    Button searchButton;
+
+
     @Override
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-
 
         Context ctx = requireContext();
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
@@ -49,16 +64,17 @@ public class MapFragment extends Fragment {
 
         Log.w(TAG, "entro aca");
 
+
+
         GroupsViewModel groupsViewModel =
                 new ViewModelProvider(this).get(GroupsViewModel.class);
 
         binding = FragmentMapBinding.inflate(inflater, container, false);
-
         View root = binding.getRoot();
-
 
             if (isStoragePermissionGranted()) {
                 setupMap(ctx, root);
+                setupSearch();
             }
 
         return root;
@@ -78,7 +94,10 @@ public class MapFragment extends Fragment {
                     PERMISSION_REQUEST_CODE);
             Log.w(TAG, "no se aceptaron permisos");
 
-            return false;
+            return true;
+        } else {
+            Log.w(TAG, "valio madre");
+
         }
         Log.w(TAG, "Se aceptaron permisos");
 
@@ -95,6 +114,9 @@ public class MapFragment extends Fragment {
         mapController = map.getController();
         mapController.setZoom(18);
 
+        Log.w(TAG, "ando aca");
+
+
         if (isStoragePermissionGranted() == true) {
 
             MyLocationNewOverlay mLocationOverlay = new MyLocationNewOverlay(
@@ -102,6 +124,7 @@ public class MapFragment extends Fragment {
             mLocationOverlay.enableMyLocation();
             mLocationOverlay.enableFollowLocation();
             map.getOverlays().add(mLocationOverlay);
+            //GeoPoint startPoint = new GeoPoint(51.496994, -13.4733);
 
             mLocationOverlay.runOnFirstFix(() -> {
                 GeoPoint myLocation = mLocationOverlay.getMyLocation();
@@ -118,6 +141,67 @@ public class MapFragment extends Fragment {
             });
         }
     }
+
+    private void setupSearch() {
+        EditText searchEditText = requireActivity().findViewById(R.id.searchEditText);
+        Button searchButton = requireActivity().findViewById(R.id.searchButton);
+
+        binding.searchButton.setOnClickListener(v -> {
+            String locationName = binding.searchEditText.getText().toString().trim();
+            if (!locationName.isEmpty()) {
+                searchLocation(locationName);
+            }
+        });
+    }
+
+    private void searchLocation(String locationName) {
+        new Thread(() -> {
+
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                String email = (user != null ) ? user.getEmail() : "unknown_user@example.com";
+
+                Log.d("FirebaseAuth", "Correo del usuario: " + email);
+
+            try {
+                String urlStr = "https://nominatim.openstreetmap.org/search?q=" +
+                        locationName.replace(" ", "+") +
+                        "&format=json&limit=1";
+                URL url = new URL(urlStr);
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestProperty("User-Agent", "FireLoginApp/1.0 ("+ email +")");
+                conn.connect();
+
+                BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                StringBuilder result = new StringBuilder();
+                String line;
+
+                while ((line = reader.readLine()) != null) {
+                    result.append(line);
+                }
+
+                JSONArray results = new JSONArray(result.toString());
+                if (results.length() > 0) {
+                    JSONObject place = results.getJSONObject(0);
+                    double lat = Double.parseDouble(place.getString("lat"));
+                    double lon = Double.parseDouble(place.getString("lon"));
+
+                    GeoPoint point = new GeoPoint(lat, lon);
+                    requireActivity().runOnUiThread(() -> {
+                        mapController.setCenter(point);
+                        mapController.setZoom(18);
+                    });
+
+                } else {
+                    Log.d(TAG, "Ubicación no encontrada");
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
+    }
+
+
 
 
 
