@@ -13,8 +13,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ac168f3-b9a3-4883-b49d-5b7b35965852" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-night/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-night/themes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/Create_Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/Create_Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/create_event.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/create_event.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -317,7 +318,14 @@
       <option name="project" value="LOCAL" />
       <updated>1747858611367</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="barra superior con color de fondo">
+      <created>1747859163164</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1747859163164</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -347,6 +355,7 @@
     <MESSAGE value="diseño y cambio entre temas terminado" />
     <MESSAGE value="diseño de la pantalla de eliminar cuenta listo (diseño terminado)" />
     <MESSAGE value="inicios de la creación de eventos" />
-    <option name="LAST_COMMIT_MESSAGE" value="inicios de la creación de eventos" />
+    <MESSAGE value="barra superior con color de fondo" />
+    <option name="LAST_COMMIT_MESSAGE" value="barra superior con color de fondo" />
   </component>
 </project>

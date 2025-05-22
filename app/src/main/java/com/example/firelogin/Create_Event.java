@@ -6,22 +6,32 @@ import androidx.appcompat.widget.Toolbar;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TimePicker;
+import android.widget.Toast;
+
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
 public class Create_Event extends AppCompatActivity {
 
     Calendar calendar;
-    EditText etEventName, etEventType, etEventDescrip, etEventLat, etEventLong, etEventDate, etEventEndDate, etEventMaterials, etEventMinVolun;
+    EditText etEventName, etEventDescrip, etEventLat, etEventLong, etEventDate, etEventEndDate, etEventMaterials, etEventMinVolun;
     Button btnCancel, btnSaveEvent;
+    Spinner spEventType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +39,7 @@ public class Create_Event extends AppCompatActivity {
         setContentView(R.layout.create_event);
 
         etEventName = findViewById(R.id.etEventName);
-        etEventType = findViewById(R.id.etEventType);
+        spEventType = findViewById(R.id.spEventType);
         etEventDescrip = findViewById(R.id.etEventDescrip);
         etEventLat = findViewById(R.id.etEventLat);
         etEventLong = findViewById(R.id.etEventLong);
@@ -63,6 +73,20 @@ public class Create_Event extends AppCompatActivity {
             showDatePicker(etEventEndDate);
         });
 
+        spEventType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (spEventType.getSelectedItem()!=null){
+                    //spEventType.getSelectedItem().toString();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         etEventDescrip.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -90,6 +114,26 @@ public class Create_Event extends AppCompatActivity {
                     }
                 }
                 return false;
+            }
+        });
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        List<String> types = new ArrayList<>();
+        db.collection("event_type").get().addOnSuccessListener(documentSnapshot -> {
+            documentSnapshot.getDocuments().forEach(type -> {
+                types.add(type.getString("type"));
+            });
+        });
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(Create_Event.this, android.R.layout.simple_spinner_item, types);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spEventType.setAdapter(adapter);
+
+        btnSaveEvent.setOnClickListener(view -> {
+            if (checkFields(etEventName, spEventType, etEventDescrip, etEventLat, etEventLong, etEventDate, etEventEndDate, etEventMaterials,
+                    etEventMinVolun)) {
+
+            } else {
+                showToastAlert("Debe llenar correctamente todos los campos");
             }
         });
 
@@ -130,6 +174,18 @@ public class Create_Event extends AppCompatActivity {
     public void updateEtEventDate(Calendar calendar, EditText etDate) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault());
         etDate.setText(sdf.format(calendar.getTime()));
+    }
+
+    public Boolean checkFields (EditText name, Spinner type, EditText descrip, EditText latitude, EditText Longitude, EditText date,
+                             EditText endDate, EditText materials, EditText volun){
+        Boolean valid = true;
+
+
+        return valid;
+    }
+
+    protected void showToastAlert(String msg){
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
     @Override
