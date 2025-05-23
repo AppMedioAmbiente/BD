@@ -70,10 +70,10 @@ public class Groups_Creator extends Fragment {
         });
         fb.abrirColeccion("event_type",(exito,query)->{
             if(exito){
-                fb.print("Consulta exitosa");
+                print("Consulta exitosa");
 
                 for(DocumentSnapshot doc:query.getDocuments()){
-                    fb.print(doc.getData().toString());
+                    print(doc.getData().toString());
                     CheckBox cb = new CheckBox(requireContext());
                     cb.setText(doc.get("type").toString());
                     cb.setId(Integer.parseInt(doc.get("id_type").toString()));

@@ -1,6 +1,9 @@
 package com.example.firelogin.register;
 
+import static com.example.firelogin.StaticFunctions.showToastAlert;
+
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.Button;
@@ -25,10 +28,10 @@ public class Register2 extends LoginTemplate implements View.OnClickListener {
 
     EditText etEmail, etPhone, etPassword, etRepeatPassword,etNickName;
     Button btnRegister;
-    private FirebaseAuth.AuthStateListener mAuthListener;
+    
     String email, phone, password, repPass, name, surname, birthdate,nickName;
     TextView tvEmailMsg, tvPhoneMsg, tvPassMsg, tvRepPassMsg, tvContactMsg,tvNickNameMsg;
-    FirebaseHandler fb;
+    Boolean wasMailSent=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,10 +53,6 @@ public class Register2 extends LoginTemplate implements View.OnClickListener {
         btnRegister.setOnClickListener(this);
 
         fb = new FirebaseHandler(2);
-
-        mAuthListener = firebaseAuth -> {
-            onAuthStateChanged();
-        };
     }
     private void showErrorMessages(HashMap msgs){
         if (msgs.containsKey("nickname")) {
@@ -78,6 +77,10 @@ public class Register2 extends LoginTemplate implements View.OnClickListener {
     }
     @Override
     public void onClick(View view) {
+        if(user!=null && wasMailSent==true){
+            showToastAlert(this,"Ya enviaste solicitud de Correo");
+            return ;
+        }
 
         email = etEmail.getText().toString().replace(" ",""); // elimino espacios en el correo
         phone = etPhone.getText().toString().trim();
@@ -99,51 +102,37 @@ public class Register2 extends LoginTemplate implements View.OnClickListener {
                             failedRegister(listener.getException().toString());
                             return;
                         }
-                        user = fb.firebase.getCurrentUser();
+                        user = fb.getUser();
                         user.sendEmailVerification()
                                 .addOnCompleteListener(verificationTask -> {
                                     if (verificationTask.isSuccessful()) {
-                                        showToastAlert("Correo de verificación enviado");
+                                        setTemporalyValues();
+                                        setMAuthListener();
+                                        wasMailSent=true;
+                                        showToastAlert(this,"Correo de verificación enviado");
                                     } else {
-                                        showToastAlert("Error al enviar correo de verificación");
+                                        showToastAlert(this,"Error al enviar correo de verificación");
                                     }
                                 });
 
                     });
         }
     }
+    private void setTemporalyValues(){
+        String values=getIntent().getStringExtra("values");//.split(",");
+        //AccountStatus: active, suspended,blocked,inactive,pending
+        values+=",phone:"+phone
+            +",nickname:"+nickName
+            +",accountStatus:active"
+            +",trust_rate:0:int";
 
-    public void insertValues(String userId){
-        Intent intent = getIntent();
-
-        // Crea un objeto que deseas insertar (puede ser cualquier tipo de objeto o mapa)
-        Map<String, Object> data = new HashMap<>();
-        String[] values=intent.getStringExtra("values").split(",");
-        for (int index=0;index<values.length;index++){
-            //ej values[0]="name:{name}"
-            // name, surname,birthdate,country,state
-            String[] splitValues=values[index].split(":");
-            data.put(splitValues[0],splitValues[1]);
-        }
-        data.put("phone",phone);
-        data.put("nickname",nickName);
-        data.put("accountStatus","active");//active, suspended,blocked,inactive,pending
-        data.put("trust_rate","--");
-        print("El id user es "+userId);
-        // Inserta los datos usando el ID del usuario como el documento
-        fb.insertarValores("usuarios",userId,data,(exito,doc,ex)->{
-            if(!exito){
-                failedRegister(ex.getMessage());
-                return;
-            }
-            print("se insertaron los valores al ID"+userId);
-            showHome();
-
-        });
+        SharedPreferences prefs = getSharedPreferences("UserData", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("Data", values);
+        editor.apply(); // o commit() para sincronía
     }
-    private void failedRegister(String exception){
-        showAlert("Registro","El registro ha fallado:"+exception);
-    }
+    
+
     public boolean validateWithRegex(String field, String regex) {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(field);
@@ -172,7 +161,7 @@ public class Register2 extends LoginTemplate implements View.OnClickListener {
 
         //} else msgs.put("contact", "Debe llenar correo o teléfono");
         if (password.isEmpty() || !validateWithRegex(password, passRegex) || password.trim().length() < 6 || password.trim().length() > 30) {
-            msgs.put("password", "Mínimo 6 caracteres, máximo 30, con letra mayúscula, minúscula, número y caracter especial");
+            msgs.put("password", "Mínimo 6 caracteres, máximo 30, con letra mayúscula, minúscula, número y caracter especial(!,-,.,_)");
         }
 
         if (!password.equals(repPass)) {
@@ -181,35 +170,6 @@ public class Register2 extends LoginTemplate implements View.OnClickListener {
 
 
         return msgs;
-    }
-    @Override
-    protected void onStart() {
-        super.onStart();
-        print("ON START");
-        fb.firebase.addAuthStateListener(mAuthListener);
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        if (mAuthListener != null) {
-            fb.firebase.removeAuthStateListener(mAuthListener);
-        }
-    }
-    public void onAuthStateChanged (){
-        if(user == null){
-            return;
-        }
-        if (user.isEmailVerified()) {
-            // Usuario verificado, permitir acceso
-            showToastAlert("USUario verificado");
-            insertValues(getUserId());
-        } else {
-            // Usuario no verificado, mostrar advertencia o cerrar sesión
-            showToastAlert("Debes verificar tu correo electrónico");
-            fb.firebase.signOut();
-        }
-
     }
 }
 

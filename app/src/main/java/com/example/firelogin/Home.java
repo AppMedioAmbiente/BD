@@ -3,11 +3,12 @@ package com.example.firelogin;
 import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO;
 import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES;
 
+import static com.example.firelogin.StaticFunctions.*;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
@@ -31,7 +32,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.imaginativeworld.whynotimagecarousel.ImageCarousel;
@@ -42,12 +42,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Home extends AppCompatActivity {
-
-
     private AppBarConfiguration mAppBarConfiguration;
-
     private HomeBinding binding;
-
+    FirebaseHandler fh;
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
@@ -59,11 +56,10 @@ public class Home extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        showToastAlert(this,"inicio de Home");
         setDarkMode(Home.this);
         binding = HomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -74,12 +70,14 @@ public class Home extends AppCompatActivity {
             list.add(new CarouselItem(R.drawable.logo, "Icono de SECOVO"));
             carousel.setData(list);
         }
-        FirebaseHandler fh = new FirebaseHandler(2);
 
+        fh = new FirebaseHandler(2);
         FirebaseUser cu = fh.getUser();
-        if(cu!=null) {
-            Toast.makeText(this, "Bienvenido " +cu.getEmail(), Toast.LENGTH_SHORT).show();
+        if(cu==null) {
+            Toast.makeText(this, "WTF. Que haces aquí?", Toast.LENGTH_SHORT).show();
+            return;
         }
+        Toast.makeText(this, "Bienvenido " +cu.getEmail(), Toast.LENGTH_SHORT).show();
         setSupportActionBar(binding.appBarHome.toolbar);
         fh.abrirDocumento("usuarios",cu.getUid(),(exito,doc)->{
             if(exito) {
@@ -89,7 +87,7 @@ public class Home extends AppCompatActivity {
                 TextView name = binding.navView.findViewById(R.id.usernameH);
                 name.setText(doc.get("nickname").toString());
             }else{
-                Log.d("alerta","no hubo exito");
+                print("no hubo exito");
             }
         });
 
@@ -140,13 +138,8 @@ public class Home extends AppCompatActivity {
 
             return handled;
         });
-
-
+        showToastAlert(this,"Fin de Home");
     }
-
-
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -172,4 +165,5 @@ public class Home extends AppCompatActivity {
             AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO);
         }
     }
+
 }

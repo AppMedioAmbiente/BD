@@ -1,5 +1,9 @@
 package com.example.firelogin;
 
+import static androidx.core.content.ContextCompat.startActivity;
+import static com.example.firelogin.StaticFunctions.print;
+import static com.example.firelogin.StaticFunctions.showHome;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -24,7 +28,10 @@ public class Splash_Screen extends AppCompatActivity {
 
                 FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
-                if (currentUser != null){
+                if (currentUser != null && currentUser.isEmailVerified()){
+
+//                    showHome(Splash_Screen.this);
+                    print("showHome in Splash_Screen.this");
                     Intent intent = new  Intent (Splash_Screen.this,Home.class);
                     startActivity(intent);
                 } else{

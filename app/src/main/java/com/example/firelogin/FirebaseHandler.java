@@ -1,5 +1,8 @@
 package com.example.firelogin;
 
+import static com.example.firelogin.StaticFunctions.*;
+import static com.example.firelogin.StaticFunctions.showToastAlert;
+
 import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
@@ -7,6 +10,7 @@ import android.util.Log;
 
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -37,7 +41,7 @@ public class FirebaseHandler{
         void cuandoTermine(boolean exito, @Nullable QuerySnapshot document);
     }
     public static interface ResultadoTask{
-        void cuandoTermine( Task task);
+        void cuandoTermine( Boolean exito,Task task);
     }
     public FirebaseHandler(int nivel){
         firebase=FirebaseAuth.getInstance();
@@ -111,15 +115,40 @@ public class FirebaseHandler{
                     addOnFailureListener(aVoid -> callback.cuandoTermine(false,null,aVoid));
         }
     }
+    public void deleteUser(String password,ResultadoTask callback){
+        reAutenticar(password,(exito,authTask)->{
+            if(exito) {
+                user.delete()
+                        .addOnCompleteListener(task -> {
+                            if (task.isSuccessful()) {
+                                callback.cuandoTermine(true, task);
+                            } else {
+                                callback.cuandoTermine(false, task);
+                            }
+                        });
+                return;
+            }
+            callback.cuandoTermine(false,authTask);
+        });
+
+    }
     public FirebaseUser getUser(){
         if(user==null){
-            updateUser();
+            user=firebase.getCurrentUser();
         }
         return user;
     }
-    public FirebaseUser updateUser(){
+    public void updateUser(ResultadoTask callback){
         user=firebase.getCurrentUser();
-        return user;
+        if(user!=null) {
+            user.reload().addOnCompleteListener(task->{
+                if(task.isSuccessful()){
+                    callback.cuandoTermine(true,task);
+                    return;
+                }
+                callback.cuandoTermine(false,task);
+            });
+        }
     }
     public Address getLocation(Context context, double latitud, double longitud){
         Geocoder geocoder = new Geocoder(context, Locale.getDefault());
@@ -139,28 +168,29 @@ public class FirebaseHandler{
         }
         return null;
     }
-    protected void alerta(String texto){
-//        Toast.makeText(visual.requireContext(),texto,Toast.LENGTH_SHORT).show();
-        Log.d("alerta",texto);
-    }
     protected void cerrarSesion(){
-        Log.d("_viendo error_","se cerró la sesion");
+        print("se cerró la sesion");
         firebase.signOut();
     }
-    protected void reAutenticar(AuthCredential credencial, ResultadoTask task){
+    // Whiss.p3r
+    protected Boolean reAutenticar(String password, ResultadoTask task){
+        AuthCredential credencial=null;
+        if(password!=null && user!=null){
+            credencial = EmailAuthProvider.getCredential(user.getEmail(), password);
+        }
+
         if(credencial==null){
-            return;
+            return false;
         }
         user.reauthenticate(credencial).addOnCompleteListener(AuthTask->{
             if(!AuthTask.isSuccessful()){
-                alerta("No se pudo reautenticar");
+                print("No se pudo reautenticar");
+                task.cuandoTermine(false,AuthTask);
                 return;
             }
-            task.cuandoTermine(AuthTask);
+            task.cuandoTermine(true,AuthTask);
         });
-    }
-    public void print(String text){
-        Log.d("__my_sistema",text);
+        return true;
     }
 }
 
