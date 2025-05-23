@@ -30,7 +30,7 @@
     <color name="LightBackgroundColor">#CACDC8</color><!-- Color de fondo -->
     <color name="LightPrimaryColor">#537C58</color> <!-- Color de barras de nav  -->
     <color name="LightPrimaryVariantColor">#707070</color>
-    <color name="LightSecondaryColor">#99A34D</color> <!-- Color de algunos botones y selecciones -->
+    <color name="LightSecondaryColor">#82A34D</color> <!-- Color de algunos botones y selecciones -->
     <color name="LightSecondaryVariantColor">#6E7539</color>
 
     <color name="cardsBgLightColor">#6A7362</color> <!-- Color de las cartas de eventos y grupos -->
