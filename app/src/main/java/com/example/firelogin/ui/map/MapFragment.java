@@ -5,9 +5,13 @@ import static androidx.core.content.ContextCompat.checkSelfPermission;
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.DrawableWrapper;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import androidx.annotation.NonNull;
@@ -15,16 +19,25 @@ import androidx.core.app.ActivityCompat;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.osmdroid.api.IGeoPoint;
 import org.osmdroid.api.IMapController;
 import org.osmdroid.config.Configuration;
+import org.osmdroid.events.MapEventsReceiver;
+import org.osmdroid.tileprovider.tilesource.OnlineTileSourceBase;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
+import org.osmdroid.util.MapTileIndex;
 import org.osmdroid.views.MapView;
+import org.osmdroid.views.overlay.CopyrightOverlay;
+import org.osmdroid.views.overlay.MapEventsOverlay;
+import org.osmdroid.views.overlay.Marker;
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -41,6 +54,9 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MapFragment extends Fragment {
     private MapView map;
@@ -49,33 +65,25 @@ public class MapFragment extends Fragment {
     private static final int PERMISSION_REQUEST_CODE = 1;
     private FragmentMapBinding binding;
 
-    EditText searchEditText;
-    Button searchButton;
+    AutoCompleteTextView searchEditText;
+    Button searchButton, waypointBtn;
 
 
     @Override
-
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.fragment_map, container, false);
 
         Context ctx = requireContext();
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
         Configuration.getInstance().setUserAgentValue(ctx.getPackageName());
 
-        Log.w(TAG, "entro aca");
-
-
-
         GroupsViewModel groupsViewModel =
                 new ViewModelProvider(this).get(GroupsViewModel.class);
 
-        binding = FragmentMapBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
-
-            if (isStoragePermissionGranted()) {
-                setupMap(ctx, root);
-                setupSearch();
-            }
+        if (isStoragePermissionGranted()) {
+            setupMap(ctx, root);
+            setupSearch(root);
+        }
 
         return root;
     }
@@ -104,15 +112,38 @@ public class MapFragment extends Fragment {
         return true;
     }
 
+    private MapEventsOverlay currentEventOverlay = null;
+    private boolean isWaitingForTap = false;
+
     private void setupMap(Context ctx, View root) {
 
         map = root.findViewById(R.id.mapView);
         map.setTileSource(TileSourceFactory.MAPNIK);
         map.setBuiltInZoomControls(true);
         map.setMultiTouchControls(true);
+        map.getOverlayManager().add(new CopyrightOverlay(getContext()));
+
 
         mapController = map.getController();
         mapController.setZoom(18);
+
+        map.setTileSource(new OnlineTileSourceBase(
+                "Carto Light",
+                1, 20, 256, "",
+                new String[] { "a", "b", "c" }) {
+
+                @Override
+                public String getTileURLString(final long pMapTileIndex) {
+                    int zoom = MapTileIndex.getZoom(pMapTileIndex);
+                    int x = MapTileIndex.getX(pMapTileIndex);
+                    int y = MapTileIndex.getY(pMapTileIndex);
+
+
+                    return "https://" + getBaseUrl() + ".basemaps.cartocdn.com/light_all/"
+                            + zoom + "/" + x + "/" + y + ".png";
+                }
+        });
+        map.setMultiTouchControls(true);
 
         Log.w(TAG, "ando aca");
 
@@ -124,7 +155,6 @@ public class MapFragment extends Fragment {
             mLocationOverlay.enableMyLocation();
             mLocationOverlay.enableFollowLocation();
             map.getOverlays().add(mLocationOverlay);
-            //GeoPoint startPoint = new GeoPoint(51.496994, -13.4733);
 
             mLocationOverlay.runOnFirstFix(() -> {
                 GeoPoint myLocation = mLocationOverlay.getMyLocation();
@@ -140,55 +170,133 @@ public class MapFragment extends Fragment {
 
             });
         }
+
+        Button waypoint = root.findViewById(R.id.waypointBtn);
+
+        waypoint.setOnClickListener(v-> {
+            Log.w(TAG,"si detecto el clic en el boton");
+
+            if (isWaitingForTap) return;
+
+            if (currentEventOverlay != null) {
+                map.getOverlays().remove(currentEventOverlay);
+                map.invalidate();
+            }
+
+            isWaitingForTap = true;
+
+            MapEventsReceiver mReceive = new MapEventsReceiver() {
+
+                @Override
+                public boolean singleTapConfirmedHelper(GeoPoint p) {
+                    GeoPoint startPoint = new GeoPoint(p.getLatitude(), p.getLongitude());
+
+                    Marker waypoint = new Marker(map);
+                    waypoint.setPosition(startPoint);
+                    waypoint.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
+                    map.getOverlays().add(waypoint);
+                    map.invalidate();
+
+                    Log.w(TAG, "Clic detectado en: " + p.getLatitude() + ", " + p.getLongitude());
+
+                    map.getOverlays().remove(currentEventOverlay);
+                    currentEventOverlay = null;
+                    isWaitingForTap = false;
+
+                    return true;
+                }
+
+                @Override
+                public boolean longPressHelper(GeoPoint p) {
+                    return true;
+                }
+            };
+
+            currentEventOverlay = new MapEventsOverlay(mReceive);
+            map.getOverlays().add(currentEventOverlay);
+            map.invalidate();
+        });
+
     }
 
-    private void setupSearch() {
-        EditText searchEditText = requireActivity().findViewById(R.id.searchEditText);
-        Button searchButton = requireActivity().findViewById(R.id.searchButton);
+    private void setupSearch(View root) {
 
-        binding.searchButton.setOnClickListener(v -> {
-            String locationName = binding.searchEditText.getText().toString().trim();
+        AutoCompleteTextView searchEditText = root.findViewById(R.id.searchEditText);
+        Button searchButton = root.findViewById(R.id.searchButton);
+
+        searchEditText.addTextChangedListener(new TextWatcher() {
+            @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.length() > 2) {
+                    fetchSuggestions(s.toString(), root);
+                }
+            }
+            @Override public void afterTextChanged(Editable s) {}
+        });
+
+        searchEditText.setOnItemClickListener((parent, view, position, id) -> {
+            String selectedText = (String) parent.getItemAtPosition(position);
+            searchLocation(selectedText);
+        });
+
+        searchButton.setOnClickListener(v -> {
+            String locationName = searchEditText.getText().toString().trim();
             if (!locationName.isEmpty()) {
                 searchLocation(locationName);
             }
         });
     }
 
-    private void searchLocation(String locationName) {
+    private void fetchSuggestions(String locationName, View root) {
         new Thread(() -> {
-
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                String email = (user != null ) ? user.getEmail() : "unknown_user@example.com";
-
-                Log.d("FirebaseAuth", "Correo del usuario: " + email);
-
             try {
-                String urlStr = "https://nominatim.openstreetmap.org/search?q=" +
-                        locationName.replace(" ", "+") +
-                        "&format=json&limit=1";
+                String urlStr = "https://photon.komoot.io/api/?q=" +
+                        URLEncoder.encode(locationName, "UTF-8") + "&limit=5";
+
+
                 URL url = new URL(urlStr);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                conn.setRequestProperty("User-Agent", "FireLoginApp/1.0 ("+ email +")");
                 conn.connect();
 
                 BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
                 StringBuilder result = new StringBuilder();
                 String line;
+                while ((line = reader.readLine()) != null) result.append(line);
 
-                while ((line = reader.readLine()) != null) {
-                    result.append(line);
+                JSONObject jsonObject = new JSONObject(result.toString());
+                JSONArray features = jsonObject.getJSONArray("features");
+
+                List<String> suggestions = new ArrayList<>();
+                for (int i = 0; i < features.length(); i++) {
+                    JSONObject feature = features.getJSONObject(i);
+                    JSONObject properties = feature.getJSONObject("properties");
+                    String label = properties.getString("name");
+                    String city = properties.optString("city", "");
+                    String fullLabel = city.isEmpty() ? label : label + ", " + city;
+                    suggestions.add(fullLabel);
                 }
 
-                JSONArray results = new JSONArray(result.toString());
-                if (results.length() > 0) {
-                    JSONObject place = results.getJSONObject(0);
-                    double lat = Double.parseDouble(place.getString("lat"));
-                    double lon = Double.parseDouble(place.getString("lon"));
+                requireActivity().runOnUiThread(() -> {
+                    ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_dropdown_item_1line, suggestions);
+                    AutoCompleteTextView searchEditText = root.findViewById(R.id.searchEditText);
+                    searchEditText.setAdapter(adapter);
+                    adapter.notifyDataSetChanged();
+                });
+
+
+                if (features.length() > 0) {
+                    JSONObject firstFeature = features.getJSONObject(0);
+                    JSONObject geometry = firstFeature.getJSONObject("geometry");
+                    JSONArray coordinates = geometry.getJSONArray("coordinates");
+                    Log.d(TAG, "ni entra aca1");
+                    double lon = coordinates.getDouble(0);
+                    double lat = coordinates.getDouble(1);
 
                     GeoPoint point = new GeoPoint(lat, lon);
                     requireActivity().runOnUiThread(() -> {
                         mapController.setCenter(point);
                         mapController.setZoom(18);
+                        Log.d(TAG, "ni entra aca2");
                     });
 
                 } else {
@@ -197,12 +305,54 @@ public class MapFragment extends Fragment {
 
             } catch (Exception e) {
                 e.printStackTrace();
+                Log.d(TAG, "Valio madre");
             }
+            Log.d(TAG, "ni entra aca3");
         }).start();
     }
 
+    private void searchLocation(String locationName) {
+        new Thread(() -> {
+            try {
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                String email = (user != null) ? user.getEmail() : "unknown_user@example.com";
 
+                String urlStr = "https://photon.komoot.io/api/?q=" +
+                        URLEncoder.encode(locationName, "UTF-8") + "&limit=1";
 
+                URL url = new URL(urlStr);
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestProperty("User-Agent", "FireLoginApp/1.0 (" + email + ")");
+                conn.connect();
+
+                BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                StringBuilder result = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) result.append(line);
+
+                JSONObject jsonObject = new JSONObject(result.toString());
+                JSONArray features = jsonObject.getJSONArray("features");
+
+                if (features.length() > 0) {
+                    JSONObject geometry = features.getJSONObject(0).getJSONObject("geometry");
+                    JSONArray coordinates = geometry.getJSONArray("coordinates");
+                    double lon = coordinates.getDouble(0);
+                    double lat = coordinates.getDouble(1);
+                    GeoPoint point = new GeoPoint(lat, lon);
+
+                    requireActivity().runOnUiThread(() -> {
+                        mapController.setCenter(point);
+                        mapController.setZoom(18);
+                    });
+                } else {
+                    Log.d("Location", "Ubicación no encontrada");
+                }
+
+            } catch (Exception e) {
+                Log.e("Location", "Error buscando ubicación", e);
+            }
+        }).start();
+    }
 
 
     @Override
