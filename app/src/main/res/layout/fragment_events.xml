@@ -7,7 +7,7 @@
     tools:context=".ui.events.EventsFragment">
 
     <LinearLayout
-        android:id="@+id/EventContainer"
+        android:id="@+id/eventsContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -33,7 +33,7 @@
 
             <EditText
                 android:id="@+id/etFilter"
-                android:layout_width="330dp"
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:autofillHints="name"
@@ -48,6 +48,258 @@
                 app:srcCompat="@android:drawable/ic_input_add"/>
 
         </LinearLayout>
+
+        <!--androidx.cardview.widget.CardView
+            style="@style/cardsBgColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="7dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/eventImg"
+                    android:layout_width="140dp"
+                    android:layout_height="150dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/logo" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/eventName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="Nombre del evento"
+                        android:textAlignment="center"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        tools:layout_editor_absoluteX="55dp"
+                        tools:layout_editor_absoluteY="38dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvEventPlace"
+                            android:layout_width="122dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:text="Lugar:"
+                            android:textAlignment="textStart"
+                            android:textSize="18sp"
+                            tools:layout_editor_absoluteX="55dp"
+                            tools:layout_editor_absoluteY="38dp" />
+
+                        <TextView
+                            android:id="@+id/tvEventDate"
+                            android:layout_width="122dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:text="Fecha:"
+                            android:textAlignment="textStart"
+                            android:textSize="18sp"
+                            tools:layout_editor_absoluteX="55dp"
+                            tools:layout_editor_absoluteY="38dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvEventOrganizer"
+                            android:layout_width="122dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:text="Organizador:"
+                            android:textAlignment="textStart"
+                            android:textSize="18sp"
+                            tools:layout_editor_absoluteX="55dp"
+                            tools:layout_editor_absoluteY="38dp" />
+
+                        <TextView
+                            android:id="@+id/tvEventPpl"
+                            android:layout_width="122dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:text="No. personas:"
+                            android:textAlignment="textStart"
+                            android:textSize="18sp"
+                            tools:layout_editor_absoluteX="55dp"
+                            tools:layout_editor_absoluteY="38dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btnEventDetails"
+                            style="@style/botonsColor"
+                            android:layout_width="115dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="3dp"
+                            android:text="@string/eventDetails"
+                            android:textSize="15sp" />
+
+                        <Button
+                            android:id="@+id/btnJoinEvent"
+                            style="@style/botonsColor"
+                            android:layout_width="115dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="3dp"
+                            android:text="@string/join"
+                            android:textSize="15sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            style="@style/cardsBgColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="7dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="140dp"
+                    android:layout_height="150dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/logo" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="Nombre del evento"
+                        android:textAlignment="center"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        tools:layout_editor_absoluteX="55dp"
+                        tools:layout_editor_absoluteY="38dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="122dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:text="Lugar:"
+                            android:textAlignment="textStart"
+                            android:textSize="18sp"
+                            tools:layout_editor_absoluteX="55dp"
+                            tools:layout_editor_absoluteY="38dp" />
+
+                        <TextView
+                            android:layout_width="122dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:text="Fecha:"
+                            android:textAlignment="textStart"
+                            android:textSize="18sp"
+                            tools:layout_editor_absoluteX="55dp"
+                            tools:layout_editor_absoluteY="38dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="122dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:text="Organizador:"
+                            android:textAlignment="textStart"
+                            android:textSize="18sp"
+                            tools:layout_editor_absoluteX="55dp"
+                            tools:layout_editor_absoluteY="38dp" />
+
+                        <TextView
+                            android:layout_width="122dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:text="No. personas:"
+                            android:textAlignment="textStart"
+                            android:textSize="18sp"
+                            tools:layout_editor_absoluteX="55dp"
+                            tools:layout_editor_absoluteY="38dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <Button
+                            style="@style/botonsColor"
+                            android:layout_width="115dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="3dp"
+                            android:text="@string/eventDetails"
+                            android:textSize="15sp" />
+
+                        <Button
+                            style="@style/botonsColor"
+                            android:layout_width="115dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="3dp"
+                            android:text="@string/join"
+                            android:textSize="15sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView-->
 
     </LinearLayout>
 

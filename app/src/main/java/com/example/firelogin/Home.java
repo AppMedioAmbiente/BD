@@ -59,30 +59,17 @@ public class Home extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-    private void changeFragment(NavController navController){
-        String fragmentDef=getIntent().getStringExtra("Fragment");
-        int fragmentId=0;
-        if(fragmentDef==null)return;
-        switch (fragmentDef){
-            case "Groups":
-                fragmentId = R.id.nav_groups;
-                break;
-            case "Groups_Creator":
-                fragmentId = R.id.GroupCreator;
-                break;
-        }
-        if(fragmentId==0)return;
-        navController.navigate(fragmentId);
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setDarkMode(Home.this);
 
         super.onCreate(savedInstanceState);
-        showToastAlert(this,"inicio de Home");
+        //showToastAlert(this,"inicio de Home");
 
         binding = HomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        redirectFragments();
 
         ImageCarousel carousel = findViewById(R.id.carousel);
         if(carousel!=null) {
@@ -135,8 +122,6 @@ public class Home extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        changeFragment(navController);
-
         navigationView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
 
@@ -161,8 +146,21 @@ public class Home extends AppCompatActivity {
 
             return handled;
         });
-        showToastAlert(this,"Fin de Home");
+        //showToastAlert(this,"Fin de Home");
     }
+
+    public void redirectFragments() {
+        String fragmentEvent = getIntent().getStringExtra("fragmentToLoad");
+
+        if (fragmentEvent != null && fragmentEvent.equals("fragment_events")) {
+            NavController navController = Navigation.findNavController(Home.this, R.id.nav_host_fragment_content_home);
+            navController.navigate(R.id.navEv_events, null, new NavOptions.Builder()
+                    .setPopUpTo(R.id.navEv_events, false)
+                    .build());
+        }
+    }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

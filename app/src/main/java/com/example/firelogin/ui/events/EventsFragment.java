@@ -5,11 +5,15 @@ import static com.example.firelogin.StaticFunctions.showToastAlert;
 import android.content.Intent;
 import android.location.Address;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -21,14 +25,26 @@ import com.example.firelogin.R;
 import com.example.firelogin.cards.MyButtonsContainer;
 import com.example.firelogin.databinding.FragmentEventsBinding;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.Timestamp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.GeoPoint;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
 
 public class EventsFragment extends Fragment {
     private FragmentEventsBinding binding;
     FloatingActionButton btnAddEvent;
-    private FirebaseHandler fb;
+    LinearLayout eventsContainer;
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault());
+    private final FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private final FirebaseAuth firebase = FirebaseAuth.getInstance();
+    private final FirebaseUser user = firebase.getCurrentUser();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -38,73 +54,103 @@ public class EventsFragment extends Fragment {
         binding = FragmentEventsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        eventsContainer = root.findViewById(R.id.eventsContainer);
         btnAddEvent = root.findViewById(R.id.addEvent);
         btnAddEvent.setOnClickListener(view -> {
             Intent intent = new Intent (getContext(), Create_Event.class);
             startActivity(intent);
         });
-        fb= new FirebaseHandler(2);
-        ViewGroup cardContainer=root.findViewById(R.id.EventContainer);
 
-        showToastAlert(requireContext(),"Obteniendo datos...");
-
-        fb.abrirColeccion("eventos",(exito,values)->{
-            if(!exito){
-                showToastAlert(requireContext(),"No se pudieron obtener los eventos");
-                return;
-            }
-            for(DocumentSnapshot document : values.getDocuments()){
-                View card = inflater.inflate(R.layout.event_card, cardContainer, false);
-
-                TextView name=card.findViewById(R.id.eventName);
-                TextView place=card.findViewById(R.id.tvEventPlace);
-                TextView date=card.findViewById(R.id.tvEventDate);
-                TextView organizer=card.findViewById(R.id.tvEventOrganizer);
-
-                changeTextViewValue(name,getFirebaseField(document.get("event_name")));
-                changeTextViewValue(date,getFirebaseField(document.getDate("date")));
-
-                MyButtonsContainer btnContainer = card.findViewById(R.id.actionContainer);
-                Button details=btnContainer.findViewById(R.id.btnEventDetails);
-                btnContainer.setFirebaseId(document.getId());
-//                Button details=card.findViewById(R.id.btnEventDetails);
-                details.setOnClickListener(view->{
-                    MyButtonsContainer b = (MyButtonsContainer) view.getParent();
-                    showToastAlert(requireContext(),"El id es"+b.getFirebaseId());
-//                    showToastAlert(requireContext(),"El id es "+b.getTag(3));
-                });
-
-                GeoPoint geopint = document.getGeoPoint("location");
-                Address adress = fb.getLocation(requireContext(), geopint.getLatitude(),geopint.getLongitude());
-                changeTextViewValue(place,(adress!=null)?
-                        adress.getAddressLine(0) : geopint.toString());
-
-
-                DocumentReference org = document.getDocumentReference("organizer");
-                if(org!=null) {
-                    org.get().addOnSuccessListener(snapshot->{
-                        if(snapshot.exists()) {
-                            changeTextViewValue(organizer, getFirebaseField(snapshot.getString("nickname")));
-                        }
-
-                        cardContainer.addView(card);
-                    });
-
-                }
-            }
-        });
-
+        loadEventsCards();
 
         //final TextView textView = binding.textEvents;
         //eventsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
-    private String getFirebaseField(Object valueFromSnapshot){
-        if(valueFromSnapshot==null) return "";
-        return valueFromSnapshot.toString();
+
+    public void loadEventsCards() {
+        db.collection("eventos").get().addOnSuccessListener(documentSnapshot -> {
+            documentSnapshot.getDocuments().forEach(event -> {
+                View cardview = LayoutInflater.from(getContext()).inflate(R.layout.events_cardview, eventsContainer, false);
+
+                DocumentReference organizerDoc = event.getDocumentReference("organizer");
+                DocumentReference typeDoc = event.getDocumentReference("type");
+
+                TextView name = cardview.findViewById(R.id.eventName);
+                TextView location = cardview.findViewById(R.id.tvEventPlace);
+                TextView date = cardview.findViewById(R.id.tvEventDate);
+                TextView organizer = cardview.findViewById(R.id.tvEventOrganizer);
+                TextView type = cardview.findViewById(R.id.tvEventType);
+                Button joinEvent = cardview.findViewById(R.id.btnJoinEvent);
+
+                name.setText(event.getString("event_name"));
+                date.setText(sdf.format(event.getDate("date")));
+                organizerDoc.get().addOnSuccessListener(doc -> {
+                    organizer.setText(doc.getString("name"));
+                });
+                typeDoc.get().addOnSuccessListener(doc -> {
+                    type.setText(doc.getString("type"));
+                });
+
+                db.collection("event_has_usuarios")
+                        .whereEqualTo("id_event", db.collection("eventos").document(event.getId()))
+                        .whereEqualTo("id_usuario", db.collection("usuarios").document(user.getUid()))
+                        .get().addOnSuccessListener(querySnapshot -> {
+
+                            if (querySnapshot.isEmpty()) {
+                                //Log.d("Query Snapshot vacío: ", querySnapshot.toString());
+                                joinEvent.setOnClickListener(v -> {
+                                    Map<String, Object> data = new HashMap<>();
+                                    data.put("id_event", db.collection("eventos").document(event.getId()));
+                                    data.put("id_usuario", db.collection("usuarios").document(user.getUid()));
+
+                                    db.collection("event_has_usuarios").add(data).addOnSuccessListener(s ->{
+                                                joinEvent.setEnabled(false);
+                                            })
+                                            .addOnFailureListener(f -> {
+                                                showToastAlert("Error al unirte al evento");
+                                                Log.d("Error al unirse al evento: ", f.getMessage());
+                                            });
+                                });
+
+                            } else {
+                                //Log.d("Query Snapshot: ", querySnapshot.toString());
+                                joinEvent.setEnabled(false);
+                            }
+                        });
+
+                /*joinEvent.setOnClickListener(v -> {
+                    Map<String, Object> data = new HashMap<>();
+                    data.put("id_event", db.collection("eventos").document(event.getId()));
+                    data.put("id_usuario", db.collection("usuarios").document(user.getUid()));
+
+                    db.collection("event_has_usuarios").add(data).addOnSuccessListener(s ->{
+                        joinEvent.setVisibility(View.GONE);
+                    })
+                            .addOnFailureListener(f -> {
+                                showToastAlert("Error al unirte al evento");
+                                Log.d("Error al unirse al evento: ", f.getMessage());
+                            });
+                });*/
+
+                eventsContainer.addView(cardview);
+            });
+        })
+                .addOnFailureListener(f -> {
+                    showToastAlert("Error al obtener los datos");
+                    Log.d("Error al obtener los eventos:", f.getMessage());
+                });
     }
-    private void changeTextViewValue(TextView view, String newValue){
-        view.setText(view.getText()+":"+newValue);
+
+    protected void showToastAlert(String msg) {
+        Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 }
 
+//No. de personas en detalles del evento
