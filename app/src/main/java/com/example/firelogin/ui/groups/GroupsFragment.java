@@ -8,11 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-
-import com.example.firelogin.Firebase;
 import com.example.firelogin.R;
 import com.example.firelogin.databinding.FragmentGroupsBinding;
 
