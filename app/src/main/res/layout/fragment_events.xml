@@ -7,6 +7,7 @@
     tools:context=".ui.events.EventsFragment">
 
     <LinearLayout
+        android:id="@+id/eventsContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -32,7 +33,7 @@
 
             <EditText
                 android:id="@+id/etFilter"
-                android:layout_width="330dp"
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:autofillHints="name"
@@ -48,7 +49,7 @@
 
         </LinearLayout>
 
-        <androidx.cardview.widget.CardView
+        <!--androidx.cardview.widget.CardView
             style="@style/cardsBgColor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -298,7 +299,7 @@
 
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView-->
 
     </LinearLayout>
 

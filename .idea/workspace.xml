@@ -4,7 +4,10 @@
     <shared>
       <config>
         <device id="pixel" />
+        <device id="pixel_4" />
         <device id="pixel_2_xl" />
+        <device id="pixel_6" />
+        <option name="nonWearDeviceLastStateName" value="Portrait" />
       </config>
     </shared>
   </component>
@@ -13,9 +16,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ac168f3-b9a3-4883-b49d-5b7b35965852" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/EventType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/events_cardview.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/Create_Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/Create_Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/create_event.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/create_event.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/Home.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/events/EventsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/events/EventsFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_events.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_events.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,9 +76,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="layoutResourceFile" />
-        <option value="Class" />
         <option value="valueResourceFile" />
+        <option value="Enum" />
+        <option value="Class" />
+        <option value="layoutResourceFile" />
       </list>
     </option>
   </component>
@@ -325,7 +333,14 @@
       <option name="project" value="LOCAL" />
       <updated>1747859163164</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="muy poco de spinner y validaciones">
+      <created>1747886609937</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1747886609937</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -356,6 +371,7 @@
     <MESSAGE value="diseño de la pantalla de eliminar cuenta listo (diseño terminado)" />
     <MESSAGE value="inicios de la creación de eventos" />
     <MESSAGE value="barra superior con color de fondo" />
-    <option name="LAST_COMMIT_MESSAGE" value="barra superior con color de fondo" />
+    <MESSAGE value="muy poco de spinner y validaciones" />
+    <option name="LAST_COMMIT_MESSAGE" value="muy poco de spinner y validaciones" />
   </component>
 </project>

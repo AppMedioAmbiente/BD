@@ -66,6 +66,8 @@ public class Home extends AppCompatActivity {
         binding = HomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        redirectFragments();
+
         ImageCarousel carousel = findViewById(R.id.carousel);
         List<CarouselItem> list = new ArrayList<>();
         list.add(new CarouselItem(R.drawable.logo, "Icono de SECOVO"));
@@ -125,7 +127,16 @@ public class Home extends AppCompatActivity {
 
     }
 
+    public void redirectFragments() {
+        String fragmentEvent = getIntent().getStringExtra("fragmentToLoad");
 
+        if (fragmentEvent != null && fragmentEvent.equals("fragment_events")) {
+            NavController navController = Navigation.findNavController(Home.this, R.id.nav_host_fragment_content_home);
+            navController.navigate(R.id.navEv_events, null, new NavOptions.Builder()
+                    .setPopUpTo(R.id.navEv_events, false)
+                    .build());
+        }
+    }
 
 
     @Override
