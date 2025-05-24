@@ -20,26 +20,20 @@ public class Splash_Screen extends AppCompatActivity {
     protected void onCreate(Bundle savedIntanceStarte) {
         super.onCreate(savedIntanceStarte);
         setContentView(R.layout.splash_screen);
-
-
         new Handler().postDelayed(new  Runnable() {
             @Override
             public void run() {
-
                 FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-
                 if (currentUser != null && currentUser.isEmailVerified()){
-
-//                    showHome(Splash_Screen.this);
                     print("showHome in Splash_Screen.this");
                     Intent intent = new  Intent (Splash_Screen.this,Home.class);
                     startActivity(intent);
-                } else{
+                }else{
                     Intent intent = new  Intent (Splash_Screen.this, Login.class);
                     startActivity(intent);
                 }
-
                 finish();
+
             }},2000);
     }
 }

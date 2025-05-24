@@ -18,10 +18,12 @@ import android.widget.Toast;
 import com.example.firelogin.register.Login;
 import com.example.firelogin.settings.Settings;
 import com.example.firelogin.settings.Settings_PD;
+import com.example.firelogin.ui.groups.GroupsFragment;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.view.GravityCompat;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
@@ -29,6 +31,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewbinding.ViewBinding;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -44,7 +47,7 @@ import java.util.List;
 public class Home extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private HomeBinding binding;
-    FirebaseHandler fh;
+//    FirebaseHandler fh;
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
@@ -56,11 +59,28 @@ public class Home extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+    private void changeFragment(NavController navController){
+        String fragmentDef=getIntent().getStringExtra("Fragment");
+        int fragmentId=0;
+        if(fragmentDef==null)return;
+        switch (fragmentDef){
+            case "Groups":
+                fragmentId = R.id.nav_groups;
+                break;
+            case "Groups_Creator":
+                fragmentId = R.id.GroupCreator;
+                break;
+        }
+        if(fragmentId==0)return;
+        navController.navigate(fragmentId);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setDarkMode(Home.this);
+
         super.onCreate(savedInstanceState);
         showToastAlert(this,"inicio de Home");
-        setDarkMode(Home.this);
+
         binding = HomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -71,25 +91,26 @@ public class Home extends AppCompatActivity {
             carousel.setData(list);
         }
 
-        fh = new FirebaseHandler(2);
-        FirebaseUser cu = fh.getUser();
-        if(cu==null) {
-            Toast.makeText(this, "WTF. Que haces aquí?", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        Toast.makeText(this, "Bienvenido " +cu.getEmail(), Toast.LENGTH_SHORT).show();
+//        fh = new FirebaseHandler(2);
+//        FirebaseUser cu = fh.getUser();
+//        if(cu==null) {
+//            Toast.makeText(this, "WTF. Que haces aquí?", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//        Toast.makeText(this, "Bienvenido " +cu.getEmail(), Toast.LENGTH_SHORT).show();
         setSupportActionBar(binding.appBarHome.toolbar);
-        fh.abrirDocumento("usuarios",cu.getUid(),(exito,doc)->{
-            if(exito) {
-                TextView email = binding.navView.findViewById(R.id.emailH);
-                email.setText(cu.getEmail());
 
-                TextView name = binding.navView.findViewById(R.id.usernameH);
-                name.setText(doc.get("nickname").toString());
-            }else{
-                print("no hubo exito");
-            }
-        });
+//        fh.abrirDocumento("usuarios",cu.getUid(),(exito,doc)->{
+//            if(exito) {
+//                TextView email = binding.navView.findViewById(R.id.emailH);
+//                email.setText(cu.getEmail());
+//
+//                TextView name = binding.navView.findViewById(R.id.usernameH);
+//                name.setText(doc.get("nickname").toString());
+//            }else{
+//                print("no hubo exito");
+//            }
+//        });
 
         binding.appBarHome.contactus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,6 +134,8 @@ public class Home extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        changeFragment(navController);
 
         navigationView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
@@ -158,10 +181,10 @@ public class Home extends AppCompatActivity {
         SharedPreferences sharedPref = context.getSharedPreferences("shrdPrf", Context.MODE_PRIVATE);
         // defValue: 0=DarkMode, 1=LightMode
         int theme = sharedPref.getInt("Theme", 0);
-
-        if (theme == 0) {
+        int currentMode = AppCompatDelegate.getDefaultNightMode();
+        if (theme == 0 && currentMode!=0) {
             AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES);
-        } else if (theme == 1) {
+        } else if (theme == 1 && currentMode!=1) {
             AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO);
         }
     }

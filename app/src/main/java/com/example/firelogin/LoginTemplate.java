@@ -26,9 +26,10 @@ public class LoginTemplate extends AppCompatActivity {
     }
     protected void showHome(Context context) {
         print("show home in "+context);
-        return ;
-//        Intent home=new Intent(this,Home.class);
-//        startActivity(home);
+        Intent home=new Intent(this,Home.class);
+        home.putExtra("Fragment","Groups");
+        startActivity(home);
+        finish();
     }
     protected Object chageDataType(Object value, String type){
         if(type==null){
@@ -114,7 +115,7 @@ public class LoginTemplate extends AppCompatActivity {
         });
     }
     protected void getUserData(){
-        Log.d("referencia","getUserData");
+        print("getUserData");
 
         if(user==null){
             print("El user es nulo");

@@ -1,5 +1,7 @@
 package com.example.firelogin;
 
+import static com.example.firelogin.StaticFunctions.print;
+
 import android.util.Log;
 import android.widget.Toast;
 
@@ -68,22 +70,22 @@ public class Firebase extends Fragment {
         abrirDocumento("usuarios",user.getUid(),(exito,documento)->{
             Boolean activo=false;
             if(!exito){
-                Log.d("_viendo error_","sin exito");
+                print("no existe documento");
                 Map<String, Object> datos=new HashMap<>();
                 datos.put("activo",true);
 
                 //se ingresan valores a la Firebase Store
                 insertarValores("usuarios",user.getUid(),datos,(exito2,doc)->{
-                    Log.d("_viendo error_", "segunda insercion "+String.valueOf(exito2));
+                    print("segunda insercion "+String.valueOf(exito2));
                 });
                 activo=true;
             }else{
-                Log.d("_viendo error_","exito");
+                print("exito");
                 activo= documento.getBoolean("activo");
             }
 
             if(activo!=null && !activo) {
-                Log.d("_viendo error_", "el estado de cuenta es false");
+                print("el estado de cuenta es false");
                 //Esta suspendida la cuenta
                 cerrarSesion();
                 alerta("Tu cuenta fué suspendida");
@@ -168,8 +170,5 @@ public class Firebase extends Fragment {
             }
             task.cuandoTermine(AuthTask);
         });
-    }
-    public void print(String text){
-        Log.d("__my_sistema",text);
     }
 }

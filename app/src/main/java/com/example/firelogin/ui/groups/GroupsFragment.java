@@ -33,7 +33,7 @@ public class GroupsFragment extends Firebase {
         root.findViewById(R.id.btnAddGroup).setOnClickListener(view->{
 
             NavController navController = Navigation.findNavController(requireView());
-            navController.navigate(R.id.action_to_group_creator);
+            navController.navigate(R.id.GroupCreator);
             // startActivity();
         });
         return root;
