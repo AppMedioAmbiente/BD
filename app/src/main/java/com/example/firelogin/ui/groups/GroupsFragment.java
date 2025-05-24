@@ -16,7 +16,7 @@ import com.example.firelogin.Firebase;
 import com.example.firelogin.R;
 import com.example.firelogin.databinding.FragmentGroupsBinding;
 
-public class GroupsFragment extends Firebase {
+public class GroupsFragment extends Fragment {
     private FragmentGroupsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -31,7 +31,6 @@ public class GroupsFragment extends Firebase {
         View root= binding.getRoot();
 
         root.findViewById(R.id.btnAddGroup).setOnClickListener(view->{
-
             NavController navController = Navigation.findNavController(requireView());
             navController.navigate(R.id.GroupCreator);
             // startActivity();

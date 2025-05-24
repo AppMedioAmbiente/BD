@@ -14,7 +14,7 @@ public class StaticFunctions {
         Log.d("_DEBUG_",message);
     }
     static public void print(String message,String title){
-        Log.d(title,message);
+        Log.d("_DEBUG_"+title,message);
     }
     static public void showToastAlert(Context context, String message){
         Toast.makeText(context,message,Toast.LENGTH_SHORT).show();

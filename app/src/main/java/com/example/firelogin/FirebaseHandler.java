@@ -160,7 +160,7 @@ public class FirebaseHandler{
                 String pais = adress.getCountryName(); //pais
                 String estado = adress.getAdminArea(); //estado
                 String ciudad = adress.getLocality(); // ciudad
-                Log.d("Geocoder","pais:"+pais+";estado:"+estado+";ciudad:"+ciudad);
+                print("Geocoder","pais:"+pais+";estado:"+estado+";ciudad:"+ciudad);
                 return adress;
             }
         } catch (IOException e) {
