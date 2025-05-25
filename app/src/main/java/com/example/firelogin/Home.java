@@ -47,7 +47,10 @@ import java.util.List;
 public class Home extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private HomeBinding binding;
-//    FirebaseHandler fh;
+    private FirebaseHandler fh;
+    private FirebaseUser cu;
+
+    //    FirebaseHandler fh;
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
@@ -78,27 +81,13 @@ public class Home extends AppCompatActivity {
             carousel.setData(list);
         }
 
-//        fh = new FirebaseHandler(2);
-//        FirebaseUser cu = fh.getUser();
-//        if(cu==null) {
-//            Toast.makeText(this, "WTF. Que haces aquí?", Toast.LENGTH_SHORT).show();
-//            return;
-//        }
-//        Toast.makeText(this, "Bienvenido " +cu.getEmail(), Toast.LENGTH_SHORT).show();
+        fh = new FirebaseHandler(2);
+        cu = fh.getUser();
+
+        Toast.makeText(this, "Bienvenido " +cu.getEmail(), Toast.LENGTH_SHORT).show();
         setSupportActionBar(binding.appBarHome.toolbar);
 
-//        fh.abrirDocumento("usuarios",cu.getUid(),(exito,doc)->{
-//            if(exito) {
-//                TextView email = binding.navView.findViewById(R.id.emailH);
-//                email.setText(cu.getEmail());
-//
-//                TextView name = binding.navView.findViewById(R.id.usernameH);
-//                name.setText(doc.get("nickname").toString());
-//            }else{
-//                print("no hubo exito");
-//            }
-//        });
-
+        setUserTexts();
         binding.appBarHome.contactus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -147,6 +136,20 @@ public class Home extends AppCompatActivity {
             return handled;
         });
         //showToastAlert(this,"Fin de Home");
+    }
+
+    private void setUserTexts() {
+        fh.abrirDocumento("usuarios",cu.getUid(),(exito,doc)->{
+            if(exito) {
+                TextView email = binding.navView.findViewById(R.id.emailH);
+                email.setText(cu.getEmail());
+
+                TextView name = binding.navView.findViewById(R.id.usernameH);
+                name.setText(doc.get("nickname").toString());
+            }else{
+                print("no hubo exito");
+            }
+        });
     }
 
     public void redirectFragments() {

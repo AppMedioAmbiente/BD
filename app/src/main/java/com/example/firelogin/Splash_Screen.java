@@ -14,26 +14,38 @@ import com.example.firelogin.register.Login;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class Splash_Screen extends AppCompatActivity {
-
+public class Splash_Screen extends LoginTemplate {
     @Override
     protected void onCreate(Bundle savedIntanceStarte) {
         super.onCreate(savedIntanceStarte);
         setContentView(R.layout.splash_screen);
+        fb=new FirebaseHandler(2);
+        user=fb.getUser();
         new Handler().postDelayed(new  Runnable() {
             @Override
             public void run() {
-                FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-                if (currentUser != null && currentUser.isEmailVerified()){
-                    print("showHome in Splash_Screen.this");
-                    Intent intent = new  Intent (Splash_Screen.this,Home.class);
-                    startActivity(intent);
-                }else{
-                    Intent intent = new  Intent (Splash_Screen.this, Login.class);
-                    startActivity(intent);
-                }
-                finish();
-
+                redirect();
             }},2000);
+    }
+    public void redirect(){
+        if(user==null){
+            print("No está verificado");
+            Intent intent = new  Intent (Splash_Screen.this, Login.class);
+
+            startActivity(intent);
+            finish();
+        }else{
+            user.reload().addOnSuccessListener(view -> {
+                if (user != null && user.isEmailVerified()) {
+                    print("showHome in Splash_Screen.this");
+                    onAuthStateChanged();
+                    //            Intent intent = new  Intent (Splash_Screen.this,Home.class);
+                    //            startActivity(intent);
+                }else{
+                    user=null;
+                    redirect();
+                }
+            });
+        }
     }
 }

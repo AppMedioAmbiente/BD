@@ -43,6 +43,9 @@ public class FirebaseHandler{
     public static interface ResultadoTask{
         void cuandoTermine( Boolean exito,Task task);
     }
+    public static interface ResultadoVoid{
+        void cuandoTermine( Boolean exito);
+    }
     public FirebaseHandler(int nivel){
         firebase=FirebaseAuth.getInstance();
         user=firebase.getCurrentUser();

@@ -25,9 +25,9 @@ public class LoginTemplate extends AppCompatActivity {
         return (user != null) ? user.getUid() : null;
     }
     protected void showHome(Context context) {
-        print("show home in "+context);
+        print("show home in " + context);
+
         Intent home=new Intent(this,Home.class);
-        home.putExtra("Fragment","Groups");
         startActivity(home);
         finish();
     }

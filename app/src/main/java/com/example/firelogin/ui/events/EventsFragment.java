@@ -1,5 +1,6 @@
 package com.example.firelogin.ui.events;
 
+import static com.example.firelogin.StaticFunctions.print;
 import static com.example.firelogin.StaticFunctions.showToastAlert;
 
 import android.content.Intent;
@@ -108,8 +109,8 @@ public class EventsFragment extends Fragment {
                                                 joinEvent.setEnabled(false);
                                             })
                                             .addOnFailureListener(f -> {
-                                                showToastAlert("Error al unirte al evento");
-                                                Log.d("Error al unirse al evento: ", f.getMessage());
+                                                showToastAlert(requireContext(),"Error al unirte al evento");
+                                                print("Error al unirse al evento: ", f.getMessage());
                                             });
                                 });
 
@@ -137,13 +138,9 @@ public class EventsFragment extends Fragment {
             });
         })
                 .addOnFailureListener(f -> {
-                    showToastAlert("Error al obtener los datos");
-                    Log.d("Error al obtener los eventos:", f.getMessage());
+                    showToastAlert(requireContext(),"Error al obtener los datos");
+                    print("Error al obtener los eventos:", f.getMessage());
                 });
-    }
-
-    protected void showToastAlert(String msg) {
-        Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
     }
 
     @Override
