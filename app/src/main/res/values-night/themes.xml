@@ -45,6 +45,7 @@
 
     <style name="botonsColor">
         <item name="android:backgroundTint">@color/botonsDarkColor</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="SomeSettingsColor">

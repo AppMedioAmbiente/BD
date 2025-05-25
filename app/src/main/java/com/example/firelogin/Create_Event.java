@@ -99,7 +99,8 @@ public class Create_Event extends AppCompatActivity implements View.OnClickListe
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent) { }
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
         });
 
         etEventDescrip.setOnTouchListener(new View.OnTouchListener() {
@@ -172,17 +173,17 @@ public class Create_Event extends AppCompatActivity implements View.OnClickListe
 
                 db.collection("eventos").add(data).addOnSuccessListener(s -> {
 
-                    Map<String, Object> dataEvUser = new HashMap<>();
-                    dataEvUser.put("id_event", db.collection("eventos").document(s.getId()));
-                    dataEvUser.put("id_usuario", db.collection("usuarios").document(user.getUid()));
-                    db.collection("event_has_usuarios").add(dataEvUser).addOnFailureListener(f1 -> {
-                        Log.d("Error al guardar el evento y usuario: ", f1.getMessage());
-                    });
+                            Map<String, Object> dataEvUser = new HashMap<>();
+                            dataEvUser.put("id_event", db.collection("eventos").document(s.getId()));
+                            dataEvUser.put("id_usuario", db.collection("usuarios").document(user.getUid()));
+                            db.collection("event_has_usuarios").add(dataEvUser).addOnFailureListener(f1 -> {
+                                Log.d("Error al guardar el evento y usuario: ", f1.getMessage());
+                            });
 
-                    Intent intent = new Intent(this, Home.class);
-                    intent.putExtra("fragmentToLoad", "fragment_events");
-                    startActivity(intent);
-                })
+                            Intent intent = new Intent(this, Home.class);
+                            intent.putExtra("fragmentToLoad", "fragment_events");
+                            startActivity(intent);
+                        })
                         .addOnFailureListener(f -> {
                             showToastAlert("Error al guardar los datos");
                             Log.d("Error: ", f.getMessage());
@@ -192,14 +193,6 @@ public class Create_Event extends AppCompatActivity implements View.OnClickListe
                 showToastAlert("Error al guardar la fecha");
                 Log.d("Error parse: ", ex.getMessage());
             }
-
-            /*db.collection("eventos").get().addOnSuccessListener(doc -> {
-                doc.getDocuments().forEach(ev -> {
-                    Log.d("Organizador: ", ev.getDocumentReference("organizer").toString());
-                    Log.d("Lugar: ", ev.getGeoPoint("location").toString());
-                    Log.d("Tipo: ", ev.getDocumentReference("type").toString());
-                });
-            });*/
 
         } else {
             showToastAlert("Debe llenar correctamente todos los campos");
