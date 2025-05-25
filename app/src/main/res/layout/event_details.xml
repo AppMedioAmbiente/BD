@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Create_Event">
+    tools:context=".Event_Details">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:theme="@style/Theme.FireLogin.AppBarOverlay">
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/tbCreateEvent"
+                android:id="@+id/tbEventDetails"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="Crear evento"
+            android:text="Detalles del evento"
             android:textAlignment="center"
             android:textSize="35sp"
             android:textStyle="bold" />
@@ -52,7 +52,7 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/etEventName"
+                android:id="@+id/dtEventName"
                 style="@style/fieldsColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -81,7 +81,36 @@
                 android:textSize="20sp" />
 
             <Spinner
-                android:id="@+id/spEventType"
+                android:id="@+id/dtEventType"
+                style="@style/fieldsColor"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/redondedado"
+                android:maxWidth="320dp"
+                android:minWidth="270dp"
+                android:padding="10dp"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:padding="10dp"
+                android:text="Estatus del evento"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/dtEventStatus"
                 style="@style/fieldsColor"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
@@ -110,7 +139,7 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/etEventDescrip"
+                android:id="@+id/dtEventDescrip"
                 style="@style/fieldsColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -162,7 +191,7 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/etEventLat"
+                    android:id="@+id/dtEventLat"
                     style="@style/fieldsColor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -175,7 +204,7 @@
                     android:textSize="20sp" />
 
                 <EditText
-                    android:id="@+id/etEventLong"
+                    android:id="@+id/dtEventLong"
                     style="@style/fieldsColor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -207,7 +236,7 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/etEventDate"
+                android:id="@+id/dtEventDate"
                 style="@style/fieldsColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -237,7 +266,7 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/etEventEndDate"
+                android:id="@+id/dtEventEndDate"
                 style="@style/fieldsColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -267,7 +296,7 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/etEventMaterials"
+                android:id="@+id/dtEventMaterials"
                 style="@style/fieldsColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -302,12 +331,43 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/etEventMinVolun"
+                android:id="@+id/dtEventMinVolun"
                 style="@style/fieldsColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:background="@drawable/redondedado"
+                android:inputType="number"
+                android:maxWidth="320dp"
+                android:minWidth="270dp"
+                android:padding="10dp"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:padding="10dp"
+                android:text="No. de personas unidas"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/dtEventNumPpl"
+                style="@style/fieldsColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/redondedado"
+                android:enabled="false"
                 android:inputType="number"
                 android:maxWidth="320dp"
                 android:minWidth="270dp"
@@ -324,23 +384,40 @@
             android:orientation="horizontal"
             android:padding="12dp">
 
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/deleteEvent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:backgroundTint="@color/red"
+                app:srcCompat="@android:drawable/ic_menu_delete" />
+
             <Button
-                android:id="@+id/btnCancel"
+                android:id="@+id/btnLeave"
                 style="@style/botonsColor"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:maxWidth="150dp"
-                android:text="Cancelar" />
+                android:text="Salir" />
 
             <Button
-                android:id="@+id/btnSaveEvent"
+                android:id="@+id/btnJoin"
+                style="@style/botonsColor"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:maxWidth="150dp"
+                android:text="Unirse"/>
+
+            <Button
+                android:id="@+id/btnModifyEvent"
                 style="@style/botonsColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:maxWidth="150dp"
-                android:text="Guardar"/>
+                android:text="Guardar" />
 
         </LinearLayout>
 

@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.firelogin.Create_Event;
+import com.example.firelogin.Event_Details;
 import com.example.firelogin.R;
 import com.example.firelogin.databinding.FragmentEventsBinding;
 import com.example.firelogin.ui.events.EventsFragment;
@@ -74,19 +75,27 @@ public class EventsFragment extends Fragment {
                 DocumentReference typeDoc = event.getDocumentReference("type");
 
                 TextView name = cardview.findViewById(R.id.eventName);
-                TextView location = cardview.findViewById(R.id.tvEventPlace);
                 TextView date = cardview.findViewById(R.id.tvEventDate);
+                TextView endDate = cardview.findViewById(R.id.tvEventEndDate);
                 TextView organizer = cardview.findViewById(R.id.tvEventOrganizer);
                 TextView type = cardview.findViewById(R.id.tvEventType);
                 Button joinEvent = cardview.findViewById(R.id.btnJoinEvent);
+                Button eventDetails = cardview.findViewById(R.id.btnEventDetails);
 
                 name.setText(event.getString("event_name"));
                 date.setText(sdf.format(event.getDate("date")));
+                endDate.setText(sdf.format(event.getDate("end_date")));
                 organizerDoc.get().addOnSuccessListener(doc -> {
                     organizer.setText(doc.getString("name"));
                 });
                 typeDoc.get().addOnSuccessListener(doc -> {
                     type.setText(doc.getString("type"));
+                });
+
+                eventDetails.setOnClickListener(v ->{
+                    Intent intent = new Intent(getContext(), Event_Details.class);
+                    intent.putExtra("id_event", event.getId());
+                    startActivity(intent);
                 });
 
                 db.collection("event_has_usuarios")
@@ -116,20 +125,6 @@ public class EventsFragment extends Fragment {
                             }
                         });
 
-                /*joinEvent.setOnClickListener(v -> {
-                    Map<String, Object> data = new HashMap<>();
-                    data.put("id_event", db.collection("eventos").document(event.getId()));
-                    data.put("id_usuario", db.collection("usuarios").document(user.getUid()));
-
-                    db.collection("event_has_usuarios").add(data).addOnSuccessListener(s ->{
-                        joinEvent.setVisibility(View.GONE);
-                    })
-                            .addOnFailureListener(f -> {
-                                showToastAlert("Error al unirte al evento");
-                                Log.d("Error al unirse al evento: ", f.getMessage());
-                            });
-                });*/
-
                 eventsContainer.addView(cardview);
             });
         })
@@ -149,5 +144,3 @@ public class EventsFragment extends Fragment {
         binding = null;
     }
 }
-
-//No. de personas en detalles del evento
