@@ -68,4 +68,10 @@
     <style name="fieldsColor">
         <item name="android:backgroundTint">@color/fieldsLightColor</item>
     </style>
+
+    <style name="menuCard">
+        <item name="android:textStyle">
+            italic
+        </item>
+    </style>
 </resources>

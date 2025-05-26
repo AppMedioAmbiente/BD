@@ -4,14 +4,20 @@ import static androidx.core.content.ContextCompat.startActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.nfc.Tag;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StaticFunctions {
     static public void print(String message){
-        Log.d("_DEBUG_",message);
+        Log.e("_DEBUG_",message);
     }
     static public void print(String message,String title){
         Log.d("_DEBUG_"+title,message);
@@ -34,7 +40,30 @@ public class StaticFunctions {
                 .setPositiveButton("Cerrar",null)
                 .create().show();
     }
-    static public void showHome(){}
+    public static int updateSpinner(Context ctx, Object[][] values,Spinner spinner){
+        if(ctx ==null || spinner==null || values==null){
+            return -1;
+        }
+        try {
+            List<SpinnerOption> types = new ArrayList<>();
+            types.add(new SpinnerOption(-1, "Seleccionar"));
+
+            for (Object[] value : values) {
+                if (value.length != 2) {
+                    return -2;
+                }
+                print(String.valueOf(values[1]) );
+                types.add(new SpinnerOption(value[0], String.valueOf(value[1]) ));
+            }
+            ArrayAdapter<SpinnerOption> adapter = new ArrayAdapter<>(ctx, android.R.layout.simple_spinner_item, types);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinner.setAdapter(adapter);
+            return 1;
+        }catch(Exception ex){
+            print("EXCEPCION",ex.getMessage());
+            return -3;
+        }
+    }
 //    static public void showHome(Context context){
 //        print("showHome in "+context);
 //        Intent intent = new  Intent (context,Home.class);

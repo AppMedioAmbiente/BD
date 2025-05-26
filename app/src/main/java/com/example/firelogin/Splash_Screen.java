@@ -1,12 +1,10 @@
 package com.example.firelogin;
-
-import static androidx.core.content.ContextCompat.startActivity;
 import static com.example.firelogin.StaticFunctions.print;
-import static com.example.firelogin.StaticFunctions.showHome;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,6 +17,12 @@ public class Splash_Screen extends LoginTemplate {
     protected void onCreate(Bundle savedIntanceStarte) {
         super.onCreate(savedIntanceStarte);
         setContentView(R.layout.splash_screen);
+//        Log.d("D","Log d");
+//        Log.w("W","Log w");
+//        Log.e("E","Log e");
+//        Log.i("I","Log i");
+//        Log.v("V","Log v");
+//        Log.wtf("WTF","Log wf");
         fb=new FirebaseHandler(2);
         user=fb.getUser();
         new Handler().postDelayed(new  Runnable() {

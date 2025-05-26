@@ -2,6 +2,7 @@ package com.example.firelogin.ui.events;
 
 import static com.example.firelogin.StaticFunctions.print;
 import static com.example.firelogin.StaticFunctions.showToastAlert;
+import static com.example.firelogin.StaticFunctions.updateSpinner;
 
 import android.content.Intent;
 import android.location.Address;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +25,6 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.firelogin.Create_Event;
 import com.example.firelogin.Event_Details;
 import com.example.firelogin.R;
-import com.example.firelogin.cards.MyButtonsContainer;
 import com.example.firelogin.databinding.FragmentEventsBinding;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.Timestamp;
@@ -62,6 +63,12 @@ public class EventsFragment extends Fragment {
             startActivity(intent);
         });
 
+        Spinner spinnerTypes=root.findViewById(R.id.spinnerTypes);
+        updateSpinner(requireContext(),new Object[][] {
+                {1,"Organizador"},
+                {2,"Fecha"},
+                {3,"Lugar"}
+        },spinnerTypes);
         loadEventsCards();
 
         //final TextView textView = binding.textEvents;

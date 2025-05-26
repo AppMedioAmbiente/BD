@@ -149,7 +149,6 @@ public class MapFragment extends Fragment {
 
 
         if (isStoragePermissionGranted() == true) {
-
             MyLocationNewOverlay mLocationOverlay = new MyLocationNewOverlay(
                     new GpsMyLocationProvider(ctx), map);
             mLocationOverlay.enableMyLocation();

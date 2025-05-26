@@ -96,6 +96,7 @@ public class Create_Event extends AppCompatActivity implements View.OnClickListe
 
                 Integer typeId = selectedType.getId();
                 String typeName = selectedType.getName();
+                showToastAlert("El id es :"+typeId.toString());
             }
 
             @Override

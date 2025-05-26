@@ -1,5 +1,9 @@
 package com.example.firelogin;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 public class EventType {
     private Integer id;
     private String name;
