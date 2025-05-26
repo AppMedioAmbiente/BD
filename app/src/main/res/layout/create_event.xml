@@ -203,6 +203,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:padding="10dp"
+
                 android:text="Fecha y hora del evento"
                 android:textSize="20sp" />
 
@@ -314,6 +315,51 @@
                 android:padding="10dp"
                 android:textSize="20sp" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <AutoCompleteTextView
+                    android:id="@+id/searchEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:completionThreshold="1"
+                    android:hint="Buscar dirección..."
+                    android:inputType="text" />
+
+                <Button
+                    android:id="@+id/searchButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Buscar" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/waypointBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Crear Waypoint" />
+
+            <org.osmdroid.views.MapView
+                android:id="@+id/mapView"
+                android:layout_width="match_parent"
+                android:layout_height="420dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true" />
         </LinearLayout>
 
         <LinearLayout
