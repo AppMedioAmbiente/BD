@@ -49,6 +49,8 @@ import com.example.firelogin.databinding.FragmentMapBinding;
 import com.example.firelogin.ui.groups.GroupsViewModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -127,22 +129,6 @@ public class MapFragment extends Fragment {
         mapController = map.getController();
         mapController.setZoom(18);
 
-        map.setTileSource(new OnlineTileSourceBase(
-                "Carto Light",
-                1, 20, 256, "",
-                new String[] { "a", "b", "c" }) {
-
-                @Override
-                public String getTileURLString(final long pMapTileIndex) {
-                    int zoom = MapTileIndex.getZoom(pMapTileIndex);
-                    int x = MapTileIndex.getX(pMapTileIndex);
-                    int y = MapTileIndex.getY(pMapTileIndex);
-
-
-                    return "https://" + getBaseUrl() + ".basemaps.cartocdn.com/light_all/"
-                            + zoom + "/" + x + "/" + y + ".png";
-                }
-        });
         map.setMultiTouchControls(true);
 
         Log.w(TAG, "ando aca");
@@ -171,53 +157,36 @@ public class MapFragment extends Fragment {
             });
         }
 
-        Button waypoint = root.findViewById(R.id.waypointBtn);
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        waypoint.setOnClickListener(v-> {
-            Log.w(TAG,"si detecto el clic en el boton");
+        db.collection("geopoint")
+                .get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
+                        com.google.firebase.firestore.GeoPoint geoPoint = document.getGeoPoint("location");
+                        if (geoPoint != null) {
+                            double lat = geoPoint.getLatitude();
+                            double lon = geoPoint.getLongitude();
 
-            if (isWaitingForTap) return;
+                            org.osmdroid.util.GeoPoint punto = new org.osmdroid.util.GeoPoint(lat, lon);
+                            agregarMarcador(punto);
+                        }
 
-            if (currentEventOverlay != null) {
-                map.getOverlays().remove(currentEventOverlay);
-                map.invalidate();
-            }
-
-            isWaitingForTap = true;
-
-            MapEventsReceiver mReceive = new MapEventsReceiver() {
-
-                @Override
-                public boolean singleTapConfirmedHelper(GeoPoint p) {
-                    GeoPoint startPoint = new GeoPoint(p.getLatitude(), p.getLongitude());
-
-                    Marker waypoint = new Marker(map);
-                    waypoint.setPosition(startPoint);
-                    waypoint.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
-                    map.getOverlays().add(waypoint);
-                    map.invalidate();
-
-                    Log.w(TAG, "Clic detectado en: " + p.getLatitude() + ", " + p.getLongitude());
-
-                    map.getOverlays().remove(currentEventOverlay);
-                    currentEventOverlay = null;
-                    isWaitingForTap = false;
-
-                    return true;
-                }
-
-                @Override
-                public boolean longPressHelper(GeoPoint p) {
-                    return true;
-                }
-            };
-
-            currentEventOverlay = new MapEventsOverlay(mReceive);
-            map.getOverlays().add(currentEventOverlay);
-            map.invalidate();
-        });
-
+                    }
+                })
+                .addOnFailureListener(e -> Log.e("Firebase", "Error al obtener los geopoints", e));
     }
+
+    public void agregarMarcador(org.osmdroid.util.GeoPoint punto) {
+        Marker waypoint = new Marker(map);
+        waypoint.setPosition(punto);
+        waypoint.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
+        waypoint.setTitle("Ubicación guardada");
+
+        map.getOverlays().add(waypoint);
+        map.invalidate();
+    }
+
 
     private void setupSearch(View root) {
 
