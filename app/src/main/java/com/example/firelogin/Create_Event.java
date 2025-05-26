@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -79,14 +80,14 @@ public class Create_Event extends AppCompatActivity implements View.OnClickListe
             if (!hasFocus) {
                 return;
             }
-            showDatePicker(etEventDate);
+            showDatePicker(etEventDate, this);
         });
 
         etEventEndDate.setOnFocusChangeListener((v, hasFocus) -> {
             if (!hasFocus) {
                 return;
             }
-            showDatePicker(etEventEndDate);
+            showDatePicker(etEventEndDate, this);
         });
 
         spEventType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -199,28 +200,28 @@ public class Create_Event extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public void showDatePicker(EditText etDate) {
+    public void showDatePicker(EditText etDate, Context context) {
         calendar = Calendar.getInstance();
 
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH);
         int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-        DatePickerDialog datePickerDialog = new DatePickerDialog(Create_Event.this,
+        DatePickerDialog datePickerDialog = new DatePickerDialog(context,
                 (DatePicker view1, int selectedYear, int selectedMonth, int selectedDay) -> {
                     Calendar calendarSelected = Calendar.getInstance();
                     calendarSelected.set(selectedYear, selectedMonth, selectedDay);
-                    showTimePicker(calendarSelected, etDate);
+                    showTimePicker(calendarSelected, etDate, context);
 
                 }, year, month, day);
         datePickerDialog.show();
     }
 
-    public void showTimePicker(Calendar calendar, EditText etDate) {
+    public void showTimePicker(Calendar calendar, EditText etDate, Context context) {
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
         int minute = calendar.get(Calendar.MINUTE);
 
-        TimePickerDialog timePickerDialog = new TimePickerDialog(Create_Event.this,
+        TimePickerDialog timePickerDialog = new TimePickerDialog(context,
                 (TimePicker view2, int hourOfDay, int minuteOfHour) -> {
                     calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
                     calendar.set(Calendar.MINUTE, minuteOfHour);

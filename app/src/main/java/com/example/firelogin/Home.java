@@ -135,6 +135,18 @@ public class Home extends AppCompatActivity {
             navController.navigate(R.id.navEv_events, null, new NavOptions.Builder()
                     .setPopUpTo(R.id.navEv_events, false)
                     .build());
+
+        } else if (fragmentEvent != null && fragmentEvent.equals("fragment_my_events")) {
+            NavController navController = Navigation.findNavController(Home.this, R.id.nav_host_fragment_content_home);
+            navController.navigate(R.id.navEv_myevents, null, new NavOptions.Builder()
+                    .setPopUpTo(R.id.navEv_myevents, false)
+                    .build());
+
+        } else if (fragmentEvent != null && fragmentEvent.equals("fragment_history")) {
+            NavController navController = Navigation.findNavController(Home.this, R.id.nav_host_fragment_content_home);
+            navController.navigate(R.id.navEv_history, null, new NavOptions.Builder()
+                    .setPopUpTo(R.id.navEv_history, false)
+                    .build());
         }
     }
 

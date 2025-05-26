@@ -1,5 +1,7 @@
 package com.example.firelogin;
 
+import androidx.annotation.NonNull;
+
 public class EventType {
     private Integer id;
     private String name;
@@ -9,6 +11,7 @@ public class EventType {
         this.name = name;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return name;

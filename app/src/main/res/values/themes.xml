@@ -67,5 +67,6 @@
 
     <style name="fieldsColor">
         <item name="android:backgroundTint">@color/fieldsLightColor</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 </resources>

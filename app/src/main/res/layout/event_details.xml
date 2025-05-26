@@ -135,6 +135,36 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:padding="10dp"
+                android:text="Organizador"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/dtEventOrganizer"
+                style="@style/fieldsColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/redondedado"
+                android:maxWidth="320dp"
+                android:minWidth="270dp"
+                android:padding="10dp"
+                android:textSize="20sp"
+                android:enabled="false"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:padding="10dp"
                 android:text="Descripción"
                 android:textSize="20sp" />
 
@@ -399,7 +429,16 @@
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:maxWidth="150dp"
-                android:text="Salir" />
+                android:text="Regresar" />
+
+            <Button
+                android:id="@+id/btnLeaveEvent"
+                style="@style/botonsColor"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:maxWidth="150dp"
+                android:text="Abandonar" />
 
             <Button
                 android:id="@+id/btnJoin"
