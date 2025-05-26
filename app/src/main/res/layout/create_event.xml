@@ -141,10 +141,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:padding="10dp"
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
                 android:text="Fecha y hora del evento"
                 android:textSize="20sp" />
 
