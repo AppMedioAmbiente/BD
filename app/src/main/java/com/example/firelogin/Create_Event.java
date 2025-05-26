@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+<<<<<<< Updated upstream
+=======
 import androidx.fragment.app.Fragment;
+>>>>>>> Stashed changes
 import androidx.lifecycle.ViewModelProvider;
 
 import android.Manifest;
@@ -15,7 +18,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+<<<<<<< Updated upstream
+=======
 import android.preference.PreferenceManager;
+>>>>>>> Stashed changes
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -43,10 +49,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.osmdroid.api.IMapController;
 import org.osmdroid.events.MapEventsReceiver;
+<<<<<<< Updated upstream
+import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
+import org.osmdroid.util.GeoPoint;
+=======
 import org.osmdroid.tileprovider.tilesource.OnlineTileSourceBase;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.util.MapTileIndex;
+>>>>>>> Stashed changes
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.CopyrightOverlay;
 import org.osmdroid.views.overlay.MapEventsOverlay;
@@ -75,6 +86,10 @@ public class Create_Event extends AppCompatActivity implements View.OnClickListe
     private IMapController mapController;
     private static final String TAG = "OsmActivity";
     private static final int PERMISSION_REQUEST_CODE = 1;
+<<<<<<< Updated upstream
+    private  Marker lastMarker;
+=======
+>>>>>>> Stashed changes
 
     AutoCompleteTextView searchEditText;
     Button searchButton, waypointBtn;
@@ -136,8 +151,7 @@ public class Create_Event extends AppCompatActivity implements View.OnClickListe
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
+            public void onNothingSelected(AdapterView<?> parent) { }
         });
 
         etEventDescrip.setOnTouchListener(new View.OnTouchListener() {
@@ -205,6 +219,7 @@ public class Create_Event extends AppCompatActivity implements View.OnClickListe
 
             EventType selectedType = (EventType) spEventType.getSelectedItem();
             try {
+
                 Map<String, Object> data = new HashMap<>();
                 data.put("event_name", etEventName.getText().toString().trim());
                 data.put("type", db.collection("event_type").document(selectedType.getId().toString()));
@@ -216,23 +231,43 @@ public class Create_Event extends AppCompatActivity implements View.OnClickListe
                 data.put("status", db.collection("event_status").document("1"));
                 data.put("organizer", db.collection("usuarios").document(user.getUid()));
 
-                db.collection("eventos").add(data).addOnSuccessListener(s -> {
+                com.google.firebase.firestore.GeoPoint firestoreGeoPoint = null;
+                if (lastMarker != null) {
+                    org.osmdroid.util.GeoPoint point = lastMarker.getPosition();
+                    double latitude = point.getLatitude();
+                    double longitude = point.getLongitude();
 
-                            Map<String, Object> dataEvUser = new HashMap<>();
-                            dataEvUser.put("id_event", db.collection("eventos").document(s.getId()));
-                            dataEvUser.put("id_usuario", db.collection("usuarios").document(user.getUid()));
-                            db.collection("event_has_usuarios").add(dataEvUser).addOnFailureListener(f1 -> {
-                                Log.d("Error al guardar el evento y usuario: ", f1.getMessage());
+                    com.google.firebase.firestore.GeoPoint finalFirestoreGeoPoint =
+                            new com.google.firebase.firestore.GeoPoint(latitude, longitude);
+                    data.put("location", finalFirestoreGeoPoint);
+
+
+                    db.collection("eventos").add(data).addOnSuccessListener(s -> {
+
+                                Map<String, Object> dataEvUser = new HashMap<>();
+                                dataEvUser.put("id_event", db.collection("eventos").document(s.getId()));
+                                dataEvUser.put("id_usuario", db.collection("usuarios").document(user.getUid()));
+                                db.collection("event_has_usuarios").add(dataEvUser).addOnFailureListener(f1 -> {
+                                    Log.d("Error al guardar el evento y usuario: ", f1.getMessage());
+                                });
+
+                                Map<String, Object> geoData = new HashMap<>();
+                                geoData.put("location", finalFirestoreGeoPoint);
+                                geoData.put("id_event", s);
+                                db.collection("geopoint").add(geoData)
+                                        .addOnSuccessListener(gRef -> Log.d("Firebase", "GeoPoint guardado correctamente"))
+                                        .addOnFailureListener(e -> Log.e("Firebase", "Error al guardar geopoint", e));
+
+
+                                Intent intent = new Intent(this, Home.class);
+                                intent.putExtra("fragmentToLoad", "fragment_events");
+                                startActivity(intent);
+                            })
+                            .addOnFailureListener(f -> {
+                                showToastAlert("Error al guardar los datos");
+                                Log.d("Error: ", f.getMessage());
                             });
-
-                            Intent intent = new Intent(this, Home.class);
-                            intent.putExtra("fragmentToLoad", "fragment_events");
-                            startActivity(intent);
-                        })
-                        .addOnFailureListener(f -> {
-                            showToastAlert("Error al guardar los datos");
-                            Log.d("Error: ", f.getMessage());
-                        });
+                }
 
             } catch (ParseException ex) {
                 showToastAlert("Error al guardar la fecha");
@@ -358,7 +393,11 @@ public class Create_Event extends AppCompatActivity implements View.OnClickListe
         mapController = map.getController();
         mapController.setZoom(18);
 
+<<<<<<< Updated upstream
+        /*map.setTileSource(new OnlineTileSourceBase(
+=======
         map.setTileSource(new OnlineTileSourceBase(
+>>>>>>> Stashed changes
                 "Carto Light",
                 1, 20, 256, "",
                 new String[] { "a", "b", "c" }) {
@@ -373,12 +412,21 @@ public class Create_Event extends AppCompatActivity implements View.OnClickListe
                 return "https://" + getBaseUrl() + ".basemaps.cartocdn.com/light_all/"
                         + zoom + "/" + x + "/" + y + ".png";
             }
+<<<<<<< Updated upstream
+        });*/
+=======
         });
+>>>>>>> Stashed changes
         map.setMultiTouchControls(true);
 
         Log.w(TAG, "ando aca");
 
 
+<<<<<<< Updated upstream
+
+
+=======
+>>>>>>> Stashed changes
         if (isStoragePermissionGranted() == true) {
 
             MyLocationNewOverlay mLocationOverlay = new MyLocationNewOverlay(
@@ -422,10 +470,18 @@ public class Create_Event extends AppCompatActivity implements View.OnClickListe
                 public boolean singleTapConfirmedHelper(org.osmdroid.util.GeoPoint p) {
                     org.osmdroid.util.GeoPoint startPoint = new org.osmdroid.util.GeoPoint(p.getLatitude(), p.getLongitude());
 
+<<<<<<< Updated upstream
+                    lastMarker = new Marker(map);
+                    lastMarker.setPosition(startPoint);
+                    lastMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
+                    lastMarker.setTitle("Waypoint");
+                    map.getOverlays().add(lastMarker);
+=======
                     Marker waypoint = new Marker(map);
                     waypoint.setPosition(startPoint);
                     waypoint.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
                     map.getOverlays().add(waypoint);
+>>>>>>> Stashed changes
                     map.invalidate();
 
                     Log.w(TAG, "Clic detectado en: " + p.getLatitude() + ", " + p.getLongitude());
