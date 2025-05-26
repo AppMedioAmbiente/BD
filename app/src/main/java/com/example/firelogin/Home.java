@@ -8,6 +8,7 @@ import android.content.ClipData;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
@@ -28,6 +29,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.firelogin.databinding.HomeBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -66,15 +68,13 @@ public class Home extends AppCompatActivity {
         binding = HomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        redirectFragments();
-
         ImageCarousel carousel = findViewById(R.id.carousel);
         List<CarouselItem> list = new ArrayList<>();
         list.add(new CarouselItem(R.drawable.logo, "Icono de SECOVO"));
         carousel.setData(list);
         FirebaseUser cu = FirebaseAuth.getInstance().getCurrentUser();
-        if(cu!=null) {
-            Toast.makeText(this, "Bienvenido " +cu.getEmail(), Toast.LENGTH_SHORT).show();
+        if (cu != null) {
+            Toast.makeText(this, "Bienvenido " + cu.getEmail(), Toast.LENGTH_SHORT).show();
         }
         setSupportActionBar(binding.appBarHome.toolbar);
         binding.appBarHome.contactus.setOnClickListener(new View.OnClickListener() {
@@ -100,6 +100,7 @@ public class Home extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
 
         navigationView.setNavigationItemSelectedListener(item -> {
+            //redirectFragments();
             int id = item.getItemId();
 
             if (id == R.id.nav_profile) {
@@ -114,21 +115,24 @@ public class Home extends AppCompatActivity {
                 drawer.closeDrawer(GravityCompat.START);
             }
 
-            if (id == R.id.nav_logout){
-            findViewById(R.id.nav_logout).setOnClickListener(l->{
-                FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(Home.this,Login.class));
-            });
+            if (id == R.id.nav_logout) {
+                findViewById(R.id.nav_logout).setOnClickListener(l -> {
+                    FirebaseAuth.getInstance().signOut();
+                    startActivity(new Intent(Home.this, Login.class));
+                });
             }
 
             return handled;
         });
 
+        //findViewById(R.id.nav_host_fragment_content_home).post(this::redirectFragments);
 
     }
 
     public void redirectFragments() {
         String fragmentEvent = getIntent().getStringExtra("fragmentToLoad");
+
+        //Toast.makeText(this, "Redirigir al fragmento "+ ((fragmentEvent!=null) ? fragmentEvent : "Nada"), Toast.LENGTH_SHORT).show();
 
         if (fragmentEvent != null && fragmentEvent.equals("fragment_events")) {
             NavController navController = Navigation.findNavController(Home.this, R.id.nav_host_fragment_content_home);
@@ -146,6 +150,12 @@ public class Home extends AppCompatActivity {
             NavController navController = Navigation.findNavController(Home.this, R.id.nav_host_fragment_content_home);
             navController.navigate(R.id.navEv_history, null, new NavOptions.Builder()
                     .setPopUpTo(R.id.navEv_history, false)
+                    .build());
+
+        } else if (fragmentEvent != null) {
+            NavController navController = Navigation.findNavController(Home.this, R.id.nav_host_fragment_content_home);
+            navController.navigate(R.id.nav_home, null, new NavOptions.Builder()
+                    .setPopUpTo(R.id.nav_home, false)
                     .build());
         }
     }

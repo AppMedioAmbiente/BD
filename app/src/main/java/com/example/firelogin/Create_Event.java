@@ -166,6 +166,20 @@ public class Create_Event extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+        findViewById(R.id.mapView).setOnTouchListener((v, event) -> {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                case MotionEvent.ACTION_MOVE:
+                    v.getParent().requestDisallowInterceptTouchEvent(true);
+                    break;
+                case MotionEvent.ACTION_UP:
+                case MotionEvent.ACTION_CANCEL:
+                    v.getParent().requestDisallowInterceptTouchEvent(false);
+                    break;
+            }
+            return false;
+        });
+
         List<EventType> types = new ArrayList<>();
         types.add(new EventType(-1, ""));
 
