@@ -18,6 +18,12 @@
         tools:layout_editor_absoluteX="55dp"
         tools:layout_editor_absoluteY="38dp" />
 
+    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+        android:id="@+id/eventsCalendar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!--
     <CalendarView
         android:id="@+id/eventsCalendar"
         android:layout_width="match_parent"
@@ -66,5 +72,5 @@
         </LinearLayout>
 
     </LinearLayout>
-
+-->
 </LinearLayout>
