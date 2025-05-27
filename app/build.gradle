@@ -1,7 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
-
+    id 'com.google.gms.google-services'
     id 'org.jetbrains.kotlin.android'
 }
 
@@ -45,6 +45,16 @@ android {
 }
 
 dependencies {
+    implementation platform('com.google.firebase:firebase-bom:32.8.0')
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-firestore'
+    implementation 'com.google.firebase:firebase-appcheck'
+    implementation 'com.google.firebase:firebase-appcheck-debug'
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.16.0'
+    testImplementation 'junit:junit:4.13.2'
+
 
     //reselctor de pais y estado
     implementation 'com.github.mukeshsolanki:country-picker-android:2.0.1'
@@ -77,7 +87,7 @@ dependencies {
 implementation 'com.google.android.material:material:1.12.0'
 
     //implementation (platform("com.google.firebase:firebase-bom:32.8.0"))
-    implementation 'com.google.firebase:firebase-auth:21.0.5'  
+    implementation 'com.google.firebase:firebase-auth:21.0.5'
     implementation 'com.google.firebase:firebase-analytics:21.2.0'
     implementation 'com.google.firebase:firebase-database:20.0.3'
     implementation 'com.google.firebase:firebase-firestore:24.4.0'
@@ -88,6 +98,19 @@ implementation 'com.google.android.material:material:1.12.0'
 
     //Librería para el calendario
     //implementation 'com.applandeo:material-calendar-view:1-7-0'
+
+    //grupos
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+
+    implementation 'com.google.firebase:firebase-database:20.0.5'
+    implementation 'com.google.firebase:firebase-storage:20.2.0'
+    implementation 'com.google.android.gms:play-services-tasks:18.0.2'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
 
 
     implementation 'com.github.bumptech.glide:glide:4.15.1'

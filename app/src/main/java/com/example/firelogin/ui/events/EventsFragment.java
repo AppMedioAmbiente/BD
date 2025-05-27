@@ -79,46 +79,49 @@ public class EventsFragment extends Fragment {
     public void loadEventsCards() {
         db.collection("eventos").get().addOnSuccessListener(documentSnapshot -> {
             documentSnapshot.getDocuments().forEach(event -> {
-                View cardview = LayoutInflater.from(getContext()).inflate(R.layout.events_cardview, eventsContainer, false);
 
-                DocumentReference organizerDoc = event.getDocumentReference("organizer");
-                DocumentReference typeDoc = event.getDocumentReference("type");
+                if (event.getDocumentReference("status").getId().equals("1") || event.getDocumentReference("status").getId().equals("2")) {
+                    View cardview = LayoutInflater.from(getContext()).inflate(R.layout.events_cardview, eventsContainer, false);
 
-                TextView name = cardview.findViewById(R.id.eventName);
-                TextView date = cardview.findViewById(R.id.tvEventDate);
-                TextView endDate = cardview.findViewById(R.id.tvEventEndDate);
-                TextView organizer = cardview.findViewById(R.id.tvEventOrganizer);
-                TextView type = cardview.findViewById(R.id.tvEventType);
-                Button joinEvent = cardview.findViewById(R.id.btnJoinEvent);
-                Button eventDetails = cardview.findViewById(R.id.btnEventDetails);
+                    DocumentReference organizerDoc = event.getDocumentReference("organizer");
+                    DocumentReference typeDoc = event.getDocumentReference("type");
 
-                name.setText(event.getString("event_name"));
-                date.setText(sdf.format(event.getDate("date")));
-                endDate.setText(sdf.format(event.getDate("end_date")));
-                organizerDoc.get().addOnSuccessListener(doc -> {
-                    organizer.setText(doc.getString("name"));
-                });
-                typeDoc.get().addOnSuccessListener(doc -> {
-                    type.setText(doc.getString("type"));
-                });
+                    TextView name = cardview.findViewById(R.id.eventName);
+                    TextView date = cardview.findViewById(R.id.tvEventDate);
+                    TextView endDate = cardview.findViewById(R.id.tvEventEndDate);
+                    TextView organizer = cardview.findViewById(R.id.tvEventOrganizer);
+                    TextView type = cardview.findViewById(R.id.tvEventType);
+                    Button joinEvent = cardview.findViewById(R.id.btnJoinEvent);
+                    Button eventDetails = cardview.findViewById(R.id.btnEventDetails);
 
-                eventDetails.setOnClickListener(v ->{
-                    Intent intent = new Intent(getContext(), Event_Details.class);
-                    intent.putExtra("id_event", event.getId());
-                    startActivity(intent);
-                });
+                    name.setText(event.getString("event_name"));
+                    date.setText(sdf.format(event.getDate("date")));
+                    endDate.setText(sdf.format(event.getDate("end_date")));
+                    organizerDoc.get().addOnSuccessListener(doc -> {
+                        organizer.setText(doc.getString("name"));
+                    });
+                    typeDoc.get().addOnSuccessListener(doc -> {
+                        type.setText(doc.getString("type"));
+                    });
 
-                db.collection("event_has_usuarios")
-                        .whereEqualTo("id_event", db.collection("eventos").document(event.getId()))
-                        .whereEqualTo("id_usuario", db.collection("usuarios").document(user.getUid()))
-                        .get().addOnSuccessListener(querySnapshot -> {
+                    eventDetails.setOnClickListener(v -> {
+                        Intent intent = new Intent(getContext(), Event_Details.class);
+                        intent.putExtra("id_event", event.getId());
+                        intent.putExtra("fromFragment", "Events");
+                        startActivity(intent);
+                    });
 
-                            if (querySnapshot.isEmpty()) {
-                                //Log.d("Query Snapshot vacío: ", querySnapshot.toString());
-                                joinEvent.setOnClickListener(v -> {
-                                    Map<String, Object> data = new HashMap<>();
-                                    data.put("id_event", db.collection("eventos").document(event.getId()));
-                                    data.put("id_usuario", db.collection("usuarios").document(user.getUid()));
+                    db.collection("event_has_usuarios")
+                            .whereEqualTo("id_event", db.collection("eventos").document(event.getId()))
+                            .whereEqualTo("id_usuario", db.collection("usuarios").document(user.getUid()))
+                            .get().addOnSuccessListener(querySnapshot -> {
+
+                                if (querySnapshot.isEmpty()) {
+                                    //Log.d("Query Snapshot vacío: ", querySnapshot.toString());
+                                    joinEvent.setOnClickListener(v -> {
+                                        Map<String, Object> data = new HashMap<>();
+                                        data.put("id_event", db.collection("eventos").document(event.getId()));
+                                        data.put("id_usuario", db.collection("usuarios").document(user.getUid()));
 
                                     db.collection("event_has_usuarios").add(data).addOnSuccessListener(s ->{
                                                 joinEvent.setEnabled(false);
@@ -129,13 +132,14 @@ public class EventsFragment extends Fragment {
                                             });
                                 });
 
-                            } else {
-                                //Log.d("Query Snapshot: ", querySnapshot.toString());
-                                joinEvent.setEnabled(false);
-                            }
-                        });
+                                } else {
+                                    //Log.d("Query Snapshot: ", querySnapshot.toString());
+                                    joinEvent.setEnabled(false);
+                                }
+                            });
 
-                eventsContainer.addView(cardview);
+                    eventsContainer.addView(cardview);
+                }
             });
         })
                 .addOnFailureListener(f -> {

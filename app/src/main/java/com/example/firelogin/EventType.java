@@ -1,8 +1,6 @@
 package com.example.firelogin;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import androidx.annotation.NonNull;
 
 public class EventType {
     private Integer id;
@@ -13,6 +11,7 @@ public class EventType {
         this.name = name;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return name;

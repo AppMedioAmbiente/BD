@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
@@ -31,6 +32,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.viewbinding.ViewBinding;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -72,19 +74,18 @@ public class Home extends AppCompatActivity {
         binding = HomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        redirectFragments();
-
-        ImageCarousel carousel = findViewById(R.id.carousel);
-        if(carousel!=null) {
-            List<CarouselItem> list = new ArrayList<>();
-            list.add(new CarouselItem(R.drawable.logo, "Icono de SECOVO"));
-            carousel.setData(list);
-        }
-
         fh = new FirebaseHandler(2);
         cu = fh.getUser();
 
-        Toast.makeText(this, "Bienvenido " +cu.getEmail(), Toast.LENGTH_SHORT).show();
+        ImageCarousel carousel = findViewById(R.id.carousel);
+        List<CarouselItem> list = new ArrayList<>();
+        list.add(new CarouselItem(R.drawable.logo, "Icono de SECOVO"));
+        carousel.setData(list);
+        if (cu != null) {
+            Toast.makeText(this, "Bienvenido " + cu.getEmail(), Toast.LENGTH_SHORT).show();
+        }        
+
+        // Toast.makeText(this, "Bienvenido " +cu.getEmail(), Toast.LENGTH_SHORT).show();
         setSupportActionBar(binding.appBarHome.toolbar);
 
         setUserTexts();
@@ -112,6 +113,7 @@ public class Home extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
 
         navigationView.setNavigationItemSelectedListener(item -> {
+            //redirectFragments();
             int id = item.getItemId();
 
             if (id == R.id.nav_profile) {
@@ -126,15 +128,16 @@ public class Home extends AppCompatActivity {
                 drawer.closeDrawer(GravityCompat.START);
             }
 
-            if (id == R.id.nav_logout){
-            findViewById(R.id.nav_logout).setOnClickListener(l->{
-                FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(Home.this, Login.class));
-            });
+            if (id == R.id.nav_logout) {
+                findViewById(R.id.nav_logout).setOnClickListener(l -> {
+                    FirebaseAuth.getInstance().signOut();
+                    startActivity(new Intent(Home.this, Login.class));
+                });
             }
 
             return handled;
         });
+        //findViewById(R.id.nav_host_fragment_content_home).post(this::redirectFragments);
         //showToastAlert(this,"Fin de Home");
     }
 
@@ -149,16 +152,37 @@ public class Home extends AppCompatActivity {
             }else{
                 print("no hubo exito");
             }
-        });
+        });        //findViewById(R.id.nav_host_fragment_content_home).post(this::redirectFragments);
+
     }
 
     public void redirectFragments() {
         String fragmentEvent = getIntent().getStringExtra("fragmentToLoad");
 
+        //Toast.makeText(this, "Redirigir al fragmento "+ ((fragmentEvent!=null) ? fragmentEvent : "Nada"), Toast.LENGTH_SHORT).show();
+
         if (fragmentEvent != null && fragmentEvent.equals("fragment_events")) {
             NavController navController = Navigation.findNavController(Home.this, R.id.nav_host_fragment_content_home);
             navController.navigate(R.id.navEv_events, null, new NavOptions.Builder()
                     .setPopUpTo(R.id.navEv_events, false)
+                    .build());
+
+        } else if (fragmentEvent != null && fragmentEvent.equals("fragment_my_events")) {
+            NavController navController = Navigation.findNavController(Home.this, R.id.nav_host_fragment_content_home);
+            navController.navigate(R.id.navEv_myevents, null, new NavOptions.Builder()
+                    .setPopUpTo(R.id.navEv_myevents, false)
+                    .build());
+
+        } else if (fragmentEvent != null && fragmentEvent.equals("fragment_history")) {
+            NavController navController = Navigation.findNavController(Home.this, R.id.nav_host_fragment_content_home);
+            navController.navigate(R.id.navEv_history, null, new NavOptions.Builder()
+                    .setPopUpTo(R.id.navEv_history, false)
+                    .build());
+
+        } else if (fragmentEvent != null) {
+            NavController navController = Navigation.findNavController(Home.this, R.id.nav_host_fragment_content_home);
+            navController.navigate(R.id.nav_home, null, new NavOptions.Builder()
+                    .setPopUpTo(R.id.nav_home, false)
                     .build());
         }
     }
