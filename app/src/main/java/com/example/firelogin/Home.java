@@ -22,12 +22,15 @@ import com.example.firelogin.settings.Settings_PD;
 import com.example.firelogin.ui.groups.GroupsFragment;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -51,6 +54,9 @@ public class Home extends AppCompatActivity {
     private HomeBinding binding;
     private FirebaseHandler fh;
     private FirebaseUser cu;
+    String nickname="";
+    Boolean wasHeaderLoaded=false;
+
 
     //    FirebaseHandler fh;
     @Override
@@ -70,12 +76,24 @@ public class Home extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         //showToastAlert(this,"inicio de Home");
-
-        binding = HomeBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-
         fh = new FirebaseHandler(2);
         cu = fh.getUser();
+
+        fh.abrirDocumento("usuarios",cu.getUid(),(exito,doc)->{
+            if(exito) {
+                nickname=doc.getString("nickname");
+                if(wasHeaderLoaded){
+                    print("Parece que header cargó antes que esta consulta");
+                    setUserTexts();
+                }else{
+                    print("todo normal y sin problemas");
+                }
+            }else{
+                print("no hubo exito");
+            }
+        });
+        binding = HomeBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         ImageCarousel carousel = findViewById(R.id.carousel);
         List<CarouselItem> list = new ArrayList<>();
@@ -88,7 +106,10 @@ public class Home extends AppCompatActivity {
         // Toast.makeText(this, "Bienvenido " +cu.getEmail(), Toast.LENGTH_SHORT).show();
         setSupportActionBar(binding.appBarHome.toolbar);
 
-        setUserTexts();
+        binding.navView.post(()->{
+            setUserTexts();
+        });
+//        setUserTexts();
         binding.appBarHome.contactus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -137,23 +158,22 @@ public class Home extends AppCompatActivity {
 
             return handled;
         });
-        //findViewById(R.id.nav_host_fragment_content_home).post(this::redirectFragments);
-        //showToastAlert(this,"Fin de Home");
     }
-
     private void setUserTexts() {
-        fh.abrirDocumento("usuarios",cu.getUid(),(exito,doc)->{
-            if(exito) {
-                TextView email = binding.navView.findViewById(R.id.emailH);
-                email.setText(cu.getEmail());
+        TextView email = binding.navView.findViewById(R.id.emailH);
+        TextView name = binding.navView.findViewById(R.id.usernameH);
 
-                TextView name = binding.navView.findViewById(R.id.usernameH);
-                name.setText(doc.get("nickname").toString());
-            }else{
-                print("no hubo exito");
-            }
-        });        //findViewById(R.id.nav_host_fragment_content_home).post(this::redirectFragments);
-
+        if(name==null || email==null){
+            showToastAlert(this,"WTF, name e email nulos");
+            return;
+        }
+        if(nickname.equals("")){
+            wasHeaderLoaded=true;
+            return;
+        }
+        email.setText(cu.getEmail());
+        name.setText(nickname);
+        print("name e email setted");
     }
 
     public void redirectFragments() {
@@ -207,9 +227,10 @@ public class Home extends AppCompatActivity {
         // defValue: 0=DarkMode, 1=LightMode
         int theme = sharedPref.getInt("Theme", 0);
         int currentMode = AppCompatDelegate.getDefaultNightMode();
-        if (theme == 0 && currentMode!=0) {
+
+        if (theme == 0 && currentMode!=MODE_NIGHT_YES) {
             AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES);
-        } else if (theme == 1 && currentMode!=1) {
+        } else if (theme == 1 && currentMode!=MODE_NIGHT_NO) {
             AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO);
         }
     }
