@@ -15,17 +15,12 @@ public class HolderMensaje extends RecyclerView.ViewHolder {
     private TextView nombre;
     private TextView mensaje;
     private TextView hora;
-    private CircleImageView fotoMensajePerfil;
-    private ImageView fotoMensaje;
 
     public HolderMensaje(View itemView) {
         super(itemView);
         nombre = (TextView) itemView.findViewById(R.id.nombreMensaje);
         mensaje = (TextView) itemView.findViewById(R.id.mensajeMensaje);
-        hora = (TextView) itemView.findViewById(R.id.horaMensaje);
-        fotoMensajePerfil = (CircleImageView) itemView.findViewById(R.id.fotoPerfilMensaje);
-        fotoMensaje = (ImageView) itemView.findViewById(R.id.mensajeFoto);
-    }
+        hora = (TextView) itemView.findViewById(R.id.horaMensaje);}
 
     public TextView getNombre() {
         return nombre;
@@ -51,19 +46,4 @@ public class HolderMensaje extends RecyclerView.ViewHolder {
         this.hora = hora;
     }
 
-    public CircleImageView getFotoMensajePerfil() {
-        return fotoMensajePerfil;
-    }
-
-    public void setFotoMensajePerfil(CircleImageView fotoMensajePerfil) {
-        this.fotoMensajePerfil = fotoMensajePerfil;
-    }
-
-    public ImageView getFotoMensaje() {
-        return fotoMensaje;
-    }
-
-    public void setFotoMensaje(ImageView fotoMensaje) {
-        this.fotoMensaje = fotoMensaje;
-    }
 }

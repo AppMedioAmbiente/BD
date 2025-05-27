@@ -6,15 +6,23 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.firelogin.R;
+import com.example.firelogin.Settings_PD;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -36,23 +44,23 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private CircleImageView fotoPerfil;
+    //private CircleImageView fotoPerfil;
     private TextView nombre;
     private RecyclerView rvMensajes;
     private EditText txtMensaje;
     private Button btnEnviar;
     private AdapterMensajes adapter;
-    private ImageButton btnEnviarFoto;
 
     private FirebaseStorage storage;
     private StorageReference storageReference;
     private FirebaseFirestore firestore;
     private CollectionReference mensajesRef;
 
+    private String nickname_msg;
+
     private static final int PHOTO_SEND = 1;
     private static final int PHOTO_PERFIL = 2;
 
-    private String fotoPerfilCadena = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,12 +69,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.fragment_groups);
 
         // Referencias UI
-        fotoPerfil = findViewById(R.id.fotoPerfil);
         nombre = findViewById(R.id.nombre);
         rvMensajes = findViewById(R.id.rvMensajes);
         txtMensaje = findViewById(R.id.txtMensaje);
         btnEnviar = findViewById(R.id.btnEnviar);
-        btnEnviarFoto = findViewById(R.id.btnEnviarFoto);
 
         // Inicializar Firebase
         storage = FirebaseStorage.getInstance();
@@ -90,15 +96,37 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            String userId = user.getUid();
+
+            db.collection("usuarios").document(userId)
+                    .get()
+                    .addOnSuccessListener(documentSnapshot -> {
+                        nickname_msg = documentSnapshot.getString("nickname");
+                        if (nickname_msg != null) {
+                            // Do something with the nickname, like updating a UI element
+                            Toast.makeText(this, "Nickname: " + nickname_msg, Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(this, "Nickname not found", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(e -> {
+                        Toast.makeText(this, "Error al obtener datos", Toast.LENGTH_SHORT).show();
+                    });
+        }
+
         // Botón enviar texto
         btnEnviar.setOnClickListener(view -> {
             String texto = txtMensaje.getText().toString().trim();
             if (texto.isEmpty()) return;
+            Log.d("nickname que recibe: ", nickname_msg);
 
             Map<String, Object> mensaje = new HashMap<>();
+            mensaje.put("nombre", nickname_msg);
             mensaje.put("mensaje", texto);
-            mensaje.put("nombre", nombre.getText().toString());
-            mensaje.put("fotoPerfil", fotoPerfilCadena);
             mensaje.put("tipo", "1"); // tipo 1 = mensaje texto
             mensaje.put("hora", FieldValue.serverTimestamp());
 
@@ -106,21 +134,13 @@ public class MainActivity extends AppCompatActivity {
             txtMensaje.setText("");
         });
 
-        // Botón enviar foto
-        btnEnviarFoto.setOnClickListener(view -> {
-            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-            intent.setType("image/jpeg");
-            intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
-            startActivityForResult(Intent.createChooser(intent, "Selecciona una foto"), PHOTO_SEND);
-        });
-
         // Cambiar foto perfil
-        fotoPerfil.setOnClickListener(view -> {
+        /*fotoPerfil.setOnClickListener(view -> {
             Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
             intent.setType("image/jpeg");
             intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
             startActivityForResult(Intent.createChooser(intent, "Selecciona una foto"), PHOTO_PERFIL);
-        });
+        });*/
 
         // Ajustar scrollbar automático al agregar mensaje
         adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
@@ -132,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    @Override
+    /*@Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -149,9 +169,7 @@ public class MainActivity extends AppCompatActivity {
                     fotoRef.getDownloadUrl().addOnSuccessListener(downloadUri -> {
                         Map<String, Object> mensaje = new HashMap<>();
                         mensaje.put("mensaje", nombre.getText().toString() + " te ha enviado una foto");
-                        mensaje.put("foto", downloadUri.toString());
-                        mensaje.put("nombre", nombre.getText().toString());
-                        mensaje.put("fotoPerfil", fotoPerfilCadena);
+                        mensaje.put("nombre", nickname_msg);
                         mensaje.put("tipo", "2"); // tipo 2 = foto
                         mensaje.put("hora", FieldValue.serverTimestamp());
 
@@ -170,9 +188,7 @@ public class MainActivity extends AppCompatActivity {
 
                         Map<String, Object> mensaje = new HashMap<>();
                         mensaje.put("mensaje", nombre.getText().toString() + " ha actualizado su foto de perfil");
-                        mensaje.put("foto", downloadUri.toString());
-                        mensaje.put("nombre", nombre.getText().toString());
-                        mensaje.put("fotoPerfil", fotoPerfilCadena);
+                        mensaje.put("nombre", nickname_msg;
                         mensaje.put("tipo", "2"); // tipo 2 = foto
                         mensaje.put("hora", FieldValue.serverTimestamp());
 
@@ -181,5 +197,5 @@ public class MainActivity extends AppCompatActivity {
                     })
             );
         }
-    }
+    }*/
 }
