@@ -49,6 +49,10 @@ public class Splash_Screen extends LoginTemplate {
                     user=null;
                     redirect();
                 }
+            }).addOnFailureListener(view->{
+                fb.cerrarSesion();
+                user=null;
+                redirect();
             });
         }
     }
