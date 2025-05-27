@@ -1,4 +1,4 @@
-package piazzoli.kevin.com.firebasechat;
+package com.example.firelogin.ui.groups;
 
 import java.util.Map;
 

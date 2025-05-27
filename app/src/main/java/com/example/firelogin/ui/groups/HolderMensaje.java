@@ -1,15 +1,14 @@
-package piazzoli.kevin.com.firebasechat;
+package com.example.firelogin.ui.groups;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.firelogin.R;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
-/**
- * Created by user on 04/09/2017. 04
- */
 
 public class HolderMensaje extends RecyclerView.ViewHolder {
 

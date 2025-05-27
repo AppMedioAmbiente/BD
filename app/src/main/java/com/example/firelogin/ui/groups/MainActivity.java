@@ -1,4 +1,4 @@
-package piazzoli.kevin.com.firebasechat;
+package com.example.firelogin.ui.groups;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.firelogin.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -20,9 +21,16 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -36,135 +44,142 @@ public class MainActivity extends AppCompatActivity {
     private AdapterMensajes adapter;
     private ImageButton btnEnviarFoto;
 
-    private FirebaseDatabase database;
-    private DatabaseReference databaseReference;
     private FirebaseStorage storage;
     private StorageReference storageReference;
+    private FirebaseFirestore firestore;
+    private CollectionReference mensajesRef;
+
     private static final int PHOTO_SEND = 1;
     private static final int PHOTO_PERFIL = 2;
-    private String fotoPerfilCadena;
+
+    private String fotoPerfilCadena = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        // Solo una llamada setContentView, usa el layout correcto para esta activity
+        setContentView(R.layout.fragment_groups);
 
-        fotoPerfil = (CircleImageView) findViewById(R.id.fotoPerfil);
-        nombre = (TextView) findViewById(R.id.nombre);
-        rvMensajes = (RecyclerView) findViewById(R.id.rvMensajes);
-        txtMensaje = (EditText) findViewById(R.id.txtMensaje);
-        btnEnviar = (Button) findViewById(R.id.btnEnviar);
-        btnEnviarFoto = (ImageButton) findViewById(R.id.btnEnviarFoto);
-        fotoPerfilCadena = "";
+        // Referencias UI
+        fotoPerfil = findViewById(R.id.fotoPerfil);
+        nombre = findViewById(R.id.nombre);
+        rvMensajes = findViewById(R.id.rvMensajes);
+        txtMensaje = findViewById(R.id.txtMensaje);
+        btnEnviar = findViewById(R.id.btnEnviar);
+        btnEnviarFoto = findViewById(R.id.btnEnviarFoto);
 
-        database = FirebaseDatabase.getInstance();
-        databaseReference = database.getReference("chat");//Sala de chat (nombre)
+        // Inicializar Firebase
         storage = FirebaseStorage.getInstance();
+        firestore = FirebaseFirestore.getInstance();
+        mensajesRef = firestore.collection("chat");
 
+        // Configurar RecyclerView
         adapter = new AdapterMensajes(this);
-        LinearLayoutManager l = new LinearLayoutManager(this);
-        rvMensajes.setLayoutManager(l);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        rvMensajes.setLayoutManager(layoutManager);
         rvMensajes.setAdapter(adapter);
 
-        btnEnviar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                databaseReference.push().setValue(new MensajeEnviar(txtMensaje.getText().toString(),nombre.getText().toString(),fotoPerfilCadena,"1", ServerValue.TIMESTAMP));
-                txtMensaje.setText("");
+        // Escuchar nuevos mensajes en Firestore
+        mensajesRef.orderBy("hora").addSnapshotListener((snapshots, e) -> {
+            if (e != null) return;
+            for (DocumentChange dc : snapshots.getDocumentChanges()) {
+                if (dc.getType() == DocumentChange.Type.ADDED) {
+                    MensajeRecibir m = dc.getDocument().toObject(MensajeRecibir.class);
+                    adapter.addMensaje(m);
+                }
             }
         });
 
-        btnEnviarFoto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(Intent.ACTION_GET_CONTENT);
-                i.setType("image/jpeg");
-                i.putExtra(Intent.EXTRA_LOCAL_ONLY,true);
-                startActivityForResult(Intent.createChooser(i,"Selecciona una foto"),PHOTO_SEND);
-            }
+        // Botón enviar texto
+        btnEnviar.setOnClickListener(view -> {
+            String texto = txtMensaje.getText().toString().trim();
+            if (texto.isEmpty()) return;
+
+            Map<String, Object> mensaje = new HashMap<>();
+            mensaje.put("mensaje", texto);
+            mensaje.put("nombre", nombre.getText().toString());
+            mensaje.put("fotoPerfil", fotoPerfilCadena);
+            mensaje.put("tipo", "1"); // tipo 1 = mensaje texto
+            mensaje.put("hora", FieldValue.serverTimestamp());
+
+            mensajesRef.add(mensaje);
+            txtMensaje.setText("");
         });
 
-        fotoPerfil.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(Intent.ACTION_GET_CONTENT);
-                i.setType("image/jpeg");
-                i.putExtra(Intent.EXTRA_LOCAL_ONLY,true);
-                startActivityForResult(Intent.createChooser(i,"Selecciona una foto"),PHOTO_PERFIL);
-            }
+        // Botón enviar foto
+        btnEnviarFoto.setOnClickListener(view -> {
+            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+            intent.setType("image/jpeg");
+            intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
+            startActivityForResult(Intent.createChooser(intent, "Selecciona una foto"), PHOTO_SEND);
         });
 
+        // Cambiar foto perfil
+        fotoPerfil.setOnClickListener(view -> {
+            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+            intent.setType("image/jpeg");
+            intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
+            startActivityForResult(Intent.createChooser(intent, "Selecciona una foto"), PHOTO_PERFIL);
+        });
+
+        // Ajustar scrollbar automático al agregar mensaje
         adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
             @Override
             public void onItemRangeInserted(int positionStart, int itemCount) {
                 super.onItemRangeInserted(positionStart, itemCount);
-                setScrollbar();
+                rvMensajes.scrollToPosition(adapter.getItemCount() - 1);
             }
         });
-
-        databaseReference.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                MensajeRecibir m = dataSnapshot.getValue(MensajeRecibir.class);
-                adapter.addMensaje(m);
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-    }
-
-    private void setScrollbar(){
-        rvMensajes.scrollToPosition(adapter.getItemCount()-1);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == PHOTO_SEND && resultCode == RESULT_OK){
-            Uri u = data.getData();
-            storageReference = storage.getReference("imagenes_chat");//imagenes_chat
-            final StorageReference fotoReferencia = storageReference.child(u.getLastPathSegment());
-            fotoReferencia.putFile(u).addOnSuccessListener(this, new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    Uri u = taskSnapshot.getDownloadUrl();
-                    MensajeEnviar m = new MensajeEnviar("Kevin te ha enviado una foto",u.toString(),nombre.getText().toString(),fotoPerfilCadena,"2",ServerValue.TIMESTAMP);
-                    databaseReference.push().setValue(m);
-                }
-            });
-        }else if(requestCode == PHOTO_PERFIL && resultCode == RESULT_OK){
-            Uri u = data.getData();
-            storageReference = storage.getReference("foto_perfil");//imagenes_chat
-            final StorageReference fotoReferencia = storageReference.child(u.getLastPathSegment());
-            fotoReferencia.putFile(u).addOnSuccessListener(this, new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    Uri u = taskSnapshot.getDownloadUrl();
-                    fotoPerfilCadena = u.toString();
-                    MensajeEnviar m = new MensajeEnviar("Kevin ha actualizado su foto de perfil",u.toString(),nombre.getText().toString(),fotoPerfilCadena,"2",ServerValue.TIMESTAMP);
-                    databaseReference.push().setValue(m);
-                    Glide.with(MainActivity.this).load(u.toString()).into(fotoPerfil);
-                }
-            });
+
+        if (resultCode != RESULT_OK || data == null || data.getData() == null) return;
+
+        Uri uri = data.getData();
+
+        if (requestCode == PHOTO_SEND) {
+            // Subir foto de chat
+            storageReference = storage.getReference("imagenes_chat");
+            final StorageReference fotoRef = storageReference.child(uri.getLastPathSegment());
+
+            fotoRef.putFile(uri).addOnSuccessListener(taskSnapshot ->
+                    fotoRef.getDownloadUrl().addOnSuccessListener(downloadUri -> {
+                        Map<String, Object> mensaje = new HashMap<>();
+                        mensaje.put("mensaje", nombre.getText().toString() + " te ha enviado una foto");
+                        mensaje.put("foto", downloadUri.toString());
+                        mensaje.put("nombre", nombre.getText().toString());
+                        mensaje.put("fotoPerfil", fotoPerfilCadena);
+                        mensaje.put("tipo", "2"); // tipo 2 = foto
+                        mensaje.put("hora", FieldValue.serverTimestamp());
+
+                        mensajesRef.add(mensaje);
+                    })
+            );
+
+        } else if (requestCode == PHOTO_PERFIL) {
+            // Subir foto de perfil
+            storageReference = storage.getReference("foto_perfil");
+            final StorageReference fotoRef = storageReference.child(uri.getLastPathSegment());
+
+            fotoRef.putFile(uri).addOnSuccessListener(taskSnapshot ->
+                    fotoRef.getDownloadUrl().addOnSuccessListener(downloadUri -> {
+                        fotoPerfilCadena = downloadUri.toString();
+
+                        Map<String, Object> mensaje = new HashMap<>();
+                        mensaje.put("mensaje", nombre.getText().toString() + " ha actualizado su foto de perfil");
+                        mensaje.put("foto", downloadUri.toString());
+                        mensaje.put("nombre", nombre.getText().toString());
+                        mensaje.put("fotoPerfil", fotoPerfilCadena);
+                        mensaje.put("tipo", "2"); // tipo 2 = foto
+                        mensaje.put("hora", FieldValue.serverTimestamp());
+
+                        mensajesRef.add(mensaje);
+                        Glide.with(this).load(downloadUri.toString()).into(fotoPerfil);
+                    })
+            );
         }
     }
 }

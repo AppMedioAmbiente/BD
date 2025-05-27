@@ -1,11 +1,16 @@
-package piazzoli.kevin.com.firebasechat;
+package com.example.firelogin.ui.groups;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.recyclerview.widget.RecyclerView;
+
+
 import com.bumptech.glide.Glide;
+import com.example.firelogin.R;
+import com.example.firelogin.ui.groups.HolderMensaje;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -23,13 +28,13 @@ public class AdapterMensajes extends RecyclerView.Adapter<HolderMensaje> {
 
     public void addMensaje(MensajeRecibir m){
         listMensaje.add(m);
-        adapter.notifyItemInserted(listMensaje.size() - 1);
-        recyclerView.scrollToPosition(listMensaje.size() - 1);
+        notifyItemInserted(listMensaje.size() - 1);
     }
+
 
     @Override
     public HolderMensaje onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(c).inflate(R.layout.card_view_mensajes,parent,false);
+        View v = LayoutInflater.from(c).inflate(R.layout.groups,parent,false);
         return new HolderMensaje(v);
     }
 

@@ -1,4 +1,4 @@
-package piazzoli.kevin.com.firebasechat;
+package com.example.firelogin.ui.groups;
 
 /**
  * Created by user on 04/09/2017. 04
