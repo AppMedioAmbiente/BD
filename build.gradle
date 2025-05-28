@@ -9,8 +9,7 @@ buildscript {
     dependencies {
         //classpath 'com.android.tools.build:gradle:8.0.2'  // Update to AGP 8.0.2 or higher
         classpath 'com.android.tools.build:gradle:7.4.1'
-        //classpath 'com.google.gms:google-services:4.4.2' // Plugin de Google Services
-        classpath 'com.google.gms:google-services:4.3.15'
+        classpath 'com.google.gms:google-services:4.4.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.1"
     }
 }

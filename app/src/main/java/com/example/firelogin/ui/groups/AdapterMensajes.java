@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.firelogin.R;
 import com.example.firelogin.ui.groups.HolderMensaje;
+import com.google.firebase.Timestamp;
 
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -43,22 +45,21 @@ public class AdapterMensajes extends RecyclerView.Adapter<HolderMensaje> {
         holder.getNombre().setText(listMensaje.get(position).getNombre());
         holder.getMensaje().setText(listMensaje.get(position).getMensaje());
         if(listMensaje.get(position).getType_mensaje().equals("2")){
-            holder.getFotoMensaje().setVisibility(View.VISIBLE);
             holder.getMensaje().setVisibility(View.VISIBLE);
-            Glide.with(c).load(listMensaje.get(position).getUrlFoto()).into(holder.getFotoMensaje());
+            Glide.with(c).load(listMensaje.get(position));
         }else if(listMensaje.get(position).getType_mensaje().equals("1")){
-            holder.getFotoMensaje().setVisibility(View.GONE);
             holder.getMensaje().setVisibility(View.VISIBLE);
         }
-        if(listMensaje.get(position).getFotoPerfil().isEmpty()){
-            holder.getFotoMensajePerfil().setImageResource(R.mipmap.ic_launcher);
+        if (listMensaje.get(position).getMensaje() == null || listMensaje.get(position).getMensaje().trim().isEmpty()) {
         }else{
-            Glide.with(c).load(listMensaje.get(position).getFotoPerfil()).into(holder.getFotoMensajePerfil());
+            Glide.with(c).load(listMensaje.get(position));
         }
-        Long codigoHora = listMensaje.get(position).getHora();
-        Date d = new Date(codigoHora);
-        SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss a");//a pm o am
-        holder.getHora().setText(sdf.format(d));
+        Timestamp timestamp = listMensaje.get(position).getHora();
+        if (timestamp != null) {
+            Date d = timestamp.toDate();
+            SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss a");
+            holder.getHora().setText(sdf.format(d));
+        }
     }
 
     @Override
