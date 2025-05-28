@@ -16,15 +16,12 @@
   <component name="ChangeListManager">
     <list default="true" id="5ac168f3-b9a3-4883-b49d-5b7b35965852" name="Changes" comment="detalles terminados junto con &quot;historial&quot; y &quot;mis eventos&quot; (falta el mapa en detalles de evento)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/groups/AdapterMensajes.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/groups/AdapterMensajes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/groups/HolderMensaje.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/groups/HolderMensaje.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/groups/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/groups/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/groups/Mensaje.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/groups/Mensaje.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/groups/MensajeEnviar.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/groups/MensajeEnviar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/groups/MensajeRecibir.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/groups/MensajeRecibir.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_groups.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_groups.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/register.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/register2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/register2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +151,6 @@
       <option name="ALL_USERS" value="false" />
       <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
       <option name="CLEAR_APP_STORAGE" value="false" />
-      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
       <option name="ACTIVITY_EXTRA_FLAGS" value="" />
       <option name="MODE" value="default_activity" />
       <option name="CLEAR_LOGCAT" value="false" />
@@ -170,6 +166,8 @@
         <option name="WORKING_DIR" value="" />
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
         <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
       </Auto>
       <Hybrid>
         <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
@@ -177,14 +175,21 @@
         <option name="WORKING_DIR" value="" />
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
         <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
       </Hybrid>
-      <Java />
+      <Java>
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Java>
       <Native>
         <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
         <option name="SHOW_STATIC_VARS" value="true" />
         <option name="WORKING_DIR" value="" />
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
         <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
       </Native>
       <Profilers>
         <option name="ADVANCED_PROFILING_ENABLED" value="false" />
@@ -387,28 +392,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/groups/MainActivity.java</url>
-          <line>44</line>
+          <line>28</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/groups/AdapterMensajes.java</url>
-          <line>54</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/groups/AdapterMensajes.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/groups/AdapterMensajes.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/groups/AdapterMensajes.java</url>
-          <line>57</line>
-          <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-field">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/groups/Mensaje.java</url>
