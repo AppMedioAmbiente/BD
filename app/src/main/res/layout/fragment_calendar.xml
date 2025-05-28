@@ -17,12 +17,27 @@
         android:textSize="40sp"
         tools:layout_editor_absoluteX="55dp"
         tools:layout_editor_absoluteY="38dp" />
-
-    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
-        android:id="@+id/eventsCalendar"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+                android:id="@+id/eventsCalendar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
+            <LinearLayout
+                android:id="@+id/eventsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
     <!--
     <CalendarView
         android:id="@+id/eventsCalendar"

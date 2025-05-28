@@ -122,7 +122,6 @@ public class Create_Event extends AppCompatActivity implements View.OnClickListe
             }
             showDatePicker(etEventEndDate, this);
         });
-
         spEventType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

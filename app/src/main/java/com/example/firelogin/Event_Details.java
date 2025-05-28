@@ -112,24 +112,35 @@ public class Event_Details extends AppCompatActivity implements View.OnClickList
         waypoint = findViewById(R.id.waypointBtn);
 
         btnLeave.setOnClickListener(v -> {
-            if (fromFragment.equals("Events")) {
-                Intent intent = new Intent(this, Home.class);
-                intent.putExtra("fragmentToLoad", "fragment_events");
-                startActivity(intent);
-                finish();
-
-            } else if (fromFragment.equals("MyEvents")) {
-                Intent intent = new Intent(this, Home.class);
-                intent.putExtra("fragmentToLoad", "fragment_my_events");
-                startActivity(intent);
-                finish();
-
-            } else if (fromFragment.equals("History")) {
-                Intent intent = new Intent(this, Home.class);
-                intent.putExtra("fragmentToLoad", "fragment_history");
-                startActivity(intent);
-                finish();
+            Intent intent=new Intent(this, Home.class);
+            switch(fromFragment){
+                case "Events":
+//                    intent = new Intent(this, Home.class);
+                    intent.putExtra("fragmentToLoad", "fragment_events");
+//                    startActivity(intent);
+//                    finish();
+                    break;
+                case "MyEvents":
+//                    intent = new Intent(this, Home.class);
+                    intent.putExtra("fragmentToLoad", "fragment_my_events");
+//                    startActivity(intent);
+//                    finish();
+                    break;
+                case "History":
+//                    intent = new Intent(this, Home.class);
+                    intent.putExtra("fragmentToLoad", "fragment_history");
+//                    startActivity(intent);
+//                    finish();
+                    break;
+                case "Calendar":
+//                    intent = new Intent(this, Home.class);
+                    intent.putExtra("fragmentToLoad", "fragment_calendar");
+//                    startActivity(intent);
+//                    finish();
+                    break;
             }
+            startActivity(intent);
+            finish();
         });
 
 

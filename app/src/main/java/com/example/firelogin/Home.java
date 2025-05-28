@@ -179,31 +179,28 @@ public class Home extends AppCompatActivity {
     public void redirectFragments() {
         String fragmentEvent = getIntent().getStringExtra("fragmentToLoad");
 
-        //Toast.makeText(this, "Redirigir al fragmento "+ ((fragmentEvent!=null) ? fragmentEvent : "Nada"), Toast.LENGTH_SHORT).show();
-
-        if (fragmentEvent != null && fragmentEvent.equals("fragment_events")) {
+        if(fragmentEvent!=null){
+            //Toast.makeText(this, "Redirigir al fragmento "+ ((fragmentEvent!=null) ? fragmentEvent : "Nada"), Toast.LENGTH_SHORT).show();
             NavController navController = Navigation.findNavController(Home.this, R.id.nav_host_fragment_content_home);
-            navController.navigate(R.id.navEv_events, null, new NavOptions.Builder()
-                    .setPopUpTo(R.id.navEv_events, false)
-                    .build());
 
-        } else if (fragmentEvent != null && fragmentEvent.equals("fragment_my_events")) {
-            NavController navController = Navigation.findNavController(Home.this, R.id.nav_host_fragment_content_home);
-            navController.navigate(R.id.navEv_myevents, null, new NavOptions.Builder()
-                    .setPopUpTo(R.id.navEv_myevents, false)
+            int fragmentId=getFragmentId(fragmentEvent);
+            navController.navigate(fragmentId, null, new NavOptions.Builder()
+                    .setPopUpTo(fragmentId, false)
                     .build());
-
-        } else if (fragmentEvent != null && fragmentEvent.equals("fragment_history")) {
-            NavController navController = Navigation.findNavController(Home.this, R.id.nav_host_fragment_content_home);
-            navController.navigate(R.id.navEv_history, null, new NavOptions.Builder()
-                    .setPopUpTo(R.id.navEv_history, false)
-                    .build());
-
-        } else if (fragmentEvent != null) {
-            NavController navController = Navigation.findNavController(Home.this, R.id.nav_host_fragment_content_home);
-            navController.navigate(R.id.nav_home, null, new NavOptions.Builder()
-                    .setPopUpTo(R.id.nav_home, false)
-                    .build());
+        }
+    }
+    private int getFragmentId(String fragmentEvent){
+        switch(fragmentEvent){
+            case "fragment_events":
+                return R.id.navEv_events;
+            case "fragment_my_events":
+                return R.id.navEv_myevents;
+            case "fragment_history":
+                return R.id.navEv_history;
+            case "fragment_calendar":
+                return R.id.navEv_calendar;
+            default:
+                return R.id.nav_home;
         }
     }
 

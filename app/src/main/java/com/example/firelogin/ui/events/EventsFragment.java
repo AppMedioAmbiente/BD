@@ -4,6 +4,7 @@ import static com.example.firelogin.StaticFunctions.print;
 import static com.example.firelogin.StaticFunctions.showToastAlert;
 import static com.example.firelogin.StaticFunctions.updateSpinner;
 
+import android.content.Context;
 import android.content.Intent;
 import android.location.Address;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.firelogin.Create_Event;
 import com.example.firelogin.Event_Details;
+import com.example.firelogin.FirebaseHandler;
 import com.example.firelogin.R;
 import com.example.firelogin.databinding.FragmentEventsBinding;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -31,7 +33,9 @@ import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -80,65 +84,9 @@ public class EventsFragment extends Fragment {
         db.collection("eventos").get().addOnSuccessListener(documentSnapshot -> {
             documentSnapshot.getDocuments().forEach(event -> {
 
-                if (event.getDocumentReference("status").getId().equals("1") || event.getDocumentReference("status").getId().equals("2")) {
-                    View cardview = LayoutInflater.from(getContext()).inflate(R.layout.events_cardview, eventsContainer, false);
-
-                    DocumentReference organizerDoc = event.getDocumentReference("organizer");
-                    DocumentReference typeDoc = event.getDocumentReference("type");
-
-                    TextView name = cardview.findViewById(R.id.eventName);
-                    TextView date = cardview.findViewById(R.id.tvEventDate);
-                    TextView endDate = cardview.findViewById(R.id.tvEventEndDate);
-                    TextView organizer = cardview.findViewById(R.id.tvEventOrganizer);
-                    TextView type = cardview.findViewById(R.id.tvEventType);
-                    Button joinEvent = cardview.findViewById(R.id.btnJoinEvent);
-                    Button eventDetails = cardview.findViewById(R.id.btnEventDetails);
-
-                    name.setText(event.getString("event_name"));
-                    date.setText(sdf.format(event.getDate("date")));
-                    endDate.setText(sdf.format(event.getDate("end_date")));
-                    organizerDoc.get().addOnSuccessListener(doc -> {
-                        organizer.setText(doc.getString("name"));
-                    });
-                    typeDoc.get().addOnSuccessListener(doc -> {
-                        type.setText(doc.getString("type"));
-                    });
-
-                    eventDetails.setOnClickListener(v -> {
-                        Intent intent = new Intent(getContext(), Event_Details.class);
-                        intent.putExtra("id_event", event.getId());
-                        intent.putExtra("fromFragment", "Events");
-                        startActivity(intent);
-                    });
-
-                    db.collection("event_has_usuarios")
-                            .whereEqualTo("id_event", db.collection("eventos").document(event.getId()))
-                            .whereEqualTo("id_usuario", db.collection("usuarios").document(user.getUid()))
-                            .get().addOnSuccessListener(querySnapshot -> {
-
-                                if (querySnapshot.isEmpty()) {
-                                    //Log.d("Query Snapshot vacío: ", querySnapshot.toString());
-                                    joinEvent.setOnClickListener(v -> {
-                                        Map<String, Object> data = new HashMap<>();
-                                        data.put("id_event", db.collection("eventos").document(event.getId()));
-                                        data.put("id_usuario", db.collection("usuarios").document(user.getUid()));
-
-                                    db.collection("event_has_usuarios").add(data).addOnSuccessListener(s ->{
-                                                joinEvent.setEnabled(false);
-                                            })
-                                            .addOnFailureListener(f -> {
-                                                showToastAlert(requireContext(),"Error al unirte al evento");
-                                                print("Error al unirse al evento: ", f.getMessage());
-                                            });
-                                });
-
-                                } else {
-                                    //Log.d("Query Snapshot: ", querySnapshot.toString());
-                                    joinEvent.setEnabled(false);
-                                }
-                            });
-
-                    eventsContainer.addView(cardview);
+                if (event.getDocumentReference("status").getId().equals("1")
+                        || event.getDocumentReference("status").getId().equals("2")) {
+                    createCard(getContext(),eventsContainer,event,db,null);
                 }
             });
         })
@@ -146,6 +94,69 @@ public class EventsFragment extends Fragment {
                     showToastAlert(requireContext(),"Error al obtener los datos");
                     print("Error al obtener los eventos:", f.getMessage());
                 });
+    }
+    public void createCard(Context ctx, LinearLayout eventsContainer, DocumentSnapshot event, FirebaseFirestore db ,String fromFragment){
+        if(fromFragment==null){fromFragment="Events";}
+        View cardview = LayoutInflater.from(ctx).inflate(R.layout.events_cardview, eventsContainer, false);
+
+        DocumentReference organizerDoc = event.getDocumentReference("organizer");
+        DocumentReference typeDoc = event.getDocumentReference("type");
+
+        TextView name = cardview.findViewById(R.id.eventName);
+        TextView date = cardview.findViewById(R.id.tvEventDate);
+        TextView endDate = cardview.findViewById(R.id.tvEventEndDate);
+        TextView organizer = cardview.findViewById(R.id.tvEventOrganizer);
+        TextView type = cardview.findViewById(R.id.tvEventType);
+        Button joinEvent = cardview.findViewById(R.id.btnJoinEvent);
+        Button eventDetails = cardview.findViewById(R.id.btnEventDetails);
+
+        name.setText(event.getString("event_name"));
+        date.setText(sdf.format(event.getDate("date")));
+        endDate.setText(sdf.format(event.getDate("end_date")));
+        organizerDoc.get().addOnSuccessListener(doc -> {
+            organizer.setText(doc.getString("name"));
+        });
+        typeDoc.get().addOnSuccessListener(doc -> {
+            type.setText(doc.getString("type"));
+        });
+
+        String finalFromFragment = fromFragment;
+        eventDetails.setOnClickListener(v -> {
+            print("CTX="+ctx);
+            Intent intent = new Intent(ctx, Event_Details.class);
+            intent.putExtra("id_event", event.getId());
+            intent.putExtra("fromFragment", finalFromFragment);
+            startActivity(intent);
+        });
+
+        db.collection("event_has_usuarios")
+                .whereEqualTo("id_event", db.collection("eventos").document(event.getId()))
+                .whereEqualTo("id_usuario", db.collection("usuarios").document(user.getUid()))
+                .get().addOnSuccessListener(querySnapshot -> {
+
+                    if (querySnapshot.isEmpty()) {
+                        //Log.d("Query Snapshot vacío: ", querySnapshot.toString());
+                        joinEvent.setOnClickListener(v -> {
+                            Map<String, Object> data = new HashMap<>();
+                            data.put("id_event", db.collection("eventos").document(event.getId()));
+                            data.put("id_usuario", db.collection("usuarios").document(user.getUid()));
+
+                            db.collection("event_has_usuarios").add(data).addOnSuccessListener(s ->{
+                                        joinEvent.setEnabled(false);
+                                    })
+                                    .addOnFailureListener(f -> {
+                                        showToastAlert(requireContext(),"Error al unirte al evento");
+                                        print("Error al unirse al evento: ", f.getMessage());
+                                    });
+                        });
+
+                    } else {
+                        //Log.d("Query Snapshot: ", querySnapshot.toString());
+                        joinEvent.setEnabled(false);
+                    }
+                });
+        print("deberia de estar por añadir la card del doc "+event.getId());
+        eventsContainer.addView(cardview);
     }
 
     @Override
