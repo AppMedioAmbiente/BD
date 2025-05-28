@@ -1,5 +1,6 @@
 package com.example.firelogin.ui.groups;
 
+import android.nfc.Tag;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -29,6 +30,8 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
 
     //private CircleImageView fotoPerfil;
+
+    private static final String TAG = "Groups ";
     private TextView nombre;
     private RecyclerView rvMensajes;
     private EditText txtMensaje;
@@ -64,17 +67,12 @@ public class MainActivity extends AppCompatActivity {
         // Referencias a los layouts
         chatLayout = findViewById(R.id.chatLayout);
         gruposLayout = findViewById(R.id.layoutGrupos);
-
         btnJoin = findViewById(R.id.btnJoin);
 
-        btnJoin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Ocultar la lista de grupos
-                gruposLayout.setVisibility(View.GONE);
-                // Mostrar el chat
-                chatLayout.setVisibility(View.VISIBLE);
-            }
+        btnJoin.setOnClickListener(view -> {
+            Log.d(TAG,"si senti el click");
+            gruposLayout.setVisibility(View.GONE);
+            chatLayout.setVisibility(View.VISIBLE);
         });
 
         // Inicializar Firebase
