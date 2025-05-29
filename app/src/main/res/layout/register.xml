@@ -33,7 +33,6 @@
         android:layout_height="50dp"
         android:ems="10"
         android:hint="Nombre(s)"
-        android:autofillHints="names"
         android:inputType="textPersonName"
         android:layout_margin="5dp"/>
 
@@ -55,7 +54,6 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="Apellido(s)"
-        android:autofillHints="name"
         android:layout_margin="5dp"/>
 
     <TextView
