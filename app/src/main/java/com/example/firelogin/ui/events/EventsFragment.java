@@ -154,7 +154,8 @@ public class EventsFragment extends Fragment {
 
                     } else {
                         //Log.d("Query Snapshot: ", querySnapshot.toString());
-                        joinEvent.setEnabled(false);
+                        joinEvent.setVisibility(View.INVISIBLE);
+//                        joinEvent.setEnabled(false);
                     }
                 });
         print("deberia de estar por añadir la card del doc "+event.getId());

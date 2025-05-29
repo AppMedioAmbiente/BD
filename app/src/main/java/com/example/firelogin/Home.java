@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.firelogin.notifications.NotificationUtil;
 import com.example.firelogin.register.Login;
 import com.example.firelogin.settings.Settings;
 import com.example.firelogin.settings.Settings_PD;
@@ -46,7 +47,9 @@ import org.imaginativeworld.whynotimagecarousel.ImageCarousel;
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem;
 import com.example.firelogin.databinding.HomeBinding;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Home extends AppCompatActivity {
@@ -117,7 +120,16 @@ public class Home extends AppCompatActivity {
         carousel.setData(list);
         if (!wasRedirected && cu != null) {
             Toast.makeText(this, "Bienvenido " + cu.getEmail(), Toast.LENGTH_SHORT).show();
-        }        
+        }
+
+        findViewById(R.id.notif).setOnClickListener(view->{
+            int[][] now = NotificationUtil.getCurrentDate();
+            now[1][2]+=2;
+
+            NotificationUtil.createNotificationChannel(getApplicationContext());
+            NotificationUtil.createNotification(getApplicationContext(),
+                    "Notificacion de Prueba",now[0],now[1]);
+        });
 
         // Toast.makeText(this, "Bienvenido " +cu.getEmail(), Toast.LENGTH_SHORT).show();
         binding.navView.post(()->{
@@ -164,6 +176,7 @@ public class Home extends AppCompatActivity {
 
             return handled;
         });
+
     }
     private void setUserTexts() {
         TextView email = binding.navView.findViewById(R.id.emailH);

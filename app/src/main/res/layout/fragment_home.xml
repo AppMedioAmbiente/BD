@@ -48,4 +48,9 @@
         android:textSize="18sp"
         android:text="@string/abtusInfo" />
 
+    <Button
+        android:id="@+id/notif"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        andorid:text="ENviar NOtificacion" />
 </LinearLayout>
