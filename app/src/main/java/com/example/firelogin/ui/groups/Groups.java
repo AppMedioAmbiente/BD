@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.firelogin.R;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
@@ -28,8 +29,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
-
-    //private CircleImageView fotoPerfil;
 
     private static final String TAG = "Groups ";
     private TextView nombre;
@@ -48,8 +47,6 @@ public class MainActivity extends AppCompatActivity {
     private static final int PHOTO_SEND = 1;
     private static final int PHOTO_PERFIL = 2;
 
-    private LinearLayout chatLayout;
-    private LinearLayout gruposLayout;  // Para ocultar la lista de grupos
     private Button btnJoin;
 
 
@@ -58,6 +55,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_groups);
 
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            String userId = user.getUid();
+
+            db.collection("usuarios").document(userId)
+                    .get()
+                    .addOnSuccessListener(documentSnapshot -> {
+                        nickname_msg = documentSnapshot.getString("nickname");
+                        if (nickname_msg != null) {
+                            // Do something with the nickname, like updating a UI element
+                            Toast.makeText(this, "Nickname: " + nickname_msg, Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(this, "Nickname not found", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(e -> {
+                        Toast.makeText(this, "Error al obtener datos", Toast.LENGTH_SHORT).show();
+                    });
+        }
+
+        Log.d(TAG,"si senti el click");
+
         // Referencias UI
         nombre = findViewById(R.id.nombre);
         rvMensajes = findViewById(R.id.rvMensajes);
@@ -65,15 +85,15 @@ public class MainActivity extends AppCompatActivity {
         btnEnviar = findViewById(R.id.btnEnviar);
 
         // Referencias a los layouts
-        chatLayout = findViewById(R.id.chatLayout);
-        gruposLayout = findViewById(R.id.layoutGrupos);
+        LinearLayout chatLayout = findViewById(R.id.chatLayout);
+        LinearLayout gruposLayout = findViewById(R.id.layoutGrupos);
         btnJoin = findViewById(R.id.btnJoin);
 
-        btnJoin.setOnClickListener(view -> {
+        /*btnJoin.setOnClickListener(v -> {
             Log.d(TAG,"si senti el click");
             gruposLayout.setVisibility(View.GONE);
             chatLayout.setVisibility(View.VISIBLE);
-        });
+        });*/
 
         // Inicializar Firebase
         storage = FirebaseStorage.getInstance();
@@ -96,28 +116,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            String userId = user.getUid();
-
-            db.collection("usuarios").document(userId)
-                    .get()
-                    .addOnSuccessListener(documentSnapshot -> {
-                        nickname_msg = documentSnapshot.getString("nickname");
-                        if (nickname_msg != null) {
-                            // Do something with the nickname, like updating a UI element
-                            Toast.makeText(this, "Nickname: " + nickname_msg, Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(this, "Nickname not found", Toast.LENGTH_SHORT).show();
-                        }
-                    })
-                    .addOnFailureListener(e -> {
-                        Toast.makeText(this, "Error al obtener datos", Toast.LENGTH_SHORT).show();
-                    });
-        }
 
         // Botón enviar texto
         btnEnviar.setOnClickListener(view -> {
