@@ -95,8 +95,9 @@ public class EventsFragment extends Fragment {
                     print("Error al obtener los eventos:", f.getMessage());
                 });
     }
-    public void createCard(Context ctx, LinearLayout eventsContainer, DocumentSnapshot event, FirebaseFirestore db ,String fromFragment){
+    public View createCard(Context ctx, LinearLayout eventsContainer, DocumentSnapshot event, FirebaseFirestore db ,String fromFragment){
         if(fromFragment==null){fromFragment="Events";}
+        print("context="+ctx);
         View cardview = LayoutInflater.from(ctx).inflate(R.layout.events_cardview, eventsContainer, false);
 
         DocumentReference organizerDoc = event.getDocumentReference("organizer");
@@ -121,14 +122,15 @@ public class EventsFragment extends Fragment {
         });
 
         String finalFromFragment = fromFragment;
-        eventDetails.setOnClickListener(v -> {
-            print("CTX="+ctx);
-            Intent intent = new Intent(ctx, Event_Details.class);
-            intent.putExtra("id_event", event.getId());
-            intent.putExtra("fromFragment", finalFromFragment);
-            startActivity(intent);
-        });
-
+        if(!fromFragment.equals("Calendar")) {
+            eventDetails.setOnClickListener(v -> {
+                print("CTX=" + ctx);
+                Intent intent = new Intent(ctx, Event_Details.class);
+                intent.putExtra("id_event", event.getId());
+                intent.putExtra("fromFragment", finalFromFragment);
+                startActivity(intent);
+            });
+        }
         db.collection("event_has_usuarios")
                 .whereEqualTo("id_event", db.collection("eventos").document(event.getId()))
                 .whereEqualTo("id_usuario", db.collection("usuarios").document(user.getUid()))
@@ -157,6 +159,7 @@ public class EventsFragment extends Fragment {
                 });
         print("deberia de estar por añadir la card del doc "+event.getId());
         eventsContainer.addView(cardview);
+        return cardview;
     }
 
     @Override

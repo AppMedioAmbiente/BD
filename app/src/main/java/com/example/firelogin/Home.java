@@ -73,8 +73,25 @@ public class Home extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setDarkMode(Home.this);
-
         super.onCreate(savedInstanceState);
+
+        binding = HomeBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        DrawerLayout drawer = binding.drawerLayout;
+        NavigationView navigationView = binding.navView;
+        mAppBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.nav_home, R.id.nav_profile, R.id.nav_groups, R.id.navEv_events, R.id.navEv_myevents,
+                R.id.navEv_calendar, R.id.navEv_map, R.id.navEv_history)
+                .setOpenableLayout(drawer)
+                .build();
+        setSupportActionBar(binding.appBarHome.toolbar);
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
+        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+        NavigationUI.setupWithNavController(navigationView, navController);
+
+        Boolean wasRedirected=redirectFragments();
+
         //showToastAlert(this,"inicio de Home");
         fh = new FirebaseHandler(2);
         cu = fh.getUser();
@@ -92,20 +109,17 @@ public class Home extends AppCompatActivity {
                 print("no hubo exito");
             }
         });
-        binding = HomeBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+
 
         ImageCarousel carousel = findViewById(R.id.carousel);
         List<CarouselItem> list = new ArrayList<>();
         list.add(new CarouselItem(R.drawable.logo, "Icono de SECOVO"));
         carousel.setData(list);
-        if (cu != null) {
+        if (!wasRedirected && cu != null) {
             Toast.makeText(this, "Bienvenido " + cu.getEmail(), Toast.LENGTH_SHORT).show();
         }        
 
         // Toast.makeText(this, "Bienvenido " +cu.getEmail(), Toast.LENGTH_SHORT).show();
-        setSupportActionBar(binding.appBarHome.toolbar);
-
         binding.navView.post(()->{
             setUserTexts();
         });
@@ -120,18 +134,10 @@ public class Home extends AppCompatActivity {
                         .build());
             }
         });
-        DrawerLayout drawer = binding.drawerLayout;
-        NavigationView navigationView = binding.navView;
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_profile, R.id.nav_groups, R.id.navEv_events, R.id.navEv_myevents,
-                R.id.navEv_calendar, R.id.navEv_map, R.id.navEv_history)
-                .setOpenableLayout(drawer)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
+
 
         navigationView.setNavigationItemSelectedListener(item -> {
             //redirectFragments();
@@ -176,18 +182,20 @@ public class Home extends AppCompatActivity {
         print("name e email setted");
     }
 
-    public void redirectFragments() {
+    public Boolean redirectFragments() {
         String fragmentEvent = getIntent().getStringExtra("fragmentToLoad");
-
         if(fragmentEvent!=null){
             //Toast.makeText(this, "Redirigir al fragmento "+ ((fragmentEvent!=null) ? fragmentEvent : "Nada"), Toast.LENGTH_SHORT).show();
             NavController navController = Navigation.findNavController(Home.this, R.id.nav_host_fragment_content_home);
 
             int fragmentId=getFragmentId(fragmentEvent);
+            print("El fragmento es "+fragmentEvent+" de ID: "+String.valueOf(fragmentId));
             navController.navigate(fragmentId, null, new NavOptions.Builder()
                     .setPopUpTo(fragmentId, false)
                     .build());
+            return (fragmentId!=R.id.nav_home);
         }
+        return false;
     }
     private int getFragmentId(String fragmentEvent){
         switch(fragmentEvent){
@@ -200,6 +208,7 @@ public class Home extends AppCompatActivity {
             case "fragment_calendar":
                 return R.id.navEv_calendar;
             default:
+                print("REGRESA NAV HOME");
                 return R.id.nav_home;
         }
     }

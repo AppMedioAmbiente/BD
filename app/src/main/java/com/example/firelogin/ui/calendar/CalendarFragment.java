@@ -4,6 +4,7 @@ import static com.example.firelogin.StaticFunctions.print;
 import static com.example.firelogin.StaticFunctions.showAlert;
 import static com.example.firelogin.StaticFunctions.showToastAlert;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,7 +17,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.firelogin.Event_Details;
 import com.example.firelogin.FirebaseHandler;
+import com.example.firelogin.Home;
 import com.example.firelogin.R;
 import com.example.firelogin.databinding.FragmentCalendarBinding;
 import com.example.firelogin.ui.calendar.CalendarViewModel;
@@ -106,10 +109,16 @@ public class CalendarFragment extends Fragment {
                     fb.db.collection("eventos")
                         .whereIn(FieldPath.documentId(),eventos) //maximo 10 eventos
                         .get().addOnSuccessListener(task->{
-                            showToastAlert(requireContext(),"Se completó la consulta:"+(task.isEmpty()?"void":"lleno"));
+//                            showToastAlert(requireContext(),"Se completó la consulta:"+(task.isEmpty()?"void":"lleno"));
                             task.getDocuments().forEach(doc->{
 //                                    showToastAlert(requireContext(),"documento"+doc.toString());
-                                eFragment.createCard(requireContext(),eContainer,doc,fb.db,null);
+                                View card=eFragment.createCard(requireContext(),eContainer,doc,fb.db,"Calendar");
+                                card.findViewById(R.id.btnEventDetails).setOnClickListener(view->{
+                                    Intent intent = new Intent(requireContext(), Event_Details.class);
+                                    intent.putExtra("id_event", doc.getId());
+                                    intent.putExtra("fromFragment", "Calendar");
+                                    startActivity(intent);
+                                });
                             });
                     });
                 }
