@@ -1,168 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.groups.MainActivity">
+    tools:context=".ui.groups.GroupsFragment">
 
     <LinearLayout
-        android:id="@+id/layoutGrupos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="vertical">
 
-    <!-- Encabezado de la pantalla -->
-    <TextView
-        android:id="@+id/textGroups"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="@string/grps"
-        android:textAlignment="center"
-        android:textSize="40sp" />
+        <TextView
+            android:id="@+id/textGroups"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/grps"
+            android:textAlignment="center"
+            android:textSize="40sp"
+            tools:layout_editor_absoluteX="55dp"
+            tools:layout_editor_absoluteY="38dp" />
 
-    <!-- Filtro de grupos -->
-    <EditText
-        android:id="@+id/etFilter"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:hint="Filtrar grupos..."
-        android:inputType="text" />
-
-    <!-- Card de grupo (puedes ponerlo dentro de un RecyclerView también) -->
-    <androidx.cardview.widget.CardView
-        style="@style/cardsBgColor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="7dp"
-        app:cardCornerRadius="12dp"
-        app:cardElevation="4dp">
-
-        <LinearLayout
+        <EditText
+            android:id="@+id/etFilter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp">
+            android:layout_marginHorizontal="10dp"
+            android:autofillHints="name"
+            android:ems="10"
+            android:hint="Filtrar grupos..."
+            android:inputType="text"
+            tools:layout_editor_absoluteX="97dp"
+            tools:layout_editor_absoluteY="290dp" />
 
-            <TextView
-                android:id="@+id/nombreGrupo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nombre del grupo"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/miembrosGrupo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="No. miembros: 5"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/descripcionGrupo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Descripción del grupo"
-                android:textSize="16sp" />
+        <androidx.cardview.widget.CardView
+            style="@style/cardsBgColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="7dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
+                android:gravity="center|start"
+                android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/btnJoin"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Unirse" />
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/btnReport"
-                    android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/groupName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="35dp"
+                        android:layout_marginVertical="5dp"
+                        android:text="Nombre del grupo"
+                        android:textAlignment="center"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        tools:layout_editor_absoluteX="55dp"
+                        tools:layout_editor_absoluteY="38dp" />
+
+                    <TextView
+                        android:id="@+id/tvGroupPpl"
+                        android:layout_width="122dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="35dp"
+                        android:layout_marginVertical="5dp"
+                        android:text="No. miembros:"
+                        android:textAlignment="textStart"
+                        android:textSize="18sp"
+                        tools:layout_editor_absoluteX="55dp"
+                        tools:layout_editor_absoluteY="38dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvGroupDescr"
+                    android:layout_width="122dp"
                     android:layout_height="wrap_content"
-                    android:text="Reportar"
-                    android:layout_marginStart="20dp" />
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="5dp"
+                    android:text="Descripción:"
+                    android:textAlignment="textStart"
+                    android:textSize="18sp"
+                    tools:layout_editor_absoluteX="55dp"
+                    tools:layout_editor_absoluteY="38dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnJoinGroup"
+                        style="@style/botonsColor"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="30dp"
+                        android:text="@string/join"
+                        android:textSize="15sp" />
+
+                    <Button
+                        android:id="@+id/btnRepGroup"
+                        style="@style/report"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="30dp"
+                        android:text="@string/report"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
             </LinearLayout>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
 
+        </androidx.cardview.widget.CardView>
 
-
-    <!-- Botón para crear grupo -->
-    <Button
-        android:id="@+id/btnAddGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Crear Grupo"
-        android:layout_gravity="center"
-        android:layout_marginBottom="10dp" />
-
-
+        <Button
+            android:id="@+id/btnAddGroup"
+            style="@style/botonsColor"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:text="Crear Grupo"
+            android:textSize="15sp" />
     </LinearLayout>
 
-    <!-- CHAT: Visible solo cuando el usuario entra a un grupo -->
-    <LinearLayout
-        android:id="@+id/chatLayout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:visibility="gone">
 
-        <!-- Encabezado del chat -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="8dp">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/fotoPerfil"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@mipmap/ic_launcher" />
-
-            <TextView
-                android:id="@+id/nombre"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Kevin"
-                android:layout_gravity="center"
-                android:layout_marginStart="8dp" />
-        </LinearLayout>
-
-        <!-- Lista de mensajes -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvMensajes"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-
-        <!-- Entrada de mensaje -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="8dp">
-
-            <EditText
-                android:id="@+id/txtMensaje"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="Escribe un mensaje" />
-
-            <Button
-                android:id="@+id/btnEnviar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Enviar" />
-        </LinearLayout>
-    </LinearLayout>
-</LinearLayout>
+</ScrollView>

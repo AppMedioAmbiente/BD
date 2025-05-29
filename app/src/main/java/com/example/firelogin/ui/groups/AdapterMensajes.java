@@ -42,23 +42,25 @@ public class AdapterMensajes extends RecyclerView.Adapter<HolderMensaje> {
 
     @Override
     public void onBindViewHolder(HolderMensaje holder, int position) {
+        String tipo = listMensaje.get(position).getType_mensaje();
+        Mensaje mensajeActual = listMensaje.get(position);
+
         holder.getNombre().setText(listMensaje.get(position).getNombre());
         holder.getMensaje().setText(listMensaje.get(position).getMensaje());
-        if(listMensaje.get(position).getType_mensaje().equals("2")){
+
+        if (tipo != null && (tipo.equals("1") || tipo.equals("2"))) {
             holder.getMensaje().setVisibility(View.VISIBLE);
-            Glide.with(c).load(listMensaje.get(position));
-        }else if(listMensaje.get(position).getType_mensaje().equals("1")){
-            holder.getMensaje().setVisibility(View.VISIBLE);
+        } else {
+            holder.getMensaje().setVisibility(View.GONE);
         }
-        if (listMensaje.get(position).getMensaje() == null || listMensaje.get(position).getMensaje().trim().isEmpty()) {
-        }else{
-            Glide.with(c).load(listMensaje.get(position));
-        }
+
         Timestamp timestamp = listMensaje.get(position).getHora();
         if (timestamp != null) {
             Date d = timestamp.toDate();
             SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss a");
             holder.getHora().setText(sdf.format(d));
+        }else {
+            holder.getHora().setText("");
         }
     }
 

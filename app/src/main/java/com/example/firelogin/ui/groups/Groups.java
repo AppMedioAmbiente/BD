@@ -1,13 +1,11 @@
 package com.example.firelogin.ui.groups;
 
-import android.nfc.Tag;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -15,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.firelogin.R;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
@@ -28,7 +25,7 @@ import com.google.firebase.storage.StorageReference;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity {
+public class Groups extends AppCompatActivity {
 
     private static final String TAG = "Groups ";
     private TextView nombre;
@@ -53,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_groups);
+        setContentView(R.layout.groups);
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -81,19 +78,8 @@ public class MainActivity extends AppCompatActivity {
         // Referencias UI
         nombre = findViewById(R.id.nombre);
         rvMensajes = findViewById(R.id.rvMensajes);
-        txtMensaje = findViewById(R.id.txtMensaje);
+        txtMensaje = findViewById(R.id.mensajeInput);
         btnEnviar = findViewById(R.id.btnEnviar);
-
-        // Referencias a los layouts
-        LinearLayout chatLayout = findViewById(R.id.chatLayout);
-        LinearLayout gruposLayout = findViewById(R.id.layoutGrupos);
-        btnJoin = findViewById(R.id.btnJoin);
-
-        /*btnJoin.setOnClickListener(v -> {
-            Log.d(TAG,"si senti el click");
-            gruposLayout.setVisibility(View.GONE);
-            chatLayout.setVisibility(View.VISIBLE);
-        });*/
 
         // Inicializar Firebase
         storage = FirebaseStorage.getInstance();
