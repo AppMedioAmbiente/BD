@@ -33,17 +33,16 @@ public class AdapterMensajes extends RecyclerView.Adapter<HolderMensaje> {
         notifyItemInserted(listMensaje.size() - 1);
     }
 
-
     @Override
     public HolderMensaje onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(c).inflate(R.layout.groups,parent,false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_mensaje, parent, false);
         return new HolderMensaje(v);
     }
 
     @Override
     public void onBindViewHolder(HolderMensaje holder, int position) {
         String tipo = listMensaje.get(position).getType_mensaje();
-        Mensaje mensajeActual = listMensaje.get(position);
+        MensajeRecibir mensajeActual = listMensaje.get(position);
 
         holder.getNombre().setText(listMensaje.get(position).getNombre());
         holder.getMensaje().setText(listMensaje.get(position).getMensaje());
@@ -63,6 +62,7 @@ public class AdapterMensajes extends RecyclerView.Adapter<HolderMensaje> {
             holder.getHora().setText("");
         }
     }
+
 
     @Override
     public int getItemCount() {

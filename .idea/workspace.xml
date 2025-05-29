@@ -15,14 +15,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ac168f3-b9a3-4883-b49d-5b7b35965852" name="Changes" comment="detalles terminados junto con &quot;historial&quot; y &quot;mis eventos&quot; (falta el mapa en detalles de evento)">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_mensaje.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/google-services.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/google-services.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/groups/AdapterMensajes.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/groups/AdapterMensajes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/groups/GroupsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/groups/GroupsFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/groups/Groups.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/groups/Groups.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/groups/HolderMensaje.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/groups/HolderMensaje.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/groups/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/groups/Groups.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_groups.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_groups.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/groups.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/groups.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

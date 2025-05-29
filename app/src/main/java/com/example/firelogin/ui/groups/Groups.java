@@ -17,18 +17,22 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import com.example.firelogin.ui.groups.MensajeEnviar;
 
 public class Groups extends AppCompatActivity {
 
     private static final String TAG = "Groups ";
-    private TextView nombre;
     private RecyclerView rvMensajes;
     private EditText txtMensaje;
     private Button btnEnviar;
@@ -40,11 +44,26 @@ public class Groups extends AppCompatActivity {
     private CollectionReference mensajesRef;
 
     private String nickname_msg;
+    private List<MensajeRecibir> listMensaje = new ArrayList<>();
+
 
     private static final int PHOTO_SEND = 1;
     private static final int PHOTO_PERFIL = 2;
 
     private Button btnJoin;
+
+    private void obtenerMensajes() {
+        mensajesRef.orderBy("hora", Query.Direction.ASCENDING).get().addOnSuccessListener(queryDocumentSnapshots -> {
+                    listMensaje.clear();
+                    for (DocumentSnapshot doc : queryDocumentSnapshots) {
+                        MensajeRecibir m = doc.toObject(MensajeRecibir.class);
+                        listMensaje.add(m);
+                    }
+                    adapter.notifyDataSetChanged();
+                    rvMensajes.scrollToPosition(listMensaje.size() - 1);
+                })
+                .addOnFailureListener(e -> Log.e("Firestore", "Error obteniendo mensajes", e));
+    }
 
 
     @Override
@@ -75,24 +94,19 @@ public class Groups extends AppCompatActivity {
 
         Log.d(TAG,"si senti el click");
 
-        // Referencias UI
-        nombre = findViewById(R.id.nombre);
         rvMensajes = findViewById(R.id.rvMensajes);
         txtMensaje = findViewById(R.id.mensajeInput);
         btnEnviar = findViewById(R.id.btnEnviar);
 
-        // Inicializar Firebase
         storage = FirebaseStorage.getInstance();
         firestore = FirebaseFirestore.getInstance();
         mensajesRef = firestore.collection("chat");
 
-        // Configurar RecyclerView
         adapter = new AdapterMensajes(this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         rvMensajes.setLayoutManager(layoutManager);
         rvMensajes.setAdapter(adapter);
 
-        // Escuchar nuevos mensajes en Firestore
         mensajesRef.orderBy("hora").addSnapshotListener((snapshots, e) -> {
             if (e != null) return;
             for (DocumentChange dc : snapshots.getDocumentChanges()) {
@@ -103,11 +117,10 @@ public class Groups extends AppCompatActivity {
             }
         });
 
-        // Botón enviar texto
         btnEnviar.setOnClickListener(view -> {
             String texto = txtMensaje.getText().toString().trim();
+
             if (texto.isEmpty()) return;
-            Log.d("nickname que recibe: ", nickname_msg);
 
             Map<String, Object> mensaje = new HashMap<>();
             mensaje.put("nombre", nickname_msg);
@@ -115,11 +128,13 @@ public class Groups extends AppCompatActivity {
             mensaje.put("type_mensaje", "1");
             mensaje.put("hora", FieldValue.serverTimestamp());
 
-            mensajesRef.add(mensaje);
-            txtMensaje.setText("");
+            mensajesRef.add(mensaje).addOnSuccessListener(documentReference -> {
+                txtMensaje.setText("");
+
+                obtenerMensajes();
+            });
         });
 
-        // Ajustar scrollbar automático al agregar mensaje
         adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
             @Override
             public void onItemRangeInserted(int positionStart, int itemCount) {

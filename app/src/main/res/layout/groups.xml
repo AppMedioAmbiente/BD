@@ -1,106 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#121212"
-    tools:context=".ui.groups.Groups">
+    android:background="#121212">
 
-    <LinearLayout
-        android:id="@+id/chatLayout"
+    <!-- Aquí van todos los mensajes -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMensajes"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:visibility="visible">
+        android:layout_weight="1" />
 
-        <!-- Encabezado del chat -->
-        <LinearLayout
-            android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <EditText
+            android:id="@+id/mensajeInput"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="8dp">
+            android:layout_weight="1"
+            android:hint="Escribe un mensaje"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#AAAAAA"
+            android:background="#333333"
+            android:padding="8dp" />
 
-            <TextView
-                android:id="@+id/nombre"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="8dp"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <!-- Lista de mensajes -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvMensajes"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-
-        <!-- Vista previa del último mensaje enviado (opcional) -->
-        <LinearLayout
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/btnEnviar"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="8dp">
-
-            <TextView
-                android:id="@+id/nombreMensaje"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:textColor="#FFFFFF" />
-
-            <TextView
-                android:id="@+id/mensajeMensaje"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textSize="18sp"
-                android:textColor="#FFFFFF"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp" />
-
-            <TextView
-                android:id="@+id/horaMensaje"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textSize="12sp"
-                android:textColor="#CCCCCC"
-                android:gravity="end" />
-        </LinearLayout>
-
-        <!-- Entrada de mensaje -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="8dp">
-
-            <EditText
-                android:id="@+id/mensajeInput"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="Escribe un mensaje"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#AAAAAA"
-                android:background="#333333"
-                android:padding="8dp" />
-
-            <Button
-                android:id="@+id/btnEnviar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Enviar" />
-        </LinearLayout>
+            android:text="ENVIAR" />
     </LinearLayout>
 </LinearLayout>

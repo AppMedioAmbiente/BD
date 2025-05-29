@@ -1,6 +1,8 @@
 package com.example.firelogin.ui.groups;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
