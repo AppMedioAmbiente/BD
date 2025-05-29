@@ -112,24 +112,16 @@ public class Event_Details extends AppCompatActivity implements View.OnClickList
         waypoint = findViewById(R.id.waypointBtn);
 
         btnLeave.setOnClickListener(v -> {
-            if (fromFragment.equals("Events")) {
-                Intent intent = new Intent(this, Home.class);
-                intent.putExtra("fragmentToLoad", "fragment_events");
-                startActivity(intent);
-                finish();
+            Intent intent = new Intent(this, Home.class);
 
-            } else if (fromFragment.equals("MyEvents")) {
-                Intent intent = new Intent(this, Home.class);
-                intent.putExtra("fragmentToLoad", "fragment_my_events");
-                startActivity(intent);
-                finish();
+            if (fromFragment.equals("Events")) intent.putExtra("fragmentToLoad", "fragment_events");
 
-            } else if (fromFragment.equals("History")) {
-                Intent intent = new Intent(this, Home.class);
-                intent.putExtra("fragmentToLoad", "fragment_history");
-                startActivity(intent);
-                finish();
-            }
+            else if (fromFragment.equals("MyEvents")) intent.putExtra("fragmentToLoad", "fragment_my_events");
+
+            else if (fromFragment.equals("History")) intent.putExtra("fragmentToLoad", "fragment_history");
+
+            startActivity(intent);
+            finish();
         });
 
 
@@ -173,6 +165,15 @@ public class Event_Details extends AppCompatActivity implements View.OnClickList
             });
         });
 
+        db.collection("eventos").document(idEvent).get().addOnSuccessListener(doc -> {
+            if (doc.getDocumentReference("status").getId().equals("3") || doc.getDocumentReference("status").getId().equals("4")) {
+                btnModify.setVisibility(View.GONE);
+                btnDelete.setVisibility(View.GONE);
+                btnJoin.setVisibility(View.GONE);
+                btnLeaveEvent.setVisibility(View.GONE);
+                unableFields();
+            }
+        });
 
         db.collection("eventos").document(idEvent).get().addOnSuccessListener(documentSnapshot -> {
             documentSnapshot.getDocumentReference("organizer").get().addOnSuccessListener(doc -> {
@@ -192,11 +193,6 @@ public class Event_Details extends AppCompatActivity implements View.OnClickList
             eventMaterials.setText(documentSnapshot.getString("materials"));
             eventMinVolun.setText(documentSnapshot.get("min_volunteers", Integer.TYPE).toString());
 
-            /*status.forEach(st -> {
-                if (st.getId().equals(Integer.parseInt(documentSnapshot.getDocumentReference("status").getId())))
-                    eventStatus.setSelection(st.getId());
-            });*/
-
             DocumentReference organizerDoc = documentSnapshot.getDocumentReference("organizer");
             organizerDoc.get().addOnSuccessListener(doc -> {
                 eventOrganizer.setText(doc.getString("name"));
@@ -210,7 +206,7 @@ public class Event_Details extends AppCompatActivity implements View.OnClickList
                 });
 
 
-        eventDate.setOnFocusChangeListener((v, hasFocus) -> {
+        /*eventDate.setOnFocusChangeListener((v, hasFocus) -> {
             if (!hasFocus) {
                 return;
             }
@@ -222,7 +218,7 @@ public class Event_Details extends AppCompatActivity implements View.OnClickList
                 return;
             }
             createEvent.showDatePicker(eventEndDate, this);
-        });
+        });*/
 
         if (isStoragePermissionGranted()) {
             setupMap();
@@ -246,24 +242,14 @@ public class Event_Details extends AppCompatActivity implements View.OnClickList
     }
 
     public void userView() {
-        eventName.setEnabled(false);
-        eventDescrip.setEnabled(false);
-        //eventLat.setEnabled(false);
-        //eventLong.setEnabled(false);
-        eventDate.setEnabled(false);
-        eventEndDate.setEnabled(false);
-        eventMaterials.setEnabled(false);
-        eventMinVolun.setEnabled(false);
-        eventType.setEnabled(false);
-        eventStatus.setEnabled(false);
+        unableFields();
         btnDelete.setVisibility(View.GONE);
         btnModify.setVisibility(View.GONE);
-        waypoint.setVisibility(View.GONE);
 
-        if (fromFragment.equals("History")) {
+        /*if (fromFragment.equals("History")) {
             btnJoin.setVisibility(View.GONE);
             btnLeaveEvent.setVisibility(View.GONE);
-        }
+        }*/
 
         db.collection("event_has_usuarios")
                 .whereEqualTo("id_event", db.collection("eventos").document(idEvent))
@@ -324,17 +310,31 @@ public class Event_Details extends AppCompatActivity implements View.OnClickList
         btnJoin.setVisibility(View.GONE);
         btnLeaveEvent.setVisibility(View.GONE);
 
-        if (fromFragment.equals("History")) {
+        /*if (fromFragment.equals("History")) {
             btnModify.setVisibility(View.GONE);
             btnDelete.setVisibility(View.GONE);
-        }
+        }*/
 
-        db.collection("eventos").document(idEvent).get().addOnSuccessListener(doc -> {
-           if (doc.getDocumentReference("status").getId().equals("3") || doc.getDocumentReference("status").getId().equals("4")) {
-               btnModify.setVisibility(View.GONE);
-               btnDelete.setVisibility(View.GONE);
-           }
+        eventDate.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                return;
+            }
+            createEvent.showDatePicker(eventDate, this);
         });
+
+        eventEndDate.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                return;
+            }
+            createEvent.showDatePicker(eventEndDate, this);
+        });
+
+        /*db.collection("eventos").document(idEvent).get().addOnSuccessListener(doc -> {
+            if (doc.getDocumentReference("status").getId().equals("3") || doc.getDocumentReference("status").getId().equals("4")) {
+                btnModify.setVisibility(View.GONE);
+                btnDelete.setVisibility(View.GONE);
+            }
+        });*/
 
         btnModify.setOnClickListener(this);
 
@@ -369,6 +369,20 @@ public class Event_Details extends AppCompatActivity implements View.OnClickList
                 Log.d("Erroral eliminar el evento: ", failure.getMessage());
             });
         });
+    }
+
+    public void unableFields() {
+        eventName.setEnabled(false);
+        eventDescrip.setEnabled(false);
+        //eventLat.setEnabled(false);
+        //eventLong.setEnabled(false);
+        eventDate.setEnabled(false);
+        eventEndDate.setEnabled(false);
+        eventMaterials.setEnabled(false);
+        eventMinVolun.setEnabled(false);
+        eventType.setEnabled(false);
+        eventStatus.setEnabled(false);
+        waypoint.setVisibility(View.GONE);
     }
 
     protected void showToastAlert(String msg) {
@@ -549,15 +563,21 @@ public class Event_Details extends AppCompatActivity implements View.OnClickList
                 public boolean singleTapConfirmedHelper(org.osmdroid.util.GeoPoint p) {
                     org.osmdroid.util.GeoPoint startPoint = new org.osmdroid.util.GeoPoint(p.getLatitude(), p.getLongitude());
 
+                    if (lastMarker != null) {
+                        Log.d("Ultimo Marcador: ", lastMarker.toString());
+                        map.getOverlays().remove(lastMarker);
+                        map.invalidate();
+                    }
+
                     lastMarker = new Marker(map);
                     lastMarker.setPosition(startPoint);
                     lastMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
-                    lastMarker.setTitle("Waypoint");
+                    //lastMarker.setTitle("Waypoint");
                     map.getOverlays().add(lastMarker);
                     Marker waypoint = new Marker(map);
                     waypoint.setPosition(startPoint);
                     waypoint.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
-                    map.getOverlays().add(waypoint);
+                    //map.getOverlays().add(waypoint);
                     map.invalidate();
 
                     Log.w(TAG, "Clic detectado en: " + p.getLatitude() + ", " + p.getLongitude());

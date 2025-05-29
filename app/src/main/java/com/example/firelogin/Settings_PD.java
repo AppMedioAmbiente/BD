@@ -196,6 +196,8 @@ public class Settings_PD extends CountryTemplate {
     }
     @Override
     public boolean onSupportNavigateUp() {
+        Intent intent = new Intent(this, Home.class);
+        startActivity(intent);
         finish();
         return true;
     }

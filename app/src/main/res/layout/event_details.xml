@@ -145,11 +145,11 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:background="@drawable/redondedado"
+                android:enabled="false"
                 android:maxWidth="320dp"
                 android:minWidth="270dp"
                 android:padding="10dp"
-                android:textSize="20sp"
-                android:enabled="false"/>
+                android:textSize="20sp" />
 
         </LinearLayout>
 
@@ -344,11 +344,10 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:orientation="vertical"
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
             android:padding="12dp">
 
             <LinearLayout
@@ -367,6 +366,7 @@
 
                 <Button
                     android:id="@+id/searchButton"
+                    style="@style/botonsColor"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -375,6 +375,7 @@
 
             <Button
                 android:id="@+id/waypointBtn"
+                style="@style/botonsColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -430,7 +431,7 @@
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:maxWidth="150dp"
-                android:text="Unirse"/>
+                android:text="Unirse" />
 
             <Button
                 android:id="@+id/btnModifyEvent"

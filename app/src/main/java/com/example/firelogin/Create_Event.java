@@ -263,7 +263,8 @@ public class Create_Event extends AppCompatActivity implements View.OnClickListe
                                 showToastAlert("Error al guardar los datos");
                                 Log.d("Error: ", f.getMessage());
                             });
-                }
+
+                } else showToastAlert("Seleccione el lugar del evento");
 
             } catch (ParseException ex) {
                 showToastAlert("Error al guardar la fecha");
@@ -322,20 +323,39 @@ public class Create_Event extends AppCompatActivity implements View.OnClickListe
 
         if (volun.getText().toString().trim().isEmpty()) return false;
 
-        if (!isDatetimeValid(date.getText().toString())) return false;
+        if (!isDatetimeValid(date, endDate)) return false;
 
-        if (!isDatetimeValid(endDate.getText().toString())) return false;
+        //if (!isDatetimeValid()) return false;
+
+        //EndDate no antes de Date, ni fechas antes de hoy
+        //try { } catch (ParseException ex) {Log.d("Error parse en check fields: ", ex.getMessage());return false;}
 
         return true;
     }
 
-    public boolean isDatetimeValid(String datetime) {
+    public boolean isDatetimeValid(EditText date, EditText endDate) {
         sdf.setLenient(false);
 
         try {
-            Date date = sdf.parse(datetime);
+            //Date date = sdf.parse(datetime);
+            Log.d("Entro aqui", "xd");
+            Date dateEv = sdf.parse(date.getText().toString());
+            Date dateEndEv = sdf.parse(endDate.getText().toString());
+            Date now = new Date();
+            Log.d("Fecha evento: ", dateEv.toString());
+            Log.d("Fecha fin del evento: ", dateEndEv.toString());
+            Log.d("Fecha actual: ", now.toString());
+            if (dateEndEv.getTime() - dateEv.getTime() <= 0 || dateEv.getTime() - now.getTime() <= 0) {
+                date.setError("Debe seleccionar una fecha posterior a la de ahora");
+                endDate.setError("Debe seleccionar una fecha posterior a la de inicio");
+                return false;
+            }
+            date.setError(null);
+            endDate.setError(null);
             return true;
+
         } catch (ParseException ex) {
+            Log.d("Error parse en isDatetimeValid: ", ex.getMessage());
             return false;
         }
     }

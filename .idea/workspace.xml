@@ -20,7 +20,13 @@
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/Create_Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/Create_Event.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/Event_Details.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/Event_Details.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/Home.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/Settings_Interface.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/Settings_Interface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/Settings_PD.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/Settings_PD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/home/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/home/HomeFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/map/MapFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/firelogin/ui/map/MapFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/create_event.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/create_event.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/event_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/event_details.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-night/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-night/themes.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -363,7 +369,14 @@
       <option name="project" value="LOCAL" />
       <updated>1748242549796</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="detalles listos (error de la redirección a inicio despues de salir de detalles no solucionado)">
+      <created>1748289232942</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1748289232942</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -398,6 +411,7 @@
     <MESSAGE value="creación de eventos, los muestra en fragmento de eventos" />
     <MESSAGE value="inicios de los detalles de eventos" />
     <MESSAGE value="detalles terminados junto con &quot;historial&quot; y &quot;mis eventos&quot; (falta el mapa en detalles de evento)" />
-    <option name="LAST_COMMIT_MESSAGE" value="detalles terminados junto con &quot;historial&quot; y &quot;mis eventos&quot; (falta el mapa en detalles de evento)" />
+    <MESSAGE value="detalles listos (error de la redirección a inicio despues de salir de detalles no solucionado)" />
+    <option name="LAST_COMMIT_MESSAGE" value="detalles listos (error de la redirección a inicio despues de salir de detalles no solucionado)" />
   </component>
 </project>
