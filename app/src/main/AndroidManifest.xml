@@ -88,9 +88,14 @@
         <activity
             android:name=".settings.Settings_Interface"
             android:exported="true" />
+
+        <activity
+            android:name=".ui.groups.Groups"
+            android:exported="true" />
         <activity
             android:name=".settings.Settings_DA"
             android:exported="true" />
+
     </application>
 
 </manifest>

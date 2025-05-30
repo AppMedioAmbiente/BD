@@ -34,7 +34,7 @@ public class Settings_Interface extends AppCompatActivity {
         //final Home homeAct = new Home();
         SharedPreferences sharedPref = getSharedPreferences("shrdPrf", MODE_PRIVATE);
         final SharedPreferences.Editor editSharedPref = sharedPref.edit();
-        int theme = sharedPref.getInt("Theme", 0);
+        int theme = sharedPref.getInt("Theme", 1);
         swDarkMode = findViewById(R.id.swDarkMode);
 
         if (theme == 0) {

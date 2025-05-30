@@ -158,29 +158,29 @@ public class MapFragment extends Fragment {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        db.collection("geopoint")
-                .get()
-                .addOnSuccessListener(queryDocumentSnapshots -> {
+        db.collection("eventos").get().addOnSuccessListener(queryDocumentSnapshots -> {
                     for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
-                        com.google.firebase.firestore.GeoPoint geoPoint = document.getGeoPoint("location");
-                        if (geoPoint != null) {
-                            double lat = geoPoint.getLatitude();
-                            double lon = geoPoint.getLongitude();
+                        if (document.getDocumentReference("status").getId().equals("1") || document.getDocumentReference("status").getId().equals("2")) {
 
-                            org.osmdroid.util.GeoPoint punto = new org.osmdroid.util.GeoPoint(lat, lon);
-                            agregarMarcador(punto);
+                            com.google.firebase.firestore.GeoPoint geoPoint = document.getGeoPoint("location");
+                            if (geoPoint != null) {
+                                double lat = geoPoint.getLatitude();
+                                double lon = geoPoint.getLongitude();
+
+                                org.osmdroid.util.GeoPoint punto = new org.osmdroid.util.GeoPoint(lat, lon);
+                                agregarMarcador(punto, document.getString("event_name"));
+                            }
                         }
-
                     }
                 })
                 .addOnFailureListener(e -> Log.e("Firebase", "Error al obtener los geopoints", e));
     }
 
-    public void agregarMarcador(org.osmdroid.util.GeoPoint punto) {
+    public void agregarMarcador(org.osmdroid.util.GeoPoint punto, String eventName) {
         Marker waypoint = new Marker(map);
         waypoint.setPosition(punto);
         waypoint.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
-        waypoint.setTitle("Ubicación guardada");
+        waypoint.setTitle(eventName);
 
         map.getOverlays().add(waypoint);
         map.invalidate();

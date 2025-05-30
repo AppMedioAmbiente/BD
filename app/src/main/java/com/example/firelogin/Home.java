@@ -10,7 +10,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
@@ -18,11 +17,17 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+// import com.example.firelogin.notifications.NotificationUtil;
+// import com.example.firelogin.register.Login;
+// import com.example.firelogin.settings.Settings;
+// import com.example.firelogin.settings.Settings_PD;
+// import com.example.firelogin.ui.groups.GroupsFragment;
+// import com.example.firelogin.ui.contactus.ContactUsFragment;
+// import com.google.android.material.snackbar.Snackbar;
 import com.example.firelogin.notifications.NotificationUtil;
 import com.example.firelogin.register.Login;
 import com.example.firelogin.settings.Settings;
 import com.example.firelogin.settings.Settings_PD;
-import com.example.firelogin.ui.groups.GroupsFragment;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.Nullable;
@@ -58,6 +63,8 @@ import java.util.List;
 public class Home extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private HomeBinding binding;
+
+    String fragmentDestination;
     private FirebaseHandler fh;
     private FirebaseUser cu;
     String nickname="";
@@ -96,34 +103,33 @@ public class Home extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        Boolean wasRedirected=redirectFragments();
+//        Boolean wasRedirected=redirectFragments();
 
         //showToastAlert(this,"inicio de Home");
         fh = new FirebaseHandler(2);
         cu = fh.getUser();
 
-        fh.abrirDocumento("usuarios",cu.getUid(),(exito,doc)->{
-            if(exito) {
-                nickname=doc.getString("nickname");
-                if(wasHeaderLoaded){
-                    print("Parece que header cargó antes que esta consulta");
-                    setUserTexts();
-                }else{
-                    print("todo normal y sin problemas");
-                }
-            }else{
-                print("no hubo exito");
-            }
-        });
+//        fh.abrirDocumento("usuarios",cu.getUid(),(exito,doc)->{
+//            if(exito) {
+//                nickname=doc.getString("nickname");
+//                if(wasHeaderLoaded){
+//                    print("Parece que header cargó antes que esta consulta");
+//                    setUserTexts();
+//                }else{
+//                    print("todo normal y sin problemas");
+//                }
+//            }else{
+//                print("no hubo exito");
+//            }
+//        });
 
-
-        ImageCarousel carousel = findViewById(R.id.carousel);
-        List<CarouselItem> list = new ArrayList<>();
-        list.add(new CarouselItem(R.drawable.logo, "Icono de SECOVO"));
-        carousel.setData(list);
-        if (!wasRedirected && cu != null) {
-            Toast.makeText(this, "Bienvenido " + cu.getEmail(), Toast.LENGTH_SHORT).show();
+        fragmentDestination = getIntent().getStringExtra("fragmentToLoad");
+        FirebaseUser cu = FirebaseAuth.getInstance().getCurrentUser();
+        if (cu != null) {
+            //!wasRedirected &&
+                Toast.makeText(this, "Bienvenido " + cu.getEmail(), Toast.LENGTH_SHORT).show();
         }
+        // setSupportActionBar(binding.appBarHome.toolbar);
         TextView notifText=findViewById(R.id.notifDate);
         findViewById(R.id.notif).setOnClickListener(view->{
             int[][] now = NotificationUtil.getCurrentDate();
@@ -135,9 +141,9 @@ public class Home extends AppCompatActivity {
         });
 
         // Toast.makeText(this, "Bienvenido " +cu.getEmail(), Toast.LENGTH_SHORT).show();
-        binding.navView.post(()->{
-            setUserTexts();
-        });
+//        binding.navView.post(()->{
+//            setUserTexts();
+//        });
 //        setUserTexts();
         binding.appBarHome.contactus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -152,10 +158,18 @@ public class Home extends AppCompatActivity {
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
+//        mAppBarConfiguration = new AppBarConfiguration.Builder(
+//                R.id.nav_home, R.id.nav_profile, R.id.nav_groups, R.id.navEv_events, R.id.navEv_myevents,
+//                R.id.navEv_calendar, R.id.navEv_map, R.id.navEv_history)
+//                .setOpenableLayout(drawer)
+//                .build();
+//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
+//        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+//        NavigationUI.setupWithNavController(navigationView, navController);
+        //Menu menu = navigationView.getMenu();
 
 
         navigationView.setNavigationItemSelectedListener(item -> {
-            //redirectFragments();
             int id = item.getItemId();
 
             if (id == R.id.nav_profile) {
@@ -180,6 +194,19 @@ public class Home extends AppCompatActivity {
             return handled;
         });
 
+        int fragmentId=getFragmentId(fragmentDestination);
+        if(fragmentId!=-1){
+            navController.popBackStack(R.id.nav_home, true);
+            navigationView.setCheckedItem(fragmentId);
+            navController.navigate(fragmentId);
+        }
+//        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        fh.abrirDocumento("usuarios",cu.getUid(),(exto,user)->{
+            TextView username = navigationView.getHeaderView(0).findViewById(R.id.usernameH);
+            TextView email = navigationView.getHeaderView(0).findViewById(R.id.emailH);
+            username.setText(user.getString("nickname"));
+            email.setText(cu.getEmail());
+        });
     }
     private void setUserTexts() {
         TextView email = binding.navView.findViewById(R.id.emailH);
@@ -225,10 +252,11 @@ public class Home extends AppCompatActivity {
                 return R.id.navEv_calendar;
             default:
                 print("REGRESA NAV HOME");
-                return R.id.nav_home;
+//                return R.id.nav_home;
+                return -1;
         }
-    }
 
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -247,7 +275,7 @@ public class Home extends AppCompatActivity {
     public static void setDarkMode(Context context) {
         SharedPreferences sharedPref = context.getSharedPreferences("shrdPrf", Context.MODE_PRIVATE);
         // defValue: 0=DarkMode, 1=LightMode
-        int theme = sharedPref.getInt("Theme", 0);
+        int theme = sharedPref.getInt("Theme", 1);
         int currentMode = AppCompatDelegate.getDefaultNightMode();
 
         if (theme == 0 && currentMode!=MODE_NIGHT_YES) {
