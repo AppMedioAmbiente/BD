@@ -52,5 +52,10 @@
         android:id="@+id/notif"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        andorid:text="ENviar NOtificacion" />
+        android:text="ENviar NOtificacion" />
+    <TextView
+        android:id="@+id/notifDate"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="NOTIFICACION:"/>
 </LinearLayout>

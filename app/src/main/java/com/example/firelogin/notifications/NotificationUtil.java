@@ -3,12 +3,18 @@ package com.example.firelogin.notifications;
 import static com.example.firelogin.StaticFunctions.print;
 import static com.example.firelogin.StaticFunctions.showToastAlert;
 
+import android.Manifest;
+import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
+
+import androidx.core.app.ActivityCompat;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -22,13 +28,39 @@ public class NotificationUtil {
     public static final String CHANNEL_ID="Secovo_notifs";
     public static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault());
 
+    public static void askForPermission(Context ctx){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ActivityCompat.checkSelfPermission(ctx, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions((Activity) ctx, new String[]{Manifest.permission.POST_NOTIFICATIONS}, 1);
+            }
+        }
+    }
     public static Boolean createNotificationChannel(Context ctx){
         try {
+            if (ctx == null) {
+                print("Context is null, cannot create notification channel.");
+                return false;
+            }
+            askForPermission(ctx);
+            if (ctx.getSystemService(Context.NOTIFICATION_SERVICE) == null) {
+                print("Notification service is not available in the context.");
+                return false;
+            }
+            if (ctx.getSystemService(NotificationManager.class) == null) {
+                print("NotificationManager is not available in the context.");
+                return false;
+            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                if (ctx.getSystemService(NotificationManager.class).getNotificationChannel(CHANNEL_ID) != null) {
+                    print("Notification channel already exists.");
+                    return true;
+                }
+            }
             String name = "Canal de Eventos";
             String description = "Canal para Notificaciones de Eventos";
             int importance = NotificationManager.IMPORTANCE_DEFAULT;
 
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 NotificationChannel chanel = new NotificationChannel(CHANNEL_ID, name, importance);
                 chanel.setDescription(description);
 
@@ -63,11 +95,12 @@ public class NotificationUtil {
             intent.putExtra("titulo", title);
 
             PendingIntent pendingIntent = PendingIntent.getBroadcast(
-                    ctx, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                    ctx, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
             AlarmManager alarmManager = (AlarmManager) ctx.getSystemService(ctx.ALARM_SERVICE);
             Calendar calendar = createCalendarObject(date, time);
 
             alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+            showToastAlert(ctx,"SE HA ENVIADO LA NOTIFICACION PARA :"+calendar.getTime().toString());
         }catch (Exception e){
             showToastAlert(ctx,"ERROR EN LA NOTIFICACION:"+e.getMessage());
         }

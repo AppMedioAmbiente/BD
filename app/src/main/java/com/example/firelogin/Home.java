@@ -5,6 +5,7 @@ import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES;
 
 import static com.example.firelogin.StaticFunctions.*;
 
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.firelogin.notifications.NotificationUtil;
@@ -49,6 +51,7 @@ import com.example.firelogin.databinding.HomeBinding;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -121,10 +124,10 @@ public class Home extends AppCompatActivity {
         if (!wasRedirected && cu != null) {
             Toast.makeText(this, "Bienvenido " + cu.getEmail(), Toast.LENGTH_SHORT).show();
         }
-
+        TextView notifText=findViewById(R.id.notifDate);
         findViewById(R.id.notif).setOnClickListener(view->{
             int[][] now = NotificationUtil.getCurrentDate();
-            now[1][2]+=2;
+            now[1][1]+=2;
 
             NotificationUtil.createNotificationChannel(getApplicationContext());
             NotificationUtil.createNotification(getApplicationContext(),

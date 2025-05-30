@@ -102,8 +102,9 @@ public class CalendarFragment extends Fragment {
             try {
                 String date = (sdf.format(selectedDate.getDate()));
                 EventDecorator decorator = datesMap.get(reverseDate(date));
+                eContainer.removeAllViews();
                 if(decorator!=null) {
-                    eContainer.removeAllViews();
+                    
                     List<String> eventos=decorator.getEventsId();
 
                     fb.db.collection("eventos")
