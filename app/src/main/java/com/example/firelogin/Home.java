@@ -193,12 +193,13 @@ public class Home extends AppCompatActivity {
 
             return handled;
         });
-
-        int fragmentId=getFragmentId(fragmentDestination);
-        if(fragmentId!=-1){
-            navController.popBackStack(R.id.nav_home, true);
-            navigationView.setCheckedItem(fragmentId);
-            navController.navigate(fragmentId);
+        if(fragmentDestination!=null) {
+            int fragmentId = getFragmentId(fragmentDestination);
+            if (fragmentId != -1) {
+                navController.popBackStack(R.id.nav_home, true);
+                navigationView.setCheckedItem(fragmentId);
+                navController.navigate(fragmentId);
+            }
         }
 //        FirebaseFirestore db = FirebaseFirestore.getInstance();
         fh.abrirDocumento("usuarios",cu.getUid(),(exto,user)->{

@@ -17,6 +17,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+
+import com.example.firelogin.FirebaseHandler;
 import com.example.firelogin.R;
 import com.example.firelogin.databinding.FragmentGroupsBinding;
 
@@ -34,7 +36,7 @@ public class GroupsFragment extends Fragment {
         View root = binding.getRoot();
 
         binding.btnJoinGroup.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), ContactsContract.Groups.class);
+            Intent intent = new Intent(getActivity(), Groups.class);
             startActivity(intent);
         });
 
@@ -44,6 +46,8 @@ public class GroupsFragment extends Fragment {
             navController.navigate(R.id.GroupCreator);
             // startActivity();
         });
+        FirebaseHandler fb = new FirebaseHandler(2);
+//        fb.abrirColeccion("");
         return root;
     }
 
